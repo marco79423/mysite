@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    {{ web_page.title }} - {{ SITE_NAME }}
+{% endblock %}
+
+{% block og_meta %}
+    <meta property="og:url" content="{{ web_path.get_absolute_url }}"/>
+    <meta property="og:title" content="{{ web_page.title }}"/>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1 class="title">{{ web_page.title }}</h1>
+        </header>
+
+        {% autoescape off %}
+            {{ web_page.content }}
+        {% endautoescape  %}
+    </article>
+{% endblock %}

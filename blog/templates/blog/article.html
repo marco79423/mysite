@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    {{ article.title }} - {{ SITE_NAME }}
+{% endblock %}
+
+{% block og_meta %}
+    <meta property="og:url" content="{{ article.get_absolute_url }}"/>
+    <meta property="og:title" content="{{ article.title }}"/>
+    <meta property="og:image" content="{{ article.cover }}"/>
+    <meta property="og:description" content="{{ article.summary }}"/>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1 class="title"><a href="{{ article.get_absolute_url }}"> {{ article.title }}</a> </h1>
+            {% include "blog/article_meta.html" %}
+        </header>
+
+        {% autoescape off %}
+            {{ article.content }}
+        {% endautoescape  %}
+
+        <br><br>
+        <g:plusone></g:plusone>
+        <div class="fb-like" data-href="{{ article.get_absolute_url }}"  data-send="true" data-width="450" data-show-faces="true"></div>
+        <br><br><br>
+        <p class="rubric">
+            如果有什麼錯誤或錯字甚至看不懂的，歡迎指教弱弱的小弟喔～
+        </p>
+        <hr>
+        {% include "blog/disqus.html" %}
+
+    </article>
+
+{% endblock %}
+
+{% block social %}
+    <!-- Google+ Plus One -->
+    <script type='text/javascript' src='//apis.google.com/js/plusone.js'></script>
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=165574263590380";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+{% endblock %}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    {% load staticfiles %}
+    {% load compress %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+
+    <meta name="keywords" content="{{ META_KEYWORDS }}"/>
+    <meta name="description" content="{{ META_DESCRIPTION }}"/>
+    <meta name="author" content="{{ META_AUTHOR }}"/>
+
+    <meta name="viewport" content="width=device-width"/>
+
+    {% block og_meta %}{% endblock %}
+
+    <meta name="google-site-verification" content="Pid5nZRF1G0qE8W87MdFt6C5oQT8OIWRREXIxuWjik4"/>
+
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static "blog/css/foundation.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "blog/css/normalize.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "blog/css/pygments.css" %}"/>
+        <link rel="stylesheet" type="text/x-scss" href="{% static "blog/css/style.scss" %}"/>
+    {% endcompress %}
+
+    <link rel="shortcut icon" href="{% static "blog/img/favicon.ico" %}"/>
+
+</head>
+<body>
+
+<!-- Header -->
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div id="header" class="large-12 columns">
+                <h1>
+                    <img class="logo" src="{% static "blog/img/logo.jpg" %}" alt="兩大類 x 兩大類 = 四大類">
+                    <a href="/">{{ SITE_NAME }}</a>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="navigation" class="large-12 columns">
+                <nav class="top-bar">
+                    <ul class="title-area">
+                        <li class="name"></li>
+                        <li class="toggle-topbar menu-icon"><a href='#'><span>目錄</span></a></li>
+                    </ul>
+                    <section class="top-bar-section">
+                        <ul class="left">
+                            {% for menu_item in category_menu %}
+                                <li><a href='{{ menu_item.category.get_absolute_url }}'>{{ menu_item.category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <ul class="right">
+                            {% for menu_item in web_page_menu %}
+                                <li><a href="{{ menu_item.web_page.get_absolute_url }}">{{ menu_item.web_page.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+        </div>
+        <!-- Main content -->
+        <div id="main" class="row">
+            <div id="content" class="large-8 columns">
+                {% block content %}{% endblock %}
+            </div>
+            <!-- Sidebar -->
+            <aside class="large-4 columns">
+                <table id="aboutme">
+                    <tr>
+                        <td><img class="author" src="{% static "blog/img/logo.jpg" %}" alt='兩大類'/></td>
+                        <td>我是一隻<em>兩大類</em>
+
+                            <div id="social"><a href='https://www.facebook.com/marco79423'>facebook</a>&nbsp|&nbsp<a
+                                    href='https://plus.google.com/u/0/104814304908566534782/posts'>Google+</a>&nbsp|&nbsp<a
+                                    href='https://bitbucket.org/marco79423'>Bitbucket</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <blockquote>能站著就別坐著，能走路就別騎車<br/>保持站起來的毅力和一步一腳印的耐心。</blockquote>
+                        </td>
+                    </tr>
+                </table>
+                <section class="matter"><h1>最新文章</h1>
+                    <div>
+                        <ul>
+                            {% for article in latest_articles %}
+                                <li>
+                                    <a href="{{ article.get_absolute_url }}">{{ article.title }}<small> - {{ article.date|date:"Y/m/j" }}</small></a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <h1></h1>
+
+                    <div>
+                        <ul>
+                            <li><a href="{% url 'archives_page' %}">所有文章列表</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </aside>
+        </div>
+        <!-- Foot -->
+        <footer class="row">
+            <div class="large-12 columns"><p>Copyright &copy; 2013 - 兩大類</p></div>
+        </footer>
+    </div>
+</div>
+
+<script src="{% static "blog/js/vendor/jquery.js" %}"></script>
+<script src="{% static "blog/js/foundation/foundation.min.js" %}"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<!-- Google+ Plus One -->
+<script type='text/javascript'  src='https://apis.google.com/js/plusone.js' }></script>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=165574263590380";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Google Analytics -->
+<script>var _gaq = [['_setAccount', 'UA-38552387-1'], ['_trackPageview']];
+(function (d, t) {
+    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s)
+}(document, 'script'))</script>
+</body>
+</html>

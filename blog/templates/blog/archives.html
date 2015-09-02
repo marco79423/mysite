@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    所有文章列表 - {{ SITE_NAME }}
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1 class="title">所有文章列表</h1>
+        </header>
+
+        <table class="table">
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.date|date:"Y/m/j" }}</td>
+                        <td><a href="{{ article.get_absolute_url }}"> {{ article.title }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+{% endblock %}

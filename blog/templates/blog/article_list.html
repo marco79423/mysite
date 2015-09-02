@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {#    所在分類：{% block location %} Home {% endblock %}#}
+
+    {% for article in page.object_list %}
+        <article>
+            <header>
+                <h1 class="title">
+                    <a href="{{ article.get_absolute_url }}"> {{ article.title }}</a>
+                </h1>
+                {% include "blog/article_meta.html" %}
+            </header>
+
+            {% autoescape off %}
+            {{ article.summary }}
+            {% endautoescape  %}
+        </article>
+    {% endfor %}
+
+    <div class="pagination-centered">
+        <ul class="pagination">
+            {% if page.has_previous %}
+                <li><a href="{% url 'article_list_page_with_page_num' page.previous_page_number %}">←</a></li>
+            {% endif %}
+            {% for page_num in page.page_range %}
+                {% if page.number == page_num %}
+                    <li class="current"><a href="{% url 'article_list_page_with_page_num' page_num %}">{{ page_num }}</a></li>
+                {% else %}
+                    <li><a href="{% url 'article_list_page_with_page_num' page_num %}">{{ page_num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page.has_next %}
+                <li><a href="{% url 'article_list_page_with_page_num' page.next_page_number %}">→</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
