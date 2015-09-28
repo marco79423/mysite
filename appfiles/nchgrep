@@ -1,0 +1,454 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import sys
+import os
+import urllib
+import string
+import codecs
+import contextlib
+import re
+import sqlite3
+import itertools
+import collections
+import textwrap
+import argparse
+import threading
+
+import lxml.html
+
+class NovelInfo(object):
+    def __init__(self, name, author, article_keys):
+        self.name = name
+        self.author = author
+        self.article_keys = article_keys[:]
+
+    def __str__(self):
+        return u"<{}>:作者:{}, article_keys:{}".format(self.name, self.author, self.article_keys).encode('utf-8')
+
+class INovelSite(object):
+    """
+    與網站相關資訊
+
+    * 取得有那些小說的資訊
+    * 取得小說相關資訊
+    * 取得小說內容
+    """
+    def get_site_name(self):
+        """
+        取得小說網站的名稱
+        """
+        raise NotImplementedError
+
+    def get_novel_keys(self):
+        """
+        取得所有能代表小說的 key
+        """
+        raise NotImplementedError
+
+    def get_novel_info(self, novel_key):
+        """
+        取得小說基本資訊
+
+        * 小說名稱
+        * 作者
+        * article_keys
+        """
+        raise NotImplementedError
+
+    def get_article(self, article_key):
+        """
+        取得小說文章內容
+        """
+        raise NotImplementedError
+
+
+class NCHNovelSite(INovelSite):
+    """
+    小說頻道的內容
+    """
+    WEBSITE_URL = "http://www.nch.com.tw"
+
+    def get_site_name(self):
+        return u"小說頻道"
+
+    def get_novel_keys(self):
+        """
+        取得所有能代表小說的 key
+        """
+        for i in itertools.count(1):
+            hot_list_page =  "{}/hot05.php?pages={}".format(self.WEBSITE_URL, i)
+            with contextlib.closing(urllib.urlopen(hot_list_page)) as fp:
+                html = codecs.decode(fp.read(), "big5", "ignore")
+
+            start_index = html.find("<!-- main Start -->") + len("<!-- main Start -->")
+            end_index = html.find("<!-- main End -->")
+            html = html[start_index: end_index]
+
+            document_element = lxml.html.document_fromstring(html)
+            element_list = document_element.findall("body/table[3]/tr/td[2]/a")
+
+            if not element_list:
+                break
+
+            for e in element_list:
+                #novel_keys.append("{}/{}".format(self.WEBSITE_URL, e.attrib['href']))
+                yield u"{}/{}".format(self.WEBSITE_URL, e.attrib['href'])   
+        
+    def get_novel_info(self, novel_key):
+        """
+        取得小說基本資訊
+
+        * 作者
+        * 更新時間
+        * article_keys
+        """
+        with contextlib.closing(urllib.urlopen(novel_key)) as fp:
+            html = codecs.decode(fp.read(), "big5", "ignore")
+                
+        name = re.search(u"<b>([^資]+)資料大全<\/b>", html).group(1)
+        author = re.search(u"作　者[\s\S]+?<a[^>]+>([^<]+)", html).group(1)
+        article_keys = map(lambda s: "{}/{}".format(self.WEBSITE_URL, s), re.findall(u'<a href="([^"]+)"><font color=#FFFFFF>觀看全集', html))
+        return NovelInfo(name, author, article_keys)
+
+    def get_article(self, article_key):
+        """
+        取得小說文章內容
+        
+        <html> 
+            <head>    
+            <body> 
+                <a>
+                <script>
+                <script>
+                style
+                div
+                table
+                table
+                    tr
+                        td
+                        td
+                        td
+                            table
+                            table
+                                tr
+                                    td
+                                        comment  <--- mainStart
+                                        table
+                                            tr  
+                                                td 
+                                                    table
+                                        comment <--- mainStart
+        """
+   
+        #處理 html 的內容
+        with contextlib.closing(urllib.urlopen(article_key)) as fp:
+            html = codecs.decode(fp.read(), "big5", "ignore")
+
+        #保留換行
+        root_element = lxml.html.document_fromstring(html)
+        for br in root_element.xpath("*//br"):
+            br.tail = "\n" + br.tail if br.tail else "\n"
+
+        content_elements = root_element.xpath("/html/body/table[2]/tr/td[3]/table[2]/tr/td/table/tr/td/table/tr")[3:-2]
+        article = "\n".join(map(lambda element: element.text_content(), content_elements))
+
+        return article
+
+
+class ArticleProcessor(object):
+    """
+    分析文章內容
+
+    * 分析文章有那些字詞
+    * 抓取文章內字詞所在的語句內容
+    """
+    def get_term_set(self, article):
+        terms = set()
+        
+        #1-gram
+        for gram in article:
+            terms.add(gram)
+        #2-gram
+        for bgram in zip(article, article[1:]):
+            terms.add(u"".join(bgram))
+        #3-gram
+        for tgram in zip(article, article[1:], article[2:]):
+            terms.add(u"".join(tgram))
+        #4-gram
+        for qgram in zip(article, article[1:], article[2:], article[3:]):
+            terms.add(u"".join(qgram))
+
+        #刪去 stop word
+        stop_words = set(u" ,'•;:!?@#$%&*^()//[]<>\"'.\n\t")
+        stop_words = stop_words | set(u"　，、．。；：－！？「」（）『』…《》")
+        stop_words = stop_words | set(map(str, range(10)))
+        stop_words = stop_words | set(string.ascii_letters)
+        stop_words = stop_words | set(u"的嗎嘛呢")
+        terms = set(filter(lambda term: set(term) & stop_words == set(), terms))
+        return terms
+
+    def get_sentences(self, terms, article):
+        def get_all_sentences(article):
+            for sentence in re.findall(u".*?\n{2,3}", article, re.DOTALL):
+                sentence = sentence.strip()
+                if len(sentence) > 2:
+                    yield sentence
+
+        for sentence in get_all_sentences(article):
+            if all(map(lambda term: term in sentence, terms)):
+                yield sentence
+
+
+class DatabaseDoesNotExist(Exception):
+    pass
+
+class IStorage(object):
+
+    def database_exists(self):
+        raise NotImplementedError
+
+    def get_novel_info(self, article_key):
+        raise NotImplementedError
+
+    def get_mapping_article_keys(self, terms):
+        raise NotImplementedError
+
+    def get_article(self, article_key):
+        raise NotImplementedError
+
+    def save_or_update_novel_info(self, novel_info):
+        raise NotImplementedError
+
+    def save_article(self, article_key, article):
+        raise NotImplementedError
+
+    def save_term_mapping(self, terms, ariticle_key):
+        raise NotImplementedError
+
+    def commit(self):
+        raise NotImplementedError
+
+class SQLiteStorage(IStorage):
+    
+    DB_PATH = "~/.nch.db"
+    
+    def __init__(self):
+        self._article_processor = ArticleProcessor()
+        self._connect = sqlite3.connect(os.path.expanduser(self.DB_PATH))
+        self._cursor = self._connect.cursor()
+
+        #novel_info
+        query = u"CREATE TABLE IF NOT EXISTS novel_infos(nid INTEGER PRIMARY KEY AUTOINCREMENT, name NOT NULL, author NOT NULL);"
+        self._cursor.execute(query)
+        query = u"CREATE UNIQUE INDEX IF NOT EXISTS novel_infos_index ON novel_infos(name, author);"
+        self._cursor.execute(query)
+
+        #article_key table
+        query = u"CREATE TABLE IF NOT EXISTS article_keys(nid NOT NULL, article_key NOT NULL);"
+        self._cursor.execute(query)
+        query = u"CREATE UNIQUE INDEX IF NOT EXISTS article_keys_index ON article_keys(article_key);"
+        self._cursor.execute(query)
+
+        #article table
+        query = u"CREATE TABLE IF NOT EXISTS articles(article_key NOT NULL, article NOT NULL);"
+        self._cursor.execute(query)
+        query = u"CREATE UNIQUE INDEX IF NOT EXISTS articles_index ON articles(article_key);"
+        self._cursor.execute(query)
+
+        #mappings table
+        query = u"CREATE TABLE IF NOT EXISTS mappings(term not null, article_key not null);"
+        self._cursor.execute(query)
+        query = u"CREATE UNIQUE INDEX IF NOT EXISTS mappings_index ON mappings(term, article_key);"
+        self._cursor.execute(query)
+        
+        self._connect.commit()
+
+    def database_exists(self):
+        if not os.path.exists(os.path.expanduser(self.DB_PATH)):
+            return False
+
+        query = u"SELECT * FROM novel_infos;"
+        self._cursor.execute(query)
+        if not self._cursor.fetchone():
+            return False
+
+        return True
+        
+    def save_or_update_novel_info(self, novel_info):
+        #存 novel_info
+        query = u"INSERT OR IGNORE INTO novel_infos VALUES (null, ?, ?);"
+        self._cursor.execute(query, (novel_info.name, novel_info.author))
+        
+        #取得 nid
+        query = u"SELECT nid FROM novel_infos WHERE name = ? and author = ?;"
+        self._cursor.execute(query, (novel_info.name, novel_info.author))
+        nid = self._cursor.fetchone()[0]
+
+        #存 article_keys
+        query = u"INSERT OR IGNORE INTO article_keys VALUES (?, ?);"
+        self._cursor.executemany(query, [(nid, article_key) for article_key in novel_info.article_keys])
+        
+    def save_article(self, article_key, article):
+        query = u"INSERT OR IGNORE INTO articles VALUES (?, ?);"
+        self._cursor.execute(query, (article_key, article))    
+
+    def save_term_mapping(self, terms, article_key):
+        query = u"INSERT OR IGNORE INTO mappings VALUES (?, ?);"
+        self._cursor.executemany(query, [(term, article_key) for term in terms])    
+
+    def commit(self):
+        self._connect.commit()
+
+    def get_novel_info(self, article_key):
+        #取得 nide
+        query = u"SELECT nid FROM article_keys WHERE article_key = ?;"
+        self._cursor.execute(query, (article_key,))
+        nid = self._cursor.fetchone()[0]
+
+        #取得 name, author
+        query = u"SELECT name, author FROM novel_infos WHERE nid = ?;"
+        self._cursor.execute(query, (nid,))
+        name, author = self._cursor.fetchone()
+
+        #取得所有 article_keys
+        query = u"SELECT article_key FROM article_keys WHERE nid = ?;"
+        article_keys = [row[0] for row in self._cursor.execute(query, (nid,))]
+    
+        return NovelInfo(name, author, article_keys)
+
+    def get_mapping_article_keys(self, terms):
+        query = u" INTERSECT ".join([u"SELECT article_key FROM mappings WHERE term = ?"] * len(terms))+ ";"
+        for row in self._cursor.execute(query, tuple(terms)):
+            yield row[0]
+        
+    def get_article(self, article_key):
+        query = u"SELECT article FROM articles WHERE article_key = ?;"
+        self._cursor.execute(query, (article_key,))
+        row = self._cursor.fetchone()
+        return row[0] if row else None
+   
+class Service(object):
+
+    def __init__(self, novel_site, storage):
+        self._novel_site = novel_site
+        self._storage = storage
+        self._article_processor = ArticleProcessor()
+
+    def update(self):
+        print "抓取 {} 網站的小說 ...".format(self._novel_site.get_site_name().encode('utf-8'))
+  
+        try:
+            for novel_key in self._novel_site.get_novel_keys():
+                novel_info = self._novel_site.get_novel_info(novel_key)
+                
+                try:
+                    self._storage.save_or_update_novel_info(novel_info)
+                finally:
+                    self._storage.commit()
+
+                for index, article_key in enumerate(novel_info.article_keys, 1):
+                    print "\r開始抓取小說... {}({}/{})".format(novel_info.name.encode('utf-8'), index, len(novel_info.article_keys)),
+                    sys.stdout.flush()
+
+                    if self._storage.get_article(article_key):
+                        continue
+
+                    article = self._novel_site.get_article(article_key)
+                    term_set = self._article_processor.get_term_set(article)
+
+                    try:
+                        self._storage.save_term_mapping(term_set, article_key)
+                        self._storage.save_article(article_key, article)
+                    finally:
+                        self._storage.commit()
+                print
+        except KeyboardInterrupt:
+            print "\n結束更新"
+
+    def grep_results(self, terms):
+        if not self._storage.database_exists():
+            raise DatabaseDoesNotExist
+
+        for article_key in self._storage.get_mapping_article_keys(terms):
+            article = self._storage.get_article(article_key)
+            novel_info = self._storage.get_novel_info(article_key)
+            for sentence in self._article_processor.get_sentences(terms, article):
+                yield (sentence, novel_info.name, novel_info.author)
+    
+class UI(object):
+    
+    def __init__(self, service):
+        self._service = service
+
+    def update(self, args):
+        self._service.update()
+
+    def grep(self, args):
+        if args.terms:
+            self._show_results(args.terms)
+        else:
+            try:
+                while True:
+                    terms = raw_input(">>> ").split()
+                    if terms:
+                        self._show_results(terms)
+            except KeyboardInterrupt:
+                print "\n程式結束"
+
+    def _show_results(self, terms):
+        #將 term 轉為 unicode
+        terms = [term.decode('utf-8') if isinstance(term, str) else term for term in terms]
+
+        try:
+            if 'PAGER' in os.environ:
+                text = ""
+                for index, (sentence, name, author) in enumerate(self._service.grep_results(terms), 1):
+                    #超過 35 字就換行
+                    sentence = textwrap.fill(sentence, 35)   
+                    #顏色資訊參考：http://en.wikipedia.org/wiki/ANSI_escape_code
+                    for term in terms:
+                        sentence = sentence.replace(term, u"\x1b[33;1m" + term + u"\x1b[39;0m")
+
+                    text += "\x1b[36m" + "-" * 70 + "\x1b[39;49;0m\n"
+                    text += u"{}. {} \x1b[37;1m- {}, {}\x1b[39;49;0m\n".format(index, sentence, name, author).encode('utf-8')
+                text += "\x1b[36m" + "-" * 70 + "\x1b[39;49;0m\n"
+                pipe = os.popen(os.environ['PAGER'], 'w')
+                pipe.write(text)
+                pipe.close()
+            else:
+                for index, (sentence, name, author) in enumerate(self._service.grep_results(terms), 1):
+                    #超過 35 字就換行
+                    sentence = textwrap.fill(sentence, 35)   
+                    #顏色資訊參考：http://en.wikipedia.org/wiki/ANSI_escape_code
+                    for term in terms:
+                        sentence = sentence.replace(term, u"\x1b[33;1m" + term + u"\x1b[39;0m")
+
+                    print "\x1b[36m" + "-" * 70 + "\x1b[39;49;0m"
+                    print u"{}. {} \x1b[37;1m- {}, {}\x1b[39;49;0m".format(index, sentence, name, author).encode('utf-8')
+                print "\x1b[36m" + "-" * 70 + "\x1b[39;49;0m\n"
+        except DatabaseDoesNotExist:
+            print "使用前請先用 update 指令更新"
+
+
+    def main(self):
+        parser = argparse.ArgumentParser(description="小說語句搜尋引擎(小說來源為：小說頻道)")
+        subparsers = parser.add_subparsers()
+        
+        #parse update
+        update_parser = subparsers.add_parser("update", help="更新小說語句資料庫(搜尋前必須先更新過)")
+        update_parser.set_defaults(func=lambda args: self.update(args))
+        
+        #parse grep
+        grep_parser = subparsers.add_parser("grep", help="搜尋小說語句資料庫")
+        grep_parser.add_argument("terms", nargs="*", help="關鍵詞")
+        #grep_parser.add_argument("-r", "--result_num", type=int, help="搜尋的最大結果個數")
+        grep_parser.set_defaults(func=lambda args: self.grep(args))
+
+        args = parser.parse_args()
+        args.func(args)
+
+if __name__ == "__main__":
+    service = Service(NCHNovelSite(), SQLiteStorage())
+    ui = UI(service)
+    ui.main()
