@@ -16,7 +16,7 @@ HOST_CONFIG_FILE = "hosts.ini"
 def deploy(branch="master"):
     # load from config file
     cfg = ConfigParser()
-    if cfg.read(HOST_CONFIG_FILE) and env.host != "DEFAULT" and cfg.has_section(env.host):
+    if cfg.read(HOST_CONFIG_FILE) and cfg.has_section(env.host):
         if cfg.get(env.host, "type") == "normal":
             env.password = cfg.get(env.host, "password")
         elif cfg.get(env.host, "type") == "aws":
@@ -55,7 +55,6 @@ def prepare_env():
     update_sys()
     install_pkg()
 
-    sudo("locale-gen zh_TW.UTF-8")
 
 @task
 def update_sys():
@@ -75,10 +74,10 @@ def install_pkg():
     sudo("pip3 install virtualenv")
 
 @task
-def put_proj(branch="master"):
-    print(green("##################################"))
-    print(green("Updating git archive to server ..."))
-    print(green("##################################"))
+def put_proj(branch):
+    print(green("###################################"))
+    print(green("Uploading git archive to server ..."))
+    print(green("###################################"))
     if exists(PROJECT_PATH):
         sudo("rm -rf {}".format(PROJECT_PATH))
 
@@ -97,7 +96,7 @@ def prepare_proj():
     print(green("#####################"))
     with cd(PROJECT_PATH):
         sudo("virtualenv venv -p python3")
-        sudo("venv/bin/pip install -r {}/requirements.txt".format(PROJECT_PATH))
+        sudo("venv/bin/pip install -r requirements.txt")
 
         print(cyan("Prepare project ..."))
         sudo("venv/bin/python manage.py migrate")
@@ -133,6 +132,7 @@ def prepare_apache2():
     print(green("##################################"))
     print(green("Setting Apache ..."))
     print(green("##################################"))
+    sudo("locale-gen zh_TW.UTF-8")
     sudo("a2dissite 000-default")  # we want rid of the default apache config
 
     with cd(PROJECT_PATH):
