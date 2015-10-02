@@ -55,6 +55,7 @@ def prepare_env():
     update_sys()
     install_pkg()
 
+    sudo("locale-gen zh_TW.UTF-8")
 
 @task
 def update_sys():
