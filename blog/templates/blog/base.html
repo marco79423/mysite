@@ -15,6 +15,8 @@
 
     {% block og_meta %}{% endblock %}
 
+    <meta property="fb:admins" content="100000038752074" />
+    <meta property="fb:app_id" content="165574263590380" />
     <meta name="google-site-verification" content="Pid5nZRF1G0qE8W87MdFt6C5oQT8OIWRREXIxuWjik4"/>
 
     {% compress css %}
@@ -129,7 +131,17 @@
 
   ga('create', 'UA-38552387-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=165574263590380";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 </body>
 </html>
