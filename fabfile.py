@@ -135,6 +135,9 @@ def prepare_apache2():
     sudo("locale-gen zh_TW.UTF-8")
     sudo("a2dissite 000-default")  # we want rid of the default apache config
 
+    # optimization
+    sudo("a2enmod expires")
+
     with cd(PROJECT_PATH):
         sudo("chown -R www-data:www-data .")
         config_path = "{}/apache2.conf".format(PROJECT_PATH)
