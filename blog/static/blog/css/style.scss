@@ -122,23 +122,27 @@ img{
             border-bottom:1px solid #eee;
             background: white;
 
-            header{
+            header {
                 margin-bottom: 2em;
 
-                h1{
+                h1 {
                     font-size: 2em;
                     margin-top: 0;
                     margin-bottom: 0;
 
-                    a, a:visited, a:hover{
+                    a, a:visited, a:hover {
                         color: $dominant-color;
-                        text-decoration:none;
+                        text-decoration: none;
                     }
                 }
 
-                .meta .rubric {
-                    color: #d65b4b;
-                    font-weight: bold;
+                .meta {
+                    margin-top: 15px;
+
+                    .rubric {
+                        color: #d65b4b;
+                        font-weight: bold;
+                    }
                 }
             }
 
