@@ -65,7 +65,7 @@ class RstTransformer:
         if 'summary' not in metadata:
             metadata['summary'] = self._get_summary(content, max_length=15)
         if 'cover' not in metadata:
-            metadata['cover'] = static("blog/img/marco.jpg")
+            metadata['cover'] = None
 
         return content, metadata
 

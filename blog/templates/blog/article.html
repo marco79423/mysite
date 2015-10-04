@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load staticfiles %}
 
 {% block title %}
     {{ article.title }} - {{ SITE_NAME }}
@@ -7,7 +8,12 @@
 {% block og_meta %}
     <meta property="og:url" content="{{ article.get_absolute_url }}"/>
     <meta property="og:title" content="{{ article.title }}"/>
-    <meta property="og:image" content="{{ article.cover }}"/>
+    {% if article.cover %}
+        <meta property="og:image" content="{{ article.cover }}"/>
+    {% else %}
+        <meta property="og:image" content="{% static "blog/img/marco.jpg" %}"/>
+    {% endif %}
+
     <meta property="og:description" content="{{ article.summary }}"/>
 {% endblock %}
 

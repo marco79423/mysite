@@ -20,7 +20,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category)
     content = models.TextField()
     summary = models.TextField(blank=True, null=True)
-    cover = models.CharField(max_length=128)
+    cover = models.CharField(max_length=128, blank=True, null=True)
 
     class Meta:
         ordering = ['date']
