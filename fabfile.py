@@ -30,10 +30,10 @@ def deploy(branch="master"):
 def _deploy(branch):
     prepare_env()
     put_proj(branch=branch)
-    prepare_proj()
+    setup_proj()
     build_content()
     replace_official_site()
-    prepare_apache2()
+    setup_apache2()
 
     print(yellow("  :####:   ##    ##    :####:    :####:  ########   :####:    :####:  "))
     print(yellow(" :######   ##    ##    ######    ######  ########  :######   :######  "))
@@ -92,7 +92,7 @@ def put_proj(branch):
 
 
 @task
-def prepare_proj():
+def setup_proj():
     print(green("#####################"))
     print(green("Preparing project ..."))
     print(green("#####################"))
@@ -109,7 +109,13 @@ def prepare_proj():
         sed(setting_path, "DEBUG = True", "DEBUG = False", shell=True, use_sudo=True)
         sed(setting_path, "ALLOWED_HOSTS =.+$", 'ALLOWED_HOSTS = ["*"]', shell=True, use_sudo=True)
 
-        print(cyan("Testing ..."))
+
+@task
+def test_proj():
+    print(green("#####################"))
+    print(green("Testing project ..."))
+    print(green("#####################"))
+    with cd(PROJECT_PATH):
         run("venv/bin/python manage.py test")
 
 
@@ -136,7 +142,7 @@ def replace_official_site():
 
 
 @task
-def prepare_apache2():
+def setup_apache2():
     print(green("##################################"))
     print(green("Setting Apache ..."))
     print(green("##################################"))
