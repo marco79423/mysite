@@ -10,6 +10,7 @@ from fabric.contrib.files import exists, sed
 
 PROJECT_NAME = "mysite"
 PROJECT_PATH = "/var/www/" + PROJECT_NAME
+OFFICIAL_SITE_PATH = "/var/www/" + PROJECT_NAME + "-official"
 HOST_CONFIG_FILE = "hosts.ini"
 
 @task
@@ -31,6 +32,7 @@ def _deploy(branch):
     put_proj(branch=branch)
     prepare_proj()
     build_content()
+    replace_official_site()
     prepare_apache2()
 
     print(yellow("  :####:   ##    ##    :####:    :####:  ########   :####:    :####:  "))
@@ -83,8 +85,8 @@ def put_proj(branch):
 
     sudo("mkdir -p {}".format(PROJECT_PATH))
     archive = local("git archive --format=tar {} | gzip".format(branch), capture=True)
-    put(StringIO(archive), "{}/temp.tar.gz".format(PROJECT_PATH), use_sudo=True)
     with cd(PROJECT_PATH):
+        put(StringIO(archive), "temp.tar.gz", use_sudo=True)
         sudo("tar zxf temp.tar.gz")
         sudo("rm temp.tar.gz")
 
@@ -126,6 +128,12 @@ def build_content():
         sudo("venv/bin/python manage.py build /var/www/site-content")
 
 
+@task
+def replace_official_site():
+    if exists(OFFICIAL_SITE_PATH):
+        sudo("rm -rf {}".format(OFFICIAL_SITE_PATH))
+    sudo("mv {} {}".format(PROJECT_PATH, OFFICIAL_SITE_PATH))
+
 
 @task
 def prepare_apache2():
@@ -138,10 +146,10 @@ def prepare_apache2():
     # optimization
     sudo("a2enmod expires")
 
-    with cd(PROJECT_PATH):
+    with cd(OFFICIAL_SITE_PATH):
         sudo("chown -R www-data:www-data .")
-        config_path = "{}/apache2.conf".format(PROJECT_PATH)
-        sed(config_path, "PROJECT_PATH", PROJECT_PATH, use_sudo=True, shell=True)
+        config_path = "{}/apache2.conf".format(OFFICIAL_SITE_PATH)
+        sed(config_path, "PROJECT_PATH", OFFICIAL_SITE_PATH, use_sudo=True, shell=True)
         sed(config_path, "PROJECT_NAME", PROJECT_NAME, use_sudo=True, shell=True)
 
         sudo("cp {} /etc/apache2/sites-available/{}.conf".format(config_path, PROJECT_NAME))
