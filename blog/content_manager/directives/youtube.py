@@ -57,7 +57,7 @@ class YouTube(Directive):
     has_content = False
 
     def run(self):
-        videoID = self.arguments[0].strip()
+        video_id = self.arguments[0].strip()
         width = 600
         height = 400
         align = 'left'
@@ -71,7 +71,7 @@ class YouTube(Directive):
         if 'align' in self.options:
             align = self.options['align']
 
-        url = 'https://www.youtube.com/embed/{}'.format(videoID)
+        url = 'https://www.youtube.com/embed/{}'.format(video_id)
         div_block = '<div class="youtube" align="{}">'.format(align)
         embed_block = '<iframe width="{}" height="{}" src="{}" '\
                       'frameborder="0"></iframe>'.format(width, height, url)

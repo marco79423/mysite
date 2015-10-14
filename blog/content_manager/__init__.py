@@ -1,7 +1,6 @@
 import json
 
 from blog.models import Category, WebPage, WebPageMenu, CategoryMenu
-
 from .transformer import RstTransformer
 from .source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
 

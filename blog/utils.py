@@ -1,9 +1,7 @@
-import re
 from django.core.paginator import Paginator
 
 
 class CustomPaginator(Paginator):
-
     def page(self, number, show_page_num=10):
         page = super().page(number)
         page.page_range = self._get_custom_page_range(number, self, show_page_num=show_page_num)
@@ -24,4 +22,3 @@ class CustomPaginator(Paginator):
             if start_num < 1:
                 start_num = 1
         return list(range(start_num, end_num + 1))
-

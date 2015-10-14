@@ -11,9 +11,6 @@ class ArticleSitemap(sitemaps.Sitemap):
     def items(self):
         return Article.objects.all()
 
-    # def location(self, obj):
-    #     return obj.get_absolute_url()
-
 
 class WebPageSitemap(sitemaps.Sitemap):
 
@@ -22,6 +19,3 @@ class WebPageSitemap(sitemaps.Sitemap):
 
     def items(self):
         return WebPage.objects.all()
-
-    # def location(self, obj):
-    #     return obj.get_absolute_url()

@@ -1,9 +1,9 @@
 from django.core.files import File
 from path import Path
+from slugify import slugify
 
 from blog.content_manager import RstTransformer
 from blog.models import Category, Article, WebPage, AppFile
-from slugify import slugify
 from mysite import settings
 
 

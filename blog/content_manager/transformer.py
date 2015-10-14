@@ -1,5 +1,4 @@
 from datetime import datetime
-import re
 
 import dateutil.parser
 from django.templatetags.static import static
