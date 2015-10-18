@@ -13,21 +13,23 @@ PROJECT_PATH = "/var/www/" + PROJECT_NAME
 OFFICIAL_SITE_PATH = "/var/www/" + PROJECT_NAME + "-official"
 HOST_CONFIG_FILE = "hosts.ini"
 
+
+@task
+def set_host(target):
+    cfg = ConfigParser()
+    if cfg.read(HOST_CONFIG_FILE) and cfg.has_section(target):
+        if cfg.get(target, "type") == "normal":
+            env.password = cfg.get(target, "password")
+        elif cfg.get(target, "type") == "aws":
+            env.key_filename = cfg.get(target, "pem_file")
+
+    user = cfg.get(target, "user")
+    host = cfg.get(target, "host")
+    env.hosts = [user + "@" + host]
+
+
 @task
 def deploy(branch="master"):
-    # load from config file
-    cfg = ConfigParser()
-    if cfg.read(HOST_CONFIG_FILE) and cfg.has_section(env.host):
-        if cfg.get(env.host, "type") == "normal":
-            env.password = cfg.get(env.host, "password")
-        elif cfg.get(env.host, "type") == "aws":
-            env.key_filename = cfg.get(env.host, "pem_file")
-        env.user = cfg.get(env.host, "user")
-        env.host = cfg.get(env.host, "host")
-    execute(_deploy, hosts=[env.host], branch=branch)
-
-
-def _deploy(branch):
     prepare_env()
     put_proj(branch=branch)
     setup_proj()
