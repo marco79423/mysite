@@ -24,7 +24,10 @@ INSTALLED_APPS = (
 
     "compressor",
 
-    'blog',
+    "resources",
+    "content_manager",
+    "blog",
+    "old_site_support",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +56,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'blog.blog_settings.site_setting_loader',
+                'blog.context_processors.site_setting_loader',
             ],
         },
     },

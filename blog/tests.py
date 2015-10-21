@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse
 from django.templatetags.static import static
 from django.test import TestCase
 
-from blog.models import Article, Category, WebPage
+from content_manager.models import Article, Category, WebPage
 
 
 class PageTest(TestCase):

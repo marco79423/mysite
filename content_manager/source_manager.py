@@ -1,6 +1,7 @@
-from blog.content_manager import RstTransformer
-from blog.models import Category, Article, WebPage
-from blog.utils import slugify
+from slugify import slugify
+
+from content_manager import RstTransformer
+from content_manager.models import Category, Article, WebPage
 
 
 class ArticleManager:

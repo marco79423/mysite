@@ -68,6 +68,7 @@ def update_sys():
     sudo("apt-get update --fix-missing")
     sudo("apt-get upgrade -y ")
 
+
 @task
 def install_pkg():
     print(green("################################"))
@@ -76,6 +77,7 @@ def install_pkg():
     sudo("apt-get install -y python3.4 python3-pip")
     sudo("apt-get install -y apache2 libapache2-mod-wsgi-py3")
     sudo("pip3 install virtualenv")
+
 
 @task
 def put_proj(branch):

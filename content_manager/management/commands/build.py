@@ -1,7 +1,7 @@
 from path import Path
 from django.core.management.base import BaseCommand
+from content_manager import ContentManager
 
-from blog.content_manager import ContentManager
 from mysite import settings
 
 

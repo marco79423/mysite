@@ -20,13 +20,13 @@
     <meta name="google-site-verification" content="Pid5nZRF1G0qE8W87MdFt6C5oQT8OIWRREXIxuWjik4"/>
 
     {% compress css %}
-        <link rel="stylesheet" type="text/css" href="{% static "blog/css/foundation.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "blog/css/normalize.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "blog/css/pygments.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "resources/css/foundation.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "resources/css/normalize.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "resources/css/pygments.css" %}"/>
         <link rel="stylesheet" type="text/x-scss" href="{% static "blog/css/style.scss" %}"/>
     {% endcompress %}
 
-    <link rel="shortcut icon" href="{% static "blog/img/favicon.ico" %}"/>
+    <link rel="shortcut icon" href="{% static "resources/img/favicon.ico" %}"/>
 
 </head>
 <body>
@@ -37,7 +37,7 @@
         <div class="row">
             <div id="header" class="large-12 columns">
                 <h1>
-                    <img class="logo" src="{% static "blog/img/logo.jpg" %}" alt="兩大類 x 兩大類 = 四大類">
+                    <img class="logo" src="{% static "resources/img/logo.jpg" %}" alt="兩大類 x 兩大類 = 四大類">
                     <a href="/">{{ SITE_NAME }}</a>
                 </h1>
             </div>
@@ -73,7 +73,7 @@
             <aside class="large-4 columns">
                 <table id="aboutme">
                     <tr>
-                        <td><img class="author" src="{% static "blog/img/marco.jpg" %}" alt='兩大類'/></td>
+                        <td><img class="author" src="{% static "resources/img/marco.jpg" %}" alt='兩大類'/></td>
                         <td>我是一隻<em>兩大類</em>
 
                             <div id="social"><a href='https://www.facebook.com/marco79423'>facebook</a>&nbsp|&nbsp<a
@@ -115,7 +115,7 @@
 </div>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="{% static "blog/js/foundation.min.js" %}"></script>
+<script src="{% static "resources/js/foundation.min.js" %}"></script>
 <script>
     $(document).foundation();
 </script>

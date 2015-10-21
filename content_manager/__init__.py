@@ -1,8 +1,8 @@
 import json
 
-from blog.models import Category, WebPage, WebPageMenu, CategoryMenu
-from .transformer import RstTransformer
-from .source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
+from content_manager.models import Category, WebPage, WebPageMenu, CategoryMenu
+from content_manager.transformer import RstTransformer
+from content_manager.source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
 
 
 class ContentManager:

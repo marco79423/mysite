@@ -1,4 +1,4 @@
-from blog.models import Article, CategoryMenu, WebPageMenu
+from content_manager.models import Article, CategoryMenu, WebPageMenu
 
 SITE_SETTINGS = {
     'SITE_NAME': "兩大類 x 兩大類 = 四大類",
