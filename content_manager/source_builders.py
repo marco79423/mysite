@@ -3,8 +3,12 @@ from path import Path
 from slugify import slugify
 
 from mysite import settings
-from content_manager.transformer import RstTransformer
+from libs.rst_transformer import RstTransformer
+from content_manager.directives import site_image
 from content_manager.models import Category, Article, WebPage, AppFile
+
+
+site_image.register()
 
 
 class BaseSourceBuilder:

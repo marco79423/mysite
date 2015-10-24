@@ -6,13 +6,11 @@ import docutils.core
 import docutils.io
 import docutils.nodes
 
-from .directives import youtube
-from .directives import pygments
-from .directives import site_image
+from libs.rst_transformer.directives import youtube, pygments
+
 
 youtube.register()
 pygments.register()
-site_image.register()
 
 
 class RstTransformer:
