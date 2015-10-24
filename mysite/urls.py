@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 import blog.urls
 import old_site_support.urls
-from mysite.sitemap import ArticleSitemap, WebPageSitemap
+from mysite.sitemaps import ArticleSitemap, WebPageSitemap
 from blog import views
 
 sitemaps = {
