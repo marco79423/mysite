@@ -1,5 +1,5 @@
 path.py==8.1.1
-Django==1.8.4
+Django==1.8.5
 pelican==3.6.3
 docutils==0.12
 django-compressor==1.5
