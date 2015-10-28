@@ -1,7 +1,7 @@
 from slugify import slugify
 
-from content_manager import RstTransformer
-from content_manager.models import Category, Article, WebPage
+from libs.rst_transformer import RstTransformer
+from apps.content_manager.models import Category, Article, WebPage
 
 
 class ArticleManager:

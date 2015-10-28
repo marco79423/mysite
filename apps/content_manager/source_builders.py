@@ -4,9 +4,8 @@ from slugify import slugify
 
 from mysite import settings
 from libs.rst_transformer import RstTransformer
-from content_manager.directives import site_image
-from content_manager.models import Category, Article, WebPage, AppFile
-
+from apps.content_manager.directives import site_image
+from apps.content_manager.models import Category, Article, WebPage, AppFile
 
 site_image.register()
 

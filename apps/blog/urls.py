@@ -1,8 +1,8 @@
 from django.conf.urls import url
 from django_downloadview import ObjectDownloadView
 
-from blog import views
-from content_manager.models import AppFile
+from apps.blog import views
+from apps.content_manager.models import AppFile
 
 urlpatterns = [
     url(r'^articles/$', views.get_article_list_page, name='article_list_page'),

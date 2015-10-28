@@ -9,6 +9,9 @@ class Category(models.Model):
     def get_absolute_url(self):
         return "/articles/category/{slug}/".format(slug=self.slug)
 
+    class Meta:
+        app_label = "content_manager"
+
 
 class Article(models.Model):
 
@@ -21,11 +24,12 @@ class Article(models.Model):
     summary = models.TextField(blank=True, null=True)
     cover = models.CharField(max_length=128, blank=True, null=True)
 
-    class Meta:
-        ordering = ['date']
-
     def get_absolute_url(self):
         return "/articles/{slug}/".format(slug=self.slug)
+
+    class Meta:
+        ordering = ['date']
+        app_label = "content_manager"
 
 
 class WebPage(models.Model):
@@ -38,13 +42,16 @@ class WebPage(models.Model):
     def get_absolute_url(self):
         return "/{app}/{slug}/".format(app=self.app, slug=self.slug)
 
+    class Meta:
+        app_label = "content_manager"
+
 
 class CategoryMenu(models.Model):
     category = models.OneToOneField(Category, unique=True)
     order = models.IntegerField(default=0)
 
     class Meta:
-        ordering = ['order']
+        app_label = "content_manager"
 
 
 class WebPageMenu(models.Model):
@@ -53,8 +60,12 @@ class WebPageMenu(models.Model):
 
     class Meta:
         ordering = ['order']
+        app_label = "content_manager"
 
 
 class AppFile(models.Model):
     slug = models.CharField(max_length=128)
     file = models.FileField(upload_to="appfiles")
+
+    class Meta:
+        app_label = "content_manager"

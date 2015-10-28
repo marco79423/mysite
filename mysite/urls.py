@@ -2,10 +2,11 @@ from django.conf.urls import include
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
-import blog.urls
-import old_site_support.urls
 from mysite.sitemaps import ArticleSitemap, WebPageSitemap
-from blog import views
+import apps.blog.urls
+import apps.old_site_support.urls
+
+from apps.blog import views
 
 sitemaps = {
     'article': ArticleSitemap,
@@ -20,6 +21,6 @@ urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
-    url(r'^', include(blog.urls)),
-    url(r'^', include(old_site_support.urls)),
+    url(r'^', include(apps.blog.urls)),
+    url(r'^', include(apps.old_site_support.urls)),
 ]

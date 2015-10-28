@@ -1,7 +1,7 @@
 import json
 
-from content_manager.models import Category, WebPage, WebPageMenu, CategoryMenu
-from content_manager.source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
+from apps.content_manager.models import Category, WebPage, WebPageMenu, CategoryMenu
+from apps.content_manager.source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
 
 
 class ContentManager:

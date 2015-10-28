@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import redirect
 
-from content_manager.models import Article
+from apps.content_manager.models import Article
 
 
 def get_old_slug_page(request, slug):

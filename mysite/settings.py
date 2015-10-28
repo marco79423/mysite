@@ -1,9 +1,14 @@
 import os
+import sys
 
 from path import Path
 
 BASE_DIR = Path(__file__).abspath().realpath().dirname().parent
 SETTING_DIR = BASE_DIR / 'mysite'
+APPS_DIR = BASE_DIR / 'apps'
+
+# Append directories to sys.path
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
 
@@ -24,10 +29,10 @@ INSTALLED_APPS = (
 
     "compressor",
 
-    "resources",
-    "content_manager",
-    "blog",
-    "old_site_support",
+    "apps.resources",
+    "apps.content_manager",
+    "apps.blog",
+    "apps.old_site_support",
 )
 
 MIDDLEWARE_CLASSES = (

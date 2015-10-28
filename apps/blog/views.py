@@ -2,8 +2,8 @@ from django.core.paginator import PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
-from content_manager.models import Category, Article, WebPage
-from blog.utils import CustomPaginator
+from apps.content_manager.models import Category, Article, WebPage
+from apps.blog.utils import CustomPaginator
 
 
 def get_article_page(request, slug):
