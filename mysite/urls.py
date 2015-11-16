@@ -24,3 +24,5 @@ urlpatterns = [
     url(r'^', include(apps.blog.urls)),
     url(r'^', include(apps.old_site_support.urls)),
 ]
+
+handler404 = 'blog.views.get_article_list_page'
