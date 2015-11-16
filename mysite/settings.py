@@ -3,37 +3,46 @@ import sys
 
 from path import Path
 
-BASE_DIR = Path(__file__).abspath().realpath().dirname().parent
-SETTING_DIR = BASE_DIR / 'mysite'
-APPS_DIR = BASE_DIR / 'apps'
+
+##################################################################
+# Application configuration
+##################################################################
+
+PROJECT_DIR = Path(__file__).abspath().realpath().dirname().parent
+PROJECT_NAME = PROJECT_DIR.basename()
+APPS_DIR = PROJECT_DIR / 'apps'
 
 # Append directories to sys.path
-sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(0, os.path.join(PROJECT_DIR, 'apps'))
 
-SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
+ROOT_URLCONF = 'mysite.urls'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ["*"]
+WSGI_APPLICATION = 'mysite.wsgi.application'
 
+##################################################################
+# Other settings
+##################################################################
 
-# Application definition
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sitemaps',
+DISQUS_SITENAME = "marco79423"
 
-    "compressor",
+SOURCE_DIR = Path(PROJECT_DIR) / ".." / "site-content"
 
-    "apps.resources",
-    "apps.content_manager",
-    "apps.blog",
-    "apps.old_site_support",
-)
+##################################################################
+# Language and timezone
+##################################################################
+
+# https://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+TIME_ZONE = 'Asia/Taipei'
+
+LANGUAGE_CODE = 'zh-hant'
+
+USE_TZ = False
+USE_I18N = True
+USE_L10N = True
+
+##################################################################
+# Middleware
+##################################################################
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -46,8 +55,34 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+##################################################################
+# Static
+##################################################################
 
-ROOT_URLCONF = 'mysite.urls'
+# The absolute path to the directory where collectstatic will
+# collect static files for deployment.
+STATIC_ROOT = PROJECT_DIR / "static"
+
+STATIC_URL = '/static/'
+
+# The list of finder backends that know how to find static files
+# in various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+    'compressor.finders.CompressorFinder',
+)
+
+##################################################################
+# Media
+##################################################################
+
+MEDIA_ROOT = PROJECT_DIR / "media"
+
+##################################################################
+# Templates
+##################################################################
 
 TEMPLATES = [
     {
@@ -67,33 +102,48 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+##################################################################
+# Database
+##################################################################
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': PROJECT_DIR / 'db.sqlite3',
     },
 }
 
-LANGUAGE_CODE = 'en-us'
+##################################################################
+# Apps
+##################################################################
 
-USE_TZ = False
+# Application definition
+DEFAULT_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+]
 
-USE_I18N = True
-USE_L10N = True
+THIRD_PARTY_APPS = [
+    "compressor",
+]
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "static"
+PROJECT_APPS = [
+    "apps.resources",
+    "apps.content_manager",
+    "apps.blog",
+    "apps.old_site_support",
+]
 
-MEDIA_ROOT = BASE_DIR / "media"
+INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
-    'compressor.finders.CompressorFinder',
-)
+##################################################################
+# Django Compressor
+##################################################################
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
@@ -108,6 +158,10 @@ COMPRESS_JS_FILTERS = (
     'compressor.filters.jsmin.SlimItFilter',
 )
 
-DISQUS_SITENAME = "marco79423"
+##################################################################
+# Security
+##################################################################
 
-SOURCE_DIR = Path(BASE_DIR) / ".." / "site-content"
+SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
+DEBUG = True
+ALLOWED_HOSTS = ["marco79423.twbbs.org"]
