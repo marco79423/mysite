@@ -23,7 +23,7 @@ def get_web_page(request, app, slug):
 def get_article_list_page(request, page_num=1):
     page_num = int(page_num)
 
-    paginator = CustomPaginator(Article.objects.all().exclude(category__name="胡言亂語").reverse(), 10)
+    paginator = CustomPaginator(Article.objects.all().reverse(), 10)
     try:
         page = paginator.page(page_num)
     except PageNotAnInteger:
