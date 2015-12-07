@@ -1,5 +1,8 @@
 <div class="meta">分類：
-    <a href="/articles/category/{{ article.category.slug }}/">{{ article.category.name }}</a>
+    {% for category in article.categories.all %}
+        {% if not forloop.first %} / {% endif %}
+        <a href="/articles/category/{{ category.slug }}/">{{ category.name }}</a>
+    {% endfor %}
     &nbsp;&nbsp;
     作者：兩大類
     &nbsp;&nbsp;

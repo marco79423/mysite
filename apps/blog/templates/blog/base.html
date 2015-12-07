@@ -52,12 +52,12 @@
                     <section class="top-bar-section">
                         <ul class="left">
                             {% for menu_item in category_menu %}
-                                <li><a href='{{ menu_item.category.get_absolute_url }}'>{{ menu_item.category.name }}</a></li>
+                                <li><a href='{{ menu_item.slug }}'>{{ menu_item.title }}</a></li>
                             {% endfor %}
                         </ul>
                         <ul class="right">
                             {% for menu_item in web_page_menu %}
-                                <li><a href="{{ menu_item.web_page.get_absolute_url }}">{{ menu_item.web_page.title }}</a></li>
+                                <li><a href="{{ menu_item.slug }}">{{ menu_item.title }}</a></li>
                             {% endfor %}
                         </ul>
                     </section>

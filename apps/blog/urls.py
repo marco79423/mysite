@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^articles/(?P<slug>[^/]+)/$', views.get_article_page, name='article_page'),
 
     # download files
-    url(r'^appfiles/(?P<slug>[^/]+)/$', ObjectDownloadView.as_view(model=AppFile)),
+    url(r'^files/(?P<slug>.+)/$', ObjectDownloadView.as_view(model=AppFile)),
 
     # web page
     url(r'^(?P<app>[^/]+)/(?P<slug>[^/]+)/$', views.get_web_page, name='web_page_page'),

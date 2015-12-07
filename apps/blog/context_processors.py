@@ -1,4 +1,4 @@
-from apps.content_manager.models import Article, CategoryMenu, WebPageMenu
+from apps.content_manager.models import Article
 
 SITE_SETTINGS = {
     'SITE_NAME': "兩大類 x 兩大類 = 四大類",
@@ -10,8 +10,17 @@ SITE_SETTINGS = {
     'DISQUS_SITENAME': "marco79423",
 
     'latest_articles': Article.objects.all().reverse()[:5],
-    'category_menu': CategoryMenu.objects.all(),
-    'web_page_menu': WebPageMenu.objects.all(),
+    'category_menu': [
+        {'title': "Python", 'slug': "/articles/category/python/"},
+        {'title': "專案作品", 'slug': "/articles/category/專案作品/"},
+        {'title': "程式設計", 'slug': "/articles/category/程式設計/"},
+        {'title': "UNIX & 工具", 'slug': "/articles/category/unix-工具/"},
+        {'title': "胡言亂語", 'slug': "/articles/category/胡言亂語/"},
+    ],
+    'web_page_menu': [
+        {'title': "閱讀計劃", 'slug': "/me/閱讀計劃/"},
+        {'title': "成功日記", 'slug': "/me/成功日記/"},
+    ],
 }
 
 

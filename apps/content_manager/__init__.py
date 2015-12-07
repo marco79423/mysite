@@ -1,45 +1,100 @@
-import json
+import slugify
+from django.core.files import File
 
-from apps.content_manager.models import Category, WebPage, WebPageMenu, CategoryMenu
-from apps.content_manager.source_builders import ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder
+from apps.content_manager.models import Article, Category, WebPage, AppFile
+from apps.content_manager.content_spider import ContentSpider
+from mysite import settings
 
 
 class ContentManager:
 
-    SOURCE_BUILDERS = [ArticleBuilder, WebPageBuilder, ImageBuilder, AppFileBuilder]
+    STATIC_IMAGE_URL = settings.STATIC_URL + "images/"
+    STATIC_IMAGE_DIR = settings.STATIC_ROOT / "images"
+
+    MEDIA_APPFILE_DIR = settings.MEDIA_ROOT / "appfiles"
 
     def __init__(self):
-        self._source_builders = [builder_class() for builder_class in self.SOURCE_BUILDERS]
+        self._content_spider = ContentSpider()
+
+    def clean(self):
+        Article.objects.all().delete()
+        Category.objects.all().delete()
+        WebPage.objects.all().delete()
+        AppFile.objects.all().delete()
+
+        self.STATIC_IMAGE_DIR.rmtree_p()
+        self.MEDIA_APPFILE_DIR.rmtree_p()
 
     def build(self, source_dir):
         if not source_dir.exists():
             raise FileNotFoundError('source_dir "{}" does not exist'.format(source_dir))
 
-        self._build_sources(source_dir)
-        self._create_menu(source_dir)
+        self.clean()
 
-    def _build_sources(self, source_dir):
-        for builder in self._source_builders:
-            builder.build(source_dir)
+        for article_data in self._content_spider.parse(source_dir / "articles"):
+            self._process_article_data(article_data)
+
+        for page_data in self._content_spider.parse(source_dir / "web_pages"):
+            self._process_page_data(page_data)
+
+    def _process_article_data(self, article_data):
+        content = article_data.content
+        content = self._setup_item_images(content, article_data)
+        content = self._setup_item_files(content, article_data)
+
+        article = Article.objects.create(
+            slug=article_data.slug,
+            title=article_data.title,
+            date=article_data.date,
+            modified_date=article_data.modified_date,
+            content=content,
+            summary=self._get_summary(content, 15),
+            cover=None,
+        )
+
+        for category_name in article_data.categories:
+            category, _ = Category.objects.get_or_create(
+                slug=slugify.slugify(category_name),
+                name=category_name,
+            )
+            article.categories.add(category)
+
+    def _process_page_data(self, page_data):
+        content = page_data.content
+        content = self._setup_item_images(content, page_data)
+        content = self._setup_item_files(content, page_data)
+
+        WebPage.objects.create(
+            app="me",
+            slug=page_data.slug,
+            title=page_data.title,
+            content=content,
+        )
+
+    def _setup_item_images(self, content, item_data):
+        for item_image in item_data.item_images:
+            _, _, basename = item_image['link'].rpartition("/")
+            target_dir = self.STATIC_IMAGE_DIR / item_data.slug
+            target_dir.makedirs_p()
+            item_image['path'].copy(target_dir)
+
+            content = content.replace(item_image['link'], self.STATIC_IMAGE_URL + item_data.slug + "/" + basename)
+        return content
+
+    def _setup_item_files(self, content, item_data):
+        for item_file in item_data.item_files:
+            _, _, basename = item_file['link'].rpartition("/")
+            app_file = AppFile(slug=item_data.slug + "/" + slugify.slugify(basename))
+            with open(item_file['path'], "rb") as fp:
+                app_file.file.save(name=basename, content=File(fp))
+            app_file.save()
+
+            content = content.replace(item_file['link'], "/files/" + app_file.slug)
+        return content
+
 
     @staticmethod
-    def _create_menu(source_dir):
-        config_file = source_dir / 'config.json'
-        if not config_file.exists():
-            raise FileNotFoundError('config "{}" does not exist'.format(source_dir / 'config.json'))
+    def _get_summary(content, max_length):
+        from pelican.utils import truncate_html_words
+        return truncate_html_words(content, max_length)
 
-        config = json.loads(config_file.text(encoding="utf-8"))
-
-        CategoryMenu.objects.all().delete()
-        for order, category in enumerate(config['category_menu']):
-            CategoryMenu.objects.create(
-                category=Category.objects.get(name=category),
-                order=order,
-            )
-
-        WebPageMenu.objects.all().delete()
-        for order, web_page_title in enumerate(config['web_page_menu']):
-            WebPageMenu.objects.create(
-                web_page=WebPage.objects.get(title=web_page_title),
-                order=order,
-            )

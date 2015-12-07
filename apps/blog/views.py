@@ -41,7 +41,7 @@ def get_article_list_page(request, page_num=1):
 def get_category_page(request, slug, page_num=1):
     page_num = int(page_num)
     category = get_object_or_404(Category, slug=slug)
-    paginator = CustomPaginator(Article.objects.filter(category=category).reverse(), 10)
+    paginator = CustomPaginator(category.article_set.all().reverse(), 10)
     try:
         page = paginator.page(page_num)
     except PageNotAnInteger:

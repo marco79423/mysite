@@ -19,7 +19,7 @@ class Article(models.Model):
     title = models.CharField(max_length=128)
     date = models.DateTimeField()
     modified_date = models.DateTimeField(blank=True, null=True)
-    category = models.ForeignKey(Category)
+    categories = models.ManyToManyField(Category)
     content = models.TextField()
     summary = models.TextField(blank=True, null=True)
     cover = models.CharField(max_length=128, blank=True, null=True)
@@ -43,23 +43,6 @@ class WebPage(models.Model):
         return "/{app}/{slug}/".format(app=self.app, slug=self.slug)
 
     class Meta:
-        app_label = "content_manager"
-
-
-class CategoryMenu(models.Model):
-    category = models.OneToOneField(Category, unique=True)
-    order = models.IntegerField(default=0)
-
-    class Meta:
-        app_label = "content_manager"
-
-
-class WebPageMenu(models.Model):
-    web_page = models.OneToOneField(WebPage, primary_key=True)
-    order = models.IntegerField(default=0)
-
-    class Meta:
-        ordering = ['order']
         app_label = "content_manager"
 
 
