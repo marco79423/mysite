@@ -129,7 +129,7 @@ def build_content():
     print(green("Fetching blog content ..."))
     print(green("#########################"))
     if not exists("/var/www/site-content"):
-        sudo("git clone https://bitbucket.org/marco79423/site-content /var/www/site-content")
+        sudo("git clone https://github.com/marco79423/mysite-content.git /var/www/site-content")
     else:
         with cd("/var/www/site-content"):
             sudo("git pull")
