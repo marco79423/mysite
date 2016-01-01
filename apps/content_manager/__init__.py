@@ -1,5 +1,6 @@
 import slugify
 from django.core.files import File
+from PIL import Image
 
 from apps.content_manager.models import Article, Category, WebPage, AppFile
 from apps.content_manager.content_spider import ContentSpider
@@ -75,8 +76,7 @@ class ContentManager:
         for item_image in item_data.item_images:
             _, _, basename = item_image['link'].rpartition("/")
             target_dir = self.STATIC_IMAGE_DIR / item_data.slug
-            target_dir.makedirs_p()
-            item_image['path'].copy(target_dir)
+            self._save_optimized_images(item_image['path'], target_dir)
 
             content = content.replace(item_image['link'], self.STATIC_IMAGE_URL + item_data.slug + "/" + basename)
         return content
@@ -92,9 +92,13 @@ class ContentManager:
             content = content.replace(item_file['link'], "/files/" + app_file.slug)
         return content
 
+    @staticmethod
+    def _save_optimized_images(source_path, target_dir):
+        target_dir.makedirs_p()
+        image = Image.open(source_path)
+        image.save(target_dir / source_path.name, quality=75, optimize=True)
 
     @staticmethod
     def _get_summary(content, max_length):
         from pelican.utils import truncate_html_words
         return truncate_html_words(content, max_length)
-

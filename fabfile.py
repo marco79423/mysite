@@ -78,6 +78,9 @@ def install_pkg():
     sudo("apt-get install -y apache2 libapache2-mod-wsgi-py3")
     sudo("pip3 install virtualenv")
 
+    # for pillow
+    sudo("apt-get install -y libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk")
+
 
 @task
 def put_proj(branch):
