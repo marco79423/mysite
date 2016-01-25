@@ -61,7 +61,7 @@ MIDDLEWARE_CLASSES = (
 
 # The absolute path to the directory where collectstatic will
 # collect static files for deployment.
-STATIC_ROOT = PROJECT_DIR / "static"
+STATIC_ROOT = PROJECT_DIR / "ui" / "static"
 
 STATIC_URL = '/static/'
 
@@ -87,7 +87,7 @@ MEDIA_ROOT = PROJECT_DIR / "media"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [PROJECT_DIR / 'ui' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,7 +133,6 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "apps.resources",
     "apps.content_manager",
     "apps.blog",
     "apps.old_site_support",
