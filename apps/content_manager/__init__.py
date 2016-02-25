@@ -1,3 +1,5 @@
+import re
+
 import slugify
 from django.core.files import File
 from PIL import Image
@@ -33,9 +35,11 @@ class ContentManager:
         self.clean()
 
         for article_data in self._content_spider.parse(source_dir / "articles"):
+            print("處理", article_data.title)
             self._process_article_data(article_data)
 
         for page_data in self._content_spider.parse(source_dir / "web_pages"):
+            print("處理", page_data.title)
             self._process_page_data(page_data)
 
     def _process_article_data(self, article_data):
@@ -43,13 +47,15 @@ class ContentManager:
         content = self._setup_item_images(content, article_data)
         content = self._setup_item_files(content, article_data)
 
+        summary = self._get_summary(content, 15)
         article = Article.objects.create(
             slug=article_data.slug,
             title=article_data.title,
             date=article_data.date,
             modified_date=article_data.modified_date,
             content=content,
-            summary=self._get_summary(content, 15),
+            summary=summary,
+            raw_summary=self._remove_html_tags(summary),
             cover=None,
         )
 
@@ -102,3 +108,8 @@ class ContentManager:
     def _get_summary(content, max_length):
         from pelican.utils import truncate_html_words
         return truncate_html_words(content, max_length)
+
+    @staticmethod
+    def _remove_html_tags(content):
+        return re.sub(r'<[^>]+>', "", content)
+

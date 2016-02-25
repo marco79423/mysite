@@ -14,7 +14,7 @@
         <meta property="og:image" content="{% static "resources/img/marco.jpg" %}"/>
     {% endif %}
 
-    <meta property="og:description" content="{{ article.summary }}"/>
+    <meta property="og:description" content="{{ article.raw_summary }}"/>
 {% endblock %}
 
 {% block content %}

@@ -1,11 +1,9 @@
-import re
 from datetime import datetime
 
 import dateutil.parser
 import docutils.core
 import docutils.io
 import docutils.nodes
-import path
 
 from apps.content_manager.directives import youtube, pygments
 
