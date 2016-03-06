@@ -10,10 +10,6 @@ from path import Path
 
 PROJECT_DIR = Path(__file__).abspath().realpath().dirname().parent
 PROJECT_NAME = PROJECT_DIR.basename()
-APPS_DIR = PROJECT_DIR / 'apps'
-
-# Append directories to sys.path
-sys.path.insert(0, os.path.join(PROJECT_DIR, 'apps'))
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -96,7 +92,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'blog.context_processors.site_setting_loader',
+                'app.context_processors.site_setting_loader',
             ],
         },
     },
@@ -133,9 +129,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "apps.content_manager",
-    "apps.blog",
-    "apps.old_site_support",
+    "app",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS

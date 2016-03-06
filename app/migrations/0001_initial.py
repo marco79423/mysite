@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AppFile',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('slug', models.CharField(max_length=128)),
                 ('file', models.FileField(upload_to='appfiles')),
             ],
@@ -21,14 +21,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Article',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('slug', models.CharField(max_length=128, unique=True)),
                 ('title', models.CharField(max_length=128)),
                 ('date', models.DateTimeField()),
                 ('modified_date', models.DateTimeField(null=True, blank=True)),
                 ('content', models.TextField()),
                 ('summary', models.TextField(null=True, blank=True)),
-                ('cover', models.CharField(max_length=128, null=True, blank=True)),
+                ('raw_summary', models.TextField(null=True, blank=True)),
+                ('cover', models.CharField(null=True, blank=True, max_length=128)),
             ],
             options={
                 'ordering': ['date'],
@@ -37,42 +38,24 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('slug', models.CharField(max_length=128)),
                 ('name', models.CharField(max_length=128)),
             ],
         ),
         migrations.CreateModel(
-            name='CategoryMenu',
-            fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('order', models.IntegerField(default=0)),
-                ('category', models.OneToOneField(to='content_manager.Category')),
-            ],
-        ),
-        migrations.CreateModel(
             name='WebPage',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('app', models.CharField(max_length=32)),
                 ('slug', models.CharField(max_length=128)),
                 ('title', models.CharField(max_length=128)),
                 ('content', models.TextField()),
             ],
         ),
-        migrations.CreateModel(
-            name='WebPageMenu',
-            fields=[
-                ('web_page', models.OneToOneField(primary_key=True, serialize=False, to='content_manager.WebPage')),
-                ('order', models.IntegerField(default=0)),
-            ],
-            options={
-                'ordering': ['order'],
-            },
-        ),
         migrations.AddField(
             model_name='article',
-            name='category',
-            field=models.ForeignKey(to='content_manager.Category'),
+            name='categories',
+            field=models.ManyToManyField(to='app.Category'),
         ),
     ]

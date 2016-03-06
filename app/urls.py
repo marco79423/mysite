@@ -1,8 +1,9 @@
 from django.conf.urls import url
 from django_downloadview import ObjectDownloadView
 
-from apps.blog import views
-from apps.content_manager.models import AppFile
+from app import views
+from app.models import AppFile
+
 
 urlpatterns = [
     url(r'^articles/$', views.get_article_list_page, name='article_list_page'),
@@ -18,4 +19,7 @@ urlpatterns = [
 
     # web page
     url(r'^(?P<app>[^/]+)/(?P<slug>[^/]+)/$', views.get_web_page, name='web_page_page'),
+
+    # old url
+    url(r'^(?P<slug>[^\.]+)\.html$', views.get_old_slug_page, name='old_slug_page'),
 ]

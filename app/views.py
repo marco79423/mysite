@@ -1,9 +1,10 @@
 from django.core.paginator import PageNotAnInteger, EmptyPage
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.shortcuts import redirect, render, get_object_or_404
 
-from apps.content_manager.models import Category, Article, WebPage
-from apps.blog.utils import CustomPaginator
+from app.models import Category, Article, WebPage
+from app.utils import CustomPaginator
 
 
 def get_article_page(request, slug):
@@ -61,3 +62,11 @@ def get_archives_page(request):
     return render(request, 'blog/archives.html', {
         'articles': Article.objects.all().reverse(),
     })
+
+
+def get_old_slug_page(request, slug):
+    from pelican.utils import slugify
+    for article in Article.objects.all():
+        if slug == slugify(article.title):
+            return redirect('article_page', permanent=True, slug=article.slug)
+    raise Http404

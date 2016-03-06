@@ -4,8 +4,8 @@ import slugify
 from django.core.files import File
 from PIL import Image
 
-from apps.content_manager.models import Article, Category, WebPage, AppFile
-from apps.content_manager.content_spider import ContentSpider
+from app.models import Article, Category, WebPage, AppFile
+from app.services.content_manager.content_spider import ContentSpider
 from mysite import settings
 
 

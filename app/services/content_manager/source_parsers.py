@@ -5,7 +5,7 @@ import docutils.core
 import docutils.io
 import docutils.nodes
 
-from apps.content_manager.directives import youtube, pygments
+from app.services.content_manager.directives import youtube, pygments
 
 
 youtube.register()
