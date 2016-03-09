@@ -33,6 +33,7 @@ def deploy(branch="master"):
     prepare_env()
     put_proj(branch=branch)
     setup_proj()
+    test_proj()
     build_content()
     replace_official_site()
     setup_apache2()
