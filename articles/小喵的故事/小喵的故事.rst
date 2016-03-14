@@ -4,6 +4,7 @@
 :date: 2014-02-24
 :modified_date: 2014-10-22
 :categories: 胡言亂語
+:series: 小喵的故事
 
 這裡是天堂。
 

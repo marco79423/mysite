@@ -3,6 +3,7 @@
 
 :date: 2015-4-26
 :categories: 胡言亂語
+:series: 小喵的故事
 
 上一篇： `小喵的故事 </articles/小喵的故事/>`_
 
