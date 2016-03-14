@@ -11,6 +11,7 @@ def get_article_page(request, slug):
     article = get_object_or_404(Article, Q(title=slug) | Q(slug=slug))
     return render(request, 'blog/article.html', {
         'article': article,
+        'series': Article.objects.filter(series=article.series).exclude(id=article.id) if article.series else []
     })
 
 

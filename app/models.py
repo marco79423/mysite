@@ -20,6 +20,7 @@ class Article(models.Model):
     content = models.TextField()
     summary = models.TextField(blank=True, null=True)
     raw_summary = models.TextField(blank=True, null=True)
+    series = models.CharField(max_length=128, blank=True, null=True)
     cover = models.CharField(max_length=128, blank=True, null=True)
 
     def get_absolute_url(self):

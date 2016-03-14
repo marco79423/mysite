@@ -71,6 +71,9 @@ class RstParser:
 
         categories_text = self._get_custom_tag(publisher, "categories")
         tags["categories"] = categories_text.split(";") if categories_text else []
+
+        tags["series"] = self._get_custom_tag(publisher, "series")
+
         return tags
 
     @staticmethod

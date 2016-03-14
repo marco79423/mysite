@@ -56,6 +56,7 @@ class ContentManager:
             content=content,
             summary=summary,
             raw_summary=self._remove_html_tags(summary),
+            series=article_data.series,
             cover=None,
         )
 

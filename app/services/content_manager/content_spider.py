@@ -21,6 +21,10 @@ class Item:
         return self._item_data['tags']['categories']
 
     @property
+    def series(self):
+        return self._item_data['tags']['series']
+
+    @property
     def date(self):
         return self._item_data['tags']['date']
 
@@ -44,6 +48,7 @@ class Item:
         return {
             'title': self.title,
             'slug': self.slug,
+            'series': self.series,
             'categories': self.categories,
             'date': self.date,
             'modified_date': self.modified_date,

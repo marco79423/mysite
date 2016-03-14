@@ -276,7 +276,22 @@ img{
                 }
             }
         }
-            
+
+        .series-block {
+            background: $sub-dominant-color;
+            padding: 20px;
+            margin-bottom: 20px;
+
+            .title {
+                font-weight: 700;
+                margin-bottom: 30px;
+            }
+
+            div:not(:first-child) {
+                margin-top: 10px;
+            }
+        }
+
         .pagination-centered{
             margin-top: 1em;
             
