@@ -28,13 +28,10 @@
             {{ article.content }}
         {% endautoescape  %}
 
-        <br><br>
-        <g:plusone></g:plusone>
-        <div class="fb-share-button" data-layout="button_count"></div>
-        <br><br><br>
-        <p class="rubric">
-            如果有什麼錯誤或錯字甚至看不懂的，歡迎指教弱弱的小弟喔～
-        </p>
+        <div class="social-block">
+            <div class="fb-share-button" data-layout="button_count"></div>
+            <g:plusone></g:plusone>
+        </div>
 
         {% if series %}
         <div class="series-block">
