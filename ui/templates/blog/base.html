@@ -87,22 +87,17 @@
                         </td>
                     </tr>
                 </table>
-                <section class="matter"><h1>最新文章</h1>
-                    <div>
-                        <ul>
-                            {% for article in latest_articles %}
-                                <li>
-                                    <a href="{{ article.get_absolute_url }}">{{ article.title }}<small> - {{ article.date|date:"Y/m/j" }}</small></a>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                <section class="matter">
+                    <div class="title">最新文章</div>
+                    <div class="hr"></div>
+                    {% for article in latest_articles %}
+                    <div class="item">
+                        <a href="{{ article.get_absolute_url }}">{{ article.title }}<small> - {{ article.date|date:"Y/m/j" }}</small></a>
                     </div>
-                    <h1></h1>
-
-                    <div>
-                        <ul>
-                            <li><a href="{% url 'archives_page' %}">所有文章列表</a></li>
-                        </ul>
+                    {% endfor %}
+                    <div class="hr"></div>
+                    <div class="item">
+                        <a href="{% url 'archives_page' %}">所有文章列表</a>
                     </div>
                 </section>
             </aside>

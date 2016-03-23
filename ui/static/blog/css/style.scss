@@ -351,25 +351,20 @@ img{
 
         section {
 
-            h1{
-                color: $dominant-color;
+            .title {
                 font-size: 1.5em;
-                border-bottom:1px solid #ddd;
+                font-weight: bold;
+                margin-bottom: 10px;
             }
 
-            tr{
-                background-color: transparent;
-            }    
-
-            li{
-                padding-bottom: 0.5em;
-                list-style:none;
+            .hr {
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 20px;
             }
 
-            a, a:visited, a:hover{
-                color: $font-color;
+            .item {
+                margin-bottom: 15px;
             }
-
         }
     
     }
