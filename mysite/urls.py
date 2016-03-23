@@ -1,6 +1,7 @@
 from django.conf.urls import include
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
 
 from mysite.sitemaps import ArticleSitemap, WebPageSitemap
 import app.urls
@@ -18,7 +19,7 @@ urlpatterns = [
 
     # special
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
 
     url(r'^', include(app.urls)),
 ]
