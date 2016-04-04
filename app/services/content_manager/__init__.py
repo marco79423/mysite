@@ -102,8 +102,11 @@ class ContentManager:
     @staticmethod
     def _save_optimized_images(source_path, target_dir):
         target_dir.makedirs_p()
-        image = Image.open(source_path)
-        image.save(target_dir / source_path.name, quality=75, optimize=True)
+        if source_path.ext == ".gif":
+            source_path.copy(target_dir)
+        else:
+            image = Image.open(source_path)
+            image.save(target_dir / source_path.name, quality=75, optimize=True)
 
     @staticmethod
     def _get_summary(content, max_length):
@@ -113,4 +116,3 @@ class ContentManager:
     @staticmethod
     def _remove_html_tags(content):
         return re.sub(r'<[^>]+>', "", content)
-
