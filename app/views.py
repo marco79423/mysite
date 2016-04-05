@@ -1,6 +1,6 @@
 from django.core.paginator import PageNotAnInteger, EmptyPage
 from django.db.models import Q
-from django.http import Http404
+from django.http.response import HttpResponseNotFound
 from django.shortcuts import redirect, render, get_object_or_404
 
 from app.models import Category, Article, WebPage
@@ -70,4 +70,4 @@ def get_old_slug_page(request, slug):
     for article in Article.objects.all():
         if slug == slugify(article.title):
             return redirect('article_page', permanent=True, slug=article.slug)
-    raise Http404
+    return HttpResponseNotFound("Page not found")  # TODO: custom 404 page
