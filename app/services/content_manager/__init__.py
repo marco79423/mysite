@@ -96,7 +96,7 @@ class ContentManager:
                 app_file.file.save(name=basename, content=File(fp))
             app_file.save()
 
-            content = content.replace(item_file['link'], "/files/" + app_file.slug)
+            content = content.replace(item_file['link'], "/files/" + app_file.slug + "/")
         return content
 
     @staticmethod
