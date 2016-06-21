@@ -15,6 +15,7 @@
  使用平台      Android, Windows
  版本資訊      0.1
  作者          兩大類
+ 原始碼        `GitHub <https://github.com/marco79423/accountbook>`_
  下載連結      `Android 端載點 <files/expensebook.apk>`_, `Windows 端載點 <files/expensebook-pc.7z>`_
 ============= ==========================================================================================================
 
