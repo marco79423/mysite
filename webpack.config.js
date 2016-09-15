@@ -24,10 +24,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader?modules'
+                loader: 'style-loader!css-loader?modules!postcss-loader'
             },
             {
-                test: /\.png/,
+                test: /\.(png|jpg)/,
                 loader: 'url-loader?limit=100000'
             }
         ]
