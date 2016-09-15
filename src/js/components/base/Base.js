@@ -12,7 +12,6 @@ export default class Base extends React.Component {
     render() {
         return (
             <div className={styles.root}>
-                base
                 <Header/>
                 <Nav/>
                 <MainSection/>

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styles from './Header.css';
 
-import logo from '../../img/logo.png';
-
 
 export default class Header extends React.Component {
     render() {
@@ -10,8 +8,8 @@ export default class Header extends React.Component {
 
         return (
             <div className={styles.root}>
-                <img className={styles.logo} src={logo} alt={siteName} />
-                <a className={styles.title} href='/'>{siteName}</a>
+                <div className={styles.logo} />
+                <div className={styles.title}>{siteName}</div>
             </div>
         )
     }
