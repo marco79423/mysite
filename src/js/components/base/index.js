@@ -1,3 +1,3 @@
-/**
- * Created by marco on 2016/9/14.
- */
+import Base from './Base';
+
+export default Base;

@@ -1,20 +1,27 @@
 import * as React from 'react';
 
-import Header from '../header';
-import MainSection from '../main-section';
-import Footer from '../footer';
-
-import styles from './Base.css';
+import styles from './Nav.css';
 
 
-export default class Base extends React.Component {
+export default class Nav extends React.Component {
+
     render() {
+        const leftMenuItems = [
+            'Python', '專案作品', '程式設計', 'UNIX & 工具', '胡言亂語'
+        ];
+
+        const rightMenuItems = [
+            '閱讀計劃', '成功日記'
+        ];
+
         return (
             <div className={styles.root}>
-                base
-                <Header/>
-                <MainSection/>
-                <Footer/>
+                <ul className={styles.left}>
+                    {leftMenuItems.map(item => (<li><a href=''>{item}</a></li>))}
+                </ul>
+                <ul className={styles.root}>
+                    {rightMenuItems.map(item => (<li><a href=''>{item}</a></li>))}
+                </ul>
             </div>
         )
     }

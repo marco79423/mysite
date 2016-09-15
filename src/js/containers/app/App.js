@@ -3,8 +3,11 @@ import {Router, browserHistory, Route, IndexRoute} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux';
 
+import ArticleList from '../article-list';
+
 import store from './store';
-import Main from '../main';
+
+import '../../css/base.css';
 
 
 const history = syncHistoryWithStore(browserHistory, store, {
@@ -13,16 +16,16 @@ const history = syncHistoryWithStore(browserHistory, store, {
     }
 });
 
-export class Root extends React.Component {
+export class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
                 <Router history={history}>
-                    <Route path='/' component={Main} />
+                    <Route path='/' component={ArticleList} />
                 </Router>
             </Provider>
         );
     }
 }
 
-export default Root;
+export default App;

@@ -1,0 +1,5 @@
+@value dominant-color from '../../css/colors.css';
+
+.root {
+    background: dominant-color;
+}
