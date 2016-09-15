@@ -11,7 +11,7 @@ export default class Header extends React.Component {
         return (
             <div className={styles.root}>
                 <img className={styles.logo} src={logo} alt={siteName} />
-                <a href='/'>{siteName}</a>
+                <a className={styles.title} href='/'>{siteName}</a>
             </div>
         )
     }

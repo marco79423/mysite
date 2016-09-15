@@ -9,7 +9,7 @@ export default class Sidebar extends React.Component {
             <div className={styles.root}>
                 <table>
                     <tr>
-                        <td><img src={marcoImg} alt='兩大類'/></td>
+                        <td><img className={styles.author} src={marcoImg} alt='兩大類'/></td>
                         <td>我是一隻<em>兩大類</em>
                         <div id="social">
                             <a href='https://github.com/marco79423'>GitHub</a>&nbsp|&nbsp

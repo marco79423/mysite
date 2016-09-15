@@ -3,3 +3,21 @@
 .root {
     background: dominant-color;
 }
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    transform: rotate(-10deg);
+    transition-duration: 0.8s;
+}
+
+.logo:hover {
+     transform: rotate(10deg);
+}
+
+.title {
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+}
