@@ -1,8 +1,10 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 import AboutMe from '../about-me';
 
 import styles from './Sidebar.css';
+
 
 export default class Sidebar extends React.Component {
     render() {
@@ -13,7 +15,7 @@ export default class Sidebar extends React.Component {
         ];
 
         return (
-            <div className={styles.root}>
+            <div className={classNames('pure-u-1-3', styles.root)}>
                 <AboutMe/>
                 <section>
                     <div>最新文章</div>
