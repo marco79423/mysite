@@ -24,7 +24,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                include: path.resolve(__dirname, 'src'),
                 loader: 'style-loader!css-loader?modules!postcss-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: path.resolve(__dirname, 'src'),
+                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.(png|jpg)/,

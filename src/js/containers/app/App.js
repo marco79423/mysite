@@ -7,6 +7,7 @@ import ArticleList from '../article-list';
 
 import store from './store';
 
+import 'purecss/build/pure.css';
 import '../../css/base.css';
 
 
