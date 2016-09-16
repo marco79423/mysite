@@ -1,0 +1,27 @@
+@value dominant-color from '../../css/colors.css';
+
+.root {
+    padding: 30px;
+}
+
+.title {
+    color: #6f6f6f;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+
+.posts {
+    margin-top: 10px;
+}
+
+.post {
+    color: dominant-color;
+}
+
+.post:not(first-child) {
+    margin-top: 15px;
+}

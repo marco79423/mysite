@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import AboutMe from '../about-me';
+import RecentPosts from '../recent-posts';
 
 import styles from './Sidebar.css';
 
@@ -17,18 +18,11 @@ export default class Sidebar extends React.Component {
         return (
             <div className={classNames('pure-u-1-3', styles.root)}>
                 <AboutMe/>
-                <section>
-                    <div>最新文章</div>
-                    <div className="hr"></div>
-                    { articles.map((article, i) => (
-                        <div key={i}>{article}</div>
-                    ))}
-                    <div></div>
-                    <div>
-                        <a href='/'>所有文章列表</a>
-                    </div>
-                </section>
-        </div>
+                <RecentPosts/>
+                <div>
+                    <a href='/'>所有文章列表</a>
+                </div>
+            </div>
         )
     }
 }
