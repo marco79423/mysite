@@ -19,11 +19,9 @@ export default class Sidebar extends React.Component {
                 <AboutMe/>
                 <section>
                     <div>最新文章</div>
-                    <div class="hr"></div>
-                    { articles.map(article => (
-                        <div>
-                            <a href=''>{article}</a>
-                        </div>
+                    <div className="hr"></div>
+                    { articles.map((article, i) => (
+                        <div key={i}>{article}</div>
                     ))}
                     <div></div>
                     <div>
