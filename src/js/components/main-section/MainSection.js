@@ -10,8 +10,12 @@ export default class MainSection extends React.Component {
     render() {
         return (
             <div className={classNames('pure-g', styles.root)}>
-                <Content/>
-                <Sidebar/>
+                <div className='pure-u-2-3'>
+                    <Content/>
+                </div>
+                <div className='pure-u-1-3'>
+                    <Sidebar/>
+                </div>
             </div>
         )
     }

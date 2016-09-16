@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 import AboutMe from '../about-me';
 import RecentPosts from '../recent-posts';
@@ -16,11 +15,11 @@ export default class Sidebar extends React.Component {
         ];
 
         return (
-            <div className={classNames('pure-u-1-3', styles.root)}>
+            <div className={styles.root}>
                 <AboutMe/>
                 <RecentPosts/>
-                <div>
-                    <a href='/'>所有文章列表</a>
+                <div className={styles.otherPart}>
+                    <div className={styles.link}>所有文章列表</div>
                 </div>
             </div>
         )

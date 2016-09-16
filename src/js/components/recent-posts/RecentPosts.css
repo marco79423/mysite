@@ -1,18 +1,19 @@
 @value dominant-color from '../../css/colors.css';
 
 .root {
-    padding: 30px;
+    margin-top: 30px;
 }
 
 .title {
     color: #6f6f6f;
     font-size: 1.5em;
     font-weight: bold;
-
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
 }
 
+.hr {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
 .posts {
     margin-top: 10px;

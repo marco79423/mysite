@@ -14,11 +14,13 @@ export default class RecentPosts extends React.Component {
         return (
             <div className={styles.root}>
                 <div className={styles.title}>最新文章</div>
+                <div className={styles.hr} />
                 <div className={styles.posts}>
                     { articles.map((article, i) => (
                         <div className={styles.post} key={i}>{article}</div>
                     ))}
                 </div>
+                <div className={styles.hr} />
             </div>
         )
     }
