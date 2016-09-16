@@ -5,25 +5,29 @@ import marcoImg from './img/marco.jpg';
 
 export default class Sidebar extends React.Component {
     render() {
+
+        const socialLinks = [
+            {name: 'GitHub', url: 'https://github.com/marco79423'},
+            {name: 'Bitbucket', url: 'https://bitbucket.org/marco79423'},
+            {name: 'facebook', url: 'https://www.facebook.com/marco79423'}
+        ];
+
+        const quote = '能站著就別坐著，能走路就別騎車\n保持站起來的毅力和一步一腳印的耐心';
+
         return (
             <div className={styles.root}>
-                <table>
-                    <tr>
-                        <td><img className={styles.author} src={marcoImg} alt='兩大類'/></td>
-                        <td>我是一隻<em>兩大類</em>
-                        <div id="social">
-                            <a href='https://github.com/marco79423'>GitHub</a>&nbsp|&nbsp
-                            <a href='https://bitbucket.org/marco79423'>Bitbucket</a>&nbsp|&nbsp
-                            <a href='https://www.facebook.com/marco79423'>facebook</a>
+                <div className={styles.profile}>
+                    <div className={styles.author}></div>
+                    <div className={styles.info}>
+                        <div>我是一隻<em>兩大類</em></div>
+                        <div>
+                            {socialLinks.map(link => (<div key={link.name} className={styles.socialLink}>{link.name}</div>))}
                         </div>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td colspan='2'>
-                            <blockquote>能站著就別坐著，能走路就別騎車<br/>保持站起來的毅力和一步一腳印的耐心。</blockquote>
-                        </td>
-                    </tr>
-                </table>
+                    </div>
+                </div>
+                <div className={styles.quote}>
+                    {quote}
+                </div>
             </div>
         )
     }
