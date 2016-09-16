@@ -16,12 +16,12 @@ export default class Nav extends React.Component {
 
         return (
             <div className={styles.root}>
-                <ul className={styles.left}>
-                    {leftMenuItems.map(item => (<li><a href=''>{item}</a></li>))}
-                </ul>
-                <ul className={styles.root}>
-                    {rightMenuItems.map(item => (<li><a href=''>{item}</a></li>))}
-                </ul>
+                <div className={styles.leftMenu}>
+                    {leftMenuItems.map(item => (<div className={styles.menuItem}>{item}</div>))}
+                </div>
+                <div className={styles.rightMenu}>
+                    {rightMenuItems.map(item => (<div className={styles.menuItem}>{item}</div>))}
+                </div>
             </div>
         )
     }

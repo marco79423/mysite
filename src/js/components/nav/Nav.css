@@ -1,13 +1,30 @@
-@value dominant-color2 from '../../css/colors.css';
+@value dominant-color2, accent-color from '../../css/colors.css';
 
 .root {
     background: dominant-color2;
+    position: relative;
+    height: 45px;
 }
 
-.left {
-
+.leftMenu {
+    display: inline-block;
+    margin-left: 20px;
 }
 
-.right {
+.rightMenu {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+}
 
+.menuItem {
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 45px;
+    font-size: 1.2em;
+    color: white;
+}
+
+.menuItem:hover {
+    background: accent-color;
 }
