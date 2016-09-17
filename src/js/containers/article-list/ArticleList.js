@@ -1,22 +1,35 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
 import Base from '../../components/base';
 import Header from '../../components/header';
 import Nav from '../../components/nav';
-import MainSection from '../../components/main-section';
+import Content from '../../components/content';
+import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
+
+import styles from './ArticleList.css';
 
 
 export class ArticleList extends React.Component {
     render() {
         return (
-            <Base>
-                <Header/>
-                <Nav/>
-                <MainSection/>
-                <Footer/>
-            </Base>
+            <div className={styles.root}>
+                <Base>
+                    <Header/>
+                    <Nav/>
+                    <div className={classNames('pure-g', styles.mainSection)}>
+                        <div className='pure-u-2-3'>
+                            <Content/>
+                        </div>
+                        <div className='pure-u-1-3'>
+                            <Sidebar/>
+                        </div>
+                    </div>
+                    <Footer/>
+                </Base>
+            </div>
         )
     }
 }

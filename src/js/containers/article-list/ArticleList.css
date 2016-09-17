@@ -1,3 +1,10 @@
+@value sub-dominant-color from '../../css/colors.css';
+
+
 .root {
     min-height: 100%;
+}
+
+.mainSection {
+    background: sub-dominant-color;
 }
