@@ -5,9 +5,10 @@ import styles from './Content.css';
 
 export default class Content extends React.Component {
     render() {
+        const {posts} = this.props;
         return (
             <div className={styles.root}>
-                content
+                {posts.map(post => <div key={post.get('id')}>{post.get('title')} - {post.get('content')}</div>)}
             </div>
         )
     }

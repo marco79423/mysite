@@ -14,6 +14,7 @@ import styles from './ArticleList.css';
 
 export class ArticleList extends React.Component {
     render() {
+        const {posts} = this.props;
         return (
             <div className={styles.root}>
                 <Base>
@@ -21,7 +22,7 @@ export class ArticleList extends React.Component {
                     <Nav/>
                     <div className={classNames('pure-g', styles.mainSection)}>
                         <div className='pure-u-2-3'>
-                            <Content/>
+                            <Content posts={posts}/>
                         </div>
                         <div className='pure-u-1-3'>
                             <Sidebar/>
@@ -36,6 +37,7 @@ export class ArticleList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        posts: state.getIn(['posts', 'posts'])
     }
 };
 
