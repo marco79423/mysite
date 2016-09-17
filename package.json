@@ -5,7 +5,7 @@
     "test": "karma start",
     "dist": "webpack -p",
     "dev": "webpack-dev-server --colors --port 3000 --debug --hot --watch",
-    "server": "json-server --watch fake-db.json --routes routes.json --port 3001"
+    "server": "json-server --watch ./fake-server/db.json --routes ./fake-server/routes.json --port 3001"
   },
   "author": "兩大類 <marco79423@gmail.com>",
   "devDependencies": {
