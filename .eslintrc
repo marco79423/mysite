@@ -1,6 +1,7 @@
 {
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -213,7 +214,7 @@
     // the functionality is the same.
     //
     "max-depth": [2, 3], // specify the maximum depth that blocks can be nested (off by default)
-    "max-len": [2, 100, 2], // specify the maximum length of a line in your program (off by default)
+    "max-len": [2, 120, 2], // specify the maximum length of a line in your program (off by default)
     "max-params": [2, 5], // limits the number of parameters that can be used in the function declaration. (off by default)
     "max-statements": 0, // specify the maximum number of statement allowed in a function (off by default)
     "no-bitwise": 0, // disallow use of bitwise operators (off by default)
@@ -233,7 +234,6 @@
     "react/no-did-update-set-state": 2, // Prevent usage of setState in componentDidUpdate
     "react/no-multi-comp": 0, // Prevent multiple component definition per file
     "react/no-unknown-property": 2, // Prevent usage of unknown DOM property
-    "react/prop-types": 2, // Prevent missing props validation in a React component definition
     "react/react-in-jsx-scope": 2, // Prevent missing React when using JSX
     "react/self-closing-comp": 2 // Prevent extra closing tags for components without children
   }
