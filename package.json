@@ -56,7 +56,7 @@
     "redux-actions": "^0.9.1",
     "redux-immutable": "^3.0.6",
     "redux-logger": "^2.6.1",
-    "redux-saga": "^0.11.1",
+    "redux-thunk": "^2.1.0",
     "reselect": "^2.5.1",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
