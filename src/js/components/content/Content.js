@@ -2,6 +2,8 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import styles from './Content.css';
 
+import PostListItem from '../post-list-item';
+
 
 export default class Content extends React.Component {
     static PropTypes = {
@@ -18,7 +20,7 @@ export default class Content extends React.Component {
         const { posts } = this.props;
         return (
             <div className={styles.root}>
-                {posts.map(post => <div key={post.get('id')}>{post.get('title')} - {post.get('content')}</div>)}
+                {posts.map(post => <PostListItem key={post.get('id')} post={post}/>)}
             </div>
         );
     }
