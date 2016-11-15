@@ -12,10 +12,10 @@ import Footer from '../../components/footer';
 
 import * as postActions from '../../ducks/posts/actions';
 
-import styles from './ArticleList.css';
+import styles from './PostList.css';
 
 
-export class ArticleList extends React.Component {
+export class PostList extends React.Component {
     static propTypes = {
         posts: ImmutablePropTypes.listOf(
             ImmutablePropTypes.contains({
@@ -65,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+export default connect(mapStateToProps, mapDispatchToProps)(PostList);

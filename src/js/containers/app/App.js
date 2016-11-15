@@ -3,7 +3,7 @@ import {Router, browserHistory, Route, IndexRoute} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux';
 
-import ArticleList from '../article-list';
+import PostList from '../post-list';
 
 import store from './store';
 
@@ -12,7 +12,7 @@ import '../../css/base.css';
 
 
 const history = syncHistoryWithStore(browserHistory, store, {
-    selectLocationState (state) {
+    selectLocationState(state) {
         return state.toJS();
     }
 });
@@ -22,7 +22,7 @@ export class App extends React.Component {
         return (
             <Provider store={store}>
                 <Router history={history}>
-                    <Route path='/' component={ArticleList} />
+                    <Route path='/' component={PostList} />
                 </Router>
             </Provider>
         );
