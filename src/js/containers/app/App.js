@@ -8,7 +8,7 @@ import PostList from '../post-list';
 import store from './store';
 
 import 'purecss/build/pure.css';
-import '../../css/base.css';
+import '../../css/base.scss';
 
 
 const history = syncHistoryWithStore(browserHistory, store, {

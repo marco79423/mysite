@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styles from './Base.css';
+import styles from './Base.scss';
 
 
 export default class Base extends React.Component {

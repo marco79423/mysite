@@ -23,9 +23,9 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.css$/,
+                test: /\.css|\.scss$/,
                 include: path.resolve(__dirname, 'src'),
-                loader: 'style-loader!css-loader?modules!postcss-loader'
+                loader: 'style-loader!css-loader?modules!sass-loader'
             },
             {
                 test: /\.css$/,

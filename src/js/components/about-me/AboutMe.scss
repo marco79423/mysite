@@ -1,0 +1,52 @@
+.root {
+
+    .profile {
+        height: 90px;
+
+        .author {
+            display: inline-block;
+
+            width: 90px;
+            height: 90px;
+            background: url('./img/marco.jpg') no-repeat center;
+            background-size: 90px 90px;
+
+            border: 0.1em solid #FFFFFF;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .info {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 20px;
+            margin-left: 50px;
+
+            font-size: 1.2em;
+
+            .socialLink {
+                display: inline-block;
+                font-size: 0.7em;
+                color: #388ca8;
+
+                &:not(:first-child):before {
+                    content: '|';
+                    margin: 0 2px;
+                    color: #6f6f6f;
+                }
+            }
+
+        }
+    }
+
+    .quote {
+        margin-top: 25px;
+        color: #6f6f6f;
+        white-space: pre;
+
+        border-left: 1px solid #ddd;
+        padding: .5625em 1.25em 0 1.1875em
+    }
+}
+
+
+

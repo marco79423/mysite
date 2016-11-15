@@ -1,0 +1,30 @@
+@import '../../css/colors.scss';
+
+.root {
+    background: $dominant-color2;
+    position: relative;
+    height: 45px;
+
+    .leftMenu {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .rightMenu {
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+    }
+
+    .menuItem {
+        display: inline-block;
+        padding: 0 15px;
+        line-height: 45px;
+        font-size: 1.2em;
+        color: white;
+
+        &:hover {
+            background: $accent-color;
+        }
+    }
+}

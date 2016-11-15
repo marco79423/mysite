@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import styles from './Content.css';
+import styles from './Content.scss';
 
 import PostListItem from '../post-list-item';
 

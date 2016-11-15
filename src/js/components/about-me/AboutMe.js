@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import styles from './AboutMe.css';
-import marcoImg from './img/marco.jpg';
+import styles from './AboutMe.scss';
 
 export default class Sidebar extends React.Component {
     render() {

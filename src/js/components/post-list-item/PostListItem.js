@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import styles from './PostListItem.css';
+import styles from './PostListItem.scss';
 
 export default class PostListItem extends React.Component {
     static PropTypes = {

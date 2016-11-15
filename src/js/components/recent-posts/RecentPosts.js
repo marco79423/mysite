@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styles from './RecentPosts.css';
+import styles from './RecentPosts.scss';
 
 
 export default class RecentPosts extends React.Component {

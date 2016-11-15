@@ -3,7 +3,7 @@ import * as React from 'react';
 import AboutMe from '../about-me';
 import RecentPosts from '../recent-posts';
 
-import styles from './Sidebar.css';
+import styles from './Sidebar.scss';
 
 
 export default class Sidebar extends React.Component {

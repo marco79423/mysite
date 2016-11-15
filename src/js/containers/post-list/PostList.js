@@ -12,7 +12,7 @@ import Footer from '../../components/footer';
 
 import * as postActions from '../../ducks/posts/actions';
 
-import styles from './PostList.css';
+import styles from './PostList.scss';
 
 
 export class PostList extends React.Component {
