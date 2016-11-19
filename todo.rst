@@ -4,6 +4,10 @@ TODO
 待辦事項
 ==========
 
+* 實作 post meta
+* 調整 post list item 的 style
+* 實作 post 內容的頁面
+* 解決「我是一隻兩大類」會跑位的問題
 * 實作模擬現有網站的設計(UI，不包含實際資料)
 * 實作抓取資料的功能(fake server)
 
