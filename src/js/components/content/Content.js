@@ -11,7 +11,7 @@ export default class Content extends React.Component {
             ImmutablePropTypes.contains({
                 id: React.PropTypes.number.isRequired,
                 title: React.PropTypes.string.isRequired,
-                content: React.PropTypes.string
+                summary: React.PropTypes.string
             })
         )
     };

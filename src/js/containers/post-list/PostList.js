@@ -21,7 +21,7 @@ export class PostList extends React.Component {
             ImmutablePropTypes.contains({
                 id: React.PropTypes.number,
                 title: React.PropTypes.string,
-                content: React.PropTypes.string
+                summary: React.PropTypes.string
             })
         ),
         fetchPosts: React.PropTypes.func

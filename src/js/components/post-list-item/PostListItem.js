@@ -7,14 +7,10 @@ export default class PostListItem extends React.Component {
     static PropTypes = {
         post: ImmutablePropTypes.contains({
             title: React.PropTypes.string.isRequired,
-            content: React.PropTypes.string
+            summary: React.PropTypes.string
         }),
         onTitleClicked: React.PropTypes.func.isRequired
     };
-
-    renderSummary(content) {
-        return content;
-    }
 
     render() {
         const { post, onTitleClicked } = this.props;
@@ -22,10 +18,10 @@ export default class PostListItem extends React.Component {
         return (
             <div className={styles.root}>
                 <div>
-                    <div onClick={onTitleClicked}>{post.get('title')}</div>
+                    <div className={styles.header} onClick={onTitleClicked}>{post.get('title')}</div>
                     <div>meta</div>
                 </div>
-                {this.renderSummary(post.get('content'))}
+                <div dangerouslySetInnerHTML={{ __html: post.get('summary')}} />
             </div>
         );
     }
