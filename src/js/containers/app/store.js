@@ -14,10 +14,15 @@ const stateTransformer = (state) => {
     else return state;
 };
 
-const store = createStore(reducer, applyMiddleware(
-    createLogger({ stateTransformer }),
-    thunk,
-    routerMiddleware(browserHistory)
-));
+const initialState = Immutable.Map();
+const store = createStore(
+    reducer,
+    initialState,
+    applyMiddleware(
+        createLogger({ stateTransformer }),
+        thunk,
+        routerMiddleware(browserHistory)
+    )
+);
 
 export default store;

@@ -4,6 +4,7 @@ import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux';
 
 import PostList from '../post-list';
+import Post from '../post';
 
 import store from './store';
 
@@ -12,8 +13,8 @@ import '../../../css/base.scss';
 
 
 const history = syncHistoryWithStore(browserHistory, store, {
-    selectLocationState(state) {
-        return state.toJS();
+    selectLocationState (state) {
+        return state.get('routing').toObject();
     }
 });
 
@@ -23,6 +24,7 @@ export class App extends React.Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route path='/' component={PostList} />
+                    <Route path='/posts/:slug/' component={Post} />
                 </Router>
             </Provider>
         );

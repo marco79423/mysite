@@ -9,18 +9,27 @@ export default class Content extends React.Component {
     static PropTypes = {
         posts: ImmutablePropTypes.listOf(
             ImmutablePropTypes.contains({
-                id: React.PropTypes.number.isRequired,
+                slug: React.PropTypes.number.isRequired,
                 title: React.PropTypes.string.isRequired,
                 summary: React.PropTypes.string
             })
-        )
+        ),
+        toPostPage: React.PropTypes.func.isRequired
     };
 
     render() {
-        const { posts } = this.props;
+        const { posts, toPostPage } = this.props;
         return (
             <div className={styles.root}>
-                {posts.map(post => <PostListItem key={post.get('id')} post={post}/>)}
+                {
+                    posts.map(post => (
+                        <PostListItem
+                            key={post.get('slug')}
+                            onTitleClicked={() => toPostPage(post.get('slug'))}
+                            post={post}
+                        />
+                    ))
+                }
             </div>
         );
     }

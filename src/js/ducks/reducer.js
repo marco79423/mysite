@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux-immutable'
-import { routerReducer } from 'react-router-redux'
+import { combineReducers } from 'redux-immutable';
 
 import main from './main';
 import posts from './posts';
+import routing from './routing';
 
 
 export default combineReducers({
     main: main.reducer,
     posts: posts.reducer,
-    routing: routerReducer
+    routing: routing.reducer
 });
