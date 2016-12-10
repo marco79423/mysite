@@ -9,6 +9,9 @@ class Category(models.Model):
     def get_absolute_url(self):
         return "/articles/category/{slug}/".format(slug=self.slug)
 
+    def __str__(self):
+        return self.name
+
 
 class Article(models.Model):
 
