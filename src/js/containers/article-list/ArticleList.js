@@ -1,12 +1,12 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 
-import Content from '../../components/content';
+import ArticleListItem from '../../components/article-list-item';
 
 import * as articleActions from '../../ducks/articles/actions';
 
+import styles from './ArticleList.scss';
 
 export class ArticleList extends React.Component {
     static propTypes = {
@@ -29,14 +29,23 @@ export class ArticleList extends React.Component {
     }
 
     toArticlePage(slug) {
-        this.props.push(`/articles/${slug}/`);
-        // this.context.router.push(`/articles/${slug}/`);
+        this.context.router.push(`/articles/${slug}/`);
     }
 
     render() {
         const { articles } = this.props;
         return (
-            <Content articles={ articles } toArticlePage={this.toArticlePage.bind(this)}/>
+            <div className={styles.root}>
+                {
+                    articles.map(article => (
+                        <ArticleListItem
+                            key={article.get('slug')}
+                            onTitleClicked={() => this.toArticlePage(article.get('slug'))}
+                            article={article}
+                        />
+                    ))
+                }
+            </div>
         );
     }
 }
@@ -49,8 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticles: () => dispatch(articleActions.fetchArticles()),
-        push: (path) => dispatch(push(path))
+        fetchArticles: () => dispatch(articleActions.fetchArticles())
     };
 };
 

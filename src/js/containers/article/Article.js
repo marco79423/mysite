@@ -2,16 +2,17 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import ArticleContent from '../../components/article-content';
 import * as articleActions from '../../ducks/articles/actions';
+
+import styles from './Article.scss';
 
 
 export class Article extends React.Component {
-    static propTypes = {
+    static PropTypes = {
         article: ImmutablePropTypes.contains({
-            slug: React.PropTypes.number,
-            title: React.PropTypes.string,
-            summary: React.PropTypes.string
+            slug: React.PropTypes.string.isRequired,
+            title: React.PropTypes.string.isRequired,
+            content: React.PropTypes.content
         })
     };
 
@@ -24,7 +25,13 @@ export class Article extends React.Component {
     render() {
         const { article } = this.props;
         return (
-            <ArticleContent article={ article }/>
+            <div className={styles.root}>
+                <div>
+                    <div className={styles.header}>{article.get('title')}</div>
+                    <div>meta</div>
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: article.get('content')}} />
+            </div>
         );
     }
 }
