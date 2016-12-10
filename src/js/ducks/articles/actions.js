@@ -3,13 +3,13 @@ import { createAction } from 'redux-actions';
 import * as config from '../../config';
 
 
-export const setPosts = createAction('SET_POSTS', posts => posts);
+export const setArticles = createAction('SET_ARTICLES', articles => articles);
 
 
-export function fetchPosts() {
+export function fetchArticles() {
     return function (dispatch) {
         return fetch(`${config.apiServerUrl}/articles/`)
             .then(response => response.json())
-            .then(posts => dispatch(setPosts(posts)));
+            .then(articles => dispatch(setArticles(articles)));
     };
 }

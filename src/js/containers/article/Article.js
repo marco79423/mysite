@@ -6,18 +6,18 @@ import classNames from 'classnames';
 import Base from '../../components/base';
 import Header from '../../components/header';
 import Nav from '../../components/nav';
-import PostContent from '../../components/post-content';
+import ArticleContent from '../../components/article-content';
 import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
 
-import * as postActions from '../../ducks/posts/actions';
+import * as articleActions from '../../ducks/articles/actions';
 
-import styles from './Post.scss';
+import styles from './Article.scss';
 
 
-export class Post extends React.Component {
+export class Article extends React.Component {
     static propTypes = {
-        post: ImmutablePropTypes.contains({
+        article: ImmutablePropTypes.contains({
             slug: React.PropTypes.number,
             title: React.PropTypes.string,
             summary: React.PropTypes.string
@@ -25,13 +25,13 @@ export class Post extends React.Component {
     };
 
     componentWillMount() {
-        if(!this.props.post) {
-            this.props.fetchPosts();
+        if(!this.props.article) {
+            this.props.fetchArticles();
         }
     }
 
     render() {
-        const { post } = this.props;
+        const { article } = this.props;
         return (
             <div className={styles.root}>
                 <Base>
@@ -39,7 +39,7 @@ export class Post extends React.Component {
                     <Nav/>
                     <div className={ classNames('pure-g', styles.mainSection) }>
                         <div className='pure-u-2-3'>
-                            <PostContent post={ post }/>
+                            <ArticleContent article={ article }/>
                         </div>
                         <div className='pure-u-1-3'>
                             <Sidebar/>
@@ -54,14 +54,14 @@ export class Post extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        post: state.get('posts').find(post => post.slug === ownProps.slug)
+        article: state.get('articles').find(article => article.slug === ownProps.slug)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPosts: () => dispatch(postActions.fetchPosts())
+        fetchArticles: () => dispatch(articleActions.fetchArticles())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

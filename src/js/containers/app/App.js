@@ -3,8 +3,8 @@ import {Router, browserHistory, Route, IndexRoute} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux';
 
-import PostList from '../post-list';
-import Post from '../post';
+import ArticleList from '../article-list';
+import Article from '../article';
 
 import store from './store';
 
@@ -23,8 +23,8 @@ export class App extends React.Component {
         return (
             <Provider store={store}>
                 <Router history={history}>
-                    <Route path='/' component={PostList} />
-                    <Route path='/posts/:slug/' component={Post} />
+                    <Route path='/' component={ArticleList} />
+                    <Route path='/articles/:slug/' component={Article} />
                 </Router>
             </Provider>
         );

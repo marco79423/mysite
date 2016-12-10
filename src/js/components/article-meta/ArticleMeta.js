@@ -1,10 +1,10 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import styles from './PostMeta.scss';
+import styles from './ArticleMeta.scss';
 
 
-export default class PostMeta extends React.Component {
+export default class ArticleMeta extends React.Component {
     static PropTypes = {
         categories: ImmutablePropTypes.listOf(
             ImmutablePropTypes.contains({

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import AboutMe from '../about-me';
-import RecentPosts from '../recent-posts';
+import RecentArticles from '../recent-articles';
 
 import styles from './Sidebar.scss';
 
@@ -17,7 +17,7 @@ export default class Sidebar extends React.Component {
         return (
             <div className={styles.root}>
                 <AboutMe/>
-                <RecentPosts/>
+                <RecentArticles/>
                 <div className={styles.otherPart}>
                     <div className={styles.link}>所有文章列表</div>
                 </div>

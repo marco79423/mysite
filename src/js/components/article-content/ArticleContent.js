@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import styles from './PostContent.scss';
+import styles from './ArticleContent.scss';
 
 
-export default class PostContent extends React.Component {
+export default class ArticleContent extends React.Component {
     static PropTypes = {
-        post: ImmutablePropTypes.contains({
+        article: ImmutablePropTypes.contains({
             slug: React.PropTypes.string.isRequired,
             title: React.PropTypes.string.isRequired,
             content: React.PropTypes.content
@@ -13,14 +13,14 @@ export default class PostContent extends React.Component {
     };
 
     render() {
-        const { post } = this.props;
+        const { article } = this.props;
         return (
             <div className={styles.root}>
                 <div>
-                    <div className={styles.header}>{post.get('title')}</div>
+                    <div className={styles.header}>{article.get('title')}</div>
                     <div>meta</div>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: post.get('content')}} />
+                <div dangerouslySetInnerHTML={{ __html: article.get('content')}} />
             </div>
         );
     }

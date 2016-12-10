@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import styles from './PostListItem.scss';
+import styles from './ArticleListItem.scss';
 
-export default class PostListItem extends React.Component {
+export default class ArticleListItem extends React.Component {
     static PropTypes = {
-        post: ImmutablePropTypes.contains({
+        article: ImmutablePropTypes.contains({
             title: React.PropTypes.string.isRequired,
             summary: React.PropTypes.string
         }),
@@ -13,15 +13,15 @@ export default class PostListItem extends React.Component {
     };
 
     render() {
-        const { post, onTitleClicked } = this.props;
+        const { article, onTitleClicked } = this.props;
 
         return (
             <div className={styles.root}>
                 <div>
-                    <div className={styles.header} onClick={onTitleClicked}>{post.get('title')}</div>
+                    <div className={styles.header} onClick={onTitleClicked}>{article.get('title')}</div>
                     <div>meta</div>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: post.get('summary')}} />
+                <div dangerouslySetInnerHTML={{ __html: article.get('summary')}} />
             </div>
         );
     }

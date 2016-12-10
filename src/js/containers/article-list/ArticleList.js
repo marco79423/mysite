@@ -2,7 +2,7 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { push } from 'react-router-redux'
+import { push } from 'react-router-redux';
 
 import Base from '../../components/base';
 import Header from '../../components/header';
@@ -11,21 +11,21 @@ import Content from '../../components/content';
 import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
 
-import * as postActions from '../../ducks/posts/actions';
+import * as articleActions from '../../ducks/articles/actions';
 
-import styles from './PostList.scss';
+import styles from './ArticleList.scss';
 
 
-export class PostList extends React.Component {
+export class ArticleList extends React.Component {
     static propTypes = {
-        posts: ImmutablePropTypes.listOf(
+        articles: ImmutablePropTypes.listOf(
             ImmutablePropTypes.contains({
                 slug: React.PropTypes.string,
                 title: React.PropTypes.string,
                 summary: React.PropTypes.string
             })
         ),
-        fetchPosts: React.PropTypes.func
+        fetchArticles: React.PropTypes.func
     };
 
     static contextTypes = {
@@ -33,16 +33,16 @@ export class PostList extends React.Component {
     };
 
     componentWillMount() {
-        this.props.fetchPosts();
+        this.props.fetchArticles();
     }
 
-    toPostPage(slug) {
-        this.props.push(`/posts/${slug}/`);
-        // this.context.router.push(`/posts/${slug}/`);
+    toArticlePage(slug) {
+        this.props.push(`/articles/${slug}/`);
+        // this.context.router.push(`/articles/${slug}/`);
     }
 
     render() {
-        const { posts } = this.props;
+        const { articles } = this.props;
         return (
             <div className={styles.root}>
                 <Base>
@@ -50,7 +50,7 @@ export class PostList extends React.Component {
                     <Nav/>
                     <div className={ classNames('pure-g', styles.mainSection) }>
                         <div className='pure-u-2-3'>
-                            <Content posts={ posts } toPostPage={this.toPostPage.bind(this)}/>
+                            <Content articles={ articles } toArticlePage={this.toArticlePage.bind(this)}/>
                         </div>
                         <div className='pure-u-1-3'>
                             <Sidebar/>
@@ -65,15 +65,15 @@ export class PostList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.get('posts')
+        articles: state.get('articles')
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPosts: () => dispatch(postActions.fetchPosts()),
+        fetchArticles: () => dispatch(articleActions.fetchArticles()),
         push: (path) => dispatch(push(path))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostList);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
