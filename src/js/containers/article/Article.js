@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import Link from '../../components/link';
-import * as articleActions from '../../ducks/articles/actions';
+import * as articleActions from '../../ducks/article/actions';
 
 import styles from './Article.scss';
 
@@ -41,7 +41,7 @@ export class Article extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        article: state.get('articles').find(article => article.slug === ownProps.slug)
+        article: state.getIn(['article', 'items']).find(article => article.slug === ownProps.slug)
     };
 };
 

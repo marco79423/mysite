@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import ArticleListItem from '../../components/article-list-item';
 
-import * as articleActions from '../../ducks/articles/actions';
+import * as articleActions from '../../ducks/article/actions';
 
 import styles from './ArticleList.scss';
 
@@ -44,7 +44,7 @@ export class ArticleList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        articles: state.get('articles')
+        articles: state.getIn(['article', 'items'])
     };
 };
 
