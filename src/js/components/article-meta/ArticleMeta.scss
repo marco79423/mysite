@@ -1,0 +1,10 @@
+.root {
+    margin-top: 0.5em;
+}
+
+.field {
+    font-size: .9em;
+    &:not(:first-child) {
+        margin-left: 1.5em;
+    }
+}

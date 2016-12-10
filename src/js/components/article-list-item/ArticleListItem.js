@@ -2,6 +2,7 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import Link from '../link';
+import ArticleMeta from '../article-meta';
 
 import styles from './ArticleListItem.scss';
 
@@ -19,15 +20,19 @@ export default class ArticleListItem extends React.Component {
         const { article } = this.props;
 
         return (
-            <div className={styles.root}>
+            <article className={styles.root}>
                 <div>
-                    <div className={styles.header}>
+                    <header className={styles.header}>
                         <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
-                    </div>
-                    <div>meta</div>
+                    </header>
+                    <ArticleMeta
+                        categories={article.get('categories')}
+                        date={article.get('date')}
+                        modifiedDate={article.get('modified_date')}
+                    />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: article.get('summary')}} />
-            </div>
+            </article>
         );
     }
 }

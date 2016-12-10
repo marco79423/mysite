@@ -41,6 +41,7 @@
     "lodash": "^4.11.2",
     "mocha": "^3.2.0",
     "mocha-loader": "^1.0.0",
+    "moment": "^2.17.1",
     "node-sass": "^3.12.5",
     "phantomjs-prebuilt": "^2.1.12",
     "purecss": "^0.6.0",
