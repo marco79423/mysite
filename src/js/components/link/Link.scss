@@ -1,0 +1,10 @@
+@import '../../../css/colors.scss';
+
+.root {
+    color: $dominant-color;
+    text-decoration: none;
+
+    &:visited {
+        text-decoration: none;
+    }
+}

@@ -1,7 +1,10 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
+import Link from '../link';
+
 import styles from './ArticleListItem.scss';
+
 
 export default class ArticleListItem extends React.Component {
     static PropTypes = {
@@ -13,12 +16,14 @@ export default class ArticleListItem extends React.Component {
     };
 
     render() {
-        const { article, onTitleClicked } = this.props;
+        const { article } = this.props;
 
         return (
             <div className={styles.root}>
                 <div>
-                    <div className={styles.header} onClick={onTitleClicked}>{article.get('title')}</div>
+                    <div className={styles.header}>
+                        <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
+                    </div>
                     <div>meta</div>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: article.get('summary')}} />

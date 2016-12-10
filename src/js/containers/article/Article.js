@@ -2,6 +2,7 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
+import Link from '../../components/link';
 import * as articleActions from '../../ducks/articles/actions';
 
 import styles from './Article.scss';
@@ -27,7 +28,9 @@ export class Article extends React.Component {
         return (
             <div className={styles.root}>
                 <div>
-                    <div className={styles.header}>{article.get('title')}</div>
+                    <div className={styles.header}>
+                        <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
+                    </div>
                     <div>meta</div>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: article.get('content')}} />

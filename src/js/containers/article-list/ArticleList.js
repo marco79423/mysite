@@ -28,21 +28,13 @@ export class ArticleList extends React.Component {
         this.props.fetchArticles();
     }
 
-    toArticlePage(slug) {
-        this.context.router.push(`/articles/${slug}/`);
-    }
-
     render() {
         const { articles } = this.props;
         return (
             <div className={styles.root}>
                 {
                     articles.map(article => (
-                        <ArticleListItem
-                            key={article.get('slug')}
-                            onTitleClicked={() => this.toArticlePage(article.get('slug'))}
-                            article={article}
-                        />
+                        <ArticleListItem key={article.get('slug')} article={article}/>
                     ))
                 }
             </div>
