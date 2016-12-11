@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Sidebar from '../../components/sidebar';
+import Footer from '../../components/footer';
 
 import styles from './Base.scss';
 
@@ -23,6 +24,7 @@ class Base extends React.Component {
                         <Sidebar/>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }
