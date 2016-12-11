@@ -46,7 +46,7 @@ export class Article extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        article: state.getIn(['article', 'items']).find(article => article.slug === ownProps.slug)
+        article: state.getIn(['article', 'items']).find(article => article.get('slug') === ownProps.params.slug)
     };
 };
 
