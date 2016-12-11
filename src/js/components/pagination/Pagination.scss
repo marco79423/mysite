@@ -1,0 +1,29 @@
+@import '../../../css/colors.scss';
+
+.root {
+    padding: 1em;
+    text-align: center;
+
+    .pagination {
+        font-size: 1.5em;
+
+        .link {
+            height: 1.5em;
+            padding: 0.1em 0.3em;
+            color: white;
+            background-color: $dominant-color;
+
+            &:hover{
+                background: $accent-color;
+            }
+        }
+
+        .link:not(:first-child) {
+            margin-left: 0.5em;
+        }
+
+        .current {
+            background: $accent-color;
+        }
+    }
+}

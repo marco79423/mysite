@@ -2,7 +2,9 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
+import { PAGE_SIZE } from '../../config';
 import ArticleListItem from '../../components/article-list-item';
+import Pagination from '../../components/pagination';
 
 import * as articleActions from '../../ducks/article/actions';
 
@@ -10,6 +12,7 @@ import styles from './ArticleList.scss';
 
 export class ArticleList extends React.Component {
     static propTypes = {
+        pageNum: React.PropTypes.number,
         articles: ImmutablePropTypes.listOf(
             ImmutablePropTypes.contains({
                 slug: React.PropTypes.string,
@@ -29,7 +32,7 @@ export class ArticleList extends React.Component {
     }
 
     render() {
-        const { articles } = this.props;
+        const { articles, pageNum, maxPageNum } = this.props;
         return (
             <div className={styles.root}>
                 {
@@ -37,14 +40,22 @@ export class ArticleList extends React.Component {
                         <ArticleListItem key={article.get('slug')} article={article}/>
                     ))
                 }
+                <Pagination
+                    current={pageNum}
+                    max={maxPageNum}
+                    makeLink={p => `/articles/page/${p}/`}
+                />
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+    const pageNum = +ownProps.params.pageNum || 1;
     return {
-        articles: state.getIn(['article', 'items'])
+        pageNum,
+        maxPageNum: Math.ceil(state.getIn(['article', 'items']).count() / PAGE_SIZE),
+        articles: state.getIn(['article', 'items']).slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
     };
 };
 
