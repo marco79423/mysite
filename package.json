@@ -4,7 +4,7 @@
   "scripts": {
     "test": "karma start",
     "dist": "webpack -p",
-    "dev": "webpack-dev-server --colors --port 3000 --debug --hot --watch",
+    "dev": "webpack-dev-server --colors --port 3000 --debug --hot --watch --history-api-fallback",
     "server": "json-server --watch ./fake-server/db.json --routes ./fake-server/routes.json --port 3001"
   },
   "author": "兩大類 <marco79423@gmail.com>",

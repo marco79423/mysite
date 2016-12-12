@@ -26,6 +26,10 @@ export class Article extends React.Component {
 
     render() {
         const { article } = this.props;
+        if (!article) {
+            return <article>讀取中……</article>
+        }
+
         return (
             <article className={styles.root}>
                 <div>
