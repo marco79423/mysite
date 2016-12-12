@@ -30,7 +30,8 @@ export default class Pagination extends React.Component {
                         </span>
                     }
                     { range(1, max + 1).map(pageNum =>
-                        <span className={classNames(styles.link, { [styles.current]: pageNum === current })}>
+                        <span key={pageNum}
+                              className={classNames(styles.link, {[styles.current]: pageNum === current})}>
                             {pageNum === current ?
                                 pageNum :
                                 <Link style={ linkStyle } to={makeLink(pageNum)}>{ pageNum }</Link>
