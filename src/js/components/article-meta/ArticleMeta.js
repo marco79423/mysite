@@ -17,7 +17,6 @@ export default class ArticleMeta extends React.Component {
     render() {
         const { categories, date, modifiedDate } = this.props;
 
-
         return (
             <div className={styles.root}>
                 <span className={styles.field}>
@@ -27,11 +26,11 @@ export default class ArticleMeta extends React.Component {
                     作者：兩大類
                 </span>
                 <span className={styles.field}>
-                    發表時間：{ moment(date).format('YYYY/MM/DD') }
+                    發表時間：{ date.format('YYYY/MM/DD') }
                 </span>
                 {modifiedDate &&
                     <span className={styles.field}>
-                        最後更新：{ moment(modifiedDate).format('YYYY/MM/DD') }
+                        最後更新：{ modifiedDate.format('YYYY/MM/DD') }
                     </span>
                 }
             </div>

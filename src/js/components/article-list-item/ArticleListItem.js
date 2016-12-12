@@ -28,7 +28,7 @@ export default class ArticleListItem extends React.Component {
                     <ArticleMeta
                         categories={article.get('categories')}
                         date={article.get('date')}
-                        modifiedDate={article.get('modified_date')}
+                        modifiedDate={article.get('modifiedDate')}
                     />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: article.get('summary')}} />
