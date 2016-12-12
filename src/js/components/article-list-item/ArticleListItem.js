@@ -12,8 +12,7 @@ export default class ArticleListItem extends React.Component {
         article: ImmutablePropTypes.contains({
             title: React.PropTypes.string.isRequired,
             summary: React.PropTypes.string
-        }),
-        onTitleClicked: React.PropTypes.func.isRequired
+        })
     };
 
     render() {
