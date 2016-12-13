@@ -1,8 +1,6 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import moment from 'moment';
-
-import Link from '../link';
+import { Link } from 'react-router';
 
 import styles from './ArticleMeta.scss';
 
@@ -21,9 +19,9 @@ export default class ArticleMeta extends React.Component {
             <div className={styles.root}>
                 <span className={styles.field}>
                     分類：{ categories.map(category => (
-                        <span key={category} className={styles.category}>
-                            <Link to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</Link>
-                        </span>
+                        <Link key={category.get('slug')}
+                              className={styles.category}
+                              to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</Link>
                     )) }
                 </span>
                 <span className={styles.field}>

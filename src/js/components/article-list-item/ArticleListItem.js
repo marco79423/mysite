@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { Link } from 'react-router';
 
-import Link from '../link';
 import ArticleMeta from '../article-meta';
 
 import styles from './ArticleListItem.scss';
@@ -22,7 +22,8 @@ export default class ArticleListItem extends React.Component {
             <article className={styles.root}>
                 <div>
                     <header className={styles.header}>
-                        <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
+                        <Link className={styles.link}
+                              to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
                     </header>
                     <ArticleMeta
                         categories={article.get('categories')}

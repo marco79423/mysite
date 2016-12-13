@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import Link from '../link';
+import { Link } from 'react-router';
 
 import styles from './Header.scss';
 
@@ -12,7 +11,7 @@ export default class Header extends React.Component {
         return (
             <div className={styles.root}>
                 <div className={styles.logo} />
-                <div className={styles.title}><Link style={{color: 'white'}} to='/'>{siteName}</Link></div>
+                <div className={styles.title}><Link className={styles.link} to='/'>{siteName}</Link></div>
             </div>
         );
     }

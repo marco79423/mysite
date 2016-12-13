@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/base.scss';
 
 .root {
     padding: 2em;
@@ -8,5 +8,9 @@
     .header {
         font-size: 2em;
         color: $dominant-color;
+
+        .link {
+            @extend .link;
+        }
     }
 }

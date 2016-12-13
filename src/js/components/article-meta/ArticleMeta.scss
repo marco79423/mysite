@@ -1,3 +1,5 @@
+@import '../../../css/base.scss';
+
 .root {
     margin-top: 0.5em;
 }
@@ -9,6 +11,10 @@
     }
 }
 
-.category:not(:first-child):before {
-    content: ' / ';
+.category {
+    @extend .link;
+
+    &:not(:first-child):before {
+        content: ' / ';
+    }
 }

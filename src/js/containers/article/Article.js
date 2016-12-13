@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
-import Link from '../../components/link';
 import ArticleMeta from '../../components/article-meta';
 import * as articleActions from '../../ducks/article/actions';
 
@@ -27,14 +27,15 @@ export class Article extends React.Component {
     render() {
         const { article } = this.props;
         if (!article) {
-            return <article>讀取中……</article>
+            return <article>讀取中……</article>;
         }
 
         return (
             <article className={styles.root}>
                 <div>
                     <header className={styles.header}>
-                        <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
+                        <Link className={styles.link}
+                              to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
                     </header>
                     <ArticleMeta
                         categories={article.get('categories')}

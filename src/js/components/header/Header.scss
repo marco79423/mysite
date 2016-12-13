@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/base.scss';
 
 .root {
     background: $dominant-color;
@@ -32,6 +32,11 @@
         color: white;
         font-size: 2em;
         font-weight: 700;
+
+        .link {
+            @extend .link;
+            color: white;
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/base.scss';
 
 .root {
     padding: 1em;
@@ -7,7 +7,8 @@
     .pagination {
         font-size: 1.5em;
 
-        .link {
+        .button {
+            @extend .link;
             height: 1.5em;
             padding: 0.1em 0.3em;
             color: white;
@@ -18,12 +19,17 @@
             }
         }
 
-        .link:not(:first-child) {
+        .button:not(:first-child) {
             margin-left: 0.5em;
         }
 
         .current {
             background: $accent-color;
+        }
+
+        .link {
+            @extend .link;
+            color: white;
         }
     }
 }
