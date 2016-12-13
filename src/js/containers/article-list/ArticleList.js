@@ -52,10 +52,16 @@ export class ArticleList extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     const pageNum = +ownProps.params.pageNum || 1;
+    let articles = state.getIn(['article', 'items']);
+    if (ownProps.params.category) {
+        articles = articles.filter(article => article
+            .get('categories')
+            .some(category => category.get('slug') === ownProps.params.category));
+    }
     return {
         pageNum,
-        maxPageNum: Math.ceil(state.getIn(['article', 'items']).count() / PAGE_SIZE),
-        articles: state.getIn(['article', 'items']).slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
+        maxPageNum: Math.ceil(articles.count() / PAGE_SIZE),
+        articles: articles.slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
     };
 };
 

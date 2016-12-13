@@ -27,6 +27,8 @@ export class App extends React.Component {
                     <Route path="/" component={Base}>
                         <IndexRoute component={ArticleList} />
                         <Route path='/articles/page/:pageNum/' component={ArticleList} />
+                        <Route path='/articles/category/:category/' component={ArticleList} />
+                        <Route path='/articles/category/:category/page/:pageNum/' component={ArticleList} />
                         <Route path='/articles/:slug/' component={Article} />
                     </Route>
                 </Router>
