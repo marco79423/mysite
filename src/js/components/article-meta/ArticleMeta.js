@@ -21,7 +21,10 @@ export default class ArticleMeta extends React.Component {
             <div className={styles.root}>
                 <span className={styles.field}>
                     分類：{ categories.map(category => (
-                        <Link key={category} to={`articles/category/${category}/`}>{category}</Link>)) }
+                        <span key={category} className={styles.category}>
+                            <Link to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</Link>
+                        </span>
+                    )) }
                 </span>
                 <span className={styles.field}>
                     作者：兩大類

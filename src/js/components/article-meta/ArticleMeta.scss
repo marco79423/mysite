@@ -8,3 +8,7 @@
         margin-left: 1.5em;
     }
 }
+
+.category:not(:first-child):before {
+    content: ' / ';
+}
