@@ -2,7 +2,6 @@ import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { PAGE_SIZE } from '../../config';
 import ArticleListItem from '../../components/article-list-item';
 import Pagination from '../../components/pagination';
 
@@ -51,7 +50,9 @@ export class ArticleList extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    const PAGE_SIZE = state.getIn(['config', 'PAGE_SIZE']);
     const pageNum = +ownProps.params.pageNum || 1;
+
     let articles = state.getIn(['article', 'items']);
     if (ownProps.params.category) {
         articles = articles.filter(article => article

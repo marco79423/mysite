@@ -2,16 +2,24 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import * as config from '../../config';
 import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
+import * as configActions from '../../ducks/config/actions';
 
 import styles from './Base.scss';
 
 
 class Base extends React.Component {
+    static PropTypes = {
+        loadConfig: React.PropTypes.func.isRequired
+    };
+
+    componentWillMount() {
+        this.props.loadConfig();
+    }
+
     render() {
         return (
             <div className={styles.root}>
@@ -33,12 +41,13 @@ class Base extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        siteName: config.SITE_NAME
+        siteName: state.getIn(['config', 'SITE_NAME'])
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        loadConfig: () => dispatch(configActions.loadConfig())
     };
 };
 
