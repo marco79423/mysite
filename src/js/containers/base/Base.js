@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
 
 import Header from '../../components/header';
@@ -13,6 +14,19 @@ import styles from './Base.scss';
 
 class Base extends React.Component {
     static PropTypes = {
+        siteName: React.PropTypes.string.isRequired,
+        leftMenuItems: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.contains({
+                url: React.PropTypes.string.isRequired,
+                name: React.PropTypes.string.isRequired
+            })
+        ),
+        rightMenuItems: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.contains({
+                url: React.PropTypes.string.isRequired,
+                name: React.PropTypes.string.isRequired
+            })
+        ),
         loadConfig: React.PropTypes.func.isRequired
     };
 
@@ -24,7 +38,7 @@ class Base extends React.Component {
         return (
             <div className={styles.root}>
                 <Header siteName={this.props.siteName} />
-                <Nav/>
+                <Nav leftMenuItems={this.props.leftMenuItems} rightMenuItems={this.props.rightMenuItems}/>
                 <div className={ classNames('pure-g', styles.mainSection) }>
                     <div className='pure-u-2-3'>
                         {this.props.children}
@@ -40,8 +54,11 @@ class Base extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    const config = state.get('config');
     return {
-        siteName: state.getIn(['config', 'SITE_NAME'])
+        siteName: config.get('SITE_NAME'),
+        leftMenuItems: config.get('LEFT_MENU_ITEMS'),
+        rightMenuItems: config.get('RIGHT_MENU_ITEMS')
     };
 };
 

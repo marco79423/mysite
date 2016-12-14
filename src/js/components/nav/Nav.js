@@ -1,28 +1,45 @@
 import * as React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { Link } from 'react-router';
 
 import styles from './Nav.scss';
 
 
 export default class Nav extends React.Component {
+    static propTypes = {
+        leftMenuItems: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.contains({
+                url: React.PropTypes.string.isRequired,
+                name: React.PropTypes.string.isRequired
+            })
+        ),
+        rightMenuItems: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.contains({
+                url: React.PropTypes.string.isRequired,
+                name: React.PropTypes.string.isRequired
+            })
+        ),
+        fetchArticles: React.PropTypes.func
+    };
 
     render() {
-        const leftMenuItems = [
-            'Python', '專案作品', '程式設計', 'UNIX & 工具', '胡言亂語'
-        ];
-
-        const rightMenuItems = [
-            '閱讀計劃', '成功日記'
-        ];
-
         return (
             <div className={styles.root}>
                 <div className={styles.leftMenu}>
-                    {leftMenuItems.map((item, i) => (<div key={i} className={styles.menuItem}>{item}</div>))}
+                    {this.props.leftMenuItems.map(item => (
+                        <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>
+                            {item.get('name')}
+                        </Link>
+                    ))}
                 </div>
                 <div className={styles.rightMenu}>
-                    {rightMenuItems.map((item, i) => (<div key={i} className={styles.menuItem}>{item}</div>))}
+                    {this.props.rightMenuItems.map(item => (
+                        <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>
+                            {item.get('name')}
+                        </Link>
+                    ))}
                 </div>
             </div>
-        )
+        );
     }
 }
