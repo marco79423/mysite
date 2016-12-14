@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
+import * as config from '../../config';
 import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Sidebar from '../../components/sidebar';
@@ -14,7 +15,7 @@ class Base extends React.Component {
     render() {
         return (
             <div className={styles.root}>
-                <Header/>
+                <Header siteName={this.props.siteName} />
                 <Nav/>
                 <div className={ classNames('pure-g', styles.mainSection) }>
                     <div className='pure-u-2-3'>
@@ -32,6 +33,7 @@ class Base extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        siteName: config.SITE_NAME
     };
 };
 

@@ -5,13 +5,15 @@ import styles from './Header.scss';
 
 
 export default class Header extends React.Component {
-    render() {
-        const siteName = '兩大類 x 兩大類 = 四大類';
+    static PropTypes = {
+        siteName: React.PropTypes.string.isRequired
+    };
 
+    render() {
         return (
             <div className={styles.root}>
                 <div className={styles.logo} />
-                <div className={styles.title}><Link className={styles.link} to='/'>{siteName}</Link></div>
+                <div className={styles.title}><Link className={styles.link} to='/'>{this.props.siteName}</Link></div>
             </div>
         );
     }
