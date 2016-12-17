@@ -1,12 +1,8 @@
 import * as Immutable from 'immutable';
-import {handleActions} from 'redux-actions';
-import * as config from '../../config';
+import * as settings from './settings';
 
 
-const defaultState = Immutable.fromJS(config);
+const defaultState = Immutable.fromJS(settings);
 
-const reducerMap = {
-  LOAD_CONFIG: () => Immutable.fromJS(config)
-};
 
-export default handleActions(reducerMap, defaultState);
+export default () => defaultState;

@@ -7,20 +7,14 @@ import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
-import * as configActions from '../../ducks/config/actions';
 
 import styles from './Base.scss';
 
 
 class Base extends React.Component {
   static PropTypes = {
-    config: ImmutablePropTypes.map.isRequired,
-    loadConfig: React.PropTypes.func.isRequired
+    config: ImmutablePropTypes.map.isRequired
   };
-
-  componentWillMount() {
-    this.props.loadConfig();
-  }
 
   render() {
     const {config} = this.props;
@@ -46,7 +40,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadConfig: () => dispatch(configActions.loadConfig())
   };
 };
 
