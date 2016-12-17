@@ -1,3 +1,5 @@
+@import '../../../css/base.scss';
+
 .root {
 
   .profile {
@@ -23,10 +25,9 @@
 
       font-size: 1.2em;
 
-      .socialLink {
-        display: inline-block;
+      .link {
+        @extend .link;
         font-size: 0.7em;
-        color: #388ca8;
 
         &:not(:first-child):before {
           content: '|';
@@ -34,7 +35,6 @@
           color: #6f6f6f;
         }
       }
-
     }
   }
 

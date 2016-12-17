@@ -1,17 +1,24 @@
 import * as React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import {Link} from 'react-router';
 
 import styles from './AboutMe.scss';
 
 export default class Sidebar extends React.Component {
+  static PropTypes = {
+    config: ImmutablePropTypes.contains({
+      socialLinks: ImmutablePropTypes.listOf(
+        ImmutablePropTypes.contains({
+          name: React.PropTypes.string.isRequired,
+          url: React.PropTypes.string.isRequired
+        })
+      ),
+      quote: React.PropTypes.string
+    })
+  };
+
   render() {
-    const socialLinks = [
-      {name: 'GitHub', url: 'https://github.com/marco79423'},
-      {name: 'Bitbucket', url: 'https://bitbucket.org/marco79423'},
-      {name: 'facebook', url: 'https://www.facebook.com/marco79423'}
-    ];
-
-    const quote = '能站著就別坐著，能走路就別騎車\n保持站起來的毅力和一步一腳印的耐心';
-
+    const {config} = this.props;
     return (
       <div className={styles.root}>
         <div className={styles.profile}>
@@ -19,14 +26,12 @@ export default class Sidebar extends React.Component {
           <div className={styles.info}>
             <div>我是一隻<em>兩大類</em></div>
             <div>
-              {socialLinks.map(link => (
-                <div key={link.name} className={styles.socialLink}>{link.name}</div>))}
+              {config.get('socialLinks').map(link => (
+                <a key={link.get('name')} className={styles.link} href={link.get('url')}>{link.get('name')}</a>))}
             </div>
           </div>
         </div>
-        <div className={styles.quote}>
-          {quote}
-        </div>
+        <div className={styles.quote}>{config.get('quote')}</div>
       </div>
     );
   }
