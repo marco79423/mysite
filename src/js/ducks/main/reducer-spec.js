@@ -9,17 +9,17 @@ import reducer from './reducer';
 chai.use(chaiImmutable);
 
 
-describe('reducer of main', function(){
+describe('reducer of main', function () {
 
-    it('should return a state with a new value', function () {
-        const state = Immutable.fromJS({
-            value: 1
-        });
-        const action = actions.addValue();
-        const expectedNextState = Immutable.fromJS({
-            value: 2
-        });
-
-        chai.expect(reducer(state, action)).to.eql(expectedNextState);
+  it('should return a state with a new value', function () {
+    const state = Immutable.fromJS({
+      value: 1
     });
+    const action = actions.addValue();
+    const expectedNextState = Immutable.fromJS({
+      value: 2
+    });
+
+    chai.expect(reducer(state, action)).to.eql(expectedNextState);
+  });
 });

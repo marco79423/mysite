@@ -1,35 +1,35 @@
 @import '../../../css/base.scss';
 
 .root {
-    padding: 1em;
-    text-align: center;
+  padding: 1em;
+  text-align: center;
 
-    .pagination {
-        font-size: 1.5em;
+  .pagination {
+    font-size: 1.5em;
 
-        .button {
-            @extend .link;
-            height: 1.5em;
-            padding: 0.1em 0.3em;
-            color: white;
-            background-color: $dominant-color;
+    .button {
+      @extend .link;
+      height: 1.5em;
+      padding: 0.1em 0.3em;
+      color: white;
+      background-color: $dominant-color;
 
-            &:hover{
-                background: $accent-color;
-            }
-        }
-
-        .button:not(:first-child) {
-            margin-left: 0.5em;
-        }
-
-        .current {
-            background: $accent-color;
-        }
-
-        .link {
-            @extend .link;
-            color: white;
-        }
+      &:hover {
+        background: $accent-color;
+      }
     }
+
+    .button:not(:first-child) {
+      margin-left: 0.5em;
+    }
+
+    .current {
+      background: $accent-color;
+    }
+
+    .link {
+      @extend .link;
+      color: white;
+    }
+  }
 }

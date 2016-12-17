@@ -1,22 +1,22 @@
 @import './colors.scss';
 
 :global {
-    html, button, input, select, textarea,
-    .pure-g [class *= "pure-u"] {
-        color: rgb(80, 80, 80);
-        font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
-    }
+  html, button, input, select, textarea,
+  .pure-g [class *= "pure-u"] {
+    color: rgb(80, 80, 80);
+    font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
+  }
 
-    body {
-        background: rgb(100, 100, 100);
-    }
+  body {
+    background: rgb(100, 100, 100);
+  }
 }
 
 .link {
-    color: $dominant-color;
-    text-decoration: none;
+  color: $dominant-color;
+  text-decoration: none;
 
-    &:visited {
-        text-decoration: none;
-    }
+  &:visited {
+    text-decoration: none;
+  }
 }

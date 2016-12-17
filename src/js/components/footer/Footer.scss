@@ -1,14 +1,13 @@
 @import '../../../css/colors.scss';
 
-
 .root {
-    height: 45px;
-    background: $dominant-color2;
+  height: 45px;
+  background: $dominant-color2;
 
-    .copyright {
-        color: white;
-        height: 100%;
-        padding-top: 0.5em;
-        text-align: center;
-    }
+  .copyright {
+    color: white;
+    height: 100%;
+    padding-top: 0.5em;
+    text-align: center;
+  }
 }

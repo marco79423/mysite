@@ -1,43 +1,43 @@
 @import '../../../css/base.scss';
 
 .root {
-    background: $dominant-color;
-    height: 85px;
+  background: $dominant-color;
+  height: 85px;
 
-    .logo {
-        float: left;
-        background: url(../../img/logo.png) no-repeat center;
-        margin-top: 10px;
-        margin-left: 20px;
+  .logo {
+    float: left;
+    background: url(../../img/logo.png) no-repeat center;
+    margin-top: 10px;
+    margin-left: 20px;
 
-        width: 58px;
-        height: 58px;
+    width: 58px;
+    height: 58px;
 
-        border: .1em solid #FFF;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    border: .1em solid #FFF;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 
-        transform: rotate(-10deg);
-        transition-duration: 0.8s;
+    transform: rotate(-10deg);
+    transition-duration: 0.8s;
 
-        &:hover {
-            transform: rotate(10deg);
-        }
+    &:hover {
+      transform: rotate(10deg);
     }
+  }
 
-    .title {
-        display: inline-block;
-        margin-left: 25px;
-        margin-top: 20px;
+  .title {
+    display: inline-block;
+    margin-left: 25px;
+    margin-top: 20px;
 
-        color: white;
-        font-size: 2em;
-        font-weight: 700;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
 
-        .link {
-            @extend .link;
-            color: white;
-        }
+    .link {
+      @extend .link;
+      color: white;
     }
+  }
 }
 
 

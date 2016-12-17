@@ -14,27 +14,27 @@ import '../../../css/base.scss';
 
 
 const history = syncHistoryWithStore(browserHistory, store, {
-    selectLocationState (state) {
-        return state.get('routing').toObject();
-    }
+  selectLocationState(state) {
+    return state.get('routing').toObject();
+  }
 });
 
 export class App extends React.Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <Router history={history}>
-                    <Route path="/" component={Base}>
-                        <IndexRoute component={ArticleList} />
-                        <Route path='/articles/page/:pageNum/' component={ArticleList} />
-                        <Route path='/articles/category/:category/' component={ArticleList} />
-                        <Route path='/articles/category/:category/page/:pageNum/' component={ArticleList} />
-                        <Route path='/articles/:slug/' component={Article} />
-                    </Route>
-                </Router>
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <Router history={history}>
+          <Route path="/" component={Base}>
+            <IndexRoute component={ArticleList}/>
+            <Route path='/articles/page/:pageNum/' component={ArticleList}/>
+            <Route path='/articles/category/:category/' component={ArticleList}/>
+            <Route path='/articles/category/:category/page/:pageNum/' component={ArticleList}/>
+            <Route path='/articles/:slug/' component={Article}/>
+          </Route>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;

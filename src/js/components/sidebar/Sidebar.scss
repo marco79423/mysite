@@ -1,15 +1,14 @@
 @import '../../../css/colors.scss';
 
-
 .root {
-    min-height: 600px;
-    padding: 30px;
+  min-height: 600px;
+  padding: 30px;
 
-    .otherPart {
-        margin-top: 30px;
-    }
+  .otherPart {
+    margin-top: 30px;
+  }
 
-    .link {
-        color: $dominant-color
-    }
+  .link {
+    color: $dominant-color
+  }
 }

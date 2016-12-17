@@ -5,6 +5,6 @@ import App from './containers/app';
 
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('app')
+  <App />,
+  document.getElementById('app')
 );
