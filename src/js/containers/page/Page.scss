@@ -1,0 +1,16 @@
+@import '../../../css/base.scss';
+
+.root {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+
+  .header {
+    font-size: 2em;
+    color: $dominant-color;
+
+    .link {
+      @extend .link;
+    }
+  }
+}

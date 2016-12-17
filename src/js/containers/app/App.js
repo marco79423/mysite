@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import Base from '../base';
 import ArticleList from '../article-list';
 import Article from '../article';
+import Page from '../page';
 
 import store from './store';
 
@@ -30,6 +31,7 @@ export class App extends React.Component {
             <Route path='/articles/category/:category/' component={ArticleList}/>
             <Route path='/articles/category/:category/page/:pageNum/' component={ArticleList}/>
             <Route path='/articles/:slug/' component={Article}/>
+            <Route path='/:app/:slug/' component={Page}/>
           </Route>
         </Router>
       </Provider>
