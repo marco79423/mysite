@@ -1,6 +1,5 @@
 import * as React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import {Link} from 'react-router';
 
 import styles from './AboutMe.scss';
 
