@@ -41,7 +41,7 @@ export const getMaxPageNum = createSelector(
 
 export const getRecentArticles = createSelector(
   [
-    _getArticlesByCategory,
+    _getArticles,
     _getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)

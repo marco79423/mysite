@@ -22,6 +22,8 @@ export const ABOUT_ME = {
   quote: '能站著就別坐著，能走路就別騎車\n保持站起來的毅力和一步一腳印的耐心'
 };
 
+export const RECENT_ARTICLE_COUNT = 5;
+
 export const API_SERVER_URL = 'http://localhost:8000/api';
 
 export const PAGE_SIZE = 10;

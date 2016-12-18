@@ -7,24 +7,30 @@ import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Sidebar from '../../components/sidebar';
 import Footer from '../../components/footer';
+import * as articleSelectors from '../../ducks/article/selectors';
 
 import styles from './Base.scss';
 
 
 class Base extends React.Component {
   static PropTypes = {
-    config: ImmutablePropTypes.map.isRequired
+    config: ImmutablePropTypes.map.isRequired,
+    recentArticles: ImmutablePropTypes.list
   };
 
   render() {
-    const {config} = this.props;
+    const {config, recentArticles} = this.props;
     return (
       <div className={styles.root}>
         <Header siteName={config.get('SITE_NAME')}/>
         <Nav leftMenuItems={config.get('LEFT_MENU_ITEMS')} rightMenuItems={config.get('RIGHT_MENU_ITEMS')}/>
         <div className={ classNames('pure-g', styles.mainSection) }>
           <div className='pure-u-2-3'>{this.props.children}</div>
-          <div className='pure-u-1-3'><Sidebar aboutMeConfig={config.get('ABOUT_ME')}/></div>
+          <div className='pure-u-1-3'>
+            <Sidebar aboutMeConfig={config.get('ABOUT_ME')}
+                     recentArticles={recentArticles}
+            />
+          </div>
         </div>
         <Footer/>
       </div>
@@ -32,9 +38,10 @@ class Base extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
-    config: state.get('config')
+    config: state.get('config'),
+    recentArticles: articleSelectors.getRecentArticles(state, props)
   };
 };
 

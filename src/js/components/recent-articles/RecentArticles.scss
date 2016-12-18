@@ -1,4 +1,4 @@
-@import '../../../css/colors.scss';
+@import '../../../css/base.scss';
 
 .root {
   margin-top: 30px;
@@ -15,13 +15,12 @@
   }
 
   .articles {
-    margin-top: 10px;
-
+    margin-top: 1em;
     .article {
-      color: $dominant-color;
-
+      @extend .link;
+      display: block;
       &:not(first-child) {
-        margin-top: 15px;
+        margin-top: .8em;
       }
     }
   }
