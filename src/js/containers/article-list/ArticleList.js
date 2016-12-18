@@ -6,6 +6,7 @@ import ArticleListItem from '../../components/article-list-item';
 import Pagination from '../../components/pagination';
 
 import * as articleActions from '../../ducks/article/actions';
+import * as articleSelectors from '../../ducks/article/selectors';
 
 import styles from './ArticleList.scss';
 
@@ -50,20 +51,11 @@ export class ArticleList extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const PAGE_SIZE = state.getIn(['config', 'PAGE_SIZE']);
-  const pageNum = +ownProps.params.pageNum || 1;
+  const pageNum = articleSelectors.getPageNum(state, ownProps);
+  const maxPageNum = articleSelectors.getMaxPageNum(state, ownProps);
+  const articles = articleSelectors.getArticles(state, ownProps);
 
-  let articles = state.getIn(['article', 'items']);
-  if (ownProps.params.category) {
-    articles = articles.filter(article => article
-      .get('categories')
-      .some(category => category.get('slug') === ownProps.params.category));
-  }
-  return {
-    pageNum,
-    maxPageNum: Math.ceil(articles.count() / PAGE_SIZE),
-    articles: articles.slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
-  };
+  return {pageNum, maxPageNum, articles};
 };
 
 const mapDispatchToProps = (dispatch) => {

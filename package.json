@@ -57,7 +57,7 @@
     "redux-immutable": "^3.0.6",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
-    "reselect": "^2.5.1",
+    "reselect": "^2.5.4",
     "sass-loader": "^4.0.2",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
