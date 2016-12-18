@@ -1,22 +1,19 @@
 TODO
-###########
+####
 
 轉存空間
-==========
+====
 
-https://github.com/reactjs/react-router-tutorial/tree/master/lessons/09-index-links
 
 待辦事項
-==========
+====
 
-* 處理 pagination 的問題
-* 完成 category 的功能
-* 實作 page 頁面
-* 補完 about me 的內容
-* 完成「最新文章列表」
 * 完成「所有文章列表」
 * Server rendering
+* 獨立 route
 * 解決 html head 的問題
+* 補 test
+* 刪無用的 duck/main
 * 處理 production 的問題
 * 解決圖片問題
 * 調整 article 內容的頁面
