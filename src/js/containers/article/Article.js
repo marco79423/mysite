@@ -1,12 +1,12 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {connect} from 'react-redux'
+import {Link} from 'react-router'
 
-import ArticleMeta from '../../components/article-meta';
-import * as articleActions from '../../ducks/article/actions';
+import ArticleMeta from '../../components/article-meta'
+import * as articleActions from '../../ducks/article/actions'
 
-import styles from './Article.scss';
+import styles from './Article.scss'
 
 
 export class Article extends React.Component {
@@ -16,18 +16,18 @@ export class Article extends React.Component {
       title: React.PropTypes.string.isRequired,
       content: React.PropTypes.content
     })
-  };
+  }
 
   componentWillMount() {
     if (!this.props.article) {
-      this.props.fetchArticles();
+      this.props.fetchArticles()
     }
   }
 
   render() {
-    const {article} = this.props;
+    const {article} = this.props
     if (!article) {
-      return <article>讀取中……</article>;
+      return <article>讀取中……</article>
     }
 
     return (
@@ -44,20 +44,20 @@ export class Article extends React.Component {
         </div>
         <div dangerouslySetInnerHTML={{__html: article.get('content')}}/>
       </article>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
     article: state.getIn(['article', 'items']).find(article => article.get('slug') === ownProps.params.slug)
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchArticles: () => dispatch(articleActions.fetchArticles())
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Article)

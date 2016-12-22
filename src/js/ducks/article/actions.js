@@ -1,10 +1,10 @@
-import moment from 'moment';
-import {createAction} from 'redux-actions';
-import sortBy from 'lodash/sortBy';
-import reverse from 'lodash/reverse';
+import moment from 'moment'
+import {createAction} from 'redux-actions'
+import sortBy from 'lodash/sortBy'
+import reverse from 'lodash/reverse'
 
 
-export const setArticles = createAction('SET_ARTICLES', articles => articles);
+export const setArticles = createAction('SET_ARTICLES', articles => articles)
 
 
 export function fetchArticles() {
@@ -17,6 +17,6 @@ export function fetchArticles() {
         modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null
       })))
       .then(articles => reverse(sortBy(articles, 'date')))
-      .then(articles => dispatch(setArticles(articles)));
-  };
+      .then(articles => dispatch(setArticles(articles)))
+  }
 }

@@ -1,5 +1,5 @@
-const context = require.context('.', true, /.+-spec\.js$/);
+const context = require.context('.', true, /.+-spec\.js$/)
 
-context.keys().forEach(context);
+context.keys().forEach(context)
 
-module.exports = context;
+module.exports = context

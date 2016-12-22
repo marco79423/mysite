@@ -1,12 +1,12 @@
-import {createSelector} from 'reselect';
+import {createSelector} from 'reselect'
 
 
-const _getCategory = (state, props) => props.params.category;
+const _getCategory = (state, props) => props.params.category
 
-const _getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE']);
-const _getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT']);
+const _getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE'])
+const _getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT'])
 
-const _getArticles = (state) => state.getIn(['article', 'items']);
+const _getArticles = (state) => state.getIn(['article', 'items'])
 
 const _getArticlesByCategory = createSelector(
   [_getArticles, _getCategory],
@@ -14,14 +14,14 @@ const _getArticlesByCategory = createSelector(
     if (category) {
       return articles.filter(article => article
         .get('categories')
-        .some(c => c.get('slug') === category));
+        .some(c => c.get('slug') === category))
     }
-    return articles;
+    return articles
   }
-);
+)
 
 
-export const getPageNum = (state, props) => +props.params.pageNum || 1;
+export const getPageNum = (state, props) => +props.params.pageNum || 1
 
 export const getArticles = createSelector(
   [
@@ -30,14 +30,14 @@ export const getArticles = createSelector(
     _getPageSize
   ],
   (pageNum, articles, pageSize) => {
-    return articles.slice((pageNum - 1) * pageSize, pageNum * pageSize);
+    return articles.slice((pageNum - 1) * pageSize, pageNum * pageSize)
   }
-);
+)
 
 export const getMaxPageNum = createSelector(
   [getArticles, _getPageSize],
   (articles, pageSize) => Math.ceil(articles.count() / pageSize)
-);
+)
 
 export const getRecentArticles = createSelector(
   [
@@ -45,4 +45,4 @@ export const getRecentArticles = createSelector(
     _getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)
-);
+)

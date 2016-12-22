@@ -1,10 +1,10 @@
-import * as React from 'react';
-import range from 'lodash/range';
-import classNames from 'classnames';
-import {Link} from 'react-router';
+import * as React from 'react'
+import range from 'lodash/range'
+import classNames from 'classnames'
+import {Link} from 'react-router'
 
 
-import styles from './Pagination.scss';
+import styles from './Pagination.scss'
 
 
 export default class Pagination extends React.Component {
@@ -12,10 +12,10 @@ export default class Pagination extends React.Component {
     current: React.PropTypes.number.isRequired,
     max: React.PropTypes.number.isRequired,
     makeLink: React.PropTypes.func.isRequired
-  };
+  }
 
   render() {
-    const {current, max, makeLink} = this.props;
+    const {current, max, makeLink} = this.props
 
     return (
       <div className={styles.root}>
@@ -35,6 +35,6 @@ export default class Pagination extends React.Component {
           }
         </div>
       </div>
-    );
+    )
   }
 }

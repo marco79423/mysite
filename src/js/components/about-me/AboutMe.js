@@ -1,7 +1,7 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
 
-import styles from './AboutMe.scss';
+import styles from './AboutMe.scss'
 
 export default class Sidebar extends React.Component {
   static PropTypes = {
@@ -14,10 +14,10 @@ export default class Sidebar extends React.Component {
       ),
       quote: React.PropTypes.string
     })
-  };
+  }
 
   render() {
-    const {config} = this.props;
+    const {config} = this.props
     return (
       <div className={styles.root}>
         <div className={styles.profile}>
@@ -32,6 +32,6 @@ export default class Sidebar extends React.Component {
         </div>
         <div className={styles.quote}>{config.get('quote')}</div>
       </div>
-    );
+    )
   }
 }

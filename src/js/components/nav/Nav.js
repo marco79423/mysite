@@ -1,8 +1,8 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {Link} from 'react-router';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {Link} from 'react-router'
 
-import styles from './Nav.scss';
+import styles from './Nav.scss'
 
 
 export default class Nav extends React.Component {
@@ -20,7 +20,7 @@ export default class Nav extends React.Component {
       })
     ),
     fetchArticles: React.PropTypes.func
-  };
+  }
 
   render() {
     return (
@@ -36,6 +36,6 @@ export default class Nav extends React.Component {
           ))}
         </div>
       </div>
-    );
+    )
   }
 }

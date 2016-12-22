@@ -1,3 +1,3 @@
-import ArticleMeta from './ArticleMeta';
+import ArticleMeta from './ArticleMeta'
 
-export default ArticleMeta;
+export default ArticleMeta

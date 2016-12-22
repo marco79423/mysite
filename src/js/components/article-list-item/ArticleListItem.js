@@ -1,10 +1,10 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {Link} from 'react-router';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {Link} from 'react-router'
 
-import ArticleMeta from '../article-meta';
+import ArticleMeta from '../article-meta'
 
-import styles from './ArticleListItem.scss';
+import styles from './ArticleListItem.scss'
 
 
 export default class ArticleListItem extends React.Component {
@@ -13,10 +13,10 @@ export default class ArticleListItem extends React.Component {
       title: React.PropTypes.string.isRequired,
       summary: React.PropTypes.string
     })
-  };
+  }
 
   render() {
-    const {article} = this.props;
+    const {article} = this.props
 
     return (
       <article className={styles.root}>
@@ -32,6 +32,6 @@ export default class ArticleListItem extends React.Component {
         </div>
         <div dangerouslySetInnerHTML={{__html: article.get('summary')}}/>
       </article>
-    );
+    )
   }
 }

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {Link} from 'react-router';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {Link} from 'react-router'
 
-import styles from './RecentArticles.scss';
+import styles from './RecentArticles.scss'
 
 
 export default class RecentArticles extends React.Component {
@@ -13,10 +13,10 @@ export default class RecentArticles extends React.Component {
         title: React.PropTypes.string
       })
     )
-  };
+  }
 
   render() {
-    const {articles} = this.props;
+    const {articles} = this.props
 
     return (
       <div className={styles.root}>
@@ -35,6 +35,6 @@ export default class RecentArticles extends React.Component {
         </div>
         <div className={styles.hr}/>
       </div>
-    );
+    )
   }
 }

@@ -1,17 +1,17 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
 
-import AboutMe from '../about-me';
-import RecentArticles from '../recent-articles';
+import AboutMe from '../about-me'
+import RecentArticles from '../recent-articles'
 
-import styles from './Sidebar.scss';
+import styles from './Sidebar.scss'
 
 
 export default class Sidebar extends React.Component {
   static PropTypes = {
     aboutMeConfig: ImmutablePropTypes.map.isRequired,
     recentArticles: ImmutablePropTypes.list
-  };
+  }
 
   render() {
     return (
@@ -22,6 +22,6 @@ export default class Sidebar extends React.Component {
           <div className={styles.link}>所有文章列表</div>
         </div>
       </div>
-    );
+    )
   }
 }

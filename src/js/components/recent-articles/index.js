@@ -1,3 +1,3 @@
-import RecentArticles from './RecentArticles';
+import RecentArticles from './RecentArticles'
 
-export default RecentArticles;
+export default RecentArticles

@@ -1,6 +1,6 @@
-import { createAction } from 'redux-actions';
+import { createAction } from 'redux-actions'
 
-import * as actionTypes from './actionTypes';
+import * as actionTypes from './actionTypes'
 
 
-export const addValue = createAction(actionTypes.ADD_VALUE);
+export const addValue = createAction(actionTypes.ADD_VALUE)

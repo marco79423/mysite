@@ -1,14 +1,14 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {connect} from 'react-redux';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {connect} from 'react-redux'
 
-import ArticleListItem from '../../components/article-list-item';
-import Pagination from '../../components/pagination';
+import ArticleListItem from '../../components/article-list-item'
+import Pagination from '../../components/pagination'
 
-import * as articleActions from '../../ducks/article/actions';
-import * as articleSelectors from '../../ducks/article/selectors';
+import * as articleActions from '../../ducks/article/actions'
+import * as articleSelectors from '../../ducks/article/selectors'
 
-import styles from './ArticleList.scss';
+import styles from './ArticleList.scss'
 
 export class ArticleList extends React.Component {
   static propTypes = {
@@ -21,18 +21,18 @@ export class ArticleList extends React.Component {
       })
     ),
     fetchArticles: React.PropTypes.func
-  };
+  }
 
   static contextTypes = {
     router: React.PropTypes.object
-  };
+  }
 
   componentWillMount() {
-    this.props.fetchArticles();
+    this.props.fetchArticles()
   }
 
   render() {
-    const {articles, pageNum, maxPageNum} = this.props;
+    const {articles, pageNum, maxPageNum} = this.props
     return (
       <div className={styles.root}>
         {
@@ -46,22 +46,22 @@ export class ArticleList extends React.Component {
           makeLink={p => `/articles/page/${p}/`}
         />
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const pageNum = articleSelectors.getPageNum(state, ownProps);
-  const maxPageNum = articleSelectors.getMaxPageNum(state, ownProps);
-  const articles = articleSelectors.getArticles(state, ownProps);
+  const pageNum = articleSelectors.getPageNum(state, ownProps)
+  const maxPageNum = articleSelectors.getMaxPageNum(state, ownProps)
+  const articles = articleSelectors.getArticles(state, ownProps)
 
-  return {pageNum, maxPageNum, articles};
-};
+  return {pageNum, maxPageNum, articles}
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchArticles: () => dispatch(articleActions.fetchArticles())
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList)

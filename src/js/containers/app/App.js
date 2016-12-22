@@ -1,24 +1,24 @@
-import * as React from 'react';
-import {Router, browserHistory, Route, IndexRoute} from 'react-router';
-import {syncHistoryWithStore} from 'react-router-redux';
-import {Provider} from 'react-redux';
+import * as React from 'react'
+import {Router, browserHistory, Route, IndexRoute} from 'react-router'
+import {syncHistoryWithStore} from 'react-router-redux'
+import {Provider} from 'react-redux'
 
-import Base from '../base';
-import ArticleList from '../article-list';
-import Article from '../article';
-import Page from '../page';
+import Base from '../base'
+import ArticleList from '../article-list'
+import Article from '../article'
+import Page from '../page'
 
-import store from './store';
+import store from './store'
 
-import 'purecss/build/pure.css';
-import '../../../css/base.scss';
+import 'purecss/build/pure.css'
+import '../../../css/base.scss'
 
 
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState(state) {
-    return state.get('routing').toObject();
+    return state.get('routing').toObject()
   }
-});
+})
 
 export class App extends React.Component {
   render() {
@@ -35,8 +35,8 @@ export class App extends React.Component {
           </Route>
         </Router>
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+export default App

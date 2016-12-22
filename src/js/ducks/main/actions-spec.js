@@ -1,7 +1,7 @@
-import * as chai from 'chai';
+import * as chai from 'chai'
 
-import * as actionTypes from './actionTypes';
-import * as actions from './actions';
+import * as actionTypes from './actionTypes'
+import * as actions from './actions'
 
 
 describe('actions of main', () => {
@@ -10,7 +10,7 @@ describe('actions of main', () => {
     const expectedAction = {
       type: actionTypes.ADD_VALUE,
       payload: undefined
-    };
-    chai.expect(actions.addValue()).to.eql(expectedAction);
-  });
-});
+    }
+    chai.expect(actions.addValue()).to.eql(expectedAction)
+  })
+})

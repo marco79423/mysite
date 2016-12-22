@@ -1,25 +1,25 @@
-import * as React from 'react';
-import {connect} from 'react-redux';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import classNames from 'classnames';
+import * as React from 'react'
+import {connect} from 'react-redux'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import classNames from 'classnames'
 
-import Header from '../../components/header';
-import Nav from '../../components/nav';
-import Sidebar from '../../components/sidebar';
-import Footer from '../../components/footer';
-import * as articleSelectors from '../../ducks/article/selectors';
+import Header from '../../components/header'
+import Nav from '../../components/nav'
+import Sidebar from '../../components/sidebar'
+import Footer from '../../components/footer'
+import * as articleSelectors from '../../ducks/article/selectors'
 
-import styles from './Base.scss';
+import styles from './Base.scss'
 
 
 class Base extends React.Component {
   static PropTypes = {
     config: ImmutablePropTypes.map.isRequired,
     recentArticles: ImmutablePropTypes.list
-  };
+  }
 
   render() {
-    const {config, recentArticles} = this.props;
+    const {config, recentArticles} = this.props
     return (
       <div className={styles.root}>
         <Header siteName={config.get('SITE_NAME')}/>
@@ -34,7 +34,7 @@ class Base extends React.Component {
         </div>
         <Footer/>
       </div>
-    );
+    )
   }
 }
 
@@ -42,12 +42,12 @@ const mapStateToProps = (state, props) => {
   return {
     config: state.get('config'),
     recentArticles: articleSelectors.getRecentArticles(state, props)
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Base);
+export default connect(mapStateToProps, mapDispatchToProps)(Base)

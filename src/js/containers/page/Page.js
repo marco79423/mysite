@@ -1,11 +1,11 @@
-import * as React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {connect} from 'react-redux'
+import {Link} from 'react-router'
 
-import * as pageActions from '../../ducks/page/actions';
+import * as pageActions from '../../ducks/page/actions'
 
-import styles from './Page.scss';
+import styles from './Page.scss'
 
 
 export class Page extends React.Component {
@@ -16,18 +16,18 @@ export class Page extends React.Component {
       title: React.PropTypes.string.isRequired,
       content: React.PropTypes.content
     })
-  };
+  }
 
   componentWillMount() {
     if (!this.props.page) {
-      this.props.fetchPages();
+      this.props.fetchPages()
     }
   }
 
   render() {
-    const {page} = this.props;
+    const {page} = this.props
     if (!page) {
-      return <article>讀取中……</article>;
+      return <article>讀取中……</article>
     }
 
     return (
@@ -39,7 +39,7 @@ export class Page extends React.Component {
         </div>
         <div dangerouslySetInnerHTML={{__html: page.get('content')}}/>
       </article>
-    );
+    )
   }
 }
 
@@ -49,13 +49,13 @@ const mapStateToProps = (state, ownProps) => {
       page.get('app') === ownProps.params.app &&
       page.get('slug') === ownProps.params.slug
     ))
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPages: () => dispatch(pageActions.fetchPages())
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+export default connect(mapStateToProps, mapDispatchToProps)(Page)
