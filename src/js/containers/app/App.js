@@ -1,15 +1,10 @@
 import * as React from 'react'
-import {Router, browserHistory, Route, IndexRoute} from 'react-router'
+import {Router, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux'
 
-import Base from '../base'
-import ArticleList from '../article-list'
-import Article from '../article'
-import Archives from '../archives'
-import Page from '../page'
-
 import store from './store'
+import routes from './routes';
 
 import 'purecss/build/pure.css'
 import '../../../css/base.scss'
@@ -26,15 +21,7 @@ export class App extends React.Component {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <Route path="/" component={Base}>
-            <IndexRoute component={ArticleList}/>
-            <Route path='/articles/page/:pageNum/' component={ArticleList}/>
-            <Route path='/articles/category/:category/' component={ArticleList}/>
-            <Route path='/articles/category/:category/page/:pageNum/' component={ArticleList}/>
-            <Route path='/articles/archives/' component={Archives}/>
-            <Route path='/articles/:slug/' component={Article}/>
-            <Route path='/:app/:slug/' component={Page}/>
-          </Route>
+          {routes}
         </Router>
       </Provider>
     )
