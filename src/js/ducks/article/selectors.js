@@ -6,10 +6,10 @@ const _getCategory = (state, props) => props.params.category
 const _getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE'])
 const _getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT'])
 
-const _getArticles = (state) => state.getIn(['article', 'items'])
+export const getAllArticles = (state) => state.getIn(['article', 'items'])
 
 const _getArticlesByCategory = createSelector(
-  [_getArticles, _getCategory],
+  [getAllArticles, _getCategory],
   (articles, category) => {
     if (category) {
       return articles.filter(article => article
@@ -19,7 +19,6 @@ const _getArticlesByCategory = createSelector(
     return articles
   }
 )
-
 
 export const getPageNum = (state, props) => +props.params.pageNum || 1
 
@@ -41,7 +40,7 @@ export const getMaxPageNum = createSelector(
 
 export const getRecentArticles = createSelector(
   [
-    _getArticles,
+    getAllArticles,
     _getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)

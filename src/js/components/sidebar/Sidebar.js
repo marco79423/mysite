@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
+import {Link} from 'react-router'
 
 import AboutMe from '../about-me'
 import RecentArticles from '../recent-articles'
@@ -19,7 +20,7 @@ export default class Sidebar extends React.Component {
         <AboutMe config={this.props.aboutMeConfig}/>
         <RecentArticles articles={this.props.recentArticles}/>
         <div className={styles.otherPart}>
-          <div className={styles.link}>所有文章列表</div>
+          <Link className={styles.link} to='/articles/archives/'>所有文章列表</Link>
         </div>
       </div>
     )
