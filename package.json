@@ -1,13 +1,18 @@
 {
   "name": "mysite-fronend",
   "version": "0.0.1",
+  "description": "兩大類的個人網站",
+  "author": "兩大類 <marco79423@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:marco79423/mysite-frontend.git"
+  },
   "scripts": {
     "test": "karma start",
     "dist": "webpack -p",
     "dev": "webpack-dev-server --colors --port 3000 --debug --hot --watch --history-api-fallback",
-    "server": "json-server --watch ./fake-server/db.json --routes ./fake-server/routes.json --port 3001"
+    "fake-server": "json-server --watch ./fake-server/db.json --routes ./fake-server/routes.json --port 3001"
   },
-  "author": "兩大類 <marco79423@gmail.com>",
   "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-eslint": "^7.0.0",
@@ -25,6 +30,7 @@
     "css-loader": "^0.26.1",
     "eslint": "^3.5.0",
     "eslint-plugin-react": "^6.2.2",
+    "file-loader": "^0.9.0",
     "immutable": "^3.8.1",
     "install": "^0.8.2",
     "istanbul": "^0.4.3",
@@ -65,5 +71,6 @@
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
     "whatwg-fetch": "^2.0.1"
-  }
+  },
+  "license" : "BSD-3-Clause"
 }
