@@ -23,10 +23,6 @@ export class ArticleList extends React.Component {
     fetchArticles: React.PropTypes.func
   }
 
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
-
   componentWillMount() {
     this.props.fetchArticles()
   }
