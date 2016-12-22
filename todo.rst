@@ -8,9 +8,8 @@ TODO
 待辦事項
 ====
 
-* 完成「所有文章列表」
 * Server rendering
-* 獨立 route
+* 整理 package.json 的 dependencies 和 devDependencies
 * 解決 html head 的問題
 * 補 test
 * 刪無用的 duck/main
