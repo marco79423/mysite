@@ -6,6 +6,8 @@ import {Provider} from 'react-redux'
 import store from './store'
 import routes from './routes';
 
+import 'isomorphic-fetch';
+
 import 'purecss/build/pure.css'
 import '../../../css/base.scss'
 
