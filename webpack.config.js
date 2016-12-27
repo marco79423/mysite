@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 
 module.exports = {
   entry: [
@@ -10,9 +12,9 @@ module.exports = {
     './src/js/main.js'
   ],
   output: {
-    publicPath: '/assets/',
-    path: path.join(__dirname, '/assets'),
-    filename: 'bundle.js'
+    publicPath: '/',
+    path: path.join(__dirname, 'dist'),
+    filename: 'assets/bundle.js'
   },
   module: {
     loaders: [
@@ -37,5 +39,10 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'html', 'index.html')
+    })
+  ],
   devtool: 'eval'
 }
