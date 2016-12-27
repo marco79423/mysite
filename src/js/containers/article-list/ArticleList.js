@@ -24,7 +24,9 @@ export class ArticleList extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchArticles()
+    if (this.props.articles.isEmpty()) {
+      this.props.fetchArticles()
+    }
   }
 
   render() {
