@@ -4,11 +4,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
-module.exports = {
+let config = {
   entry: [
     'babel-polyfill',
-    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
-    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './src/js/main.js'
   ],
   output: {
@@ -20,7 +18,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'react-hot!babel',
+        loader: 'babel',
         include: path.join(__dirname, 'src')
       },
       {
@@ -42,7 +40,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'html', 'index.html')
+    }),
+    new webpack.DefinePlugin({
+      'process.env' : {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        DEBUG: (process.env.NODE_ENV !== 'production')
+      }
     })
-  ],
-  devtool: 'eval'
+  ]
 }
+
+
+if (process.env.NODE_ENV !== 'production') {
+  config.entry.push('webpack-dev-server/client?http://0.0.0.0:3000')
+  config.entry.push('webpack/hot/only-dev-server')
+  config.module.loaders[0].loader = 'react-hot!babel'
+  config.devtool = 'eval'
+}
+
+module.exports = config
