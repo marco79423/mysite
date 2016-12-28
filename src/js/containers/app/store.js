@@ -8,11 +8,7 @@ import {routerMiddleware} from 'react-router-redux'
 import reducer from '../../ducks/reducer'
 
 
-let middlewares = [
-  thunk,
-  routerMiddleware(browserHistory)
-]
-
+let middleware = []
 if(process.env.DEBUG) {
   const stateTransformer = (state) => {
     if (Immutable.Iterable.isIterable(state)) {
@@ -20,14 +16,23 @@ if(process.env.DEBUG) {
     }
     return state
   }
-  middlewares = [createLogger({stateTransformer}), ...middlewares]
+  middleware = [
+    createLogger({stateTransformer}),
+    thunk,
+    routerMiddleware(browserHistory)
+  ]
+} else {
+  middleware = [
+    thunk,
+    routerMiddleware(browserHistory)
+  ]
 }
 
 const initialState = Immutable.Map()
 const store = createStore(
   reducer,
   initialState,
-  applyMiddleware(...middlewares)
+  applyMiddleware(...middleware)
 )
 
 export default store
