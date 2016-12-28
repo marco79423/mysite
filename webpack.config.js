@@ -18,7 +18,7 @@ module.exports = [
   {
     entry: [
       'babel-polyfill',
-      './src/js/main.js'
+      './src/client/js/main.js'
     ].concat(DEBUG ? [
       'webpack-dev-server/client?http://0.0.0.0:3000',
       'webpack/hot/only-dev-server'
@@ -53,7 +53,7 @@ module.exports = [
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'src', 'html', 'index.html')
+        template: path.join(__dirname, 'src', 'client', 'html', 'index.html')
       }),
       new webpack.DefinePlugin({
         'process.env': {
