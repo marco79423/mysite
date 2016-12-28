@@ -9,8 +9,12 @@
   },
   "scripts": {
     "test": "karma start",
-    "prod": "cross-env NODE_ENV=production webpack -p && node dist/server.js",
-    "dev": "webpack-dev-server --colors --port 3000 --debug --hot --watch --history-api-fallback"
+    "prod": "npm run server:prod && npm run client:prod && node __server.js",
+    "dev": "npm run server && node __server.js",
+
+    "server": "webpack --config webpack.config.server.js",
+    "server:prod": "cross-env NODE_ENV=production webpack -p --config webpack.config.server.js",
+    "client:prod": "cross-env NODE_ENV=production webpack -p --config webpack.config.client.js"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -71,7 +75,8 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.14.0"
   },
   "license": "BSD-3-Clause"
 }
