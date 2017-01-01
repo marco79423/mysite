@@ -2,8 +2,12 @@ const webpack = require('webpack')
 const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const DEBUG = (process.env.NODE_ENV !== 'production')
+
+let myCSS = new ExtractTextPlugin('assets/styles/styles.css', {publicPath: '/assets/styles/'})
+let vendorCSS = new ExtractTextPlugin('assets/styles/vendor.css', {publicPath: '/assets/styles/'})
 
 module.exports = {
   entry: [
@@ -27,12 +31,12 @@ module.exports = {
       {
         test: /\.css|\.scss$/,
         include: path.resolve(__dirname, 'src'),
-        loader: 'style-loader!css-loader?modules!sass-loader'
+        loader: myCSS.extract('css-loader?modules!sass-loader')
       },
       {
         test: /\.css$/,
         exclude: path.resolve(__dirname, 'src'),
-        loader: 'style-loader!css-loader'
+        loader: vendorCSS.extract('css-loader')
       },
       {
         test: /\.(png|jpg)/,
@@ -41,6 +45,8 @@ module.exports = {
     ]
   },
   plugins: [
+    vendorCSS,
+    myCSS,
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'client', 'html', 'index.html')
     }),
