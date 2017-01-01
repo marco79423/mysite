@@ -1,12 +1,17 @@
 import {createSelector} from 'reselect'
-
+import moment from 'moment'
 
 const _getCategory = (state, props) => props.params.category
 
 const _getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE'])
 const _getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT'])
 
-export const getAllArticles = (state) => state.getIn(['article', 'items'])
+export const getAllArticles = (state) => state
+  .getIn(['article', 'items'])
+  .map(article => article.merge({
+    date: moment(article.date),
+    modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null
+  }))
 
 const _getArticlesByCategory = createSelector(
   [getAllArticles, _getCategory],
