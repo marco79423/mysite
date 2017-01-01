@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
 const nodeModules = fs.readdirSync('node_modules')
@@ -11,6 +13,8 @@ const nodeModules = fs.readdirSync('node_modules')
     return modules
   }, {})
 
+let myCSS = new ExtractTextPlugin('assets/styles/styles.css', {publicPath: '/assets/styles/'})
+let vendorCSS = new ExtractTextPlugin('assets/styles/vendor.css', {publicPath: '/assets/styles/'})
 
 module.exports = {
   entry: [
@@ -38,12 +42,12 @@ module.exports = {
       {
         test: /\.css|\.scss$/,
         include: path.resolve(__dirname, 'src'),
-        loader: 'style-loader!css-loader?modules!sass-loader'
+        loader: myCSS.extract('css-loader?modules!sass-loader')
       },
       {
         test: /\.css$/,
         exclude: path.resolve(__dirname, 'src'),
-        loader: 'style-loader!css-loader'
+        loader: vendorCSS.extract('css-loader')
       },
       {
         test: /\.(png|jpg)/,
@@ -52,6 +56,8 @@ module.exports = {
     ]
   },
   plugins: [
+    vendorCSS,
+    myCSS,
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
