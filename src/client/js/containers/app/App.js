@@ -3,7 +3,7 @@ import {browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux'
 
-import store from './store'
+import {configureStore} from '../../../../common/store'
 import {createRoutes} from './routes';
 
 import 'isomorphic-fetch';
@@ -11,7 +11,7 @@ import 'isomorphic-fetch';
 import 'purecss/build/pure.css'
 import '../../../css/base.scss'
 
-
+const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState(state) {
     return state.get('routing').toObject()

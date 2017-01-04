@@ -5,17 +5,13 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import 'isomorphic-fetch';
 import React from 'react'
-import * as Immutable from 'immutable'
-import {applyMiddleware, createStore} from 'redux'
 import {RouterContext, match, createMemoryHistory} from 'react-router'
-import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
-import {routerMiddleware} from 'react-router-redux'
 import {renderToString} from 'react-dom/server';
 import webpackConfig from '../../webpack.config.client'
 
-import reducer from '../client/js/ducks/reducer'
 import {createRoutes} from '../client/js/containers/app/routes'
+import {configureStore} from '../common/store'
 import * as articleActions from '../client/js/ducks/article/actions'
 import * as pageActions from '../client/js/ducks/page/actions'
 
@@ -44,18 +40,6 @@ function renderFullPage(html, state) {
     </body>
     </html>
   `
-}
-
-function configureStore(history) {
-  const initialState = Immutable.Map()
-  return createStore(
-    reducer,
-    initialState,
-    applyMiddleware(
-      thunk,
-      routerMiddleware(history)
-    )
-  )
 }
 
 if (process.env.DEBUG) {
