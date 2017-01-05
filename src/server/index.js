@@ -59,10 +59,6 @@ if (process.env.DEBUG) {
 
   app.use(middleware)
   app.use(webpackHotMiddleware(compiler))
-  app.get('*', function response(req, res) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist', 'index.html')))
-    res.end()
-  })
 } else {
   app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
   app.get('*', (req, res) => {
