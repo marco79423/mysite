@@ -13,6 +13,13 @@ export const getAllArticles = (state) => state
     modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null
   }))
 
+const _getCurrentArticleSlug = (state, props) => props.params.slug
+
+export const getArticle = createSelector(
+  [getAllArticles, _getCurrentArticleSlug],
+  (articles, currentArticleSlug) => articles.find(article => article.get('slug') === currentArticleSlug)
+)
+
 const _getArticlesByCategory = createSelector(
   [getAllArticles, _getCategory],
   (articles, category) => {

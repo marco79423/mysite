@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 
 import ArticleMeta from '../../components/article-meta'
 import * as articleActions from '../../ducks/article/actions'
+import * as articleSelectors from '../../ducks/article/selectors'
 
 import styles from './Article.scss'
 
@@ -50,7 +51,7 @@ export class Article extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    article: state.getIn(['article', 'items']).find(article => article.get('slug') === ownProps.params.slug)
+    article: articleSelectors.getArticle(state, ownProps)
   }
 }
 
