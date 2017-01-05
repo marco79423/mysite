@@ -12,7 +12,7 @@ let vendorCSS = new ExtractTextPlugin('assets/styles/vendor.css', {publicPath: '
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src/client/js/main.js'
+    './src/client/main.js'
   ].concat(DEBUG ? [
     'webpack-hot-middleware/client'
   ] : []),
