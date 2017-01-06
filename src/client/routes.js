@@ -1,11 +1,11 @@
 import React from 'react'
 import {Router, Route, IndexRoute} from 'react-router'
 
-import Base from '../base'
-import ArticleList from '../article-list'
-import Article from '../article'
-import Archives from '../archives'
-import Page from '../page'
+import Base from './containers/base'
+import ArticleList from './containers/article-list'
+import Article from './containers/article'
+import Archives from './containers/archives'
+import Page from './containers/page'
 
 
 export const createRoutes = (history) => (

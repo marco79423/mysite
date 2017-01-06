@@ -10,7 +10,7 @@ import {Provider} from 'react-redux'
 import {renderToString} from 'react-dom/server';
 import webpackConfig from '../../webpack.config.client'
 
-import {createRoutes} from '../client/containers/app/routes'
+import {createRoutes} from '../client/routes'
 import {configureStore} from '../common/store'
 import * as articleActions from '../client/ducks/article/actions'
 import * as pageActions from '../client/ducks/page/actions'
