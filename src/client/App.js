@@ -4,12 +4,12 @@ import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux'
 
 import {configureStore} from '../common/store'
-import {createRoutes} from './routes';
+import {createRoutes} from '../common/routes';
 
 import 'isomorphic-fetch';
 
 import 'purecss/build/pure.css'
-import './css/base.scss'
+import '../common/css/base.scss'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store, {

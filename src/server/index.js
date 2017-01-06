@@ -10,10 +10,10 @@ import {Provider} from 'react-redux'
 import {renderToString} from 'react-dom/server';
 import webpackConfig from '../../webpack.config.client'
 
-import {createRoutes} from '../client/routes'
+import {createRoutes} from '../common/routes'
 import {configureStore} from '../common/store'
-import * as articleActions from '../client/ducks/article/actions'
-import * as pageActions from '../client/ducks/page/actions'
+import * as articleActions from '../common/ducks/article/actions'
+import * as pageActions from '../common/ducks/page/actions'
 
 const app = express()
 const port = 3000

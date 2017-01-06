@@ -6,7 +6,7 @@ import {routerMiddleware} from 'react-router-redux'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 
-import reducer from '../client/ducks/reducer'
+import reducer from './ducks/reducer'
 
 const INITIAL_STATE = (typeof window !== 'undefined') ? window.__PRELOADED_STATE__ : {}
 const DEBUG = process.env.DEBUG
