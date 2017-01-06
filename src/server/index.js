@@ -12,35 +12,13 @@ import webpackConfig from '../../webpack.config.client'
 
 import {createRoutes} from '../common/routes'
 import {configureStore} from '../common/store'
+import {renderHtmlPage} from '../common/html-render'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
 const app = express()
 const port = 3000
 
-
-function renderFullPage(html, state) {
-  return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>兩大類 x 兩大類 = 四大類</title>
-        <link href="/assets/styles/styles.css" rel="stylesheet">
-        <link href="/assets/styles/vendor.css" rel="stylesheet">
-    </head>
-    <body>
-        <div id="app">${html}</div>
-        <script>
-          // WARNING: See the following for Security isues with this approach:
-          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
-          window.__PRELOADED_STATE__ = ${JSON.stringify(state.toJS())}
-        </script>
-        <script type="text/javascript" src="/assets/bundle.js"></script>
-    </body>
-    </html>
-  `
-}
 
 if (process.env.DEBUG) {
   const compiler = webpack(webpackConfig)
@@ -80,7 +58,7 @@ if (process.env.DEBUG) {
                 <RouterContext {...renderProps} />
               </Provider>
             );
-            res.status(200).send(renderFullPage(html, store.getState()))
+            res.status(200).send(renderHtmlPage(html, store.getState()))
           })
       } else {
         res.status(404).send('Not found')
