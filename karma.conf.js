@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'sinon'],
-    files: ['src/js/test.js'],
+    files: ['src/client/test.js'],
     exclude: [],
     preprocessors: {
       'src/js/test.js': ['webpack']

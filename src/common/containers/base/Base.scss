@@ -1,0 +1,11 @@
+@import '../../css/colors.scss';
+
+.root {
+  min-height: 100%;
+  max-width: 75em;
+  margin: 0 auto;
+}
+
+.mainSection {
+  background: $sub-dominant-color;
+}

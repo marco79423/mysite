@@ -1,0 +1,37 @@
+@import '../../css/base.scss';
+
+.root {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+
+  .header {
+    font-size: 2em;
+    font-weight: 700;
+    color: rgb(26, 26, 26);;
+    margin-bottom: 1em;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.2em;
+
+    tr {
+      background: #eee;
+
+      &:nth-of-type(even) {
+        background: #f9f9f9;
+      }
+
+      td {
+        padding: 0.6em;
+        border: 1px solid #ccc;
+      }
+    }
+
+    .link {
+      @extend .link;
+    }
+  }
+}
