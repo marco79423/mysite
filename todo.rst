@@ -7,8 +7,7 @@ TODO
 
 待辦事項
 ====
-* Revise code (整理因 Server rendering 影響的 code)
-* 減少 Debug 和 Release 模式的差異，改善開發時的任何麻煩(注意 css 沒有 hot reload)
+* 調整 Webpack 的 plugin (改善 Production mode 的效能)
 * 減少 Production mode 的警告
 * pure-render-decorator
 * bi eslintrc
@@ -25,6 +24,8 @@ TODO
 * 改善手機顯示的部分
 * redux-segment
 * 建立 Deploy 的流程
+* 跑分，改善建議事項
+* 減少 route 不必要的 query
 * HTTPS
 
 
