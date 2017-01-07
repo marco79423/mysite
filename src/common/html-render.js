@@ -1,6 +1,7 @@
 import React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {renderToString} from 'react-dom/server';
+import {renderToString} from 'react-dom/server'
+import serialize from 'serialize-javascript'
 
 export class Html extends React.Component {
   static propTypes = {
@@ -9,7 +10,7 @@ export class Html extends React.Component {
   }
 
   render() {
-    const state = JSON.stringify(this.props.state.toJS())
+    const state = serialize(this.props.state.toJS())
     return (
       <html lang="en">
         <head>
