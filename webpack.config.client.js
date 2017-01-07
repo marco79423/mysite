@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const DEBUG = (process.env.NODE_ENV !== 'production')
@@ -47,9 +46,6 @@ module.exports = {
   plugins: [
     vendorCSS,
     myCSS,
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'client', 'html', 'index.html')
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
