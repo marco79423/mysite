@@ -9,11 +9,9 @@
   },
   "scripts": {
     "test": "karma start",
-    "prod": "npm run server:prod && npm run client && node __server.js",
-    "dev": "npm run server:dev && node __server.js",
-    "server:dev": "webpack --config webpack.config.server.js",
-    "server:prod": "cross-env NODE_ENV=production webpack -p --config webpack.config.server.js",
-    "client": "cross-env NODE_ENV=production webpack -p --config webpack.config.client.js"
+    "prod": "cross-env NODE_ENV=production webpack -p && npm start",
+    "dev": "cross-env NODE_ENV=development webpack && node __server.js && npm start",
+    "start": "node __server.js"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

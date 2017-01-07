@@ -1,10 +1,7 @@
-const webpack = require('webpack')
-const path = require('path')
 const fs = require('fs')
 
 const commonConfig = require('./webpack.config.common')
 
-const DEBUG = (process.env.NODE_ENV !== 'production')
 
 module.exports = {
   entry: [
@@ -30,6 +27,5 @@ module.exports = {
   module: {
     loaders: commonConfig.loaders
   },
-  plugins: commonConfig.plugins,
-  devtool: DEBUG ? 'eval' : null
+  plugins: commonConfig.plugins
 }
