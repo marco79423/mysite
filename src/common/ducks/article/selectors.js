@@ -46,7 +46,7 @@ export const getArticles = createSelector(
 )
 
 export const getMaxPageNum = createSelector(
-  [getArticles, _getPageSize],
+  [_getArticlesByCategory, _getPageSize],
   (articles, pageSize) => Math.ceil(articles.count() / pageSize)
 )
 
