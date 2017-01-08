@@ -2,11 +2,12 @@
 
 .root {
   padding: 2em;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 0.2em;
   background: white;
 
   .header {
     font-size: 2em;
+    font-weight: bold;
     color: $dominant-color;
 
     .link {

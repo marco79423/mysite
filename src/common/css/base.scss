@@ -1,5 +1,7 @@
 @import './colors.scss';
 
+$terminal-color: #6d6d6d;
+
 :global {
   html, button, input, select, textarea,
   .pure-g [class *= "pure-u"] {
