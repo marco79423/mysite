@@ -3,6 +3,8 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 
+import ArticleContent from '../../components/article-content'
+
 import * as pageActions from '../../ducks/page/actions'
 
 import styles from './Page.scss'
@@ -37,7 +39,7 @@ export class Page extends React.Component {
             <Link className={styles.link} to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</Link>
           </header>
         </div>
-        <div dangerouslySetInnerHTML={{__html: page.get('content')}}/>
+        <ArticleContent content={page.get('content')}/>
       </article>
     )
   }
