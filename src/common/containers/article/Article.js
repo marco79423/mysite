@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 
 import ArticleMeta from '../../components/article-meta'
+import ArticleContent from '../../components/article-content'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 
@@ -43,7 +44,7 @@ export class Article extends React.Component {
             modifiedDate={article.get('modifiedDate')}
           />
         </div>
-        <div dangerouslySetInnerHTML={{__html: article.get('content')}}/>
+        <ArticleContent content={article.get('content')}/>
       </article>
     )
   }

@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {Link} from 'react-router'
 
 import ArticleMeta from '../article-meta'
+import ArticleContent from '../article-content'
 
 import styles from './ArticleListItem.scss'
 
@@ -30,7 +31,7 @@ export default class ArticleListItem extends React.Component {
             modifiedDate={article.get('modifiedDate')}
           />
         </div>
-        <div dangerouslySetInnerHTML={{__html: article.get('summary')}}/>
+        <ArticleContent content={article.get('summary')}/>
       </article>
     )
   }
