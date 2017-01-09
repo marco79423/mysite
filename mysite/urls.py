@@ -5,6 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from mysite.sitemaps import ArticleSitemap, WebPageSitemap
 import app.urls
+import api.urls
 
 from app import views
 
@@ -21,6 +22,7 @@ urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
 
+    url(r'^api/', include(api.urls)),
     url(r'^', include(app.urls)),
 ]
 

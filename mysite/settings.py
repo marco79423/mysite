@@ -41,6 +41,7 @@ USE_L10N = True
 ##################################################################
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,6 +127,8 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     "compressor",
+    "rest_framework",
+    "corsheaders",
 ]
 
 PROJECT_APPS = [
@@ -158,3 +161,7 @@ COMPRESS_JS_FILTERS = (
 SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
 DEBUG = True
 ALLOWED_HOSTS = ["marco79423.twbbs.org"]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+)
