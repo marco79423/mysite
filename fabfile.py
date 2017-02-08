@@ -29,27 +29,16 @@ with open(HOST_CONFIG_FILE) as fp:
 
 
 @task
-def prod():
-    env.update(CONFIGS['prod'])
-    env.project_path = '/var/www/' + env.name
-
-
-@task
-def dev():
-    env.update(CONFIGS['dev'])
-    env.project_path = '/var/www/' + env.name
-
-
-@task
-def deploy(branch='master'):
-    update_sys()
-    _upload_proj(branch)
-    _install_pkgs()
-    _setup_proj()
-    _test_proj()
-    build_content()
-    _setup_serv()
-    restart_serv()
+def deploy(type_key='dev', branch='master'):
+    execute(update_sys)
+    execute(_set_config, type_key)
+    execute(_upload_proj, branch)
+    execute(_install_pkgs)
+    execute(_setup_proj)
+    execute(_test_proj)
+    execute(build_content)
+    execute(_setup_serv)
+    execute(restart_serv)
 
 
 @task
@@ -66,13 +55,13 @@ def build_content():
         with cd('/var/www/site-content'):
             sudo('git pull')
 
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         sudo('venv/bin/python manage.py build /var/www/site-content')
 
 
 @task
 def restart_serv():
-    sudo('service {name} restart'.format(name=env.name))
+    sudo('service {name} restart'.format(name=env.config['name']))
     sudo('service nginx restart')
 
 
@@ -81,13 +70,19 @@ def restart_serv():
 #################
 
 @task
-def _upload_proj(branch):
-    if exists(env.project_path):
-        sudo('rm -rf {}'.format(env.project_path))
+def _set_config(type_key):
+    env.config = CONFIGS[type_key]
+    env.config['project_path'] = '/var/www/' + env.config['name']
 
-    sudo('mkdir -p {}'.format(env.project_path))
+
+@task
+def _upload_proj(branch):
+    if exists(env.config['project_path']):
+        sudo('rm -rf {}'.format(env.config['project_path']))
+
+    sudo('mkdir -p {}'.format(env.config['project_path']))
     archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         put(StringIO(archive), 'temp.tar.gz', use_sudo=True)
         sudo('tar zxf temp.tar.gz')
         sudo('rm temp.tar.gz')
@@ -119,7 +114,7 @@ def _install_pkgs():
 
 @task
 def _setup_proj():
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         sudo('virtualenv venv -p python3')
         sudo('venv/bin/pip install -r requirements.txt')
         sudo('chown -R www-data:www-data venv')
@@ -128,14 +123,14 @@ def _setup_proj():
         sudo('venv/bin/python manage.py migrate')
         sudo('venv/bin/python manage.py collectstatic --noinput')
 
-        if not env.debug:
+        if not env.config['debug']:
             print(cyan('Changing setting for production ...'))
             sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
 
 @task
 def _test_proj():
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         run("venv/bin/python manage.py test")
 
 
@@ -143,23 +138,23 @@ def _test_proj():
 def _setup_serv():
     sudo('locale-gen zh_TW.UTF-8')
 
-    filename = env.name + '.conf'
+    filename = env.config['name'] + '.conf'
 
     print(cyan('Setup gunicorn ...'))
     config_path = '/etc/init/' + filename
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         sudo('cp conf/init/service.conf ' + config_path)
-        sed(config_path, 'TARGET_NAME', env.name, shell=True, use_sudo=True)
+        sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
 
     print(cyan('Setup nginx ...'))
     if exists('/etc/nginx/sites-enabled/default'):
         sudo('rm /etc/nginx/sites-enabled/default')
 
     config_path = '/etc/nginx/sites-available/' + filename
-    with cd(env.project_path):
+    with cd(env.config['project_path']):
         sudo('cp conf/nginx/nginx.conf ' + config_path)
-        sed(config_path, 'TARGET_NAME', env.name, shell=True, use_sudo=True)
-        sed(config_path, 'SERVER_NAME', env.server_name, shell=True, use_sudo=True)
+        sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
+        sed(config_path, 'SERVER_NAME', str(env.config['server_name']), shell=True, use_sudo=True)
 
     with cd('/etc/nginx/sites-enabled'):
         if exists(filename):
