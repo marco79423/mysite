@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import { argv } from 'yargs'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
@@ -17,7 +18,7 @@ import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
 const app = express()
-const port = 3000
+const port = +argv.port || 3000
 
 
 if (process.env.DEBUG) {
