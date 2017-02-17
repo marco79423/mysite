@@ -29,7 +29,7 @@ with open(HOST_CONFIG_FILE) as fp:
 
 
 @task
-def deploy(type_key='dev', branch='master'):
+def deploy(type_key='dev', branch='develop'):
     execute(update_sys)
     execute(_set_config, type_key)
     execute(_upload_proj, branch)
