@@ -1,2 +1,4 @@
-export const getPathName = (state) => state.getIn(['routing', 'locationBeforeTransitions']).pathname
+import _ from 'lodash'
+
+export const getPathName = (state) => _.get(state.getIn(['routing', 'locationBeforeTransitions']), 'pathname') || '/'
 
