@@ -1,17 +1,17 @@
 import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
 import ReactDisqusThread from 'react-disqus-thread'
 
 
 export default class ArticleComment extends React.Component {
   static PropTypes = {
-    config: React.PropTypes.any
+    config: ImmutablePropTypes.map
   }
 
   render() {
     return (
       <ReactDisqusThread
-        shortname={this.props.config.shortname}
-        identifier={this.props.config.identifier}
+        shortname={this.props.config.get('shortName')}
       />
     )
   }
