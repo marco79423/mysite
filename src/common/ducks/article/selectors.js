@@ -1,10 +1,10 @@
 import {createSelector} from 'reselect'
 import moment from 'moment'
 
-const _getCategory = (state, props) => props.params.category
+import * as configSelectors from '../config/selectors'
 
-const _getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE'])
-const _getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT'])
+
+const _getCategory = (state, props) => props.params.category
 
 export const getAllArticles = (state) => state
   .getIn(['article', 'items'])
@@ -38,7 +38,7 @@ export const getArticles = createSelector(
   [
     getPageNum,
     _getArticlesByCategory,
-    _getPageSize
+    configSelectors.getPageSize
   ],
   (pageNum, articles, pageSize) => {
     return articles.slice((pageNum - 1) * pageSize, pageNum * pageSize)
@@ -46,14 +46,14 @@ export const getArticles = createSelector(
 )
 
 export const getMaxPageNum = createSelector(
-  [_getArticlesByCategory, _getPageSize],
+  [_getArticlesByCategory, configSelectors.getPageSize],
   (articles, pageSize) => Math.ceil(articles.count() / pageSize)
 )
 
 export const getRecentArticles = createSelector(
   [
     getAllArticles,
-    _getRecentArticleCount
+    configSelectors.getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)
 )
