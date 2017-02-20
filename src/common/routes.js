@@ -9,7 +9,7 @@ import Page from './containers/page'
 
 
 export const createRoutes = (history) => (
-  <Router history={history}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
     <Route path="/" component={Base}>
       <IndexRoute component={ArticleList}/>
       <Route path='/articles/page/:pageNum/' component={ArticleList}/>
