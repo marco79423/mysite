@@ -9,8 +9,8 @@ const _getCategory = (state, props) => props.params.category
 export const getAllArticles = (state) => state
   .getIn(['article', 'items'])
   .map(article => article.merge({
-    date: moment(article.date),
-    modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null,
+    date: moment(article.get('date')),
+    modifiedDate: article.get('modified_date') ? moment(article.get('modified_date')) : null,
     rawSummary: article.get('raw_summary')
   }))
 
