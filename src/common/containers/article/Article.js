@@ -5,8 +5,10 @@ import {Link} from 'react-router'
 
 import ArticleMeta from '../../components/article-meta'
 import ArticleContent from '../../components/article-content'
+import ArticleComment from '../../components/article-comment'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
+import * as configSelectors from '../../ducks/config/selectors'
 
 import styles from './Article.scss'
 
@@ -17,7 +19,8 @@ export class Article extends React.Component {
       slug: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
       content: React.PropTypes.content
-    })
+    }),
+    commentConfig: React.PropTypes.any
   }
 
   componentWillMount() {
@@ -27,7 +30,7 @@ export class Article extends React.Component {
   }
 
   render() {
-    const {article} = this.props
+    const {article, commentConfig} = this.props
     if (!article) {
       return <article>讀取中……</article>
     }
@@ -45,6 +48,7 @@ export class Article extends React.Component {
           />
         </div>
         <ArticleContent content={article.get('content')}/>
+        <ArticleComment config={commentConfig}/>
       </article>
     )
   }
@@ -52,7 +56,8 @@ export class Article extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    article: articleSelectors.getArticle(state, ownProps)
+    article: articleSelectors.getArticle(state, ownProps),
+    commentConfig: configSelectors.getCommentConfig(state)
   }
 }
 

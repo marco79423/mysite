@@ -27,3 +27,7 @@ export const RECENT_ARTICLE_COUNT = 5
 export const API_SERVER_URL = 'http://localhost:8000/api'
 
 export const PAGE_SIZE = 10
+
+export const COMMENT_CONFIG = {
+  shortName: 'marco79423'
+}
