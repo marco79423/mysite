@@ -14,9 +14,11 @@ import Helmet from 'react-helmet'
 
 import {createRoutes} from '../common/routes'
 import {configureStore} from '../common/store'
-import {renderHtmlPage} from '../common/html-render'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
+
+import {renderHtmlPage} from './html-render'
+
 
 const app = express()
 const port = +argv.port || 3000
