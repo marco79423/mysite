@@ -1,6 +1,10 @@
-export const getSiteName = (state) => state.getIn(['config', 'SITE_NAME'])
-export const getSiteMeta = (state) => state.getIn(['config', 'SITE_META'])
+import {createSelector} from 'reselect'
 
-export const getPageSize = (state) => state.getIn(['config', 'PAGE_SIZE'])
-export const getRecentArticleCount = (state) => state.getIn(['config', 'RECENT_ARTICLE_COUNT'])
-export const getCommentConfig = (state) => state.getIn(['config', 'COMMENT_CONFIG'])
+const _getConfig = (state) => state.get('config')
+
+export const getSiteName = createSelector(_getConfig, config => config.get('SITE_NAME'))
+export const getSiteMeta = createSelector(_getConfig, config => config.get('SITE_META'))
+
+export const getPageSize = createSelector(_getConfig, config => config.get('PAGE_SIZE'))
+export const getRecentArticleCount = createSelector(_getConfig, config => config.get('RECENT_ARTICLE_COUNT'))
+export const getCommentConfig = createSelector(_getConfig, config => config.get('COMMENT_CONFIG'))
