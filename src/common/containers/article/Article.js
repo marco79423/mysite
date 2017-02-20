@@ -11,6 +11,7 @@ import ArticleComment from '../../components/article-comment'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
+import * as routingSelectors from '../../ducks/routing/selectors'
 
 import styles from './Article.scss'
 
@@ -69,7 +70,7 @@ const mapStateToProps = (state, ownProps) => {
         .merge({
           description: article.get('rawSummary'),
           'og:title': title,
-          'og:url': state.getIn(['routing', 'locationBeforeTransitions']).pathname,
+          'og:url': routingSelectors.getPathName(state),
           'og:description': article.get('rawSummary')
         })
         .entrySeq()
