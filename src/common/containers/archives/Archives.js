@@ -3,6 +3,8 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 
+import SiteHead from '../../components/site-head'
+import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 
@@ -11,6 +13,7 @@ import styles from './Archives.scss'
 
 export class Archives extends React.Component {
   static PropTypes = {
+    siteConfig: ImmutablePropTypes.map.isRequired,
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
         slug: React.PropTypes.string,
@@ -35,6 +38,7 @@ export class Archives extends React.Component {
 
     return (
       <article className={styles.root}>
+        <SiteHead config={this.props.siteConfig}/>
         <div>
           <header className={styles.header}>
             所有文章列表
@@ -59,6 +63,7 @@ export class Archives extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    siteConfig: siteSelectors.getSiteHeadConfig(state, ownProps),
     articles: articleSelectors.getAllArticles(state, ownProps)
   }
 }

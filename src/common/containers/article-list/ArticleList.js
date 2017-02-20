@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as Immutable from 'immutable'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import {connect} from 'react-redux'
 
@@ -7,9 +6,10 @@ import SiteHead from '../../components/site-head'
 import ArticleListItem from '../../components/article-list-item'
 import Pagination from '../../components/pagination'
 
+import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
-import * as configSelectors from '../../ducks/config/selectors'
+
 
 import styles from './ArticleList.scss'
 
@@ -54,20 +54,11 @@ export class ArticleList extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const pageNum = articleSelectors.getPageNum(state, ownProps)
-  const maxPageNum = articleSelectors.getMaxPageNum(state, ownProps)
-  const articles = articleSelectors.getArticles(state, ownProps)
-
   return {
-    siteConfig: Immutable.Map({
-      title: configSelectors.getSiteName(state),
-      meta: configSelectors.getSiteMeta(state)
-        .entrySeq()
-        .map(([name, content]) => Immutable.Map({name, content})),
-    }),
-    pageNum,
-    maxPageNum,
-    articles
+    siteConfig: siteSelectors.getSiteHeadConfig(state, ownProps),
+    pageNum: articleSelectors.getPageNum(state, ownProps),
+    maxPageNum: articleSelectors.getMaxPageNum(state, ownProps),
+    articles: articleSelectors.getArticles(state, ownProps)
   }
 }
 

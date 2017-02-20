@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as Immutable from 'immutable'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
@@ -8,10 +7,10 @@ import SiteHead from '../../components/site-head'
 import ArticleMeta from '../../components/article-meta'
 import ArticleContent from '../../components/article-content'
 import ArticleComment from '../../components/article-comment'
+import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
-import * as routingSelectors from '../../ducks/routing/selectors'
 
 import styles from './Article.scss'
 
@@ -61,21 +60,8 @@ export class Article extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const article = articleSelectors.getArticle(state, ownProps)
-  const title = `${article.get('title')} - ${configSelectors.getSiteName(state)}`
   return {
-    siteConfig: Immutable.Map({
-      title: title,
-      meta: configSelectors.getSiteMeta(state)
-        .merge({
-          description: article.get('rawSummary'),
-          'og:title': title,
-          'og:url': routingSelectors.getPathName(state),
-          'og:description': article.get('rawSummary')
-        })
-        .entrySeq()
-        .map(([name, content]) => Immutable.Map({name, content}))
-    }),
+    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
     article: articleSelectors.getArticle(state, ownProps),
     commentConfig: configSelectors.getCommentConfig(state)
   }
