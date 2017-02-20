@@ -3,21 +3,26 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {renderToString} from 'react-dom/server'
 import serialize from 'serialize-javascript'
 
+
 export class Html extends React.Component {
   static propTypes = {
     html: React.PropTypes.string.isRequired,
-    state: ImmutablePropTypes.map
+    state: ImmutablePropTypes.map.isRequired,
+    head: React.PropTypes.any.isRequired
   }
 
   render() {
     const state = serialize(this.props.state.toJS())
+    const attrs = this.props.head.htmlAttributes.toComponent();
+
     return (
-      <html lang="en">
+      <html {...attrs}>
       <head>
         <meta charSet="UTF-8"/>
-        <title>兩大類 x 兩大類 = 四大類</title>
         <link href="/assets/styles/vendor.css" rel="stylesheet"/>
         <link href="/assets/styles/styles.css" rel="stylesheet"/>
+        {this.props.head.title.toComponent()}
+        {this.props.head.meta.toComponent()}
       </head>
       <body>
       <div id="app" dangerouslySetInnerHTML={{__html: this.props.html}} />
@@ -29,6 +34,6 @@ export class Html extends React.Component {
   }
 }
 
-export function renderHtmlPage(html, state) {
-  return '<!DOCTYPE html>\n' + renderToString(<Html html={html} state={state}/>)
+export function renderHtmlPage(html, head, state) {
+  return '<!DOCTYPE html>\n' + renderToString(<Html html={html} head={head} state={state}/>)
 }

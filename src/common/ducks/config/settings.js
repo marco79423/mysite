@@ -1,5 +1,17 @@
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
 
+export const SITE_META = {
+  keywords: 'Python,Javascript,網站設計,兩大類',
+  description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
+  author: '兩大類',
+  'og:image': 'http://api.marco79423.net/static/resources/img/marco.jpg',
+  'og:description': '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
+
+  'fb:admins': '100000038752074',
+  'fb:fb:app_id': '165574263590380',
+  'google-site-verification': 'Pid5nZRF1G0qE8W87MdFt6C5oQT8OIWRREXIxuWjik4'
+}
+
 export const LEFT_MENU_ITEMS = [
   {name: 'Python', url: '/articles/category/python/'},
   {name: '專案作品', url: '/articles/category/專案作品/'},

@@ -10,6 +10,7 @@ import {RouterContext, match, createMemoryHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import {renderToString} from 'react-dom/server';
 import webpackConfig from '../../webpack.config.client'
+import Helmet from 'react-helmet'
 
 import {createRoutes} from '../common/routes'
 import {configureStore} from '../common/store'
@@ -59,8 +60,9 @@ app.get('*', (req, res) => {
             <Provider store={store}>
               <RouterContext {...renderProps} />
             </Provider>
-          );
-          res.status(200).send(renderHtmlPage(html, store.getState()))
+          )
+          const head = Helmet.rewind()
+          res.status(200).send(renderHtmlPage(html, head, store.getState()))
         })
     } else {
       res.status(404).send('Not found')

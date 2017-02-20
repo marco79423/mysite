@@ -10,7 +10,8 @@ export const getAllArticles = (state) => state
   .getIn(['article', 'items'])
   .map(article => article.merge({
     date: moment(article.date),
-    modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null
+    modifiedDate: article.modifiedDate ? moment(article.modifiedDate) : null,
+    rawSummary: article.get('raw_summary')
   }))
 
 const _getCurrentArticleSlug = (state, props) => props.params.slug
