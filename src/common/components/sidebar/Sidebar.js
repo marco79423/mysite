@@ -18,9 +18,11 @@ export default class Sidebar extends React.Component {
     return (
       <div className={styles.root}>
         <AboutMe config={this.props.aboutMeConfig}/>
-        <RecentArticles articles={this.props.recentArticles}/>
         <div className={styles.otherPart}>
-          <Link className={styles.link} to='/articles/archives/'>所有文章列表</Link>
+          <RecentArticles articles={this.props.recentArticles}/>
+          <div className={styles.archive}>
+            <Link className={styles.link} to='/articles/archives/'>所有文章列表</Link>
+          </div>
         </div>
       </div>
     )

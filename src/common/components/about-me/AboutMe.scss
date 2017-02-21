@@ -3,6 +3,8 @@
 .root {
 
   .profile {
+    display: none;
+
     height: 90px;
 
     .author {
@@ -39,12 +41,20 @@
   }
 
   .quote {
-    margin-top: 25px;
     color: #6f6f6f;
     white-space: pre;
 
     border-left: 1px solid #ddd;
     padding: .5625em 1.25em 0 1.1875em
+  }
+
+  @media (min-width: 1200px) {
+    .quote {
+      margin-top: 25px;
+    }
+    .profile {
+      display: block;
+    }
   }
 }
 

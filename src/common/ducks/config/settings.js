@@ -1,9 +1,12 @@
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
 
 export const SITE_META = {
+  viewport: 'width=device-width, initial-scale=1.0',
+
   keywords: 'Python,Javascript,網站設計,兩大類',
   description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
   author: '兩大類',
+
   'og:image': 'http://api.marco79423.net/static/resources/img/marco.jpg',
   'og:description': '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
 

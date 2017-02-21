@@ -2,10 +2,41 @@
 
 .root {
   min-height: 100%;
-  max-width: 75em;
+  width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap
 }
 
-.mainSection {
-  background: $sub-dominant-color;
+.header, .nav, .main, .sidebar, .content, .footer {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.nav {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .root {
+    width: 1200px;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .sidebar {
+    order: 2;
+    width: 34%;
+  }
+
+  .content {
+    order: 1;
+    width: 66%;
+  }
 }

@@ -1,14 +1,25 @@
 @import '../../css/base.scss';
 
 .root {
-  min-height: 600px;
-  padding: 30px;
-
-  .otherPart {
-    margin-top: 30px;
-  }
+  background: $sub-dominant-color;
+  padding: 1em;
+  height: 100%;
 
   .link {
     @extend .link;
+  }
+
+  .otherPart {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .otherPart {
+      display: block;
+    }
+
+    .archive {
+      margin-top: 30px;
+    }
   }
 }

@@ -3,14 +3,11 @@
 $terminal-color: #6d6d6d;
 
 :global {
-  html, button, input, select, textarea,
-  .pure-g [class *= "pure-u"] {
-    color: rgb(80, 80, 80);
-    font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
-  }
-
   body {
     background: rgb(100, 100, 100);
+    color: rgb(80, 80, 80);
+    font-size: 16px;
+    font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
   }
 }
 

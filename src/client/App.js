@@ -8,7 +8,6 @@ import {createRoutes} from '../common/routes';
 
 import 'isomorphic-fetch';
 
-import 'purecss/build/pure.css'
 import '../common/css/base.scss'
 
 const store = configureStore()
