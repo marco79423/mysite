@@ -17,17 +17,19 @@
   flex-wrap: wrap
 }
 
-.nav {
+.nav, .footer {
   display: none;
+}
+
+@media (min-width: 900px) {
+  .nav, .footer {
+    display: block;
+  }
 }
 
 @media (min-width: 1200px) {
   .root {
     width: 1200px;
-  }
-
-  .nav {
-    display: block;
   }
 
   .sidebar {

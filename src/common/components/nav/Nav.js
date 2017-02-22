@@ -25,12 +25,13 @@ export default class Nav extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <div className={styles.leftMenu}>
+        <div className={styles.menus}>
           {this.props.leftMenuItems.map(item => (
             <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>{item.get('name')}</Link>
           ))}
         </div>
-        <div className={styles.rightMenu}>
+        <div className={styles.splitter} />
+        <div className={styles.menus}>
           {this.props.rightMenuItems.map(item => (
             <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>{item.get('name')}</Link>
           ))}

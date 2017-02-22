@@ -23,10 +23,12 @@ export default class Sidebar extends React.Component {
         <div className={styles.profile}>
           <div className={styles.author}/>
           <div className={styles.info}>
-            <div>我是一隻<em>兩大類</em></div>
             <div>
-              {config.get('socialLinks').map(link => (
-                <a key={link.get('name')} className={styles.link} href={link.get('url')}>{link.get('name')}</a>))}
+              <div>我是一隻<em>兩大類</em></div>
+              <div>
+                {config.get('socialLinks').map(link => (
+                  <a key={link.get('name')} className={styles.link} href={link.get('url')}>{link.get('name')}</a>))}
+              </div>
             </div>
           </div>
         </div>

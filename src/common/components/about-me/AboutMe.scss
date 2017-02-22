@@ -1,46 +1,28 @@
 @import '../../css/base.scss';
 
+.link {
+  @extend .link;
+  font-size: 0.8rem;
+
+  &:not(:first-child):before {
+    content: '|';
+    margin: 0 0.1rem;
+    color: #6f6f6f;
+  }
+}
+
 .root {
+  font-size: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
 
   .profile {
     display: none;
-
-    height: 90px;
-
-    .author {
-      display: inline-block;
-
-      width: 90px;
-      height: 90px;
-      background: url('./img/marco.jpg') no-repeat center;
-      background-size: 90px 90px;
-
-      border: 0.1em solid #FFFFFF;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-    }
-
-    .info {
-      display: inline-block;
-      vertical-align: top;
-      margin-top: 20px;
-      margin-left: 50px;
-
-      font-size: 1.2em;
-
-      .link {
-        @extend .link;
-        font-size: 0.7em;
-
-        &:not(:first-child):before {
-          content: '|';
-          margin: 0 2px;
-          color: #6f6f6f;
-        }
-      }
-    }
   }
 
   .quote {
+    font-size: 1rem;
+    width: 100%;
     color: #6f6f6f;
     white-space: pre;
 
@@ -49,14 +31,31 @@
   }
 
   @media (min-width: 1200px) {
-    .quote {
-      margin-top: 25px;
-    }
     .profile {
-      display: block;
+      width: 100%;
+      display: flex;
+      margin-bottom: 1rem;
+
+      .author {
+        display: inline-block;
+
+        width: 90px;
+        height: 90px;
+        background: url('./img/marco.jpg') no-repeat center;
+        background-size: 90px 90px;
+
+        border: 0.1em solid #FFFFFF;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      }
+
+      .info {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 1.2em;
+      }
     }
   }
 }
-
-
-

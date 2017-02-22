@@ -2,7 +2,7 @@
 
 .root {
   background: $sub-dominant-color;
-  padding: 1em;
+  padding: .5rem;
   height: 100%;
 
   .link {
@@ -12,14 +12,18 @@
   .otherPart {
     display: none;
   }
+}
 
-  @media (min-width: 1200px) {
+@media (min-width: 1200px) {
+  .root {
+    padding: 2rem;
+
     .otherPart {
       display: block;
     }
 
     .archive {
-      margin-top: 30px;
+      margin-top: 2rem;
     }
   }
 }

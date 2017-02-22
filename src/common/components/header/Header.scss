@@ -2,22 +2,20 @@
 
 .root {
   background: $dominant-color;
-  height: 85px;
+  height: 5.625rem;
+  display: flex;
 
   .logo {
-    float: left;
     background: url(../../img/logo.png) no-repeat center;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 1rem;
+    margin-left: 1rem;
 
-    width: 58px;
-    height: 58px;
-
-    border: .1em solid #FFF;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    width: 3.625rem;
+    height: 3.625rem;
 
     transform: rotate(-10deg);
     transition-duration: 0.8s;
+    -webkit-backface-visibility: hidden;
 
     &:hover {
       transform: rotate(10deg);
@@ -25,17 +23,31 @@
   }
 
   .title {
-    display: inline-block;
-    margin-left: 25px;
-    margin-top: 20px;
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
 
     color: white;
-    font-size: 2em;
+    font-size: 1.3rem;
     font-weight: 700;
 
     .link {
       @extend .link;
       color: white;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .title {
+      font-size: 2rem;
     }
   }
 }

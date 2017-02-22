@@ -1,13 +1,13 @@
 @import '../../css/colors.scss';
 
 .root {
-  height: 45px;
+  height: 2.8125rem;
   background: $dominant-color2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .copyright {
     color: white;
-    height: 100%;
-    padding-top: 0.5em;
-    text-align: center;
   }
 }
