@@ -9,6 +9,7 @@ import Content from '../../components/content'
 import Footer from '../../components/footer'
 import * as articleSelectors from '../../ducks/article/selectors'
 
+import 'normalize.css/normalize.css'
 import styles from './Base.scss'
 
 

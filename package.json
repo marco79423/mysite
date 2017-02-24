@@ -78,6 +78,7 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
+    "normalize.css": "^5.0.0",
     "react-disqus-thread": "^0.4.0",
     "react-helmet": "^4.0.0"
   }
