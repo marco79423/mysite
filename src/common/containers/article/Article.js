@@ -6,6 +6,7 @@ import {Link} from 'react-router'
 import SiteHead from '../../components/site-head'
 import ArticleMeta from '../../components/article-meta'
 import ArticleContent from '../../components/article-content'
+import SocialShare from '../../components/social-share'
 import ArticleComment from '../../components/article-comment'
 import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'
@@ -17,14 +18,15 @@ import styles from './Article.scss'
 
 export class Article extends React.Component {
   static PropTypes = {
-    siteConfig: ImmutablePropTypes.Map,
+    siteConfig: ImmutablePropTypes.map,
     article: ImmutablePropTypes.contains({
       slug: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
       content: React.PropTypes.content,
       rawSummary: React.PropTypes.string
     }),
-    commentConfig: React.PropTypes.any
+    socialConfig: ImmutablePropTypes.map,
+    commentConfig: ImmutablePropTypes.map
   }
 
   componentWillMount() {
@@ -34,7 +36,7 @@ export class Article extends React.Component {
   }
 
   render() {
-    const {article, commentConfig} = this.props
+    const {article, socialConfig, commentConfig} = this.props
     if (!article) {
       return <article>讀取中……</article>
     }
@@ -53,6 +55,7 @@ export class Article extends React.Component {
           />
         </div>
         <ArticleContent content={article.get('content')}/>
+        <SocialShare config={socialConfig}/>
         <ArticleComment config={commentConfig}/>
       </article>
     )
@@ -63,6 +66,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
     article: articleSelectors.getArticle(state, ownProps),
+    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
     commentConfig: configSelectors.getCommentConfig(state)
   }
 }

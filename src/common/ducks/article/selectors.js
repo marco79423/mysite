@@ -1,7 +1,9 @@
+import * as Immutable from 'immutable'
 import {createSelector} from 'reselect'
 import moment from 'moment'
 
 import * as configSelectors from '../config/selectors'
+import * as routingSelectors from '../routing/selectors'
 
 
 const _getCategory = (state, props) => props.params.category
@@ -57,4 +59,16 @@ export const getRecentArticles = createSelector(
     configSelectors.getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)
+)
+
+export const getSocialConfig = createSelector(
+  [
+    configSelectors.getHostUrl,
+    routingSelectors.getPathName,
+    getArticle
+  ],
+  (hostUrl, pathName, article) => Immutable.Map({
+    shareUrl: `${hostUrl}${pathName}`,
+    title: article.get('title')
+  })
 )
