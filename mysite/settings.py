@@ -14,7 +14,7 @@ PROJECT_NAME = PROJECT_DIR.basename()
 ROOT_URLCONF = 'mysite.urls'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-HOST = 'http://localhost:8000'
+HOST = "http://localhost:8000"
 
 ##################################################################
 # Other settings

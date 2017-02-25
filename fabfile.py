@@ -77,9 +77,6 @@ def _set_config(type_key):
 
 @task
 def _upload_proj(branch):
-    if exists(env.config['project_path']):
-        sudo('rm -rf {}'.format(env.config['project_path']))
-
     sudo('mkdir -p {}'.format(env.config['project_path']))
     archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
     with cd(env.config['project_path']):
@@ -115,18 +112,20 @@ def _install_pkgs():
 @task
 def _setup_proj():
     with cd(env.config['project_path']):
-        sudo('virtualenv venv -p python3')
+        if not exists('venv'):
+            sudo('virtualenv venv -p python3')
         sudo('venv/bin/pip install -r requirements.txt')
         sudo('chown -R www-data:www-data venv')
 
         print(cyan('Prepare project ...'))
-        sudo('venv/bin/python manage.py migrate')
-        sudo('venv/bin/python manage.py collectstatic --noinput')
-
         if not env.config['debug']:
             print(cyan('Changing setting for production ...'))
             sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
-            sed('mysite/settings.py', "HOST = 'http://localhost:8000'", "HOST = '{}'".format(env.config['server_name']), shell=True, use_sudo=True)
+
+        sed('mysite/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "http://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+
+        sudo('venv/bin/python manage.py migrate')
+        sudo('venv/bin/python manage.py collectstatic --noinput')
 
 
 @task
