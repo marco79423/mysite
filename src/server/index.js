@@ -1,4 +1,5 @@
 import express from 'express'
+import compression from 'compression'
 import path from 'path'
 import { argv } from 'yargs'
 import webpack from 'webpack'
@@ -23,6 +24,7 @@ import {renderHtmlPage} from './html-render'
 const app = express()
 const port = +argv.port || 3000
 
+app.use(compression())
 
 if (process.env.DEBUG) {
   const compiler = webpack(webpackConfig)
@@ -43,7 +45,8 @@ if (process.env.DEBUG) {
   app.use(webpackHotMiddleware(compiler))
 }
 
-app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
+const oneDay = 86400000
+app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets'), { maxAge: oneDay * 30 }))
 app.get('*', (req, res) => {
   const history = createMemoryHistory(req.path)
   let store = configureStore(history)
