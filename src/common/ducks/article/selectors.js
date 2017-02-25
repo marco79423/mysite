@@ -63,12 +63,11 @@ export const getRecentArticles = createSelector(
 
 export const getSocialConfig = createSelector(
   [
-    configSelectors.getHostUrl,
-    routingSelectors.getPathName,
+    routingSelectors.getCurrentUrl,
     getArticle
   ],
-  (hostUrl, pathName, article) => Immutable.Map({
-    shareUrl: `${hostUrl}${pathName}`,
+  (currentUrl, article) => Immutable.Map({
+    shareUrl: currentUrl,
     title: article.get('title')
   })
 )
