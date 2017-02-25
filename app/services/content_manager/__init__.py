@@ -12,7 +12,7 @@ from mysite import settings
 
 class ContentManager:
 
-    STATIC_IMAGE_URL = settings.STATIC_URL + "images/"
+    STATIC_IMAGE_URL = settings.HOST + settings.STATIC_URL + "images/"
     STATIC_IMAGE_DIR = settings.STATIC_ROOT / "images"
 
     MEDIA_APPFILE_DIR = settings.MEDIA_ROOT / "appfiles"

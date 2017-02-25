@@ -126,6 +126,7 @@ def _setup_proj():
         if not env.config['debug']:
             print(cyan('Changing setting for production ...'))
             sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
+            sed('mysite/settings.py', "HOST = 'http://localhost:8000'", "HOST = '{}'".format(env.config['server_name']), shell=True, use_sudo=True)
 
 
 @task
