@@ -20,7 +20,7 @@ CONFIGS = {
         'name': 'mysite-frontend-dev',
         'port': 4000,
         'server_name': 'dev.marco79423.net',
-        'api_server_url': 'http://api-dev.marco79423.net:8000/api'
+        'api_server_url': 'http://api-dev.marco79423.net/api'
     }
 }
 
@@ -66,8 +66,6 @@ def _set_config(type_key):
 
 @task
 def _upload_proj(branch):
-    if exists(env.config['project_path']):
-        sudo('rm -rf {}'.format(env.config['project_path']))
     sudo('mkdir -p {}'.format(env.config['project_path']))
     archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
     with cd(env.config['project_path']):
@@ -91,7 +89,7 @@ def _setup_proj():
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
         settings_path = '{}/src/common/ducks/config/settings.js'.format(env.config['project_path'])
-        sed(settings_path, "API_SERVER_URL = 'http://localhost:8000/api'", env.config['api_server_url'], shell=True, use_sudo=True)
+        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"', 'API_SERVER_URL = "{}"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
 
         sudo('npm install', warn_only=True)
         sudo('npm run dist')
