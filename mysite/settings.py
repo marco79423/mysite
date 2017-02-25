@@ -162,6 +162,4 @@ SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
 DEBUG = True
 ALLOWED_HOSTS = ["marco79423.twbbs.org"]
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
+CORS_ORIGIN_ALLOW_ALL = True
