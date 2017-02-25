@@ -11,6 +11,11 @@
       height: 0;
     }
 
+    a, a:visited, a:hover {
+      color: $dominant-color;
+      text-decoration: none;
+    }
+
     header {
       margin-bottom: 2rem;
 
@@ -18,11 +23,6 @@
         font-size: 2rem;
         margin-top: 0;
         margin-bottom: 0;
-
-        a, a:visited, a:hover {
-          color: $dominant-color;
-          text-decoration: none;
-        }
       }
 
       .meta {
@@ -91,6 +91,7 @@
       border: 1px solid #ccc;
       padding: 0.7rem;
       margin-bottom: 1rem;
+      white-space: pre-wrap;
 
       &.doctest-block {
         border: 0;
