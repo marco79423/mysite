@@ -14,13 +14,13 @@ CONFIGS = {
         'name': 'mysite-frontend',
         'port': 3000,
         'server_name': 'www.marco79423.net',
-        'api_server_url': 'http://api.marco79423.net/api'
+        'api_server_url': 'http://api.marco79423.net'
     },
     'dev': {
         'name': 'mysite-frontend-dev',
         'port': 4000,
         'server_name': 'dev.marco79423.net',
-        'api_server_url': 'http://api-dev.marco79423.net/api'
+        'api_server_url': 'http://api-dev.marco79423.net'
     }
 }
 
@@ -89,7 +89,7 @@ def _setup_proj():
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
         settings_path = '{}/src/common/ducks/config/settings.js'.format(env.config['project_path'])
-        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"', 'API_SERVER_URL = "{}"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
+        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"', 'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
 
         sudo('npm install', warn_only=True)
         sudo('npm run dist')
@@ -122,6 +122,7 @@ def _setup_serv():
     config_path = '/etc/nginx/sites-available/' + filename
     with cd(env.config['project_path']):
         sudo('cp conf/nginx/nginx.conf ' + config_path)
+        sed(config_path, 'API_SERVER_URL', env.config['api_server_url'], shell=True, use_sudo=True)
         sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
         sed(config_path, 'SERVER_NAME', env.config['server_name'], shell=True, use_sudo=True)
         sed(config_path, 'PORT', str(env.config['port']), shell=True, use_sudo=True)
