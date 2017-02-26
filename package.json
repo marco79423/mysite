@@ -82,6 +82,7 @@
     "normalize.css": "^5.0.0",
     "react-disqus-thread": "^0.4.0",
     "react-helmet": "^4.0.0",
-    "react-share": "^1.11.1"
+    "react-share": "^1.11.1",
+    "redux-segment": "^1.6.1"
   }
 }
