@@ -122,7 +122,7 @@ def _setup_proj():
             print(cyan('Changing setting for production ...'))
             sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
-        sed('mysite/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "http://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+        sed('mysite/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
 
         sudo('venv/bin/python manage.py migrate')
         sudo('venv/bin/python manage.py collectstatic --noinput')
