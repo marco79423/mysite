@@ -19,12 +19,11 @@ module.exports = {
     filename: 'assets/bundle.js'
   },
   module: {
-    loaders: commonConfig.loaders
+    rules: commonConfig.rules
   },
   plugins: commonConfig.plugins.concat(DEBUG ? [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ] : []),
-  devtool: DEBUG ? 'eval' : null
+  devtool: DEBUG ? 'eval' : false
 }

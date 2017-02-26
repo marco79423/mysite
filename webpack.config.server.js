@@ -25,7 +25,7 @@ module.exports = {
       return modules
     }, {}),
   module: {
-    loaders: commonConfig.loaders
+    rules: commonConfig.rules
   },
   plugins: commonConfig.plugins
 }

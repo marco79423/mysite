@@ -5,30 +5,44 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
-let myCSS = new ExtractTextPlugin('assets/styles/styles.css', {publicPath: '/assets/styles/'})
-let vendorCSS = new ExtractTextPlugin('assets/styles/vendor.css', {publicPath: '/assets/styles/'})
-
+const myCSS = new ExtractTextPlugin({filename: 'assets/styles/styles.css', publicPath: '/assets/styles/'})
+const vendorCSS = new ExtractTextPlugin({filename: 'assets/styles/vendor.css', publicPath: '/assets/styles/'})
 
 module.exports = {
-  loaders: [
+  rules: [
     {
       test: /\.jsx?$/,
-      loader: DEBUG ? 'react-hot!babel' : 'babel',
-      include: path.join(__dirname, 'src')
+      include: path.join(__dirname, 'src'),
+      use: (DEBUG ? ['react-hot-loader'] : []).concat(['babel-loader'])
     },
     {
       test: /\.css|\.scss$/,
       include: path.resolve(__dirname, 'src'),
-      loader: myCSS.extract('css-loader?modules!sass-loader')
+      use: myCSS.extract({
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          'sass-loader'
+        ]
+      })
     },
     {
       test: /\.css$/,
       exclude: path.resolve(__dirname, 'src'),
-      loader: vendorCSS.extract('css-loader')
+      use: vendorCSS.extract({
+        use: 'css-loader'
+      })
     },
     {
       test: /\.(png|jpg|ico)/,
-      loader: 'url-loader?limit=100000'
+      loader: 'url-loader',
+      options: {
+        limit: 100000
+      }
     }
   ],
   plugins: [
