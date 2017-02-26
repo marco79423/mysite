@@ -10,6 +10,10 @@ export default class SiteHead extends React.Component {
       meta: ImmutablePropTypes.listOf({
         name: React.PropTypes.string.isRequired,
         content: React.PropTypes.string.isRequired
+      }),
+      link: ImmutablePropTypes.listOf({
+        ref: React.PropTypes.string.isRequired,
+        href: React.PropTypes.string.isRequired
       })
     })
   }
@@ -19,6 +23,7 @@ export default class SiteHead extends React.Component {
       <Helmet
         title={this.props.config.get('title')}
         meta={this.props.config.get('meta').toJS()}
+        link={this.props.config.get('link').toJS()}
       />
     )
   }

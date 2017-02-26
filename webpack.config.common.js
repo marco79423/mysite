@@ -27,7 +27,7 @@ module.exports = {
       loader: vendorCSS.extract('css-loader')
     },
     {
-      test: /\.(png|jpg)/,
+      test: /\.(png|jpg|ico)/,
       loader: 'url-loader?limit=100000'
     }
   ],

@@ -23,6 +23,7 @@ export class Html extends React.Component {
         <link href="/assets/styles/styles.css" rel="stylesheet"/>
         {this.props.head.title.toComponent()}
         {this.props.head.meta.toComponent()}
+        {this.props.head.link.toComponent()}
       </head>
       <body>
       <div id="app" dangerouslySetInnerHTML={{__html: this.props.html}} />

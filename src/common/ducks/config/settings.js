@@ -15,6 +15,10 @@ export const SITE_META = {
   'google-site-verification': 'Pid5nZRF1G0qE8W87MdFt6C5oQT8OIWRREXIxuWjik4'
 }
 
+export const SITE_LINK = {
+  'shortcut icon': require('../../img/favicon.ico')
+}
+
 export const LEFT_MENU_ITEMS = [
   {name: 'Python', url: '/articles/category/python/'},
   {name: '專案作品', url: '/articles/category/專案作品/'},

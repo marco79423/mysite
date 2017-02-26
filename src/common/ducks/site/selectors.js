@@ -9,13 +9,17 @@ import * as routingSelectors from '../routing/selectors'
 export const getSiteHeadConfig = createSelector(
   [
     configSelectors.getSiteName,
-    configSelectors.getSiteMeta
+    configSelectors.getSiteMeta,
+    configSelectors.getSiteLink,
   ],
-  (siteName, siteMeta) => Immutable.Map({
+  (siteName, siteMeta, siteLink) => Immutable.Map({
     title: siteName,
     meta: siteMeta
       .entrySeq()
-      .map(([name, content]) => Immutable.Map({name, content}))
+      .map(([name, content]) => Immutable.Map({name, content})),
+    link: siteLink
+      .entrySeq()
+      .map(([rel, href]) => Immutable.Map({rel, href}))
   })
 )
 
@@ -25,9 +29,10 @@ export const getArticleSiteHeadConfig = createSelector(
     routingSelectors.getPathName,
     configSelectors.getSiteName,
     configSelectors.getSiteMeta,
+    configSelectors.getSiteLink,
     articleSelectors.getArticle
   ],
-  (pathName, siteName, siteMeta, article) => {
+  (pathName, siteName, siteMeta, siteLink, article) => {
     const title = `${article.get('title')} - ${siteName}`
     return Immutable.Map({
       title: title,
@@ -39,7 +44,10 @@ export const getArticleSiteHeadConfig = createSelector(
           'og:description': article.get('rawSummary')
         })
         .entrySeq()
-        .map(([name, content]) => Immutable.Map({name, content}))
+        .map(([name, content]) => Immutable.Map({name, content})),
+      link: siteLink
+        .entrySeq()
+        .map(([rel, href]) => Immutable.Map({rel, href}))
     })
   }
 )
