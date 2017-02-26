@@ -14,13 +14,13 @@ CONFIGS = {
         'name': 'mysite-frontend',
         'port': 3000,
         'server_name': 'www.marco79423.net',
-        'api_server_url': 'http://api.marco79423.net'
+        'api_server_url': 'https://api.marco79423.net'
     },
     'dev': {
         'name': 'mysite-frontend-dev',
         'port': 4000,
         'server_name': 'dev.marco79423.net',
-        'api_server_url': 'http://api-dev.marco79423.net'
+        'api_server_url': 'https://api-dev.marco79423.net'
     }
 }
 
