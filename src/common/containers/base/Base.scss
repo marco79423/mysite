@@ -1,0 +1,44 @@
+@import '../../css/colors.scss';
+
+.root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.header, .nav, .main, .sidebar, .content, .footer {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.nav, .footer {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .nav, .footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .root {
+    width: 1200px;
+  }
+
+  .sidebar {
+    order: 2;
+    width: 34%;
+  }
+
+  .content {
+    order: 1;
+    width: 66%;
+  }
+}

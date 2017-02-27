@@ -1,0 +1,67 @@
+import * as React from 'react'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import {connect} from 'react-redux'
+import {Link} from 'react-router'
+
+import SiteHead from '../../components/site-head'
+import ArticleContent from '../../components/article-content'
+import * as siteSelectors from '../../ducks/site/selectors'
+import * as pageActions from '../../ducks/page/actions'
+
+import styles from './Page.scss'
+
+
+export class Page extends React.Component {
+  static PropTypes = {
+    siteConfig: ImmutablePropTypes.map.isRequired,
+    page: ImmutablePropTypes.contains({
+      app: React.PropTypes.string.isRequired,
+      slug: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      content: React.PropTypes.content
+    })
+  }
+
+  componentWillMount() {
+    if (!this.props.page) {
+      this.props.fetchPages()
+    }
+  }
+
+  render() {
+    const {page} = this.props
+    if (!page) {
+      return <article>讀取中……</article>
+    }
+
+    return (
+      <article className={styles.root}>
+        <SiteHead config={this.props.siteConfig}/>
+        <div>
+          <header className={styles.header}>
+            <Link className={styles.link} to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</Link>
+          </header>
+        </div>
+        <ArticleContent content={page.get('content')}/>
+      </article>
+    )
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    siteConfig: siteSelectors.getSiteHeadConfig(state, ownProps),
+    page: state.getIn(['page', 'items']).find(page => (
+      page.get('app') === ownProps.params.app &&
+      page.get('slug') === ownProps.params.slug
+    ))
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPages: () => dispatch(pageActions.fetchPages())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page)

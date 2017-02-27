@@ -1,6 +1,8 @@
+/assets
 /node_modules
 /dist
 /coverage
 /.idea
 
 npm-debug.log
+/__server.js
