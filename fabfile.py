@@ -13,7 +13,7 @@ CONFIGS = {
     'prod': {
         'name': 'mysite-frontend',
         'port': 3000,
-        'server_name': 'www.marco79423.net',
+        'server_name': 'marco79423.net',
         'api_server_url': 'https://api.marco79423.net'
     },
     'dev': {
