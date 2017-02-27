@@ -161,6 +161,9 @@ COMPRESS_JS_FILTERS = (
 
 SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
 DEBUG = True
-ALLOWED_HOSTS = ["marco79423.twbbs.org"]
+ALLOWED_HOSTS = [
+    "api.marco79423.net",
+    "api-dev.marco79423.net"
+]
 
 CORS_ORIGIN_ALLOW_ALL = True
