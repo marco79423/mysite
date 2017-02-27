@@ -14,6 +14,7 @@ PROJECT_NAME = PROJECT_DIR.basename()
 ROOT_URLCONF = 'mysite.urls'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+HOST = "http://localhost:8000"
 
 ##################################################################
 # Other settings
@@ -162,6 +163,4 @@ SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
 DEBUG = True
 ALLOWED_HOSTS = ["marco79423.twbbs.org"]
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
+CORS_ORIGIN_ALLOW_ALL = True
