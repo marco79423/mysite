@@ -12,12 +12,14 @@ HOST_CONFIG_FILE = "hosts.json"
 CONFIGS = {
     'prod': {
         'name': 'mysite-frontend',
+        'default_branch': 'master',
         'port': 3000,
         'server_name': 'marco79423.net',
         'api_server_url': 'https://api.marco79423.net'
     },
     'dev': {
         'name': 'mysite-frontend-dev',
+        'default_branch': 'HEAD',
         'port': 4000,
         'server_name': 'dev.marco79423.net',
         'api_server_url': 'https://api-dev.marco79423.net'
@@ -31,7 +33,7 @@ with open(HOST_CONFIG_FILE) as fp:
 
 
 @task
-def deploy(type_key='dev', branch='develop'):
+def deploy(type_key='dev', branch=None):
     execute(update_sys)
     execute(_set_config, type_key)
     execute(_upload_proj, branch)
@@ -66,6 +68,9 @@ def _set_config(type_key):
 
 @task
 def _upload_proj(branch):
+    if not branch:
+        branch = env.config['default_branch']
+
     sudo('mkdir -p {}'.format(env.config['project_path']))
     archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
     with cd(env.config['project_path']):
