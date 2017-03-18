@@ -1,5 +1,6 @@
 from __future__ import print_function
 import json
+import datetime as dt
 from StringIO import StringIO
 
 from fabric.api import *
@@ -38,7 +39,7 @@ def deploy(type_key='dev', branch=None):
     execute(_set_config, type_key)
     execute(_upload_proj, branch)
     execute(_install_pkgs)
-    execute(_setup_proj)
+    execute(_setup_proj, branch)
     execute(_test_proj)
     execute(_setup_serv)
     execute(restart_serv)
@@ -90,11 +91,18 @@ def _install_pkgs():
 
 
 @task
-def _setup_proj():
+def _setup_proj(branch):
+    if not branch:
+        branch = env.config['default_branch']
+    version = "{} ({})".format(branch, local('git rev-parse {}'.format(branch), capture=True))
+    updated_time = str(dt.datetime.now())
+
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
         settings_path = '{}/src/common/ducks/config/settings.js'.format(env.config['project_path'])
         sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"', 'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
+        sed(settings_path, 'SITE_VERSION = ""', 'SITE_VERSION = "{}"'.format(version), shell=True, use_sudo=True)
+        sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True, use_sudo=True)
 
         sudo('npm install', warn_only=True)
         sudo('npm run dist')

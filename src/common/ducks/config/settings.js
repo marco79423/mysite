@@ -50,3 +50,6 @@ export const PAGE_SIZE = 10
 export const COMMENT_CONFIG = {
   shortName: 'marco79423'
 }
+
+export const SITE_VERSION = ""  // eslint-disable-line
+export const SITE_UPDATED_TIME = ""  // eslint-disable-line
