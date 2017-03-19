@@ -36,10 +36,10 @@ with open(HOST_CONFIG_FILE) as fp:
 @task
 def deploy(type_key='dev', branch=None):
     execute(update_sys)
-    execute(_set_config, type_key)
-    execute(_upload_proj, branch)
+    execute(_set_config, type_key, branch)
+    execute(_upload_proj)
     execute(_install_pkgs)
-    execute(_setup_proj, branch)
+    execute(_setup_proj)
     execute(_test_proj)
     execute(_setup_serv)
     execute(restart_serv)
@@ -62,18 +62,16 @@ def restart_serv():
 #################
 
 @task
-def _set_config(type_key):
+def _set_config(type_key, branch):
     env.config = CONFIGS[type_key]
     env.config['project_path'] = '/var/www/' + env.config['name']
+    env.config['branch'] = branch if branch else env.config['default_branch']
 
 
 @task
-def _upload_proj(branch):
-    if not branch:
-        branch = env.config['default_branch']
-
+def _upload_proj():
     sudo('mkdir -p {}'.format(env.config['project_path']))
-    archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
+    archive = local('git archive --format=tar {} | gzip'.format(env.config['branch']), capture=True)
     with cd(env.config['project_path']):
         put(StringIO(archive), 'temp.tar.gz', use_sudo=True)
         sudo('tar zxf temp.tar.gz')
@@ -91,10 +89,8 @@ def _install_pkgs():
 
 
 @task
-def _setup_proj(branch):
-    if not branch:
-        branch = env.config['default_branch']
-    version = "{} ({})".format(branch, local('git rev-parse {}'.format(branch), capture=True))
+def _setup_proj():
+    version = "{} ({})".format(env.config['branch'], local('git rev-parse {}'.format(env.config['branch']), capture=True))
     updated_time = str(dt.datetime.now())
 
     with cd(env.config['project_path']):
