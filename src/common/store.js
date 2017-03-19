@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import * as Immutable from 'immutable'
 import {applyMiddleware, createStore} from 'redux'
-import {browserHistory} from 'react-router'
+import createHistory from 'history/createBrowserHistory'
 import {routerMiddleware} from 'react-router-redux'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
@@ -27,7 +27,11 @@ const stateTransformer = (state) => {
   return state
 }
 
-export function configureStore(history = browserHistory) {
+export function configureStore(history) {
+  if(!history) {
+    history = createHistory()
+  }
+
   let middleware = [
     thunk,
     routerMiddleware(history),

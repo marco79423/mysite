@@ -7,9 +7,10 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import 'isomorphic-fetch';
 import React from 'react'
-import {RouterContext, match, createMemoryHistory} from 'react-router'
+import {RouterContext, match} from 'react-router'
+import createMemoryHistory from 'history/createMemoryHistory'
 import {Provider} from 'react-redux'
-import {renderToString} from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
 
@@ -60,7 +61,7 @@ app.get('*', (req, res) => {
         store.dispatch(pageActions.fetchPages())
       ])
         .then(() => {
-          const html = renderToString(
+          const html = ReactDOMServer.renderToString(
             <Provider store={store}>
               <RouterContext {...renderProps} />
             </Provider>
