@@ -1,14 +1,25 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const clientConfig = require('./webpack.config.client')
+clientConfig.rules.push({
+  test: /\.jsx?$/,
+  include: path.join(__dirname, 'src'),
+  exclude: /.*Spec\.jsx/,
+  enforce: 'post',
+  loader: 'istanbul-instrumenter-loader'
+})
+
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'sinon'],
-    files: ['src/client/test.js'],
+    frameworks: ['mocha'],
+    files: [
+      {pattern: 'src/**/*Spec.js', watched: false}
+    ],
     exclude: [],
     preprocessors: {
-      'src/js/test.js': ['webpack']
+      'src/**/*.js': ['webpack']
     },
     reporters: ['mocha', 'coverage'],
     port: 9876,
@@ -16,32 +27,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['PhantomJS'],
-    webpack: {
-      module: {
-        loaders: [
-          {
-            test: /\.jsx?$/,
-            loader: 'react-hot!babel',
-            include: path.join(__dirname, 'src')
-          },
-          {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader?modules'
-          },
-          {
-            test: /\.png/,
-            loader: 'url-loader?limit=100000'
-          }
-        ],
-        postLoaders: [
-          {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'istanbul-instrumenter'
-          }
-        ]
-      }
-    },
+    webpack: clientConfig,
     webpackServer: {
       noInfo: true
     },
@@ -49,8 +35,12 @@ module.exports = function (config) {
       type: 'html',
       dir: 'coverage/'
     },
-    singleRun: false,
     concurrency: Infinity,
+    browserConsoleLogOptions: {
+      level: 'log',
+      format: '%b %T: %m',
+      terminal: true
+    },
     client: {
       mocha: {
         reporter: 'html'

@@ -8,9 +8,9 @@ describe('actions of main', () => {
 
   it('addValue should create an action to add value', () => {
     const expectedAction = {
-      type: actionTypes.ADD_VALUE,
-      payload: undefined
+      type: actionTypes.ADD_VALUE
     }
-    chai.expect(actions.addValue()).to.eql(expectedAction)
+
+    chai.expect(actions.addValue()).to.deep.equal(expectedAction)
   })
 })

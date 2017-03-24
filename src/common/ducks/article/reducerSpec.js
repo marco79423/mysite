@@ -9,15 +9,17 @@ import reducer from './reducer'
 chai.use(chaiImmutable)
 
 
-describe('reducer of main', function () {
+describe('reducer of articles', function () {
 
-  it('should return a state with a new value', function () {
+  it('should return a state with articles', function () {
     const state = Immutable.fromJS({
-      value: 1
+      items: []
     })
-    const action = actions.addValue()
+    const action = actions.setArticles([
+      'article 1', 'article2'
+    ])
     const expectedNextState = Immutable.fromJS({
-      value: 2
+      items: ['article 1', 'article2']
     })
 
     chai.expect(reducer(state, action)).to.eql(expectedNextState)
