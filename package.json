@@ -10,6 +10,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "prod": "npm run dist && npm start",
     "dev": "cross-env NODE_ENV=development webpack && node __server.js && npm start",
     "dist": "cross-env NODE_ENV=production webpack -p",
@@ -74,7 +75,6 @@
     "redux-segment": "^1.6.1"
   },
   "jest": {
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],

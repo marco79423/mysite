@@ -4,7 +4,9 @@ import * as actions from './actions'
 import reducer from './reducer'
 
 
-test('article reducer return a state with new articles', () => {
+describe('article.reducer', () => {
+
+  test('handle setArticles', () => {
     const state = Immutable.fromJS({
       items: []
     })
@@ -16,4 +18,5 @@ test('article reducer return a state with new articles', () => {
     })
 
     expect(reducer(state, action)).toEqual(expectedNextState)
+  })
 })
