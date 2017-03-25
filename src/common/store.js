@@ -1,9 +1,8 @@
 import 'isomorphic-fetch';
 import * as Immutable from 'immutable'
-import {applyMiddleware, createStore} from 'redux'
+import {applyMiddleware, createStore, compose} from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import {routerMiddleware} from 'react-router-redux'
-import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { EventTypes, createTracker } from 'redux-segment'
 
@@ -20,32 +19,22 @@ const customMapper = {
 
 const tracker = createTracker(customMapper)
 
-const stateTransformer = (state) => {
-  if (Immutable.Iterable.isIterable(state)) {
-    return state.toJS()
-  }
-  return state
-}
-
 export function configureStore(history) {
   if(!history) {
     history = createHistory()
   }
 
-  let middleware = [
-    thunk,
-    routerMiddleware(history),
-    tracker
-  ]
-
-  if (DEBUG) {
-    middleware = [createLogger({stateTransformer}), ...middleware]
-  }
-
+  const composeEnhancers = (DEBUG && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
   const initialState = Immutable.fromJS(INITIAL_STATE)
   return createStore(
     reducer,
     initialState,
-    applyMiddleware(...middleware)
+    composeEnhancers(
+      applyMiddleware(
+        thunk,
+        routerMiddleware(history),
+        tracker
+      )
+    )
   )
 }
