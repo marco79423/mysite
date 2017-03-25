@@ -15,22 +15,24 @@ export const getSiteHeadConfig = createSelector(
     title: siteName,
     meta: siteMeta
       .entrySeq()
-      .map(([name, content]) => Immutable.Map({name, content})),
+      .map(([name, content]) => Immutable.Map({name, content}))
+      .toList(),
     link: siteLink
       .entrySeq()
       .map(([rel, href]) => Immutable.Map({rel, href}))
+      .toList()
   })
 )
 
 export const getArticleSiteHeadConfig = createSelector(
   [
-    routingSelectors.getPathName,
+    routingSelectors.getCurrentUrl,
     configSelectors.getSiteName,
     configSelectors.getSiteMeta,
     configSelectors.getSiteLink,
     articleSelectors.getArticle
   ],
-  (pathName, siteName, siteMeta, siteLink, article) => {
+  (currentUrl, siteName, siteMeta, siteLink, article) => {
     const title = `${article.get('title')} - ${siteName}`
     return Immutable.Map({
       title: title,
@@ -38,14 +40,16 @@ export const getArticleSiteHeadConfig = createSelector(
         .merge({
           description: article.get('rawSummary'),
           'og:title': title,
-          'og:url': pathName,
+          'og:url': currentUrl,
           'og:description': article.get('rawSummary')
         })
         .entrySeq()
-        .map(([name, content]) => Immutable.Map({name, content})),
+        .map(([name, content]) => Immutable.Map({name, content}))
+        .toList(),
       link: siteLink
         .entrySeq()
         .map(([rel, href]) => Immutable.Map({rel, href}))
+        .toList()
     })
   }
 )
