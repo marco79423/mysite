@@ -2,7 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 
 const clientConfig = require('./webpack.config.client')
-clientConfig.rules.push({
+
+
+clientConfig.module.rules.push({
   test: /\.jsx?$/,
   include: path.join(__dirname, 'src'),
   exclude: /.*Spec\.jsx/,
