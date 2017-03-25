@@ -2,8 +2,10 @@ import {createAction} from 'redux-actions'
 import sortBy from 'lodash/sortBy'
 import reverse from 'lodash/reverse'
 
+import * as actionTypes from './actionTypes'
 
-export const setArticles = createAction('SET_ARTICLES', articles => articles)
+
+export const setArticles = createAction(actionTypes.SET_ARTICLES, articles => articles)
 
 
 export function fetchArticles() {

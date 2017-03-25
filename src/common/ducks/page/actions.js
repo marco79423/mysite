@@ -1,7 +1,9 @@
 import {createAction} from 'redux-actions'
 
+import * as actionTypes from './actionTypes'
 
-export const setPages = createAction('SET_PAGES', pages => pages)
+
+export const setPages = createAction(actionTypes.SET_PAGES, pages => pages)
 
 
 export function fetchPages() {

@@ -7,6 +7,7 @@ import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
 
+import * as actionTypes from './actionTypes'
 import * as actions from './actions'
 
 const middlewares = [thunk]
@@ -47,7 +48,7 @@ describe('actions of articles', function(){
 
   it('should create an action to set articles', function (){
     const expectedAction = {
-        type: 'SET_ARTICLES',
+        type: actionTypes.SET_ARTICLES,
         payload: articles
     }
 
@@ -63,7 +64,7 @@ describe('actions of articles', function(){
 
       const expectedActions = [
           {
-              type: 'SET_ARTICLES',
+              type: actionTypes.SET_ARTICLES,
               payload: sortedArticles
           }
       ]
