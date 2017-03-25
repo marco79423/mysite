@@ -19,7 +19,7 @@ import {configureStore} from '../common/store'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
-import {renderHtmlPage} from './html-render'
+import {renderHtmlPage} from './htmlRender'
 
 
 const app = express()
