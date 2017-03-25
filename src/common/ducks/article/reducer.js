@@ -3,7 +3,6 @@ import {handleActions} from 'redux-actions'
 
 import * as actionTypes from './actionTypes'
 
-
 const defaultState = Immutable.fromJS({
   items: []
 })

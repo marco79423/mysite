@@ -8,6 +8,7 @@
     "url": "git@github.com:marco79423/mysite-frontend.git"
   },
   "scripts": {
+    "standard": "standard",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -39,6 +40,7 @@
     "jest-immutable-matchers": "^1.4.0",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.3",
+    "standard": "*",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",

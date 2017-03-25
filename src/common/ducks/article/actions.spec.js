@@ -12,7 +12,6 @@ import * as actions from './actions'
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
 
-
 describe('article.action', () => {
 
   const articles = [
@@ -47,8 +46,8 @@ describe('article.action', () => {
 
   test('handle setArticles action', () => {
     const expectedAction = {
-        type: actionTypes.SET_ARTICLES,
-        payload: articles
+      type: actionTypes.SET_ARTICLES,
+      payload: articles
     }
     expect(actions.setArticles(articles)).toEqual(expectedAction)
   })
@@ -61,10 +60,10 @@ describe('article.action', () => {
     }))
 
     const expectedActions = [
-        {
-            type: actionTypes.SET_ARTICLES,
-            payload: sortedArticles
-        }
+      {
+        type: actionTypes.SET_ARTICLES,
+        payload: sortedArticles
+      }
     ]
 
     fetchMock.once('https://api.marco79423.net/articles/', articles)

@@ -12,14 +12,13 @@ import * as articleSelectors from '../../ducks/article/selectors'
 import 'normalize.css/normalize.css'
 import styles from './Base.scss'
 
-
 class Base extends React.Component {
   static PropTypes = {
     config: ImmutablePropTypes.map.isRequired,
     recentArticles: ImmutablePropTypes.list
   }
 
-  render() {
+  render () {
     const {config, recentArticles} = this.props
     return (
       <div className={styles.root}>

@@ -1,10 +1,10 @@
-import 'isomorphic-fetch';
+import 'isomorphic-fetch'
 import * as Immutable from 'immutable'
-import {applyMiddleware, createStore, compose} from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import createHistory from 'history/createBrowserHistory'
-import {routerMiddleware} from 'react-router-redux'
+import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
-import { EventTypes, createTracker } from 'redux-segment'
+import { createTracker, EventTypes } from 'redux-segment'
 
 import reducer from './ducks/reducer'
 
@@ -19,8 +19,8 @@ const customMapper = {
 
 const tracker = createTracker(customMapper)
 
-export function configureStore(history) {
-  if(!history) {
+export function configureStore (history) {
+  if (!history) {
     history = createHistory()
   }
 

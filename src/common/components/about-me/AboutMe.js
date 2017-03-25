@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import styles from './AboutMe.scss'
 
-export default class Sidebar extends React.Component {
+export default class AboutMe extends React.Component {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
       socialLinks: ImmutablePropTypes.listOf(
@@ -16,7 +16,7 @@ export default class Sidebar extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const {config} = this.props
     return (
       <div className={styles.root}>

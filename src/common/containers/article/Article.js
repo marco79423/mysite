@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {connect} from 'react-redux'
-import {Link} from 'react-router'
+import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 import SiteHead from '../../components/site-head'
 import ArticleMeta from '../../components/article-meta'
@@ -14,7 +14,6 @@ import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
 import styles from './Article.scss'
-
 
 export class Article extends React.Component {
   static PropTypes = {
@@ -29,13 +28,13 @@ export class Article extends React.Component {
     commentConfig: ImmutablePropTypes.map
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (!this.props.article) {
       this.props.fetchArticles()
     }
   }
 
-  render() {
+  render () {
     const {article, socialConfig, commentConfig} = this.props
     if (!article) {
       return <article>讀取中……</article>

@@ -1,21 +1,20 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {ShareButtons, generateShareIcon} from 'react-share'
+import { generateShareIcon, ShareButtons } from 'react-share'
 
 import styles from './SocialShare.scss'
-
 
 const {
   FacebookShareButton,
   GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton
-} = ShareButtons;
+} = ShareButtons
 
 const FacebookIcon = generateShareIcon('facebook')
 const GooglePlusIcon = generateShareIcon('google')
-const LinkedinIcon  = generateShareIcon('linkedin')
-const TwitterIcon  = generateShareIcon('twitter')
+const LinkedinIcon = generateShareIcon('linkedin')
+const TwitterIcon = generateShareIcon('twitter')
 
 export default class SocialShare extends React.Component {
   static PropTypes = {
@@ -25,7 +24,7 @@ export default class SocialShare extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const iconSize = 32
 
     return (
@@ -36,7 +35,7 @@ export default class SocialShare extends React.Component {
           className={styles.item}>
           <FacebookIcon
             size={iconSize}
-            round />
+            round/>
         </FacebookShareButton>
 
         <GooglePlusShareButton
@@ -44,7 +43,7 @@ export default class SocialShare extends React.Component {
           className={styles.item}>
           <GooglePlusIcon
             size={iconSize}
-            round />
+            round/>
         </GooglePlusShareButton>
 
         <TwitterShareButton
@@ -53,7 +52,7 @@ export default class SocialShare extends React.Component {
           className={styles.item}>
           <TwitterIcon
             size={iconSize}
-            round />
+            round/>
         </TwitterShareButton>
 
         <LinkedinShareButton
@@ -62,7 +61,7 @@ export default class SocialShare extends React.Component {
           className={styles.item}>
           <LinkedinIcon
             size={iconSize}
-            round />
+            round/>
         </LinkedinShareButton>
       </div>
     )

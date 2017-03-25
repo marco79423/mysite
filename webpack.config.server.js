@@ -2,7 +2,6 @@ const fs = require('fs')
 
 const commonConfig = require('./webpack.config.common')
 
-
 module.exports = {
   entry: [
     'babel-polyfill',

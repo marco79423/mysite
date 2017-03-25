@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import SiteHead from '../../components/site-head'
 import ArticleListItem from '../../components/article-list-item'
@@ -9,7 +9,6 @@ import Pagination from '../../components/pagination'
 import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
-
 
 import styles from './ArticleList.scss'
 
@@ -27,13 +26,13 @@ export class ArticleList extends React.Component {
     fetchArticles: React.PropTypes.func
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (this.props.articles.isEmpty()) {
       this.props.fetchArticles()
     }
   }
 
-  render() {
+  render () {
     const {articles, pageNum, maxPageNum} = this.props
     return (
       <div className={styles.root}>

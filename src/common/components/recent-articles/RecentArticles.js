@@ -4,7 +4,6 @@ import {Link} from 'react-router'
 
 import styles from './RecentArticles.scss'
 
-
 export default class RecentArticles extends React.Component {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
@@ -15,7 +14,7 @@ export default class RecentArticles extends React.Component {
     )
   }
 
-  render() {
+  render () {
     const {articles} = this.props
 
     return (

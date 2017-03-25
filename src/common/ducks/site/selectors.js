@@ -5,12 +5,11 @@ import * as configSelectors from '../config/selectors'
 import * as articleSelectors from '../article/selectors'
 import * as routingSelectors from '../routing/selectors'
 
-
 export const getSiteHeadConfig = createSelector(
   [
     configSelectors.getSiteName,
     configSelectors.getSiteMeta,
-    configSelectors.getSiteLink,
+    configSelectors.getSiteLink
   ],
   (siteName, siteMeta, siteLink) => Immutable.Map({
     title: siteName,
@@ -22,7 +21,6 @@ export const getSiteHeadConfig = createSelector(
       .map(([rel, href]) => Immutable.Map({rel, href}))
   })
 )
-
 
 export const getArticleSiteHeadConfig = createSelector(
   [
@@ -51,5 +49,3 @@ export const getArticleSiteHeadConfig = createSelector(
     })
   }
 )
-
-

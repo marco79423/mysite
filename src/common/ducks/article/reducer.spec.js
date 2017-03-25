@@ -3,9 +3,7 @@ import * as Immutable from 'immutable'
 import * as actions from './actions'
 import reducer from './reducer'
 
-
 describe('article.reducer', () => {
-
   test('handle setArticles', () => {
     const state = Immutable.fromJS({
       items: []

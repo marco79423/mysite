@@ -1,24 +1,24 @@
 import * as React from 'react'
-import {browserHistory} from 'react-router'
-import {syncHistoryWithStore} from 'react-router-redux'
-import {Provider} from 'react-redux'
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { Provider } from 'react-redux'
 
-import {configureStore} from '../common/store'
-import {createRoutes} from '../common/routes';
+import { configureStore } from '../common/store'
+import { createRoutes } from '../common/routes'
 
-import 'isomorphic-fetch';
+import 'isomorphic-fetch'
 
 import '../common/css/base.scss'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState(state) {
+  selectLocationState (state) {
     return state.get('routing').toObject()
   }
 })
 
 export class App extends React.Component {
-  render() {
+  render () {
     return (
       <Provider store={store}>
         {createRoutes(history)}

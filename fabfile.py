@@ -1,12 +1,12 @@
 from __future__ import print_function
-import json
+
 import datetime as dt
+import json
 from StringIO import StringIO
 
 from fabric.api import *
 from fabric.colors import cyan
 from fabric.contrib.files import exists, sed
-
 
 HOST_CONFIG_FILE = "hosts.json"
 
@@ -90,15 +90,18 @@ def _install_pkgs():
 
 @task
 def _setup_proj():
-    version = "{} ({})".format(env.config['branch'], local('git rev-parse {}'.format(env.config['branch']), capture=True))
+    version = "{} ({})".format(env.config['branch'],
+                               local('git rev-parse {}'.format(env.config['branch']), capture=True))
     updated_time = str(dt.datetime.now())
 
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
         settings_path = '{}/src/common/ducks/config/settings.js'.format(env.config['project_path'])
-        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"', 'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
+        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"',
+            'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
         sed(settings_path, 'SITE_VERSION = ""', 'SITE_VERSION = "{}"'.format(version), shell=True, use_sudo=True)
-        sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True, use_sudo=True)
+        sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True,
+            use_sudo=True)
 
         sudo('npm install', warn_only=True)
         sudo('npm run dist')

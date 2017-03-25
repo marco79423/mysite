@@ -2,7 +2,6 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
-
 export default class SiteHead extends React.Component {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
@@ -18,7 +17,7 @@ export default class SiteHead extends React.Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <Helmet
         title={this.props.config.get('title')}

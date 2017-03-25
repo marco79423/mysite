@@ -1,12 +1,11 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 import AboutMe from '../about-me'
 import RecentArticles from '../recent-articles'
 
 import styles from './Sidebar.scss'
-
 
 export default class Sidebar extends React.Component {
   static PropTypes = {
@@ -14,7 +13,7 @@ export default class Sidebar extends React.Component {
     recentArticles: ImmutablePropTypes.list
   }
 
-  render() {
+  render () {
     return (
       <div className={styles.root}>
         <AboutMe config={this.props.aboutMeConfig}/>

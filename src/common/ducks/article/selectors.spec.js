@@ -4,9 +4,7 @@ import moment from 'moment'
 
 import * as selectors from './selectors'
 
-
 describe('article.selectors', () => {
-
   jest.addMatchers(matchers)
 
   const articles = [
@@ -120,6 +118,4 @@ describe('article.selectors', () => {
     ])
     expect(selectors.getAllArticles(state)).toEqualImmutable(expected)
   })
-
 })
-

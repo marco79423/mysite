@@ -5,7 +5,6 @@ import moment from 'moment'
 import * as configSelectors from '../config/selectors'
 import * as routingSelectors from '../routing/selectors'
 
-
 const _getCategory = (state, props) => props.params.category
 
 export const getAllArticles = (state) => state

@@ -1,9 +1,8 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 import styles from './ArticleMeta.scss'
-
 
 export default class ArticleMeta extends React.Component {
   static PropTypes = {
@@ -12,7 +11,7 @@ export default class ArticleMeta extends React.Component {
     modifiedDate: React.PropTypes.any
   }
 
-  render() {
+  render () {
     const {categories, date, modifiedDate} = this.props
 
     return (

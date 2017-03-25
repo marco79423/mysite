@@ -10,7 +10,6 @@ import * as pageActions from '../../ducks/page/actions'
 
 import styles from './Page.scss'
 
-
 export class Page extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
@@ -22,13 +21,13 @@ export class Page extends React.Component {
     })
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (!this.props.page) {
       this.props.fetchPages()
     }
   }
 
-  render() {
+  render () {
     const {page} = this.props
     if (!page) {
       return <article>讀取中……</article>

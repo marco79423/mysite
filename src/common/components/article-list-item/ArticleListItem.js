@@ -1,12 +1,11 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 import ArticleMeta from '../article-meta'
 import ArticleContent from '../article-content'
 
 import styles from './ArticleListItem.scss'
-
 
 export default class ArticleListItem extends React.Component {
   static PropTypes = {
@@ -16,7 +15,7 @@ export default class ArticleListItem extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const {article} = this.props
 
     return (

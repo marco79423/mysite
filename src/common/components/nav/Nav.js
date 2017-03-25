@@ -4,7 +4,6 @@ import {Link} from 'react-router'
 
 import styles from './Nav.scss'
 
-
 export default class Nav extends React.Component {
   static propTypes = {
     leftMenuItems: ImmutablePropTypes.listOf(
@@ -22,7 +21,7 @@ export default class Nav extends React.Component {
     fetchArticles: React.PropTypes.func
   }
 
-  render() {
+  render () {
     return (
       <div className={styles.root}>
         <div className={styles.menus}>

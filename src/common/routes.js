@@ -8,7 +8,6 @@ import Archives from './containers/archives'
 import SiteInfo from './containers/site-info'
 import Page from './containers/page'
 
-
 export const createRoutes = (history) => (
   <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
     <Route path="/" component={Base}>
