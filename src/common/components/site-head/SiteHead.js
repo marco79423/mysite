@@ -14,16 +14,18 @@ export default class SiteHead extends React.Component {
         ref: React.PropTypes.string.isRequired,
         href: React.PropTypes.string.isRequired
       })
-    })
+    }).isRequired
   }
 
   render () {
     return (
-      <Helmet
-        title={this.props.config.get('title')}
-        meta={this.props.config.get('meta').toJS()}
-        link={this.props.config.get('link').toJS()}
-      />
+      <Helmet>
+        <title>{this.props.config.get('title')}</title>
+        {this.props.config.get('meta').map(meta =>
+          <meta key={meta.get('name')} name={meta.get('name')} content={meta.get('content')}/>)}
+        {this.props.config.get('link').map(link =>
+          <link key={link.get('rel')} rel={link.get('rel')} href={link.get('href')}/>)}
+      </Helmet>
     )
   }
 }

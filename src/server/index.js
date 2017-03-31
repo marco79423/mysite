@@ -65,7 +65,7 @@ app.get('*', (req, res) => {
               <RouterContext {...renderProps} />
             </Provider>
           )
-          const head = Helmet.rewind()
+          const head = Helmet.renderStatic()
           res.status(200).send(renderHtmlPage(html, head, store.getState()))
         })
     } else {

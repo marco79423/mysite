@@ -4874,9 +4874,9 @@
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.4.2.tgz"
     },
     "react-helmet": {
-      "version": "4.0.0",
-      "from": "react-helmet@>=4.0.0 <5.0.0",
-      "resolved": "https://registry.npmjs.org/react-helmet/-/react-helmet-4.0.0.tgz"
+      "version": "5.0.2",
+      "from": "react-helmet@5.0.2",
+      "resolved": "https://registry.npmjs.org/react-helmet/-/react-helmet-5.0.2.tgz"
     },
     "react-hot-api": {
       "version": "0.4.7",
