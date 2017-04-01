@@ -39,8 +39,8 @@ def deploy(type_key='dev', branch=None):
     execute(_set_config, type_key, branch)
     execute(_upload_proj)
     execute(_install_pkgs)
-    execute(_test_proj)
     execute(_setup_proj)
+    execute(_test_proj)
     execute(_setup_serv)
     execute(restart_serv)
 
