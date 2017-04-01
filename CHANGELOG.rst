@@ -1,6 +1,18 @@
 Change Log
 ##########
 
+1.2.0
+=====
+
+* 調整 coding style 和檔案命名風格，並移除部分無用的程式碼
+* 將設定檔的位置移至 /src/config/
+* 調整 info 頁面的 style
+* 刪除 redux-logger，並改用 redux-devtools-extension
+* 整理 package.json，並移除部分的 modules
+* 解決 react-disqus-thread 所產生的錯誤警告
+* 新增單元測試
+* 更新 NPM 函式庫
+
 1.1.0
 =====
 
