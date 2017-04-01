@@ -14,6 +14,7 @@ import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
 
+import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
 import * as articleActions from '../common/ducks/article/actions'
@@ -22,7 +23,7 @@ import * as pageActions from '../common/ducks/page/actions'
 import { renderHtmlPage } from './htmlRender'
 
 const app = express()
-const port = +argv.port || 3000
+const port = +argv.port || config.DEFAULT_PORT
 
 if (process.env.DEBUG) {
   const compiler = webpack(webpackConfig)

@@ -96,8 +96,8 @@ def _setup_proj():
 
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
-        settings_path = '{}/src/common/ducks/config/settings.js'.format(env.config['project_path'])
-        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"',
+        settings_path = '{}/src/config/client.js'.format(env.config['project_path'])
+        sed(settings_path, 'API_SERVER_URL = "https://api.marco79423.net/api"',
             'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
         sed(settings_path, 'SITE_VERSION = ""', 'SITE_VERSION = "{}"'.format(version), shell=True, use_sudo=True)
         sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True,

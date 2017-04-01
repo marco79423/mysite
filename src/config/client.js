@@ -16,7 +16,7 @@ export const SITE_META = {
 }
 
 export const SITE_LINK = {
-  'shortcut icon': require('../../img/favicon.ico')
+  'shortcut icon': require('../common/img/favicon.ico')
 }
 
 export const LEFT_MENU_ITEMS = [
@@ -44,7 +44,7 @@ export const ABOUT_ME = {
 export const RECENT_ARTICLE_COUNT = 5
 
 export const HOST_URL = 'http://marco79423.net'
-export const API_SERVER_URL = "http://localhost:8000/api"  // eslint-disable-line
+export const API_SERVER_URL = "https://api.marco79423.net/api"  // eslint-disable-line
 export const PAGE_SIZE = 10
 
 export const COMMENT_CONFIG = {
