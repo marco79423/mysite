@@ -9,8 +9,8 @@
   },
   "scripts": {
     "standard": "standard",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watchAll",
     "test:coverage": "jest --coverage",
     "prod": "npm run dist && npm start",
     "dev": "cross-env NODE_ENV=development webpack && node __server.js && npm start",
