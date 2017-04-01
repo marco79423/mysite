@@ -2563,9 +2563,9 @@
       "dev": true
     },
     "eslint": {
-      "version": "3.18.0",
-      "from": "eslint@>=3.18.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.18.0.tgz",
+      "version": "3.19.0",
+      "from": "eslint@3.19.0",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.19.0.tgz",
       "dev": true,
       "dependencies": {
         "strip-bom": {
@@ -2615,10 +2615,18 @@
       "dev": true
     },
     "espree": {
-      "version": "3.4.0",
+      "version": "3.4.1",
       "from": "espree@>=3.4.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/espree/-/espree-3.4.0.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/espree/-/espree-3.4.1.tgz",
+      "dev": true,
+      "dependencies": {
+        "acorn": {
+          "version": "5.0.2",
+          "from": "acorn@>=5.0.1 <6.0.0",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-5.0.2.tgz",
+          "dev": true
+        }
+      }
     },
     "esprima": {
       "version": "2.7.3",
@@ -4204,9 +4212,9 @@
       "dev": true
     },
     "node-sass": {
-      "version": "4.5.1",
-      "from": "node-sass@>=4.5.0 <5.0.0",
-      "resolved": "https://registry.npmjs.org/node-sass/-/node-sass-4.5.1.tgz",
+      "version": "4.5.2",
+      "from": "node-sass@4.5.2",
+      "resolved": "https://registry.npmjs.org/node-sass/-/node-sass-4.5.2.tgz",
       "dev": true
     },
     "nopt": {
@@ -4863,10 +4871,10 @@
       "from": "react@>=15.4.2 <16.0.0",
       "resolved": "https://registry.npmjs.org/react/-/react-15.4.2.tgz"
     },
-    "react-disqus-thread": {
-      "version": "0.4.0",
-      "from": "react-disqus-thread@>=0.4.0 <0.5.0",
-      "resolved": "https://registry.npmjs.org/react-disqus-thread/-/react-disqus-thread-0.4.0.tgz"
+    "react-disqus-comments": {
+      "version": "0.5.2",
+      "from": "react-disqus-comments@latest",
+      "resolved": "https://registry.npmjs.org/react-disqus-comments/-/react-disqus-comments-0.5.2.tgz"
     },
     "react-dom": {
       "version": "15.4.2",
@@ -4899,9 +4907,9 @@
       "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-5.0.3.tgz"
     },
     "react-router": {
-      "version": "3.0.2",
-      "from": "react-router@>=3.0.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/react-router/-/react-router-3.0.2.tgz",
+      "version": "3.0.3",
+      "from": "react-router@3.0.3",
+      "resolved": "https://registry.npmjs.org/react-router/-/react-router-3.0.3.tgz",
       "dependencies": {
         "history": {
           "version": "3.3.0",
@@ -4912,13 +4920,13 @@
     },
     "react-router-redux": {
       "version": "4.0.8",
-      "from": "react-router-redux@>=4.0.8 <5.0.0",
+      "from": "react-router-redux@4.0.8",
       "resolved": "https://registry.npmjs.org/react-router-redux/-/react-router-redux-4.0.8.tgz"
     },
     "react-share": {
-      "version": "1.12.1",
-      "from": "react-share@>=1.11.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/react-share/-/react-share-1.12.1.tgz"
+      "version": "1.13.0",
+      "from": "react-share@1.13.0",
+      "resolved": "https://registry.npmjs.org/react-share/-/react-share-1.13.0.tgz"
     },
     "react-side-effect": {
       "version": "1.1.0",
@@ -5458,10 +5466,30 @@
           "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-1.5.0.tgz",
           "dev": true
         },
+        "eslint": {
+          "version": "3.18.0",
+          "from": "eslint@>=3.18.0 <3.19.0",
+          "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.18.0.tgz",
+          "dev": true,
+          "dependencies": {
+            "doctrine": {
+              "version": "2.0.0",
+              "from": "doctrine@^2.0.0",
+              "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-2.0.0.tgz",
+              "dev": true
+            }
+          }
+        },
         "eslint-plugin-react": {
           "version": "6.9.0",
           "from": "eslint-plugin-react@>=6.9.0 <6.10.0",
           "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-6.9.0.tgz",
+          "dev": true
+        },
+        "strip-bom": {
+          "version": "3.0.0",
+          "from": "strip-bom@^3.0.0",
+          "resolved": "https://registry.npmjs.org/strip-bom/-/strip-bom-3.0.0.tgz",
           "dev": true
         }
       }
