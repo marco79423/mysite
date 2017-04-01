@@ -36,9 +36,11 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "fetch-mock": "^5.9.4",
     "file-loader": "^0.10.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^19.0.2",
     "jest-immutable-matchers": "^1.4.0",
     "node-sass": "^4.5.0",
+    "react-test-renderer": "^15.4.2",
     "sass-loader": "^6.0.3",
     "standard": "*",
     "url-loader": "^0.5.8",
@@ -87,6 +89,9 @@
     "moduleFileExtensions": [
       "js",
       "jsx"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
   }
 }
