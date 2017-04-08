@@ -19,7 +19,7 @@ export default class RecentArticles extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className={styles.title}>最新文章</div>
+        <div className={styles.title}>近期文章</div>
         <div className={styles.hr}/>
         <div className={styles.articles}>
           {
