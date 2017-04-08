@@ -1,6 +1,6 @@
 {
   "name": "mysite-frontend",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "dependencies": {
     "abab": {
       "version": "1.0.3",
@@ -5279,7 +5279,7 @@
     },
     "rimraf": {
       "version": "2.6.1",
-      "from": "rimraf@>=2.2.8 <3.0.0",
+      "from": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
       "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
       "dev": true
     },

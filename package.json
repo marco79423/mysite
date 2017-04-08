@@ -14,7 +14,7 @@
     "test:coverage": "jest --coverage",
     "prod": "npm run dist && npm start",
     "dev": "cross-env NODE_ENV=development webpack && node __server.js && npm start",
-    "dist": "cross-env NODE_ENV=production webpack -p",
+    "dist": "rimraf dist && cross-env NODE_ENV=production webpack -p",
     "start": "node __server.js"
   },
   "license": "BSD-3-Clause",
@@ -41,6 +41,7 @@
     "jest-immutable-matchers": "^1.4.0",
     "node-sass": "^4.5.0",
     "react-test-renderer": "^15.4.2",
+    "rimraf": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
     "sass-loader": "^6.0.3",
     "standard": "*",
     "url-loader": "^0.5.8",
