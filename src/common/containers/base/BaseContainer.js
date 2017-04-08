@@ -13,9 +13,9 @@ import * as articleSelectors from '../../ducks/article/selectors'
 import * as siteSelectors from '../../ducks/site/selectors'
 
 import 'normalize.css/normalize.css'
-import styles from './Base.scss'
+import styles from './BaseContainer.scss'
 
-class Base extends React.Component {
+class BaseContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     config: ImmutablePropTypes.map.isRequired,
@@ -66,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Base)
+export default connect(mapStateToProps, mapDispatchToProps)(BaseContainer)

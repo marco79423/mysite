@@ -6,9 +6,9 @@ import { Link } from 'react-router'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 
-import styles from './Archives.scss'
+import styles from './ArchivesContainer.scss'
 
-export class Archives extends React.Component {
+export class ArchivesContainer extends React.Component {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
@@ -68,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Archives)
+export default connect(mapStateToProps, mapDispatchToProps)(ArchivesContainer)

@@ -6,9 +6,9 @@ import { Link } from 'react-router'
 import ArticleContent from '../../components/article-content'
 import * as pageActions from '../../ducks/page/actions'
 
-import styles from './Page.scss'
+import styles from './PageContainer.scss'
 
-export class Page extends React.Component {
+export class PageContainer extends React.Component {
   static PropTypes = {
     page: ImmutablePropTypes.contains({
       app: React.PropTypes.string.isRequired,
@@ -58,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page)
+export default connect(mapStateToProps, mapDispatchToProps)(PageContainer)

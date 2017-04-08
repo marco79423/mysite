@@ -1,3 +1,3 @@
-import Archives from './Archives'
+import ArchivesContainer from './ArchivesContainer'
 
-export default Archives
+export default ArchivesContainer

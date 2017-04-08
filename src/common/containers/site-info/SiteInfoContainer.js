@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import * as configSelectors from '../../ducks/config/selectors'
 
-import styles from './SiteInfo.scss'
+import styles from './SiteInfoContainer.scss'
 
 export class SiteInfo extends React.Component {
   static PropTypes = {

@@ -13,9 +13,9 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-import styles from './Article.scss'
+import styles from './ArticleContainer.scss'
 
-export class Article extends React.Component {
+export class ArticleContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map,
     article: ImmutablePropTypes.contains({
@@ -76,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article)
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleContainer)

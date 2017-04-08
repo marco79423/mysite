@@ -1,3 +1,3 @@
-import Base from './Base'
+import BaseContainer from './BaseContainer'
 
-export default Base
+export default BaseContainer

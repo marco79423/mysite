@@ -8,7 +8,7 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class _ArticleList extends React.Component {
+export class ArticleListContainer extends React.Component {
   static propTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(_ArticleList)
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleListContainer)

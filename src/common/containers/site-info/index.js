@@ -1,3 +1,3 @@
-import SiteInfo from './SiteInfo'
+import SiteInfoContainer from './SiteInfoContainer'
 
-export default SiteInfo
+export default SiteInfoContainer

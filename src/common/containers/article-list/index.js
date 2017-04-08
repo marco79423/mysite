@@ -1,3 +1,3 @@
-import ArticleList from './ArticleList'
+import ArticleListContainer from './ArticleListContainer'
 
-export default ArticleList
+export default ArticleListContainer
