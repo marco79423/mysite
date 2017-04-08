@@ -37,7 +37,7 @@ export const getArticle = createSelector(
 
 export const getRecentArticles = createSelector(
   [
-    getArticles,
+    getArticlesByCategory,
     configSelectors.getRecentArticleCount
   ],
   (articles, recentArticleCount) => articles.take(recentArticleCount)
