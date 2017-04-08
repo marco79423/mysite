@@ -1,7 +1,7 @@
 import 'isomorphic-fetch'
 import * as Immutable from 'immutable'
 import { applyMiddleware, compose, createStore } from 'redux'
-import createHistory from 'history/createBrowserHistory'
+import { browserHistory } from 'react-router'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import { createTracker, EventTypes } from 'redux-segment'
@@ -21,7 +21,7 @@ const tracker = createTracker(customMapper)
 
 export function configureStore (history) {
   if (!history) {
-    history = createHistory()
+    history = browserHistory
   }
 
   const composeEnhancers = (DEBUG && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
