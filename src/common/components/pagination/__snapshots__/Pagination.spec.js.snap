@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Pagination component correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="pagination"
+  >
+    <span
+      className="button current"
+    >
+      1
+    </span>
+  </div>
+</div>
+`;
+
+exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="pagination"
+  >
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        ←
+      </a>
+    </span>
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        1
+      </a>
+    </span>
+    <span
+      className="button current"
+    >
+      2
+    </span>
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        3
+      </a>
+    </span>
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        →
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`It should render Pagination component with previous page link correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="pagination"
+  >
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        ←
+      </a>
+    </span>
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        1
+      </a>
+    </span>
+    <span
+      className="button"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        2
+      </a>
+    </span>
+    <span
+      className="button current"
+    >
+      3
+    </span>
+  </div>
+</div>
+`;
