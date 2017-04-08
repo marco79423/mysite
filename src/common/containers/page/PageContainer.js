@@ -1,12 +1,10 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 
-import ArticleContent from '../../components/article-content'
+import Page from '../../components/page'
+
 import * as pageActions from '../../ducks/page/actions'
-
-import styles from './PageContainer.scss'
 
 export class PageContainer extends React.Component {
   static PropTypes = {
@@ -15,7 +13,9 @@ export class PageContainer extends React.Component {
       slug: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
       content: React.PropTypes.content
-    })
+    }).isRequired,
+
+    fetchPages: React.PropTypes.func.isRequired
   }
 
   componentWillMount () {
@@ -25,20 +25,8 @@ export class PageContainer extends React.Component {
   }
 
   render () {
-    const {page} = this.props
-    if (!page) {
-      return <article>讀取中……</article>
-    }
-
     return (
-      <article className={styles.root}>
-        <div>
-          <header className={styles.header}>
-            <Link className={styles.link} to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</Link>
-          </header>
-        </div>
-        <ArticleContent content={page.get('content')}/>
-      </article>
+      <Page page={this.props.page}/>
     )
   }
 }

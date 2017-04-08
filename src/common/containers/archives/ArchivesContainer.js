@@ -1,12 +1,11 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+
+import Archives from '../../components/archives'
 
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
-
-import styles from './ArchivesContainer.scss'
 
 export class ArchivesContainer extends React.Component {
   static PropTypes = {
@@ -28,30 +27,8 @@ export class ArchivesContainer extends React.Component {
 
   render () {
     const {articles} = this.props
-    if (articles.isEmpty()) {
-      return <article>讀取中……</article>
-    }
-
     return (
-      <article className={styles.root}>
-        <div>
-          <header className={styles.header}>
-            所有文章列表
-          </header>
-          <table className={styles.table}>
-            <tbody>
-            {articles.map(article => (
-              <tr key={article.get('slug')}>
-                <td>{article.get('date').format('YYYY/MM/DD')}</td>
-                <td>
-                  <Link className={styles.link} to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
-                </td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
-        </div>
-      </article>
+      <Archives articles={articles}/>
     )
   }
 }
