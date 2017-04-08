@@ -58,7 +58,7 @@ export class Archives extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    articles: articleSelectors.getAllArticles(state, ownProps)
+    articles: articleSelectors.getArticles(state, ownProps)
   }
 }
 

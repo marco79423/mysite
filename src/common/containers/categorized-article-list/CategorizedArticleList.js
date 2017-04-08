@@ -8,8 +8,9 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class _ArticleList extends React.Component {
+export class CategorizedArticleList extends React.Component {
   static propTypes = {
+    category: React.PropTypes.string.isRequired,
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
         slug: React.PropTypes.string,
@@ -30,7 +31,8 @@ export class _ArticleList extends React.Component {
   }
 
   getPageLink = (pageNum) => {
-    return `/articles/page/${pageNum}/`
+    const {category} = this.props
+    return `/articles/category/${category}/page/${pageNum}/`
   }
 
   render () {
@@ -47,7 +49,8 @@ export class _ArticleList extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    articles: articleSelectors.getArticles(state, ownProps),
+    category: ownProps.params.category,
+    articles: articleSelectors.getArticlesByCategory(state, ownProps),
     pageSize: configSelectors.getPageSize(state, ownProps),
     pageNum: +ownProps.params.pageNum || 1
   }
@@ -59,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(_ArticleList)
+export default connect(mapStateToProps, mapDispatchToProps)(CategorizedArticleList)

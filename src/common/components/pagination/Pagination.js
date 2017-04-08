@@ -26,7 +26,7 @@ export default class Pagination extends React.Component {
               {pageNum === current ? pageNum : <Link className={styles.link} to={makeLink(pageNum)}>{ pageNum }</Link>}
             </span>
           )}
-          { (current <= max) &&
+          { (current < max) &&
           <span className={styles.button}><Link className={styles.link} to={makeLink(current + 1)}>→</Link></span>
           }
         </div>
