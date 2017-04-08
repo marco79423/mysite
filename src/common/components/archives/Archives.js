@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
+import dateformat from 'dateformat'
 
 import styles from './Archives.scss'
 
@@ -31,7 +32,7 @@ export default class Archives extends React.Component {
             <tbody>
             {articles.map(article => (
               <tr key={article.get('slug')}>
-                <td>{article.get('date').format('YYYY/MM/DD')}</td>
+                <td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</td>
                 <td>
                   <Link className={styles.link} to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
                 </td>

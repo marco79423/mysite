@@ -1,6 +1,5 @@
 import * as Immutable from 'immutable'
 import * as matchers from 'jest-immutable-matchers'
-import moment from 'moment'
 
 import * as selectors from './selectors'
 
@@ -70,8 +69,8 @@ test('getArticles should return articles with correct naming convention', () => 
     {
       'slug': '淺談-regex-及其應用',
       'title': '淺談 regex 及其應用',
-      'date': moment('2015-10-04T00:00:00'),
-      'modifiedDate': moment('2015-11-22T00:00:00'),
+      'date': new Date('2015-10-04T00:00:00'),
+      'modifiedDate': new Date('2015-11-22T00:00:00'),
       'categories': [
         {
           'slug': '程式設計',
@@ -89,7 +88,7 @@ test('getArticles should return articles with correct naming convention', () => 
     {
       'slug': '擁抱',
       'title': '擁抱',
-      'date': moment('2013-02-16T00:00:00'),
+      'date': new Date('2013-02-16T00:00:00'),
       'modifiedDate': null,
       'categories': [
         {
@@ -104,8 +103,8 @@ test('getArticles should return articles with correct naming convention', () => 
     {
       'slug': '美女最變態',
       'title': '美女最變態',
-      'date': moment('2013-02-02T00:00:00'),
-      'modifiedDate': moment('2015-08-24T00:00:00'),
+      'date': new Date('2013-02-02T00:00:00'),
+      'modifiedDate': new Date('2015-08-24T00:00:00'),
       'categories': [
         {
           'slug': '胡言亂語',
@@ -136,8 +135,8 @@ test('getArticlesByCategory should return article list by category', () => {
       {
         'slug': '淺談-regex-及其應用',
         'title': '淺談 regex 及其應用',
-        'date': moment('2015-10-04T00:00:00'),
-        'modifiedDate': moment('2015-11-22T00:00:00'),
+        'date': new Date('2015-10-04T00:00:00'),
+        'modifiedDate': new Date('2015-11-22T00:00:00'),
         'categories': [
           {
             'slug': '程式設計',
@@ -172,8 +171,8 @@ test('getArticle should return articles with correct naming convention', () => {
   const expected = Immutable.fromJS({
     'slug': '美女最變態',
     'title': '美女最變態',
-    'date': moment('2013-02-02T00:00:00'),
-    'modifiedDate': moment('2015-08-24T00:00:00'),
+    'date': new Date('2013-02-02T00:00:00'),
+    'modifiedDate': new Date('2015-08-24T00:00:00'),
     'categories': [
       {
         'slug': '胡言亂語',
@@ -205,8 +204,8 @@ describe('getRecentArticles', () => {
       {
         'slug': '淺談-regex-及其應用',
         'title': '淺談 regex 及其應用',
-        'date': moment('2015-10-04T00:00:00'),
-        'modifiedDate': moment('2015-11-22T00:00:00'),
+        'date': new Date('2015-10-04T00:00:00'),
+        'modifiedDate': new Date('2015-11-22T00:00:00'),
         'categories': [
           {
             'slug': '程式設計',
@@ -224,7 +223,7 @@ describe('getRecentArticles', () => {
       {
         'slug': '擁抱',
         'title': '擁抱',
-        'date': moment('2013-02-16T00:00:00'),
+        'date': new Date('2013-02-16T00:00:00'),
         'modifiedDate': null,
         'categories': [
           {
@@ -257,8 +256,8 @@ describe('getRecentArticles', () => {
       {
         'slug': '淺談-regex-及其應用',
         'title': '淺談 regex 及其應用',
-        'date': moment('2015-10-04T00:00:00'),
-        'modifiedDate': moment('2015-11-22T00:00:00'),
+        'date': new Date('2015-10-04T00:00:00'),
+        'modifiedDate': new Date('2015-11-22T00:00:00'),
         'categories': [
           {
             'slug': '程式設計',
@@ -276,7 +275,7 @@ describe('getRecentArticles', () => {
       {
         'slug': '擁抱',
         'title': '擁抱',
-        'date': moment('2013-02-16T00:00:00'),
+        'date': new Date('2013-02-16T00:00:00'),
         'modifiedDate': null,
         'categories': [
           {
@@ -291,8 +290,8 @@ describe('getRecentArticles', () => {
       {
         'slug': '美女最變態',
         'title': '美女最變態',
-        'date': moment('2013-02-02T00:00:00'),
-        'modifiedDate': moment('2015-08-24T00:00:00'),
+        'date': new Date('2013-02-02T00:00:00'),
+        'modifiedDate': new Date('2015-08-24T00:00:00'),
         'categories': [
           {
             'slug': '胡言亂語',
@@ -325,7 +324,7 @@ describe('getRecentArticles', () => {
       {
         'slug': '擁抱',
         'title': '擁抱',
-        'date': moment('2013-02-16T00:00:00'),
+        'date': new Date('2013-02-16T00:00:00'),
         'modifiedDate': null,
         'categories': [
           {
@@ -340,8 +339,8 @@ describe('getRecentArticles', () => {
       {
         'slug': '美女最變態',
         'title': '美女最變態',
-        'date': moment('2013-02-02T00:00:00'),
-        'modifiedDate': moment('2015-08-24T00:00:00'),
+        'date': new Date('2013-02-02T00:00:00'),
+        'modifiedDate': new Date('2015-08-24T00:00:00'),
         'categories': [
           {
             'slug': '胡言亂語',
