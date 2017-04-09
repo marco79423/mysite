@@ -17,9 +17,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'assets/bundle.js'
   },
-  module: {
-    rules: commonConfig.rules
-  },
+  module: commonConfig.module,
   resolve: {
     alias: {
       'immutable$': path.join(__dirname, 'node_modules/immutable/dist/immutable.min.js')

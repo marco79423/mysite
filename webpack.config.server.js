@@ -23,8 +23,6 @@ module.exports = {
       modules[mod] = 'commonjs ' + mod
       return modules
     }, {}),
-  module: {
-    rules: commonConfig.rules
-  },
+  module: commonConfig.module,
   plugins: commonConfig.plugins
 }
