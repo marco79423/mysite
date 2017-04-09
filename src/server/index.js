@@ -7,7 +7,7 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import 'isomorphic-fetch'
 import React from 'react'
-import { match, RouterContext, createMemoryHistory } from 'react-router'
+import { createMemoryHistory, match, RouterContext } from 'react-router'
 import { Provider } from 'react-redux'
 import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
@@ -19,7 +19,7 @@ import { configureStore } from '../common/store'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
-import { renderHtmlPage } from './htmlRender'
+import { renderHtmlPage, renderHtmlPageByServerRendering } from './htmlRender'
 
 const app = express()
 const port = +argv.port || config.DEFAULT_PORT
@@ -55,19 +55,23 @@ app.get('*', (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
-      Promise.all([
-        store.dispatch(articleActions.fetchArticles()),
-        store.dispatch(pageActions.fetchPages())
-      ])
-        .then(() => {
-          const html = ReactDOMServer.renderToString(
-            <Provider store={store}>
-              <RouterContext {...renderProps} />
-            </Provider>
-          )
-          const head = Helmet.renderStatic()
-          res.status(200).send(renderHtmlPage(html, head, store.getState()))
-        })
+      if (config.SERVER_RENDERING) {
+        Promise.all([
+          store.dispatch(articleActions.fetchArticles()),
+          store.dispatch(pageActions.fetchPages())
+        ])
+          .then(() => {
+            const html = ReactDOMServer.renderToString(
+              <Provider store={store}>
+                <RouterContext {...renderProps} />
+              </Provider>
+            )
+            const head = Helmet.renderStatic()
+            res.status(200).send(renderHtmlPageByServerRendering(head, store.getState(), html))
+          })
+      } else {
+        res.status(200).send(renderHtmlPage())
+      }
     } else {
       res.status(404).send('Not found')
     }
