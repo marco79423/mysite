@@ -6,10 +6,7 @@ const commonConfig = require('./webpack.config.common')
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    './src/client/main.js'
-  ].concat(DEBUG ? [
+  entry: ['./src/client/main.js'].concat(DEBUG ? [
     'webpack-hot-middleware/client'
   ] : []),
   output: {

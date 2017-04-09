@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import 'isomorphic-fetch'
 
 import * as Immutable from 'immutable'
