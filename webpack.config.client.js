@@ -20,6 +20,11 @@ module.exports = {
   module: {
     rules: commonConfig.rules
   },
+  resolve: {
+    alias: {
+      'immutable$': path.join(__dirname, 'node_modules/immutable/dist/immutable.min.js')
+    }
+  },
   plugins: commonConfig.plugins.concat(DEBUG ? [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
