@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import {Link} from 'react-router'
 
@@ -8,17 +9,17 @@ export default class Nav extends React.Component {
   static propTypes = {
     leftMenuItems: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
-        url: React.PropTypes.string.isRequired,
-        name: React.PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
       })
     ),
     rightMenuItems: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
-        url: React.PropTypes.string.isRequired,
-        name: React.PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
       })
     ),
-    fetchArticles: React.PropTypes.func
+    fetchArticles: PropTypes.func
   }
 
   render () {

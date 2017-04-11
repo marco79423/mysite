@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { renderToString } from 'react-dom/server'
 import serialize from 'serialize-javascript'
 
 export class Html extends React.Component {
   static propTypes = {
-    serverRendering: React.PropTypes.bool,
-    head: React.PropTypes.any,
-    html: React.PropTypes.string,
+    serverRendering: PropTypes.bool,
+    head: PropTypes.any,
+    html: PropTypes.string,
     state: ImmutablePropTypes.map
   }
 

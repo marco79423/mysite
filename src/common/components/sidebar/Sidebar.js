@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 

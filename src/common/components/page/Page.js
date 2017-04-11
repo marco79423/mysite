@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 
@@ -9,10 +10,10 @@ import styles from './Page.scss'
 export default class Page extends React.Component {
   static PropTypes = {
     page: ImmutablePropTypes.contains({
-      app: React.PropTypes.string.isRequired,
-      slug: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      content: React.PropTypes.content
+      app: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.content
     })
   }
 

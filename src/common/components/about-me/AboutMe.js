@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import styles from './AboutMe.scss'
@@ -8,11 +9,11 @@ export default class AboutMe extends React.Component {
     config: ImmutablePropTypes.contains({
       socialLinks: ImmutablePropTypes.listOf(
         ImmutablePropTypes.contains({
-          name: React.PropTypes.string.isRequired,
-          url: React.PropTypes.string.isRequired
+          name: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired
         })
       ),
-      quote: React.PropTypes.string
+      quote: PropTypes.string
     })
   }
 

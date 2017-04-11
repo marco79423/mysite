@@ -1,11 +1,12 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './SiteInfo.scss'
 
 export default class SiteInfo extends React.Component {
   static PropTypes = {
-    version: React.PropTypes.string.isRequired,
-    updatedTime: React.PropTypes.string.isRequired
+    version: PropTypes.string.isRequired,
+    updatedTime: PropTypes.string.isRequired
   }
 
   render () {

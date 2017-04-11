@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router'
 
 import styles from './Header.scss'
@@ -6,7 +7,7 @@ import styles from './Header.scss'
 
 export default class Header extends React.Component {
   static PropTypes = {
-    siteName: React.PropTypes.string.isRequired
+    siteName: PropTypes.string.isRequired
   }
 
   render() {

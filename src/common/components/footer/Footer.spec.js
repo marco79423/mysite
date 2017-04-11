@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
 
 test('It should render Footer component correctly', () => {
@@ -9,4 +9,4 @@ test('It should render Footer component correctly', () => {
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
-});
+})

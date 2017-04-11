@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
@@ -13,15 +14,15 @@ export class ArticleContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     article: ImmutablePropTypes.contains({
-      slug: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      content: React.PropTypes.content,
-      rawSummary: React.PropTypes.string
+      slug: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.content,
+      rawSummary: PropTypes.string
     }).isRequired,
     socialConfig: ImmutablePropTypes.map.isRequired,
     commentConfig: ImmutablePropTypes.map.isRequired,
 
-    fetchArticles: React.PropTypes.func.isRequired
+    fetchArticles: PropTypes.func.isRequired
   }
 
   componentWillMount () {

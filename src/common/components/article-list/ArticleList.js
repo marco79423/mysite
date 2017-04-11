@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import ArticleListItem from '../article-list-item'
@@ -10,15 +11,15 @@ export default class ArticleList extends React.Component {
   static propTypes = {
      articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
-        slug: React.PropTypes.string,
-        title: React.PropTypes.string,
-        summary: React.PropTypes.string
+        slug: PropTypes.string,
+        title: PropTypes.string,
+        summary: PropTypes.string
       })
     ),
-    pageNum: React.PropTypes.number,
-    pageSize: React.PropTypes.number,
+    pageNum: PropTypes.number,
+    pageSize: PropTypes.number,
 
-    getPageLink: React.PropTypes.func
+    getPageLink: PropTypes.func
   }
 
   render () {

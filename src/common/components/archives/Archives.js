@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 import dateformat from 'dateformat'
@@ -9,9 +10,9 @@ export default class Archives extends React.Component {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
-        slug: React.PropTypes.string.isRequired,
-        title: React.PropTypes.string.isRequired,
-        date: React.PropTypes.any.isRequired
+        slug: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        date: PropTypes.any.isRequired
       })
     )
   }

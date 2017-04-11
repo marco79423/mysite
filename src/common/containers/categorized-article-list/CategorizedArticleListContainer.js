@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
@@ -10,18 +11,18 @@ import * as configSelectors from '../../ducks/config/selectors'
 
 export class CategorizedArticleList extends React.Component {
   static propTypes = {
-    category: React.PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
-        slug: React.PropTypes.string,
-        title: React.PropTypes.string,
-        summary: React.PropTypes.string
+        slug: PropTypes.string,
+        title: PropTypes.string,
+        summary: PropTypes.string
       })
     ).isRequired,
-    pageNum: React.PropTypes.number.isRequired,
-    pageSize: React.PropTypes.number.isRequired,
+    pageNum: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
 
-    fetchArticles: React.PropTypes.func.isRequired
+    fetchArticles: PropTypes.func.isRequired
   }
 
   componentWillMount () {

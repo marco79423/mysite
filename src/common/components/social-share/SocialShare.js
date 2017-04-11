@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { generateShareIcon, ShareButtons } from 'react-share'
 
@@ -19,8 +20,8 @@ const TwitterIcon = generateShareIcon('twitter')
 export default class SocialShare extends React.Component {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
-      shareUrl: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string
+      shareUrl: PropTypes.string.isRequired,
+      title: PropTypes.string
     })
   }
 
