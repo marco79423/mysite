@@ -10,7 +10,18 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class ArticleContainer extends React.Component {
+@connect(
+  (state, ownProps) => ({
+    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
+    article: articleSelectors.getArticle(state, ownProps),
+    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
+    commentConfig: configSelectors.getCommentConfig(state)
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)
+export default class ArticleContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     article: ImmutablePropTypes.contains({
@@ -43,19 +54,3 @@ export class ArticleContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
-    article: articleSelectors.getArticle(state, ownProps),
-    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
-    commentConfig: configSelectors.getCommentConfig(state)
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleContainer)

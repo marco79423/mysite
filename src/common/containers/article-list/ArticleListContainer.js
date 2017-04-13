@@ -9,7 +9,17 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class ArticleListContainer extends React.Component {
+@connect(
+  (state, ownProps) => ({
+    articles: articleSelectors.getArticles(state, ownProps),
+    pageSize: configSelectors.getPageSize(state, ownProps),
+    pageNum: +ownProps.params.pageNum || 1
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)
+export default class ArticleListContainer extends React.Component {
   static propTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
@@ -45,19 +55,3 @@ export class ArticleListContainer extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    articles: articleSelectors.getArticles(state, ownProps),
-    pageSize: configSelectors.getPageSize(state, ownProps),
-    pageNum: +ownProps.params.pageNum || 1
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleListContainer)

@@ -8,7 +8,15 @@ import Archives from '../../components/archives'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 
-export class ArchivesContainer extends React.Component {
+@connect(
+  (state, ownProps) => ({
+    articles: articleSelectors.getArticles(state, ownProps)
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)
+export default class ArchivesContainer extends React.Component {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
@@ -33,17 +41,3 @@ export class ArchivesContainer extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    articles: articleSelectors.getArticles(state, ownProps)
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArchivesContainer)

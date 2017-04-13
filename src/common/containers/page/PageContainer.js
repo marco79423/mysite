@@ -7,7 +7,18 @@ import Page from '../../components/page'
 
 import * as pageActions from '../../ducks/page/actions'
 
-export class PageContainer extends React.Component {
+@connect(
+  (state, ownProps) => ( {
+    page: state.getIn(['page', 'items']).find(page => (
+      page.get('app') === ownProps.params.app &&
+      page.get('slug') === ownProps.params.slug
+    ))
+  }),
+  dispatch => ({
+    fetchPages: () => dispatch(pageActions.fetchPages())
+  })
+)
+export default class PageContainer extends React.Component {
   static PropTypes = {
     page: ImmutablePropTypes.contains({
       app: PropTypes.string.isRequired,
@@ -31,20 +42,3 @@ export class PageContainer extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    page: state.getIn(['page', 'items']).find(page => (
-      page.get('app') === ownProps.params.app &&
-      page.get('slug') === ownProps.params.slug
-    ))
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchPages: () => dispatch(pageActions.fetchPages())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageContainer)
