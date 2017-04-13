@@ -22,69 +22,80 @@ import * as pageActions from '../common/ducks/page/actions'
 
 import { renderHtmlPage, renderHtmlPageByServerRendering } from './htmlRender'
 
-const app = express()
-const port = +argv.port || config.DEFAULT_PORT
-
-if (process.env.DEBUG) {
-  const compiler = webpack(webpackConfig)
-  const middleware = webpackMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-    contentBase: 'src',
-    stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false
-    }
-  })
-
-  app.use(middleware)
-  app.use(webpackHotMiddleware(compiler))
-} else {
-  app.use(compression())
+function prepareFetchingPromise (store, url) {
+  const promises = [
+    store.dispatch(articleActions.fetchArticles())
+  ]
+  if (/\/me\//.test(url)) {
+    promises.push(store.dispatch(pageActions.fetchPages()))
+  }
+  return Promise.all(promises)
 }
 
-app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
-app.get('*', (req, res) => {
-  const history = createMemoryHistory(req.path)
-  let store = configureStore(history)
-  match({routes: createRoutes(history), location: req.url}, (error, redirectLocation, renderProps) => {
-    if (error) {
-      res.status(500).send(error.message)
-    } else if (redirectLocation) {
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-    } else if (renderProps) {
-      if (config.SERVER_RENDERING) {
-        Promise.race([
-          Promise.all([
-            store.dispatch(articleActions.fetchArticles()),
-            store.dispatch(pageActions.fetchPages())
-          ]),
-          promiseDelay(config.TIMEOUT, Promise.reject(new Error('Time out')))
-        ])
-          .then(() => {
-            const html = ReactDOMServer.renderToString(
-              <Provider store={store}>
-                <RouterContext {...renderProps} />
-              </Provider>
-            )
-            const head = Helmet.renderStatic()
-            res.status(200).send(renderHtmlPageByServerRendering(head, store.getState(), html))
-          })
-          .catch(() => {
-            res.status(500).send('網站出事惹！！！')
-          })
-      } else {
-        res.status(200).send(renderHtmlPage())
-      }
-    } else {
-      res.status(404).send('Not found')
-    }
-  })
-})
+function run () {
+  const app = express()
+  const port = +argv.port || config.DEFAULT_PORT
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server listening on port ${port}`)
-})
+  if (process.env.DEBUG) {
+    const compiler = webpack(webpackConfig)
+    const middleware = webpackMiddleware(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+      contentBase: 'src',
+      stats: {
+        colors: true,
+        hash: false,
+        timings: true,
+        chunks: false,
+        chunkModules: false,
+        modules: false
+      }
+    })
+
+    app.use(middleware)
+    app.use(webpackHotMiddleware(compiler))
+  } else {
+    app.use(compression())
+  }
+
+  app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
+  app.get('*', (req, res) => {
+    const history = createMemoryHistory(req.path)
+    let store = configureStore(history)
+    match({routes: createRoutes(history), location: req.url}, (error, redirectLocation, renderProps) => {
+      if (error) {
+        res.status(500).send(error.message)
+      } else if (redirectLocation) {
+        res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+      } else if (renderProps) {
+        if (config.SERVER_RENDERING) {
+          Promise.race([
+            prepareFetchingPromise(store, req.url),
+            promiseDelay(config.TIMEOUT, Promise.reject(new Error('Time out')))
+          ])
+            .then(() => {
+              const html = ReactDOMServer.renderToString(
+                <Provider store={store}>
+                  <RouterContext {...renderProps} />
+                </Provider>
+              )
+              const head = Helmet.renderStatic()
+              res.status(200).send(renderHtmlPageByServerRendering(head, store.getState(), html))
+            })
+            .catch(() => {
+              res.status(500).send('網站出事惹！！！')
+            })
+        } else {
+          res.status(200).send(renderHtmlPage())
+        }
+      } else {
+        res.status(404).send('Not found')
+      }
+    })
+  })
+
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Server listening on port ${port}`)
+  })
+}
+
+run()
