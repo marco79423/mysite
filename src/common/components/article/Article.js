@@ -11,7 +11,7 @@ import ArticleComment from '../article-comment'
 
 import styles from './Article.scss'
 
-export default class ArticleContainer extends React.Component {
+export default class ArticleContainer extends React.PureComponent {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     article: ImmutablePropTypes.contains({

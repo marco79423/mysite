@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './SiteInfo.scss'
 
-export default class SiteInfo extends React.Component {
+export default class SiteInfo extends React.PureComponent {
   static PropTypes = {
     version: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired

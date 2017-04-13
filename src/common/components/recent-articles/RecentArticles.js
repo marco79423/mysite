@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 import styles from './RecentArticles.scss'
 
-export default class RecentArticles extends React.Component {
+export default class RecentArticles extends React.PureComponent {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({

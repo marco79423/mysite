@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
-export default class SiteHead extends React.Component {
+export default class SiteHead extends React.PureComponent {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
       title: PropTypes.string.isRequired,

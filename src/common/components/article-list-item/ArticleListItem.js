@@ -8,7 +8,7 @@ import ArticleContent from '../article-content'
 
 import styles from './ArticleListItem.scss'
 
-export default class ArticleListItem extends React.Component {
+export default class ArticleListItem extends React.PureComponent {
   static PropTypes = {
     article: ImmutablePropTypes.contains({
       title: PropTypes.string.isRequired,

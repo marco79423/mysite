@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 
 import styles from './Pagination.scss'
 
-export default class Pagination extends React.Component {
+export default class Pagination extends React.PureComponent {
   static propTypes = {
     current: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,

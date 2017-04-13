@@ -7,7 +7,7 @@ import ArticleContent from '../article-content'
 
 import styles from './Page.scss'
 
-export default class Page extends React.Component {
+export default class Page extends React.PureComponent {
   static PropTypes = {
     page: ImmutablePropTypes.contains({
       app: PropTypes.string.isRequired,

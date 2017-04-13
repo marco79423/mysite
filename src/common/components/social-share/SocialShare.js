@@ -17,7 +17,7 @@ const GooglePlusIcon = generateShareIcon('google')
 const LinkedinIcon = generateShareIcon('linkedin')
 const TwitterIcon = generateShareIcon('twitter')
 
-export default class SocialShare extends React.Component {
+export default class SocialShare extends React.PureComponent {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
       shareUrl: PropTypes.string.isRequired,

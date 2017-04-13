@@ -7,9 +7,9 @@ import Pagination from '../pagination'
 
 import styles from './ArticleList.scss'
 
-export default class ArticleList extends React.Component {
+export default class ArticleList extends React.PureComponent {
   static propTypes = {
-     articles: ImmutablePropTypes.listOf(
+    articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
         slug: PropTypes.string,
         title: PropTypes.string,

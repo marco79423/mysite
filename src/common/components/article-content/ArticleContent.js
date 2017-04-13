@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './ArticleContent.scss'
 
-export default class ArticleContent extends React.Component {
+export default class ArticleContent extends React.PureComponent {
   static PropTypes = {
     content: PropTypes.string.isRequired
   }

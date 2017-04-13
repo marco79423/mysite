@@ -6,7 +6,7 @@ import dateformat from 'dateformat'
 
 import styles from './ArticleMeta.scss'
 
-export default class ArticleMeta extends React.Component {
+export default class ArticleMeta extends React.PureComponent {
   static PropTypes = {
     categories: ImmutablePropTypes.list,
     date: PropTypes.any.isRequired,

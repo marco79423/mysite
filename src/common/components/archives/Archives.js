@@ -6,7 +6,7 @@ import dateformat from 'dateformat'
 
 import styles from './Archives.scss'
 
-export default class Archives extends React.Component {
+export default class Archives extends React.PureComponent {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({

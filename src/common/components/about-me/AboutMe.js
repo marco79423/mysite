@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import styles from './AboutMe.scss'
 
-export default class AboutMe extends React.Component {
+export default class AboutMe extends React.PureComponent {
   static PropTypes = {
     config: ImmutablePropTypes.contains({
       socialLinks: ImmutablePropTypes.listOf(

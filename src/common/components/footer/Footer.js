@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Footer.scss'
 
-export default class Footer extends React.Component {
+export default class Footer extends React.PureComponent {
   render () {
     return (
       <div className={styles.root}>
