@@ -13,6 +13,7 @@ import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
 
+import promiseDelay from '../lib/promiseDelay'
 import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
@@ -56,9 +57,12 @@ app.get('*', (req, res) => {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
       if (config.SERVER_RENDERING) {
-        Promise.all([
-          store.dispatch(articleActions.fetchArticles()),
-          store.dispatch(pageActions.fetchPages())
+        Promise.race([
+          Promise.all([
+            store.dispatch(articleActions.fetchArticles()),
+            store.dispatch(pageActions.fetchPages())
+          ]),
+          promiseDelay(config.TIMEOUT, Promise.reject(new Error('Time out')))
         ])
           .then(() => {
             const html = ReactDOMServer.renderToString(
@@ -68,6 +72,9 @@ app.get('*', (req, res) => {
             )
             const head = Helmet.renderStatic()
             res.status(200).send(renderHtmlPageByServerRendering(head, store.getState(), html))
+          })
+          .catch(() => {
+            res.status(500).send('網站出事惹！！！')
           })
       } else {
         res.status(200).send(renderHtmlPage())
