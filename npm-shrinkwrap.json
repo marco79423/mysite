@@ -7060,9 +7060,9 @@
       "dev": true
     },
     "yargs": {
-      "version": "7.0.2",
-      "from": "yargs@>=7.0.2 <8.0.0",
-      "resolved": "https://registry.npmjs.org/yargs/-/yargs-7.0.2.tgz"
+      "version": "7.1.0",
+      "from": "yargs@7.1.0",
+      "resolved": "https://registry.npmjs.org/yargs/-/yargs-7.1.0.tgz"
     },
     "yargs-parser": {
       "version": "5.0.0",
