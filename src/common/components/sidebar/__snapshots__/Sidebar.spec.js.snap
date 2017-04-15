@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Sidebar component correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <div
+      className="profile"
+    >
+      <div
+        className="author"
+      />
+      <div
+        className="info"
+      >
+        <div>
+          <div>
+            我是一隻
+            <em>
+              兩大類
+            </em>
+          </div>
+          <div>
+            <a
+              className="link"
+              href="URL 1"
+            >
+              A
+            </a>
+            <a
+              className="link"
+              href="URL 2"
+            >
+              B
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="quote"
+    >
+      今天天氣不錯，希望明天會更好！
+    </div>
+  </div>
+  <div
+    className="otherPart"
+  >
+    <div
+      className="root"
+    >
+      <div
+        className="title"
+      >
+        近期文章
+      </div>
+      <div
+        className="hr"
+      />
+      <div
+        className="articles"
+      >
+        <a
+          className="article"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          title 1
+        </a>
+        <a
+          className="article"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          title 2
+        </a>
+        <a
+          className="article"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          title 3
+        </a>
+      </div>
+      <div
+        className="hr"
+      />
+    </div>
+    <div
+      className="archive"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        所有文章列表
+      </a>
+    </div>
+  </div>
+</div>
+`;

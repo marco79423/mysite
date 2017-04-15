@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render SiteInfo component correctly 1`] = `
+<article
+  className="root"
+>
+  <div>
+    <header
+      className="header"
+    >
+      網站資訊
+    </header>
+    <table
+      className="table"
+    >
+      <tbody>
+        <tr>
+          <td>
+            網站更新時間：
+          </td>
+          <td>
+            2017-04-08 12:01:57.198000
+          </td>
+        </tr>
+        <tr>
+          <td>
+            版本：
+          </td>
+          <td>
+            master (3f5eb304b501ea2b5437ed6c4612bbc66077b7b8)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+`;

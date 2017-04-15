@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Archives component correctly 1`] = `
+<article
+  className="root"
+>
+  <div>
+    <header
+      className="header"
+    >
+      所有文章列表
+    </header>
+    <table
+      className="table"
+    >
+      <tbody>
+        <tr>
+          <td>
+            2017/05/15
+          </td>
+          <td>
+            <a
+              className="link"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 1
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2017/05/16
+          </td>
+          <td>
+            <a
+              className="link"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 2
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2017/05/17
+          </td>
+          <td>
+            <a
+              className="link"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 3
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+`;
+
+exports[`It should render Archives component with empty articles correctly 1`] = `
+<article>
+  讀取中……
+</article>
+`;

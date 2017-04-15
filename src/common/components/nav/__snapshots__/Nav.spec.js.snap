@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Nav component correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="menus"
+  >
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 1
+    </a>
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 2
+    </a>
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 3
+    </a>
+  </div>
+  <div
+    className="splitter"
+  />
+  <div
+    className="menus"
+  >
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 4
+    </a>
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 5
+    </a>
+    <a
+      className="menuItem"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      name 6
+    </a>
+  </div>
+</div>
+`;

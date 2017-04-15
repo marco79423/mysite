@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Page component correctly 1`] = `
+<article
+  className="root"
+>
+  <div>
+    <header
+      className="header"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        title
+      </a>
+    </header>
+  </div>
+  <div
+    className="root"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<div>今天天氣不錯</div>",
+      }
+    }
+  />
+</article>
+`;
+
+exports[`It should render Page component with empty articles correctly 1`] = `
+<article>
+  讀取中……
+</article>
+`;

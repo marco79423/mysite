@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render AboutMe component correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="profile"
+  >
+    <div
+      className="author"
+    />
+    <div
+      className="info"
+    >
+      <div>
+        <div>
+          我是一隻
+          <em>
+            兩大類
+          </em>
+        </div>
+        <div>
+          <a
+            className="link"
+            href="URL 1"
+          >
+            A
+          </a>
+          <a
+            className="link"
+            href="URL 2"
+          >
+            B
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="quote"
+  >
+    今天天氣不錯，希望明天會更好！
+  </div>
+</div>
+`;

@@ -18,8 +18,7 @@ export default class Nav extends React.PureComponent {
         url: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired
       })
-    ),
-    fetchArticles: PropTypes.func
+    )
   }
 
   render () {

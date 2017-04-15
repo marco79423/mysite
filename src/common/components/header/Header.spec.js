@@ -1,11 +1,14 @@
 import React from 'react'
-import Footer from './Footer'
 import renderer from 'react-test-renderer'
 
+import Header from './Header'
 
-test('It should render Footer component correctly', () => {
+
+test('It should render Header component correctly', () => {
+  const siteName = 'Site Name'
+
   const component = renderer.create(
-    <Footer />
+    <Header siteName={siteName}/>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

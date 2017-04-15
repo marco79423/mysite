@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render RecentArticles component correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="title"
+  >
+    近期文章
+  </div>
+  <div
+    className="hr"
+  />
+  <div
+    className="articles"
+  >
+    <a
+      className="article"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      title 1
+    </a>
+    <a
+      className="article"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      title 2
+    </a>
+    <a
+      className="article"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      title 3
+    </a>
+  </div>
+  <div
+    className="hr"
+  />
+</div>
+`;
+
+exports[`It should render RecentArticles component with empty articles correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="title"
+  >
+    近期文章
+  </div>
+  <div
+    className="hr"
+  />
+  <div
+    className="articles"
+  />
+  <div
+    className="hr"
+  />
+</div>
+`;
