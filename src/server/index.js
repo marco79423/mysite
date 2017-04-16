@@ -14,7 +14,7 @@ import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
 
-import promiseDelay from '../lib/promiseDelay'
+import promiseReject from '../lib/promiseReject'
 import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
@@ -72,7 +72,7 @@ function run () {
         if (config.SERVER_RENDERING) {
           Promise.race([
             prepareFetchingPromise(store, req.url),
-            promiseDelay(config.QUERY_TIMEOUT, Promise.reject(new Error('Time out')))
+            promiseReject(config.QUERY_TIMEOUT, 'Time out')
           ])
             .then(() => {
               const html = ReactDOMServer.renderToString(
