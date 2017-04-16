@@ -1,4 +1,5 @@
 import express from 'express'
+import apicache from 'apicache'
 import compression from 'compression'
 import path from 'path'
 import { argv } from 'yargs'
@@ -54,6 +55,7 @@ function run () {
     app.use(middleware)
     app.use(webpackHotMiddleware(compiler))
   } else {
+    app.use(apicache.middleware(config.CACHE_TIMEOUT))
     app.use(compression())
   }
 
@@ -70,7 +72,7 @@ function run () {
         if (config.SERVER_RENDERING) {
           Promise.race([
             prepareFetchingPromise(store, req.url),
-            promiseDelay(config.TIMEOUT, Promise.reject(new Error('Time out')))
+            promiseDelay(config.QUERY_TIMEOUT, Promise.reject(new Error('Time out')))
           ])
             .then(() => {
               const html = ReactDOMServer.renderToString(
