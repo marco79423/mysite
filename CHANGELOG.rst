@@ -1,6 +1,17 @@
 Change Log
 ##########
 
+1.3.0 (效能改善)
+============
+
+* 移除非必要的 node modules (如：moment, history 等)
+* 改變 module 的引用方式，避免引入無用的功能，以減少 bundle 大小
+* 區分 articles 和 pages 的 query (減少 store 的大小和 query 所需的時間)
+* 新增 cache 的功能
+* 使用 PureComponent 增加繪製的效能
+* 新增「非 Server render」的模式
+* 處理 fetch api server 失敗的情況
+
 1.2.1 (解 bug)
 =============
 
