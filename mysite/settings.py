@@ -17,14 +17,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 HOST = "http://localhost:8000"
 
 ##################################################################
-# Other settings
-##################################################################
-
-DISQUS_SITENAME = "marco79423"
-
-SOURCE_DIR = Path(PROJECT_DIR) / ".." / "site-content"
-
-##################################################################
 # Language and timezone
 ##################################################################
 
@@ -68,8 +60,6 @@ STATIC_URL = '/static/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
-    'compressor.finders.CompressorFinder',
 )
 
 ##################################################################
@@ -127,7 +117,6 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "compressor",
     "rest_framework",
     "corsheaders",
 ]
@@ -137,23 +126,6 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
-
-##################################################################
-# Django Compressor
-##################################################################
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-
-COMPRESS_CSS_FILTERS = (
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-)
-
-COMPRESS_JS_FILTERS = (
-    'compressor.filters.jsmin.SlimItFilter',
-)
 
 ##################################################################
 # Security
@@ -167,3 +139,9 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+##################################################################
+# Application settings
+##################################################################
+
+SOURCE_DIR = Path(PROJECT_DIR) / ".." / "site-content"

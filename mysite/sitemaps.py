@@ -1,6 +1,6 @@
 from django.contrib import sitemaps
 
-from app.models import Article, WebPage
+from app import models
 
 
 class ArticleSitemap(sitemaps.Sitemap):
@@ -9,7 +9,7 @@ class ArticleSitemap(sitemaps.Sitemap):
     priority = 0.5
 
     def items(self):
-        return Article.objects.all()
+        return models.Article.objects.all()
 
 
 class WebPageSitemap(sitemaps.Sitemap):
@@ -18,4 +18,4 @@ class WebPageSitemap(sitemaps.Sitemap):
     priority = 0.1
 
     def items(self):
-        return WebPage.objects.all()
+        return models.WebPage.objects.all()
