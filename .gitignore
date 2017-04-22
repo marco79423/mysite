@@ -4,4 +4,10 @@ __pycache__
 /static
 /media
 /venv
-/ui/static/images
+
+/ui/static/
+
+/db.sqlite3
+/hosts.json
+/*.pem
+/*.ppk
