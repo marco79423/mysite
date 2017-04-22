@@ -1,12 +1,11 @@
 from rest_framework import serializers
-from content.models import Category
-from content.models import Article
-from content.models import WebPage
+
+from content import models
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
+        model = models.Category
         fields = ('slug', 'name',)
 
 
@@ -14,12 +13,12 @@ class ArticleSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
 
     class Meta:
-        model = Article
+        model = models.Article
         fields = ('slug', 'title', 'date', 'modified_date', 'categories',
                   'content', 'summary', 'raw_summary', 'series',)
 
 
 class WebPageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WebPage
-        fields = ('app', 'slug', 'title', 'content', )
+        model = models.WebPage
+        fields = ('app', 'slug', 'title', 'content',)

@@ -2,16 +2,15 @@ import re
 from multiprocessing.pool import ThreadPool
 
 import slugify
-from django.core.files import File
 from PIL import Image
+from django.core.files import File
 
 from content.models import Article, Category, WebPage, AppFile
 from content.services.content_manager.content_spider import ContentSpider
-from mysite import settings
+from mysite_backend import settings
 
 
 class ContentManager:
-
     STATIC_IMAGE_URL = settings.HOST + settings.MEDIA_URL + "images/"
     STATIC_IMAGE_DIR = settings.MEDIA_ROOT / "images"
 
@@ -37,7 +36,7 @@ class ContentManager:
 
         pool = ThreadPool()
         for article_data in self._content_spider.parse(source_dir / "articles"):
-            pool.apply_async(self._process_article_data, (article_data, ))
+            pool.apply_async(self._process_article_data, (article_data,))
 
         for page_data in self._content_spider.parse(source_dir / "web_pages"):
             pool.apply_async(self._process_page_data, (page_data,))

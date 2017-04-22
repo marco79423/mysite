@@ -55,8 +55,8 @@ def build_content():
         with cd('/var/www/site-content'):
             sudo('git pull')
 
-    with cd(env.config['project_path']):
-        sudo('venv/bin/python manage.py build /var/www/site-content')
+    with cd(env.config['source_path']):
+        sudo('../venv/bin/python manage.py build /var/www/site-content')
 
 
 @task
@@ -73,6 +73,7 @@ def restart_serv():
 def _set_config(type_key):
     env.config = CONFIGS[type_key]
     env.config['project_path'] = '/var/www/' + env.config['name']
+    env.config['source_path'] = env.config['project_path'] + '/src'
 
 
 @task
@@ -117,21 +118,22 @@ def _setup_proj():
         sudo('venv/bin/pip install -r requirements.txt')
         sudo('chown -R www-data:www-data venv')
 
+    with cd(env.config['source_path']):
         print(cyan('Prepare project ...'))
         if not env.config['debug']:
             print(cyan('Changing setting for production ...'))
-            sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
+            sed('mysite_backend/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
-        sed('mysite/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+        sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
 
-        sudo('venv/bin/python manage.py migrate')
-        sudo('venv/bin/python manage.py collectstatic --noinput')
+        sudo('../venv/bin/python manage.py migrate')
+        sudo('../venv/bin/python manage.py collectstatic --noinput')
 
 
 @task
 def _test_proj():
-    with cd(env.config['project_path']):
-        run("venv/bin/python manage.py test")
+    with cd(env.config['source_path']):
+        run("../venv/bin/python manage.py test")
 
 
 @task

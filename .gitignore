@@ -1,11 +1,10 @@
 *.pyc
 __pycache__
 /.idea
-/static
-/media
-/venv
+/src/static
+/src/media
+/src/db.sqlite3
 
-/db.sqlite3
 /hosts.json
 /*.pem
 /*.ppk

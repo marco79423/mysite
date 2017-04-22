@@ -5,15 +5,14 @@ import docutils.core
 import docutils.io
 import docutils.nodes
 
-from content.services.content_manager.directives import youtube, pygments
-
+from content.services.content_manager.directives import pygments
+from content.services.content_manager.directives import youtube
 
 youtube.register()
 pygments.register()
 
 
 class RstParser:
-
     def __init__(self):
         self._extra_params = {
             'initial_header_level': '2',

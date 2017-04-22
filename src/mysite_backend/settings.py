@@ -1,6 +1,3 @@
-import os
-import sys
-
 from path import Path
 
 
@@ -11,9 +8,9 @@ from path import Path
 PROJECT_DIR = Path(__file__).abspath().realpath().dirname().parent
 PROJECT_NAME = PROJECT_DIR.basename()
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'mysite_backend.urls'
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'mysite_backend.wsgi.application'
 HOST = "http://localhost:8000"
 
 ##################################################################
@@ -84,8 +81,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'content.context_processors.site_setting_loader',
             ],
         },
     },
@@ -146,4 +141,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application settings
 ##################################################################
 
-SOURCE_DIR = Path(PROJECT_DIR) / ".." / "site-content"
+SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "site-content"

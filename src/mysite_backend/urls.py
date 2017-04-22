@@ -1,3 +1,4 @@
+from content import models
 from django.conf.urls import include
 from django.conf.urls import url
 from django.conf.urls.static import static
@@ -5,10 +6,9 @@ from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from django_downloadview import ObjectDownloadView
 
+from mysite_backend import settings
+from mysite_backend import sitemaps
 from api import urls as api_urls
-from content import models
-from mysite import settings
-from mysite import sitemaps
 
 sitemaps = {
     'article': sitemaps.ArticleSitemap,

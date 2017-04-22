@@ -1,13 +1,12 @@
 from datetime import datetime
 
 import dateutil.parser
-from django.templatetags.static import static
 import docutils.core
 import docutils.io
 import docutils.nodes
+from django.templatetags.static import static
 
 from libs.rst_transformer.directives import youtube, pygments
-
 
 youtube.register()
 pygments.register()
