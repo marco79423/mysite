@@ -1,24 +1,25 @@
 from rest_framework import serializers
 
-from content import models
+
+class CategorySerializer(serializers.Serializer):
+    slug = serializers.URLField(read_only=True)
+    name = serializers.CharField(read_only=True)
 
 
-class CategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Category
-        fields = ('slug', 'name',)
-
-
-class ArticleSerializer(serializers.ModelSerializer):
+class ArticleSerializer(serializers.Serializer):
+    slug = serializers.URLField(read_only=True)
+    title = serializers.CharField(read_only=True)
+    date = serializers.DateTimeField(read_only=True)
+    modified_date = serializers.DateTimeField(read_only=True)
     categories = CategorySerializer(many=True, read_only=True)
+    content = serializers.CharField(read_only=True)
+    summary = serializers.CharField(read_only=True)
+    raw_summary = serializers.CharField(read_only=True)
+    series = serializers.CharField(read_only=True)
 
-    class Meta:
-        model = models.Article
-        fields = ('slug', 'title', 'date', 'modified_date', 'categories',
-                  'content', 'summary', 'raw_summary', 'series',)
 
-
-class WebPageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.WebPage
-        fields = ('app', 'slug', 'title', 'content',)
+class WebPageSerializer(serializers.Serializer):
+    app = serializers.CharField(read_only=True)
+    slug = serializers.URLField(read_only=True)
+    title = serializers.CharField(read_only=True)
+    content = serializers.CharField(read_only=True)
