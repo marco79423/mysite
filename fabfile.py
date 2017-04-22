@@ -160,5 +160,3 @@ def _setup_serv():
         if exists(filename):
             sudo('rm ' + filename)
         sudo('ln -s {config_path} {filename}'.format(config_path=config_path, filename=filename))
-
-

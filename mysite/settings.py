@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
 
 # The absolute path to the directory where collectstatic will
 # collect static files for deployment.
-STATIC_ROOT = PROJECT_DIR / "ui" / "static"
+STATIC_ROOT = PROJECT_DIR / "static"
 
 STATIC_URL = '/static/'
 
@@ -67,6 +67,7 @@ STATICFILES_FINDERS = (
 ##################################################################
 
 MEDIA_ROOT = PROJECT_DIR / "media"
+MEDIA_URL = '/media/'
 
 ##################################################################
 # Templates

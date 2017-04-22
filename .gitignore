@@ -5,8 +5,6 @@ __pycache__
 /media
 /venv
 
-/ui/static/
-
 /db.sqlite3
 /hosts.json
 /*.pem
