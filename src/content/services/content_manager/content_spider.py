@@ -1,5 +1,3 @@
-import slugify
-
 from content.services.content_manager import source_parsers
 
 
@@ -11,10 +9,6 @@ class Item:
     @property
     def title(self):
         return self._item_data['title']
-
-    @property
-    def slug(self):
-        return slugify.slugify(self.title)
 
     @property
     def categories(self):
@@ -47,7 +41,6 @@ class Item:
     def to_json(self):
         return {
             'title': self.title,
-            'slug': self.slug,
             'series': self.series,
             'categories': self.categories,
             'date': self.date,
