@@ -1,7 +1,6 @@
 import re
 
-import slugify
-from pelican import utils as pelican_utils
+from content import utils
 
 
 class Entity:
@@ -20,7 +19,7 @@ class Article(Entity):
 
     @property
     def slug(self):
-        return slugify.slugify(self.title)
+        return utils.convert_to_slug(self.title)
 
     @property
     def summary(self):
@@ -32,7 +31,7 @@ class Article(Entity):
 
     @staticmethod
     def _get_summary(content, max_length):
-        return pelican_utils.truncate_html_words(content, max_length)
+        return utils.truncate_html_words(content, max_length)
 
     @staticmethod
     def _remove_html_tags(content):
@@ -47,7 +46,7 @@ class WebPage(Entity):
 
     @property
     def slug(self):
-        return slugify.slugify(self.title)
+        return utils.convert_to_slug(self.title)
 
 
 class Category(Entity):
@@ -56,4 +55,4 @@ class Category(Entity):
 
     @property
     def slug(self):
-        return slugify.slugify(self.name)
+        return utils.convert_to_slug(self.name)
