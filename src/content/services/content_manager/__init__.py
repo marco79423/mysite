@@ -4,6 +4,8 @@ import slugify
 from PIL import Image
 from django.core.files import File
 
+from content import entities
+from content import store
 from content.models import Article, Category, WebPage, AppFile
 from content.services.content_manager.content_spider import ContentSpider
 from mysite_backend import settings
@@ -19,10 +21,8 @@ class ContentManager:
         self._content_spider = ContentSpider()
 
     def clean(self):
-        Article.objects.all().delete()
-        Category.objects.all().delete()
-        WebPage.objects.all().delete()
-        AppFile.objects.all().delete()
+        store.ArticleStore.clean()
+        store.WebPageStore.clean()
 
         self.STATIC_IMAGE_DIR.rmtree_p()
         self.MEDIA_APPFILE_DIR.rmtree_p()
@@ -48,30 +48,25 @@ class ContentManager:
         content = self._setup_item_images(content, article_data)
         content = self._setup_item_files(content, article_data)
 
-        article = Article.objects.create(
+        store.ArticleStore.create(entities.Article(
             title=article_data.title,
             date=article_data.date,
             modified_date=article_data.modified_date,
             content=content,
+            categories=[entities.Category(category) for category in article_data.categories],
             series=article_data.series
-        )
-
-        for category_name in article_data.categories:
-            category, _ = Category.objects.get_or_create(
-                name=category_name,
-            )
-            article.categories.add(category)
+        ))
 
     def _process_page_data(self, page_data):
         content = page_data.content
         content = self._setup_item_images(content, page_data)
         content = self._setup_item_files(content, page_data)
 
-        WebPage.objects.create(
+        store.WebPageStore.create(entities.WebPage(
             app="me",
             title=page_data.title,
-            content=content,
-        )
+            content=content
+        ))
 
     def _setup_item_images(self, content, item_data):
         for item_image in item_data.item_images:
@@ -79,7 +74,8 @@ class ContentManager:
             target_dir = self.STATIC_IMAGE_DIR / slugify.slugify(item_data.title)
             self._save_optimized_images(item_image['path'], target_dir)
 
-            content = content.replace(item_image['link'], self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + basename)
+            content = content.replace(item_image['link'],
+                                      self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + basename)
         return content
 
     def _setup_item_files(self, content, item_data):
