@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from app.models import Category
-from app.models import Article
-from app.models import WebPage
+from content.models import Category
+from content.models import Article
+from content.models import WebPage
 
 
 class CategorySerializer(serializers.ModelSerializer):

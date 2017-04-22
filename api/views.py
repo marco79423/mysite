@@ -2,8 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from app.models import Article
-from app.models import WebPage
+from content.models import Article
+from content.models import WebPage
 from api.serializers import ArticleSerializer
 from api.serializers import WebPageSerializer
 

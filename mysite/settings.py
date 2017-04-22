@@ -84,7 +84,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'app.context_processors.site_setting_loader',
+                'content.context_processors.site_setting_loader',
             ],
         },
     },
@@ -122,7 +122,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "app",
+    "content",
     "api",
 ]
 

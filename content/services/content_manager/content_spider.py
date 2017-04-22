@@ -1,6 +1,6 @@
 import slugify
 
-from app.services.content_manager import source_parsers
+from content.services.content_manager import source_parsers
 
 
 class Item:

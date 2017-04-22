@@ -1,4 +1,4 @@
-from app.models import Article
+from content.models import Article
 
 SITE_SETTINGS = {
     'SITE_NAME': "兩大類 x 兩大類 = 四大類",
