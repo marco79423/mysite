@@ -31,13 +31,13 @@ class RstParser:
             raw_data = fp.read()
 
         publisher = self._get_publisher(raw_data)
-        return dict(
-            title=self._get_title(publisher),
-            tags=self._get_tags(publisher),
-            content=self._get_content(publisher),
-            item_images=self._get_item_images(item_dir),
-            item_files=self._get_item_files(item_dir)
-        )
+        return {
+            'title': self._get_title(publisher),
+            'tags': self._get_tags(publisher),
+            'content': self._get_content(publisher),
+            'item_images': self._get_item_images(item_dir),
+            'item_files': self._get_item_files(item_dir)
+        }
 
     def _get_publisher(self, raw_data):
         publisher = docutils.core.Publisher(
