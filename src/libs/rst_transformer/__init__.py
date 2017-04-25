@@ -28,7 +28,7 @@ class RstTransformer:
             raw_data = fp.read()
 
         publisher = self._get_publisher(raw_data)
-        return entities.Item(
+        return entities.Article(
             title=self._get_title(publisher),
             tags=self._get_tags(publisher),
             content=self._get_content(publisher),
@@ -103,10 +103,10 @@ class RstTransformer:
         resource_dir = item_dir / resource
         if resource_dir.exists():
             for file in resource_dir.files():
-                external_resources.append({
-                    'link': resource + "/" + file.name,
-                    'path': file.abspath(),
-                })
+                external_resources.append(entities.Resource(
+                    original_url=resource + "/" + file.name,
+                    file_path=file.abspath()
+                ))
         return external_resources
 
     @staticmethod

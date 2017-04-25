@@ -86,23 +86,21 @@ class ContentManager:
 
     def _setup_item_images(self, content, item_data):
         for item_image in item_data.item_images:
-            _, _, basename = item_image['link'].rpartition("/")
             target_dir = self.MEDIA_IMAGE_DIR / slugify.slugify(item_data.title)
-            self._save_optimized_images(item_image['path'], target_dir)
+            self._save_optimized_images(item_image.file_path, target_dir)
 
-            content = content.replace(item_image['link'],
-                                      self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + basename)
+            content = content.replace(item_image.original_url,
+                                      self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + item_image.basename)
         return content
 
     def _setup_item_files(self, content, item_data):
         for item_file in item_data.item_files:
-            _, _, basename = item_file['link'].rpartition("/")
-            app_file = AppFile(slug=slugify.slugify(item_data.title + "/" + basename))
-            with open(item_file['path'], "rb") as fp:
-                app_file.file.save(name=basename, content=File(fp))
+            app_file = AppFile(slug=slugify.slugify(item_data.title + "/" + item_file.basename))
+            with open(item_file.file_path, "rb") as fp:
+                app_file.file.save(name=item_file.basename, content=File(fp))
             app_file.save()
 
-            content = content.replace(item_file['link'], settings.HOST + "/files/" + app_file.slug + "/")
+            content = content.replace(item_file.original_url, settings.HOST + "/files/" + app_file.slug + "/")
         return content
 
     @staticmethod
