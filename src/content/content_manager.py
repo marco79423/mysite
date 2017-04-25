@@ -7,8 +7,24 @@ from django.core.files import File
 from content import entities
 from content import store
 from content.models import AppFile
-from content.services.content_manager.content_spider import ContentSpider
+from libs import rst_transformer
 from mysite_backend import settings
+
+
+class ContentSpider:
+    def parse(self, base_dir):
+        items = []
+        for item_dir in base_dir.dirs():
+            file_path = self._get_article_path(item_dir)
+            items.append(rst_transformer.transform_rst_to_html(file_path))
+        return items
+
+    @staticmethod
+    def _get_article_path(item_dir):
+        for file_path in item_dir.files():
+            if item_dir.abspath().name in file_path:
+                return file_path
+        raise FileNotFoundError
 
 
 class ContentManager:
