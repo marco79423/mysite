@@ -13,6 +13,8 @@ ROOT_URLCONF = 'mysite_backend.urls'
 WSGI_APPLICATION = 'mysite_backend.wsgi.application'
 HOST = "http://localhost:8000"
 
+DEBUG = True
+
 ##################################################################
 # Language and timezone
 ##################################################################
@@ -31,6 +33,7 @@ USE_L10N = True
 ##################################################################
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -40,6 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ##################################################################
@@ -98,6 +102,23 @@ DATABASES = {
 }
 
 ##################################################################
+# Cache
+##################################################################
+
+USE_CACHE = False
+if USE_CACHE:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+            'TIMEOUT': 60 * 60 * 24,  # 1d
+            'OPTIONS': {
+                'MAX_ENTRIES': 1000
+            }
+        }
+    }
+
+##################################################################
 # Apps
 ##################################################################
 
@@ -129,7 +150,6 @@ INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 ##################################################################
 
 SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
-DEBUG = True
 ALLOWED_HOSTS = [
     "api.marco79423.net",
     "api-dev.marco79423.net"

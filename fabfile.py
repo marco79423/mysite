@@ -106,6 +106,9 @@ def _install_pkgs():
     sudo('apt-get install -y tcl8.6-dev')
     sudo('apt-get install -y python-tk')
 
+    # for cached
+    sudo('apt-get install -y memcached')
+
     print(cyan('Install http server ...'))
     sudo('apt-get install -y nginx')
 
@@ -124,10 +127,12 @@ def _setup_proj():
             print(cyan('Changing setting for production ...'))
             sed('mysite_backend/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
+        sed('mysite_backend/settings.py', 'USE_CACHE = False', 'USE_CACHE = True', shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
 
         sudo('../venv/bin/python manage.py migrate')
         sudo('../venv/bin/python manage.py collectstatic --noinput')
+        sudo('../venv/bin/python manage.py createcachetable')
 
 
 @task
