@@ -90,7 +90,7 @@ def _upload_proj(branch):
 @task
 def _install_pkgs():
     print(cyan('Install python and associated packages...'))
-    sudo('apt-get install -y python3.4')
+    sudo('apt-get install -y python3.5')
     sudo('apt-get install -y python3-pip')
 
     sudo('pip3 install pip --upgrade')
