@@ -2,6 +2,7 @@ from multiprocessing.pool import ThreadPool
 
 import slugify
 from PIL import Image
+from css_html_js_minify import html_minify
 from django.core.files import File
 
 from content import entities
@@ -63,6 +64,7 @@ class ContentManager:
         content = article_data.content
         content = self._setup_item_images(content, article_data)
         content = self._setup_item_files(content, article_data)
+        content = html_minify(content)
 
         store.ArticleStore.create(entities.Article(
             title=article_data.title,
@@ -77,6 +79,7 @@ class ContentManager:
         content = page_data.content
         content = self._setup_item_images(content, page_data)
         content = self._setup_item_files(content, page_data)
+        content = html_minify(content)
 
         store.WebPageStore.create(entities.WebPage(
             app="me",
