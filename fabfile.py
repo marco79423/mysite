@@ -17,7 +17,7 @@ CONFIGS = {
     },
     'dev': {
         'name': 'mysite-backend-dev',
-        'debug': True,
+        'debug': False,
         'server_name': 'api-dev.marco79423.net',
     }
 }
