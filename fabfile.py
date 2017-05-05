@@ -49,14 +49,14 @@ def update_sys():
 
 @task
 def build_content():
-    if not exists('/var/www/site-content'):
-        sudo('git clone https://github.com/marco79423/mysite-content.git /var/www/site-content')
+    if not exists('/var/www/mysite-content'):
+        sudo('git clone https://github.com/marco79423/mysite-content.git /var/www/mysite-content')
     else:
-        with cd('/var/www/site-content'):
+        with cd('/var/www/mysite-content'):
             sudo('git pull')
 
     with cd(env.config['source_path']):
-        sudo('../venv/bin/python manage.py build /var/www/site-content')
+        sudo('../venv/bin/python manage.py build /var/www/mysite-content')
 
 
 @task

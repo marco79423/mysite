@@ -161,4 +161,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application settings
 ##################################################################
 
-SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "site-content"
+SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "mysite-content"
