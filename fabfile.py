@@ -34,7 +34,7 @@ def deploy(type_key='dev', branch='develop'):
     execute(_set_config, type_key)
     execute(_upload_proj, branch)
     execute(_install_pkgs)
-    execute(_setup_proj)
+    execute(_setup_proj, branch)
     execute(_test_proj)
     execute(build_content)
     execute(_setup_serv)
@@ -114,7 +114,7 @@ def _install_pkgs():
 
 
 @task
-def _setup_proj():
+def _setup_proj(branch):
     with cd(env.config['project_path']):
         if not exists('venv'):
             sudo('virtualenv venv -p python3')
@@ -127,6 +127,8 @@ def _setup_proj():
             print(cyan('Changing setting for production ...'))
             sed('mysite_backend/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
+        version = local('git rev-parse {}'.format(branch), capture=True)
+        sed('mysite_backend/settings.py', 'VERSION = ""', 'VERSION = "{} ({})"'.format(branch, version), shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'USE_CACHE = False', 'USE_CACHE = True', shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
 
