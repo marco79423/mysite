@@ -7,7 +7,7 @@ from fabric.colors import cyan
 from fabric.contrib.files import exists, sed
 
 
-HOST_CONFIG_FILE = "hosts.json"
+PROJECT_CONFIG_FILE = "project_config.json"
 
 CONFIGS = {
     'prod': {
@@ -17,15 +17,16 @@ CONFIGS = {
     },
     'dev': {
         'name': 'mysite-backend-dev',
-        'debug': True,
+        'debug': False,
         'server_name': 'api-dev.marco79423.net',
     }
 }
 
-with open(HOST_CONFIG_FILE) as fp:
-    hosts_data = json.load(fp)
-    env.hosts = hosts_data.get('hosts', [])
-    env.key_filename = hosts_data.get('pem_file')
+with open(PROJECT_CONFIG_FILE) as fp:
+    config = json.load(fp)
+    env.hosts = config.get('hosts', [])
+    env.key_filename = config.get('pem_file')
+    env.secret_key = config.get('secret_key')
 
 
 @task
@@ -34,7 +35,7 @@ def deploy(type_key='dev', branch='develop'):
     execute(_set_config, type_key)
     execute(_upload_proj, branch)
     execute(_install_pkgs)
-    execute(_setup_proj)
+    execute(_setup_proj, branch)
     execute(_test_proj)
     execute(build_content)
     execute(_setup_serv)
@@ -49,14 +50,14 @@ def update_sys():
 
 @task
 def build_content():
-    if not exists('/var/www/site-content'):
-        sudo('git clone https://github.com/marco79423/mysite-content.git /var/www/site-content')
+    if not exists('/var/www/mysite-content'):
+        sudo('git clone https://github.com/marco79423/mysite-content.git /var/www/mysite-content')
     else:
-        with cd('/var/www/site-content'):
+        with cd('/var/www/mysite-content'):
             sudo('git pull')
 
-    with cd(env.config['project_path']):
-        sudo('venv/bin/python manage.py build /var/www/site-content')
+    with cd(env.config['source_path']):
+        sudo('../venv/bin/python manage.py build /var/www/mysite-content')
 
 
 @task
@@ -73,6 +74,7 @@ def restart_serv():
 def _set_config(type_key):
     env.config = CONFIGS[type_key]
     env.config['project_path'] = '/var/www/' + env.config['name']
+    env.config['source_path'] = env.config['project_path'] + '/src'
 
 
 @task
@@ -89,7 +91,7 @@ def _upload_proj(branch):
 @task
 def _install_pkgs():
     print(cyan('Install python and associated packages...'))
-    sudo('apt-get install -y python3.4')
+    sudo('apt-get install -y python3.5')
     sudo('apt-get install -y python3-pip')
 
     sudo('pip3 install pip --upgrade')
@@ -105,33 +107,42 @@ def _install_pkgs():
     sudo('apt-get install -y tcl8.6-dev')
     sudo('apt-get install -y python-tk')
 
+    # for cached
+    sudo('apt-get install -y memcached')
+
     print(cyan('Install http server ...'))
     sudo('apt-get install -y nginx')
 
 
 @task
-def _setup_proj():
+def _setup_proj(branch):
     with cd(env.config['project_path']):
         if not exists('venv'):
             sudo('virtualenv venv -p python3')
         sudo('venv/bin/pip install -r requirements.txt')
         sudo('chown -R www-data:www-data venv')
 
+    with cd(env.config['source_path']):
         print(cyan('Prepare project ...'))
         if not env.config['debug']:
             print(cyan('Changing setting for production ...'))
-            sed('mysite/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
+            sed('mysite_backend/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
-        sed('mysite/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+        version = local('git rev-parse {}'.format(branch), capture=True)
+        sed('mysite_backend/settings.py', 'VERSION = ""', 'VERSION = "{} ({})"'.format(branch, version), shell=True, use_sudo=True)
+        sed('mysite_backend/settings.py', 'USE_CACHE = False', 'USE_CACHE = True', shell=True, use_sudo=True)
+        sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+        sed('mysite_backend/settings.py', 'SECRET_KEY = "I dont care in development env"', 'SECRET_KEY = "{}"'.format(env.secret_key), shell=True, use_sudo=True)
 
-        sudo('venv/bin/python manage.py migrate')
-        sudo('venv/bin/python manage.py collectstatic --noinput')
+        sudo('../venv/bin/python manage.py migrate')
+        sudo('../venv/bin/python manage.py collectstatic --noinput')
+        sudo('../venv/bin/python manage.py createcachetable')
 
 
 @task
 def _test_proj():
-    with cd(env.config['project_path']):
-        run("venv/bin/python manage.py test")
+    with cd(env.config['source_path']):
+        run("../venv/bin/python manage.py test")
 
 
 @task
@@ -160,5 +171,3 @@ def _setup_serv():
         if exists(filename):
             sudo('rm ' + filename)
         sudo('ln -s {config_path} {filename}'.format(config_path=config_path, filename=filename))
-
-

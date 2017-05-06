@@ -1,7 +1,10 @@
 *.pyc
 __pycache__
 /.idea
-/static
-/media
-/venv
-/ui/static/images
+/src/static
+/src/media
+/src/db.sqlite3
+
+/project_config.json
+/*.pem
+/*.ppk
