@@ -5,6 +5,6 @@ __pycache__
 /src/media
 /src/db.sqlite3
 
-/hosts.json
+/project_config.json
 /*.pem
 /*.ppk

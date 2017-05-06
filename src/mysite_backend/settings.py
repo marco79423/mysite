@@ -148,7 +148,7 @@ INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 # Security
 ##################################################################
 
-SECRET_KEY = 'vrhzcm4qu2k7_yc29eqetnfm7754yw%x8kbs(%3g^z8wq!6j#_'
+SECRET_KEY = "I dont care in development env"
 ALLOWED_HOSTS = [
     "localhost",
     "api.marco79423.net",

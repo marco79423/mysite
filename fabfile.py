@@ -7,7 +7,7 @@ from fabric.colors import cyan
 from fabric.contrib.files import exists, sed
 
 
-HOST_CONFIG_FILE = "hosts.json"
+PROJECT_CONFIG_FILE = "project_config.json"
 
 CONFIGS = {
     'prod': {
@@ -22,10 +22,11 @@ CONFIGS = {
     }
 }
 
-with open(HOST_CONFIG_FILE) as fp:
-    hosts_data = json.load(fp)
-    env.hosts = hosts_data.get('hosts', [])
-    env.key_filename = hosts_data.get('pem_file')
+with open(PROJECT_CONFIG_FILE) as fp:
+    config = json.load(fp)
+    env.hosts = config.get('hosts', [])
+    env.key_filename = config.get('pem_file')
+    env.secret_key = config.get('secret_key')
 
 
 @task
@@ -131,6 +132,7 @@ def _setup_proj(branch):
         sed('mysite_backend/settings.py', 'VERSION = ""', 'VERSION = "{} ({})"'.format(branch, version), shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'USE_CACHE = False', 'USE_CACHE = True', shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
+        sed('mysite_backend/settings.py', 'SECRET_KEY = "I dont care in development env"', 'SECRET_KEY = "{}"'.format(env.secret_key), shell=True, use_sudo=True)
 
         sudo('../venv/bin/python manage.py migrate')
         sudo('../venv/bin/python manage.py collectstatic --noinput')
