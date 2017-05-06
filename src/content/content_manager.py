@@ -3,11 +3,9 @@ from multiprocessing.pool import ThreadPool
 import slugify
 from PIL import Image
 from css_html_js_minify import html_minify
-from django.core.files import File
 
 from content import entities
 from content import store
-from content.models import AppFile
 from libs import rst_transformer
 from mysite_backend import settings
 
@@ -91,19 +89,15 @@ class ContentManager:
         for item_image in item_data.item_images:
             target_dir = self.MEDIA_IMAGE_DIR / slugify.slugify(item_data.title)
             self._save_optimized_images(item_image.file_path, target_dir)
-
             content = content.replace(item_image.original_url,
                                       self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + item_image.basename)
         return content
 
     def _setup_item_files(self, content, item_data):
+        self.MEDIA_APPFILE_DIR.makedirs_p()
         for item_file in item_data.item_files:
-            app_file = AppFile(slug=slugify.slugify(item_data.title + "/" + item_file.basename))
-            with open(item_file.file_path, "rb") as fp:
-                app_file.file.save(name=item_file.basename, content=File(fp))
-            app_file.save()
-
-            content = content.replace(item_file.original_url, settings.HOST + "/files/" + app_file.slug + "/")
+            item_file.file_path.copy(self.MEDIA_APPFILE_DIR / item_file.basename)
+            content = content.replace(item_file.original_url, settings.HOST + "/media/appfiles/" + item_file.basename)
         return content
 
     @staticmethod

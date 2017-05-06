@@ -24,8 +24,3 @@ class WebPage(models.Model):
     app = models.CharField(max_length=32)
     title = models.CharField(max_length=128)
     content = models.TextField()
-
-
-class AppFile(models.Model):
-    slug = models.CharField(max_length=128)
-    file = models.FileField(upload_to="appfiles")

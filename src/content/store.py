@@ -11,7 +11,6 @@ class ArticleStore(Store):
     def clean(cls):
         models.Article.objects.all().delete()
         models.Category.objects.all().delete()
-        models.AppFile.objects.all().delete()
 
     @classmethod
     def get_all(cls):
