@@ -1,9 +1,11 @@
+import io
 from datetime import datetime
 
 import dateutil.parser
 import docutils.core
 import docutils.io
 import docutils.nodes
+from PIL import Image
 
 from libs.rst_transformer import entities
 from libs.rst_transformer.directives import pygments
@@ -91,23 +93,44 @@ class RstTransformer:
                         return body_elem.astext()
         return None
 
-    def _get_item_images(self, item_dir):
-        return self._get_item_external_resources(item_dir, "images")
+    @staticmethod
+    def _get_item_images(item_dir):
+        images = []
+        image_dir = item_dir / "images"
+        if image_dir.exists():
+            for file in image_dir.files():
+                if file.ext == ".gif":
+                    data = file.bytes()
+                else:
+                    image = Image.open(file)
+                    buffer = io.BytesIO()
+                    image.save(
+                        buffer,
+                        format='JPEG' if file.ext.upper() == '.JPG' else file.ext[1:].upper(),
+                        quality=75,
+                        optimize=True
+                    )
+                    data = buffer.getvalue()
 
-    def _get_item_files(self, item_dir):
-        return self._get_item_external_resources(item_dir, "files")
+                images.append(entities.Resource(
+                    original_url="images/" + file.name,
+                    basename=file.name,
+                    data=data
+                ))
+        return images
 
     @staticmethod
-    def _get_item_external_resources(item_dir, resource):
-        external_resources = []
-        resource_dir = item_dir / resource
-        if resource_dir.exists():
-            for file in resource_dir.files():
-                external_resources.append(entities.Resource(
-                    original_url=resource + "/" + file.name,
-                    file_path=file.abspath()
+    def _get_item_files(item_dir):
+        files = []
+        file_dir = item_dir / "files"
+        if file_dir.exists():
+            for file in file_dir.files():
+                files.append(entities.Resource(
+                    original_url="files/" + file.name,
+                    basename=file.name,
+                    data=file.bytes()
                 ))
-        return external_resources
+        return files
 
     @staticmethod
     def _get_article_path(item_dir):

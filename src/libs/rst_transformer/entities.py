@@ -3,13 +3,10 @@ class Entity:
 
 
 class Resource(Entity):
-    def __init__(self, original_url, file_path):
+    def __init__(self, original_url, basename, data):
         self.original_url = original_url
-        self.file_path = file_path
-
-    @property
-    def basename(self):
-        return self.file_path.name
+        self.basename = basename
+        self.data = data
 
 
 class Article(Entity):

@@ -1,7 +1,6 @@
 from multiprocessing.pool import ThreadPool
 
 import slugify
-from PIL import Image
 from css_html_js_minify import html_minify
 
 from content import entities
@@ -27,7 +26,8 @@ class ContentSpider:
 
 
 class ContentManager:
-    STATIC_IMAGE_URL = settings.HOST + settings.MEDIA_URL + "images/"
+    BASE_IMAGE_URL = settings.HOST + settings.MEDIA_URL + "images/"
+    BASE_APPFILE_URL = settings.HOST + settings.MEDIA_URL + "appfiles/"
 
     MEDIA_IMAGE_DIR = settings.MEDIA_ROOT / "images"
     MEDIA_APPFILE_DIR = settings.MEDIA_ROOT / "appfiles"
@@ -60,8 +60,8 @@ class ContentManager:
 
     def _process_article_data(self, article_data):
         content = article_data.content
-        content = self._setup_item_images(content, article_data)
-        content = self._setup_item_files(content, article_data)
+        content = self._setup_item_images(content, article_data.title, article_data.item_images)
+        content = self._setup_item_files(content, article_data.item_files)
         content = html_minify(content)
 
         store.ArticleStore.create(entities.Article(
@@ -75,8 +75,8 @@ class ContentManager:
 
     def _process_page_data(self, page_data):
         content = page_data.content
-        content = self._setup_item_images(content, page_data)
-        content = self._setup_item_files(content, page_data)
+        content = self._setup_item_images(content, page_data.title, page_data.item_images)
+        content = self._setup_item_files(content, page_data.item_files)
         content = html_minify(content)
 
         store.WebPageStore.create(entities.WebPage(
@@ -85,26 +85,19 @@ class ContentManager:
             content=content
         ))
 
-    def _setup_item_images(self, content, item_data):
-        for item_image in item_data.item_images:
-            target_dir = self.MEDIA_IMAGE_DIR / slugify.slugify(item_data.title)
-            self._save_optimized_images(item_image.file_path, target_dir)
+    def _setup_item_images(self, content, title, item_images):
+        for item_image in item_images:
+            target_dir = self.MEDIA_IMAGE_DIR / slugify.slugify(title)
+            target_dir.makedirs_p()
+
+            (target_dir / item_image.basename).write_bytes(item_image.data)
             content = content.replace(item_image.original_url,
-                                      self.STATIC_IMAGE_URL + slugify.slugify(item_data.title) + "/" + item_image.basename)
+                                      self.BASE_IMAGE_URL + slugify.slugify(title) + "/" + item_image.basename)
         return content
 
-    def _setup_item_files(self, content, item_data):
+    def _setup_item_files(self, content, item_files):
         self.MEDIA_APPFILE_DIR.makedirs_p()
-        for item_file in item_data.item_files:
-            item_file.file_path.copy(self.MEDIA_APPFILE_DIR / item_file.basename)
-            content = content.replace(item_file.original_url, settings.HOST + "/media/appfiles/" + item_file.basename)
+        for item_file in item_files:
+            (self.MEDIA_APPFILE_DIR / item_file.basename).write_bytes(item_file.data)
+            content = content.replace(item_file.original_url, self.BASE_APPFILE_URL + "/" + item_file.basename)
         return content
-
-    @staticmethod
-    def _save_optimized_images(source_path, target_dir):
-        target_dir.makedirs_p()
-        if source_path.ext == ".gif":
-            source_path.copy(target_dir)
-        else:
-            image = Image.open(source_path)
-            image.save(target_dir / source_path.name, quality=75, optimize=True)
