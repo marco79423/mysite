@@ -26,21 +26,6 @@ const articles = [
   }
 ]
 
-const sortedArticles = [
-  {
-    'title': '小雞跳樓梯',
-    'date': '2013-02-18T00:00:00',
-  },
-  {
-    'title': '擁抱',
-    'date': '2013-02-16T00:00:00',
-  },
-  {
-    'title': '美女最變態',
-    'date': '2013-02-02T00:00:00'
-  }
-]
-
 test('setArticles should create an action to set articles', () => {
   const expectedAction = {
     type: actionTypes.SET_ARTICLES,
@@ -59,7 +44,7 @@ test('fetchArticles should create an action to fetch articles for api server', d
   const expectedActions = [
     {
       type: actionTypes.SET_ARTICLES,
-      payload: sortedArticles
+      payload: articles
     }
   ]
 
