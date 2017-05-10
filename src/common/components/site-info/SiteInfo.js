@@ -5,7 +5,8 @@ import styles from './SiteInfo.scss'
 
 export default class SiteInfo extends React.PureComponent {
   static PropTypes = {
-    version: PropTypes.string.isRequired,
+    frontendVersion: PropTypes.string.isRequired,
+    backendVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
   }
 
@@ -21,8 +22,12 @@ export default class SiteInfo extends React.PureComponent {
               <td>{this.props.updatedTime}</td>
             </tr>
             <tr>
-              <td>版本：</td>
-              <td>{this.props.version}</td>
+              <td>前端版本：</td>
+              <td>{this.props.frontendVersion}</td>
+            </tr>
+            <tr>
+              <td>後端版本：</td>
+              <td>{this.props.backendVersion}</td>
             </tr>
             </tbody>
           </table>

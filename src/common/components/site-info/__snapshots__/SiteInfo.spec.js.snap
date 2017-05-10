@@ -24,10 +24,18 @@ exports[`It should render SiteInfo component correctly 1`] = `
         </tr>
         <tr>
           <td>
-            版本：
+            前端版本：
           </td>
           <td>
             master (3f5eb304b501ea2b5437ed6c4612bbc66077b7b8)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            後端版本：
+          </td>
+          <td>
+            develop (81ccde3550325c06a10b6acce75b4df529955472)
           </td>
         </tr>
       </tbody>

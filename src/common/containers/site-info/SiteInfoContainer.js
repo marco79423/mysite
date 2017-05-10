@@ -5,23 +5,37 @@ import { connect } from 'react-redux'
 import SiteInfo from '../../components/site-info'
 
 import * as configSelectors from '../../ducks/config/selectors'
+import * as siteInfoSelectors from '../../ducks/site-info/selectors'
+
+import * as actions from '../../ducks/site-info/actions'
 
 @connect(
   (state, ownProps) => ({
-    version: configSelectors.getSiteVersion(state),
+    frontendVersion: configSelectors.getSiteVersion(state),
+    backendVersion: siteInfoSelectors.getBackendVersion(state),
     updatedTime: configSelectors.getSiteUpdatedTime(state)
+  }),
+  dispatch => ({
+    fetchSiteInfo: () => dispatch(actions.fetchSiteInfo())
   })
 )
 export default class SiteInfoContainer extends React.Component {
   static PropTypes = {
-    version: PropTypes.string.isRequired,
+    frontendVersion: PropTypes.string.isRequired,
+    backendVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
   }
 
+  componentWillMount () {
+    if (!this.props.backendVersion) {
+      this.props.fetchSiteInfo()
+    }
+  }
   render () {
     return (
       <SiteInfo
-        version={this.props.version}
+        frontendVersion={this.props.frontendVersion}
+        backendVersion={this.props.backendVersion}
         updatedTime={this.props.updatedTime}
       />
     )
