@@ -20,7 +20,7 @@ import * as configSelectors from '../../ducks/config/selectors'
     fetchArticles: () => dispatch(articleActions.fetchArticles())
   })
 )
-export default class CategorizedArticleList extends React.Component {
+export default class CategorizedArticleListContainer extends React.Component {
   static propTypes = {
     category: PropTypes.string.isRequired,
     articles: ImmutablePropTypes.listOf(
