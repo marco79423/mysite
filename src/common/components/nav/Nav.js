@@ -7,31 +7,33 @@ import styles from './Nav.scss'
 
 export default class Nav extends React.PureComponent {
   static propTypes = {
-    leftMenuItems: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        url: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
-      })
-    ),
-    rightMenuItems: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        url: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
-      })
-    )
+    menuItems: ImmutablePropTypes.contains({
+      left: ImmutablePropTypes.listOf(
+        ImmutablePropTypes.contains({
+          url: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired
+        })
+      ),
+      right: ImmutablePropTypes.listOf(
+        ImmutablePropTypes.contains({
+          url: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired
+        })
+      )
+    })
   }
 
   render () {
     return (
       <div className={styles.root}>
         <div className={styles.menus}>
-          {this.props.leftMenuItems.map(item => (
+          {this.props.menuItems.get('left').map(item => (
             <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>{item.get('name')}</Link>
           ))}
         </div>
         <div className={styles.splitter}/>
         <div className={styles.menus}>
-          {this.props.rightMenuItems.map(item => (
+          {this.props.menuItems.get('right').map(item => (
             <Link key={item.get('url')} to={item.get('url')} className={styles.menuItem}>{item.get('name')}</Link>
           ))}
         </div>

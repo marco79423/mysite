@@ -19,20 +19,21 @@ export const SITE_LINK = {
   'shortcut icon': require('../common/img/favicon.ico')
 }
 
-export const LEFT_MENU_ITEMS = [
-  {name: 'Python', url: '/articles/category/python/'},
-  {name: '專案作品', url: '/articles/category/專案作品/'},
-  {name: '程式設計', url: '/articles/category/程式設計/'},
-  {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
-  {name: '胡言亂語', url: '/articles/category/胡言亂語/'}
-]
+export const MENU_ITEMS = {
+  left: [
+    {name: 'Python', url: '/articles/category/python/'},
+    {name: '專案作品', url: '/articles/category/專案作品/'},
+    {name: '程式設計', url: '/articles/category/程式設計/'},
+    {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
+    {name: '胡言亂語', url: '/articles/category/胡言亂語/'}
+  ],
+  right: [
+    {name: '閱讀計劃', url: '/me/閱讀計劃/'},
+    {name: '成功日記', url: '/me/成功日記/'}
+  ]
+}
 
-export const RIGHT_MENU_ITEMS = [
-  {name: '閱讀計劃', url: '/me/閱讀計劃/'},
-  {name: '成功日記', url: '/me/成功日記/'}
-]
-
-export const ABOUT_ME = {
+export const ABOUT_ME_CONFIG = {
   socialLinks: [
     {name: 'GitHub', url: 'https://github.com/marco79423'},
     {name: 'Bitbucket', url: 'https://bitbucket.org/marco79423'},

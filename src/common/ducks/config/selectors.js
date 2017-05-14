@@ -12,5 +12,9 @@ export const getPageSize = createSelector(_getConfig, config => config.get('PAGE
 export const getRecentArticleCount = createSelector(_getConfig, config => config.get('RECENT_ARTICLE_COUNT'))
 export const getCommentConfig = createSelector(_getConfig, config => config.get('COMMENT_CONFIG'))
 
+export const getMenuItems = createSelector(_getConfig, config => config.get('MENU_ITEMS'))
+export const getAboutMeConfig = createSelector(_getConfig, config => config.get('ABOUT_ME_CONFIG'))
+
+
 export const getSiteVersion = createSelector(_getConfig, config => config.get('SITE_VERSION'))
 export const getSiteUpdatedTime = createSelector(_getConfig, config => config.get('SITE_UPDATED_TIME'))

@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
+import * as configSelectors from '../../ducks/config/selectors'
+
 import AboutMe from '../../components/about-me'
 
 @connect(
   (state, props) => ({
-    config: state.getIn(['config', 'ABOUT_ME'])
+    config: configSelectors.getAboutMeConfig(state, props)
   })
 )
 export default class AboutMeContainer extends React.Component {

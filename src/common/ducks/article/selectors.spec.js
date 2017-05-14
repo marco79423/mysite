@@ -119,7 +119,30 @@ test('getArticles should return articles with correct naming convention', () => 
   expect(selectors.getArticles(state)).toEqualImmutable(expected)
 })
 
-test('getArticlesByCategory should return article list by category', () => {
+describe('getArticlesByCategory', () => {
+  const expected = Immutable.fromJS([
+    {
+      'slug': '淺談-regex-及其應用',
+      'title': '淺談 regex 及其應用',
+      'date': new Date('2015-10-04T00:00:00'),
+      'modifiedDate': new Date('2015-11-22T00:00:00'),
+      'categories': [
+        {
+          'slug': '程式設計',
+          'name': '程式設計'
+        },
+        {
+          'slug': 'python',
+          'name': 'Python'
+        }
+      ],
+      'content': 'content',
+      'summary': 'summary',
+      'rawSummary': 'raw_summary'
+    }
+  ])
+
+  test('should return article list by props.params.category', () => {
     const props = {
       params: {
         category: 'python'
@@ -131,30 +154,22 @@ test('getArticlesByCategory should return article list by category', () => {
         items: articles
       }
     })
-    const expected = Immutable.fromJS([
-      {
-        'slug': '淺談-regex-及其應用',
-        'title': '淺談 regex 及其應用',
-        'date': new Date('2015-10-04T00:00:00'),
-        'modifiedDate': new Date('2015-11-22T00:00:00'),
-        'categories': [
-          {
-            'slug': '程式設計',
-            'name': '程式設計'
-          },
-          {
-            'slug': 'python',
-            'name': 'Python'
-          }
-        ],
-        'content': 'content',
-        'summary': 'summary',
-        'rawSummary': 'raw_summary'
-      }
-    ])
     expect(selectors.getArticlesByCategory(state, props)).toEqualImmutable(expected)
   })
 
+  test('should return article list by props.category', () => {
+    const props = {
+      category: 'python'
+    }
+
+    const state = Immutable.fromJS({
+      article: {
+        items: articles
+      }
+    })
+    expect(selectors.getArticlesByCategory(state, props)).toEqualImmutable(expected)
+  })
+})
 
 test('getArticle should return articles with correct naming convention', () => {
   const props = {
@@ -188,10 +203,7 @@ test('getArticle should return articles with correct naming convention', () => {
 
 describe('getRecentArticles', () => {
   test('should return recent articles (articles > config)', () => {
-    const props = {
-      params: {
-      }
-    }
+    const props = {}
     const state = Immutable.fromJS({
       config: {
         RECENT_ARTICLE_COUNT: 2
@@ -240,10 +252,7 @@ describe('getRecentArticles', () => {
   })
 
   test('should return recent articles (articles < config)', () => {
-    const props = {
-      params: {
-      }
-    }
+    const props = {}
     const state = Immutable.fromJS({
       config: {
         RECENT_ARTICLE_COUNT: 4
@@ -308,9 +317,7 @@ describe('getRecentArticles', () => {
 
   test('should return recent categorized articles', () => {
     const props = {
-      params: {
-        category: '胡言亂語'
-      }
+      category: '胡言亂語'
     }
     const state = Immutable.fromJS({
       config: {

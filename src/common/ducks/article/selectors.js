@@ -19,7 +19,7 @@ export const getArticles = (state) => state
 
 export const getArticlesByCategory = createSelector(
   [
-    (state, props) => get(props, 'params.category'),
+    (state, props) => get(props, 'params.category') || get(props, 'category'),
     getArticles
   ],
   (category, articles) => articles.filter(article => article

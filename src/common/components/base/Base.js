@@ -14,23 +14,25 @@ import Footer from '../footer'
 import 'normalize.css/normalize.css'
 import styles from './Base.scss'
 
-export default class Base extends React.PureComponent {
+export default class Base extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
-    config: ImmutablePropTypes.map.isRequired
+    siteName: React.PropTypes.string.isRequired,
+    menuItems: ImmutablePropTypes.map.isRequired,
+    category: React.PropTypes.string
   }
 
   render () {
-    const {config, siteConfig} = this.props
+    const {siteConfig, menuItems, siteName, category} = this.props
     return (
       <div className={styles.root}>
         <SiteHead config={siteConfig}/>
 
         <div className={styles.header}>
-          <Header siteName={config.get('SITE_NAME')}/>
+          <Header siteName={siteName}/>
         </div>
         <div className={styles.nav}>
-          <Nav leftMenuItems={config.get('LEFT_MENU_ITEMS')} rightMenuItems={config.get('RIGHT_MENU_ITEMS')}/>
+          <Nav menuItems={menuItems}/>
         </div>
 
         <div className={styles.main}>
@@ -38,7 +40,7 @@ export default class Base extends React.PureComponent {
             <div className={styles.sidebarInside}>
               <AboutMeContainer/>
               <div className={styles.otherPart}>
-                <RecentArticlesContainer/>
+                <RecentArticlesContainer category={category}/>
                 <div className={styles.archive}>
                   <Link className={styles.link} to='/articles/archives/'>所有文章列表</Link>
                 </div>
