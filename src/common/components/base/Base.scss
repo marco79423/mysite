@@ -1,4 +1,5 @@
 @import '../../css/colors.scss';
+@import '../../css/base.scss';
 
 .root {
   min-height: 100%;
@@ -18,6 +19,20 @@
   background: white;
 }
 
+.sidebarInside {
+  background: $sub-dominant-color;
+  padding: .5rem;
+  height: 100%;
+
+  .link {
+    @extend .link;
+  }
+
+  .otherPart {
+    display: none;
+  }
+}
+
 .nav, .footer {
   display: none;
 }
@@ -35,11 +50,25 @@
 
   .sidebar {
     order: 2;
-    width: 34%;
+    width: calc(100% / 3);
+  }
+
+  .sidebarInside {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .otherPart {
+      display: block;
+    }
+
+    .archive {
+      margin-top: 2rem;
+    }
   }
 
   .content {
     order: 1;
-    width: 66%;
+    width: calc(100% / 3 * 2);
   }
 }

@@ -1,10 +1,13 @@
 import React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
+import { Link } from 'react-router'
+
+import AboutMeContainer from '../../containers/about-me'
+import RecentArticlesContainer from '../../containers/recent-articles'
 
 import SiteHead from '../site-head'
 import Header from '../header'
 import Nav from '../nav'
-import Sidebar from '../sidebar'
 import Content from '../content'
 import Footer from '../footer'
 
@@ -14,12 +17,11 @@ import styles from './Base.scss'
 export default class Base extends React.PureComponent {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
-    config: ImmutablePropTypes.map.isRequired,
-    recentArticles: ImmutablePropTypes.list.isRequired
+    config: ImmutablePropTypes.map.isRequired
   }
 
   render () {
-    const {config, siteConfig, recentArticles} = this.props
+    const {config, siteConfig} = this.props
     return (
       <div className={styles.root}>
         <SiteHead config={siteConfig}/>
@@ -33,7 +35,15 @@ export default class Base extends React.PureComponent {
 
         <div className={styles.main}>
           <div className={styles.sidebar}>
-            <Sidebar aboutMeConfig={config.get('ABOUT_ME')} recentArticles={recentArticles}/>
+            <div className={styles.sidebarInside}>
+              <AboutMeContainer/>
+              <div className={styles.otherPart}>
+                <RecentArticlesContainer/>
+                <div className={styles.archive}>
+                  <Link className={styles.link} to='/articles/archives/'>所有文章列表</Link>
+                </div>
+              </div>
+            </div>
           </div>
           <div className={styles.content}>
             <Content>
