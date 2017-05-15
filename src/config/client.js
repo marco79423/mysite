@@ -29,7 +29,8 @@ export const MENU_ITEMS = {
   ],
   right: [
     {name: '閱讀計劃', url: '/me/閱讀計劃/'},
-    {name: '成功日記', url: '/me/成功日記/'}
+    {name: '成功日記', url: '/me/成功日記/'},
+    {name: '實驗室', url: '/lab/'}
   ]
 }
 
