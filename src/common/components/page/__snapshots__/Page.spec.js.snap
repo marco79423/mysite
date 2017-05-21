@@ -29,7 +29,20 @@ exports[`It should render Page component correctly 1`] = `
 `;
 
 exports[`It should render Page component with empty articles correctly 1`] = `
-<article>
-  讀取中……
+<article
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <div
+      className="loadingImage twister"
+    />
+    <div
+      className="message"
+    >
+      正在努力讀取中…
+    </div>
+  </div>
 </article>
 `;

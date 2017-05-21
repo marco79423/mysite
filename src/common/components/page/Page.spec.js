@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer'
 
 import Page from './Page'
 
-
 test('It should render Page component with empty articles correctly', () => {
   const page = null
 

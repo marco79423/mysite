@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 
+import Loading from '../loading'
 import ArticleContent from '../article-content'
 
 import styles from './Page.scss'
@@ -20,7 +21,11 @@ export default class Page extends React.PureComponent {
   render () {
     const {page} = this.props
     if (!page) {
-      return <article>讀取中……</article>
+      return (
+        <article className={styles.root}>
+          <Loading />
+        </article>
+      )
     }
 
     return (

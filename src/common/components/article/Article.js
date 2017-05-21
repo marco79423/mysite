@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 
+import Loading from '../loading'
 import SiteHead from '../site-head'
 import ArticleMeta from '../article-meta'
 import ArticleContent from '../article-content'
@@ -11,7 +12,7 @@ import ArticleComment from '../article-comment'
 
 import styles from './Article.scss'
 
-export default class ArticleContainer extends React.PureComponent {
+export default class Article extends React.PureComponent {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     article: ImmutablePropTypes.contains({
@@ -27,7 +28,11 @@ export default class ArticleContainer extends React.PureComponent {
   render () {
     const {article, socialConfig, commentConfig} = this.props
     if (!article) {
-      return <article>讀取中……</article>
+      return (
+        <article className={styles.root}>
+          <Loading />
+        </article>
+      )
     }
 
     return (
