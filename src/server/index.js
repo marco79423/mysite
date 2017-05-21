@@ -60,7 +60,7 @@ function run () {
   }
 
   app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
-  app.get('*', (req, res) => {
+  app.use((req, res) => {
     const history = createMemoryHistory(req.path)
     let store = configureStore(history)
     match({routes: createRoutes(history), location: req.url}, (error, redirectLocation, renderProps) => {
