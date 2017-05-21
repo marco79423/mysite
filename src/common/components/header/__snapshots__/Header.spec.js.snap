@@ -20,3 +20,29 @@ exports[`It should render Header component correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`It should render Header component in crazyMode correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="logo"
+  />
+  <div
+    className="title"
+  >
+    <a
+      className="link"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Site Name
+    </a>
+  </div>
+  <div
+    className="mode intensifies"
+  >
+    瘋狂模式
+  </div>
+</div>
+`;

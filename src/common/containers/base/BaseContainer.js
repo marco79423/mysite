@@ -12,6 +12,7 @@ import * as configSelectors from '../../ducks/config/selectors'
     siteConfig: siteSelectors.getSiteHeadConfig(state, props),
     siteName: configSelectors.getSiteName(state, props),
     menuItems: configSelectors.getMenuItems(state, props),
+    crazyMode: state.getIn(['lab', 'crazyMode']),
     category: props.params.category,
   })
 )
@@ -24,9 +25,9 @@ export default class BaseContainer extends React.Component {
   }
 
   render () {
-    const {siteConfig, siteName, menuItems, category} = this.props
+    const props = this.props
     return (
-      <Base siteConfig={siteConfig} siteName={siteName} menuItems={menuItems} category={category}>
+      <Base {...props}>
         {this.props.children}
       </Base>
     )

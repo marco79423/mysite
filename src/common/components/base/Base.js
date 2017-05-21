@@ -19,17 +19,18 @@ export default class Base extends React.Component {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: React.PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
+    crazyMode: React.PropTypes.bool.isRequired,
     category: React.PropTypes.string
   }
 
   render () {
-    const {siteConfig, menuItems, siteName, category} = this.props
+    const {siteConfig, menuItems, siteName, crazyMode, category} = this.props
     return (
       <div className={styles.root}>
         <SiteHead config={siteConfig}/>
 
         <div className={styles.header}>
-          <Header siteName={siteName}/>
+          <Header siteName={siteName} crazyMode={crazyMode}/>
         </div>
         <div className={styles.nav}>
           <Nav menuItems={menuItems}/>

@@ -13,3 +13,13 @@ test('It should render Header component correctly', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('It should render Header component in crazyMode correctly', () => {
+  const siteName = 'Site Name'
+
+  const component = renderer.create(
+    <Header siteName={siteName} crazyMode={true}/>
+  )
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
