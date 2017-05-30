@@ -27,7 +27,7 @@ export default class RecentArticlesContainer extends React.Component {
   }
 
   componentWillMount () {
-    if (!this.props.article) {
+    if (!this.props.articles) {
       this.props.fetchArticles()
     }
   }
