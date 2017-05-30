@@ -8,7 +8,6 @@
     "url": "git@github.com:marco79423/mysite-frontend.git"
   },
   "scripts": {
-    "standard": "standard",
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watchAll",
     "test:coverage": "jest --coverage",
@@ -44,7 +43,6 @@
     "redux-mock-store": "^1.2.3",
     "rimraf": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
     "sass-loader": "^6.0.3",
-    "standard": "*",
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.10.1",
