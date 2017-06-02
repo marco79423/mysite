@@ -8,8 +8,7 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import 'isomorphic-fetch'
 import React from 'react'
-import { createMemoryHistory, match, RouterContext } from 'react-router'
-import { Provider } from 'react-redux'
+import { createMemoryHistory, match } from 'react-router'
 import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
@@ -20,6 +19,7 @@ import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
 
+import Root from '../common/Root'
 import saga from '../common/ducks/saga'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
@@ -35,7 +35,10 @@ function prepareFetchingPromise (store, url) {
   }
   store.dispatch(END)
 
-  return rootTask.done
+  return Promise.race([
+    rootTask.done,
+    promiseReject(config.QUERY_TIMEOUT, 'Time out')
+  ])
 }
 
 function run () {
@@ -67,7 +70,6 @@ function run () {
   app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
   app.use((req, res) => {
     const history = createMemoryHistory(req.path)
-    let store = configureStore(history)
     match({routes: createRoutes(history), location: req.url}, (error, redirectLocation, renderProps) => {
       if (error) {
         res.status(500).send(error.message)
@@ -75,15 +77,11 @@ function run () {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
       } else if (renderProps) {
         if (config.SERVER_RENDERING) {
-          Promise.race([
-            prepareFetchingPromise(store, req.url),
-            promiseReject(config.QUERY_TIMEOUT, 'Time out')
-          ])
+          const store = configureStore(history)
+          prepareFetchingPromise(store, req.url)
             .then(() => {
               const html = ReactDOMServer.renderToString(
-                <Provider store={store}>
-                  <RouterContext {...renderProps} />
-                </Provider>
+                <Root store={store} renderProps={renderProps} type="server"/>
               )
               const head = Helmet.renderStatic()
               res.status(200).send(renderHtmlPageByServerRendering(head, store.getState(), html))
