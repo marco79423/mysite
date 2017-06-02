@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { Link } from 'react-router'
 
@@ -17,10 +18,10 @@ import styles from './Base.scss'
 export default class Base extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
-    siteName: React.PropTypes.string.isRequired,
+    siteName: PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
-    crazyMode: React.PropTypes.bool.isRequired,
-    category: React.PropTypes.string
+    crazyMode: PropTypes.bool.isRequired,
+    category: PropTypes.string
   }
 
   render () {

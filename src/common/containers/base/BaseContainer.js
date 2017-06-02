@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
@@ -19,9 +20,9 @@ import * as configSelectors from '../../ducks/config/selectors'
 export default class BaseContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
-    siteName: React.PropTypes.string.isRequired,
+    siteName: PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
-    category: React.PropTypes.string
+    category: PropTypes.string
   }
 
   render () {
