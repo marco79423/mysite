@@ -17,6 +17,16 @@ test('getHostUrl should return host url', () => {
   expect(selectors.getHostUrl(state)).toEqualImmutable(expected)
 })
 
+test('getAPIServerUrl should return api server url', () => {
+  const state = Immutable.fromJS({
+    config: {
+      API_SERVER_URL: 'API_SERVER_URL'
+    }
+  })
+  const expected = 'API_SERVER_URL'
+  expect(selectors.getAPIServerUrl(state)).toEqualImmutable(expected)
+})
+
 test('getSiteName should return site name', () => {
   const state = Immutable.fromJS({
     config: {

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 import { configureStore } from '../common/store'
 import { createRoutes } from '../common/routes'
+import saga from '../common/ducks/saga'
 
 import 'isomorphic-fetch'
 
@@ -16,6 +17,7 @@ const history = syncHistoryWithStore(browserHistory, store, {
     return state.get('routing').toObject()
   }
 })
+store.runSaga(saga)
 
 export class App extends React.Component {
   render () {

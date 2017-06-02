@@ -3,8 +3,8 @@ import * as Immutable from 'immutable'
 import { applyMiddleware, compose, createStore } from 'redux'
 import { browserHistory } from 'react-router'
 import { routerMiddleware } from 'react-router-redux'
-import thunk from 'redux-thunk'
 import { createTracker, EventTypes } from 'redux-segment'
+import createSagaMiddleware from 'redux-saga'
 
 import reducer from './ducks/reducer'
 
@@ -25,16 +25,22 @@ export function configureStore (history) {
   }
 
   const composeEnhancers = (DEBUG && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+
+  const sagaMiddleware = createSagaMiddleware()
+
   const initialState = Immutable.fromJS(INITIAL_STATE)
-  return createStore(
-    reducer,
-    initialState,
-    composeEnhancers(
-      applyMiddleware(
-        thunk,
-        routerMiddleware(history),
-        tracker
+  return {
+    ...createStore(
+      reducer,
+      initialState,
+      composeEnhancers(
+        applyMiddleware(
+          sagaMiddleware,
+          routerMiddleware(history),
+          tracker
+        )
       )
-    )
-  )
+    ),
+    runSaga: sagaMiddleware.run
+  }
 }

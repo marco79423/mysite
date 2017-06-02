@@ -3,6 +3,7 @@ import {createSelector} from 'reselect'
 const _getConfig = (state) => state.get('config')
 
 export const getHostUrl = createSelector(_getConfig, config => config.get('HOST_URL'))
+export const getAPIServerUrl = createSelector(_getConfig, config => config.get('API_SERVER_URL'))
 
 export const getSiteName = createSelector(_getConfig, config => config.get('SITE_NAME'))
 export const getSiteMeta = createSelector(_getConfig, config => config.get('SITE_META'))

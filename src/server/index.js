@@ -13,24 +13,29 @@ import { Provider } from 'react-redux'
 import ReactDOMServer from 'react-dom/server'
 import webpackConfig from '../../webpack.config.client'
 import Helmet from 'react-helmet'
+import { END } from 'redux-saga'
 
 import promiseReject from '../lib/promiseReject'
 import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
+
+import saga from '../common/ducks/saga'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
 import { renderHtmlPage, renderHtmlPageByServerRendering } from './htmlRender'
 
 function prepareFetchingPromise (store, url) {
-  const promises = [
-    store.dispatch(articleActions.fetchArticles())
-  ]
+  const rootTask = store.runSaga(saga)
+
+  store.dispatch(articleActions.fetchArticles())
   if (/\/me\//.test(url)) {
-    promises.push(store.dispatch(pageActions.fetchPages()))
+    store.dispatch(pageActions.fetchPages())
   }
-  return Promise.all(promises)
+  store.dispatch(END)
+
+  return rootTask.done
 }
 
 function run () {
