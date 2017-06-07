@@ -1,6 +1,6 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects'
 
-import { fetchJSON } from '../../../lib/fetchHelpers'
+import fetchJSON from '../../../lib/fetchJSON'
 
 import { getAPIServerUrl } from '../config/selectors'
 

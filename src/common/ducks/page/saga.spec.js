@@ -2,7 +2,7 @@ import { call, put, select } from 'redux-saga/effects'
 
 import { getAPIServerUrl } from '../config/selectors'
 
-import { fetchJSON } from '../../../lib/fetchHelpers'
+import fetchJSON from '../../../lib/fetchJSON'
 
 import * as actions from './actions'
 import { fetchPagesSaga } from './saga'
