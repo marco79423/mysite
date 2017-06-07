@@ -15,7 +15,6 @@ import Helmet from 'react-helmet'
 import { END } from 'redux-saga'
 
 import promiseReject from '../lib/promiseReject'
-import * as config from '../config/server'
 import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
 
@@ -24,6 +23,7 @@ import saga from '../common/ducks/saga'
 import * as articleActions from '../common/ducks/article/actions'
 import * as pageActions from '../common/ducks/page/actions'
 
+import * as config from './config'
 import { renderHtmlPage, renderHtmlPageByServerRendering } from './htmlRender'
 
 function prepareFetchingPromise (store, url) {
