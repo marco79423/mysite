@@ -10,9 +10,9 @@ module.exports = {
     'webpack-hot-middleware/client'
   ] : []),
   output: {
-    publicPath: '/',
-    path: path.join(__dirname, 'dist'),
-    filename: 'assets/bundle.js'
+    publicPath: '/assets/',
+    path: path.join(__dirname, 'dist', 'assets'),
+    filename: 'bundle.js'
   },
   module: commonConfig.module,
   resolve: {

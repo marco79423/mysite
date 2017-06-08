@@ -5,7 +5,6 @@ const commonConfig = require('./webpack.config.common')
 module.exports = {
   entry: './src/server/index.js',
   output: {
-    publicPath: '/',
     path: __dirname,
     filename: '__server.js'
   },

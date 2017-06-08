@@ -5,8 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
-const myCSS = new ExtractTextPlugin({filename: 'assets/styles/styles.css', publicPath: '/assets/styles/'})
-const vendorCSS = new ExtractTextPlugin({filename: 'assets/styles/vendor.css', publicPath: '/assets/styles/'})
+const myCSS = new ExtractTextPlugin({filename: 'styles/styles.css', publicPath: '/assets/styles/'})
+const vendorCSS = new ExtractTextPlugin({filename: 'styles/vendor.css', publicPath: '/assets/styles/'})
 
 module.exports = {
   module: {
