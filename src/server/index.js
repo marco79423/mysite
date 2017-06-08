@@ -41,15 +41,15 @@ function prepareFetchingPromise (store, url) {
   ])
 }
 
-function run () {
+(function run () {
   const app = express()
   const port = +argv.port || config.DEFAULT_PORT
 
   if (process.env.DEBUG) {
     const compiler = webpack(webpackConfig)
-    const middleware = webpackMiddleware(compiler, {
+    app.use(webpackMiddleware(compiler, {
       publicPath: webpackConfig.output.publicPath,
-      contentBase: 'src',
+      contentBase: 'dist',
       stats: {
         colors: true,
         hash: false,
@@ -58,16 +58,14 @@ function run () {
         chunkModules: false,
         modules: false
       }
-    })
-
-    app.use(middleware)
+    }))
     app.use(webpackHotMiddleware(compiler))
   } else {
     app.use(apicache.middleware(config.CACHE_TIMEOUT))
     app.use(compression())
+    app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
   }
 
-  app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
   app.use((req, res) => {
     const history = createMemoryHistory(req.path)
     match({routes: createRoutes(history), location: req.url}, (error, redirectLocation, renderProps) => {
@@ -101,6 +99,4 @@ function run () {
   app.listen(port, '0.0.0.0', () => {
     console.log(`Server listening on port ${port}`)
   })
-}
-
-run()
+})()
