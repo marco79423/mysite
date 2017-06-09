@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import { renderToString } from 'react-dom/server'
 import serialize from 'serialize-javascript'
 
-export class Html extends React.Component {
+export default class Html extends React.Component {
   static propTypes = {
     serverRendering: PropTypes.bool,
     head: PropTypes.any,
@@ -53,12 +52,4 @@ export class Html extends React.Component {
       )
     }
   }
-}
-
-export function renderHtmlPageByServerRendering (head, state, html) {
-  return '<!DOCTYPE html>\n' + renderToString(<Html serverRendering head={head} state={state} html={html}/>)
-}
-
-export function renderHtmlPage () {
-  return '<!DOCTYPE html>\n' + renderToString(<Html/>)
 }
