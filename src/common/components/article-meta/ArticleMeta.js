@@ -8,7 +8,7 @@ import styles from './ArticleMeta.scss'
 
 export default class ArticleMeta extends React.PureComponent {
   static PropTypes = {
-    categories: ImmutablePropTypes.list,
+    categories: ImmutablePropTypes.list.isRequired,
     date: PropTypes.instanceOf(Date).isRequired,
     modifiedDate: PropTypes.instanceOf(Date)
   }

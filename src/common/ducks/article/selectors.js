@@ -50,6 +50,6 @@ export const getSocialConfig = createSelector(
   ],
   (currentUrl, article) => Immutable.Map({
     shareUrl: currentUrl,
-    title: article.get('title')
+    title: article ? article.get('title') : currentUrl
   })
 )

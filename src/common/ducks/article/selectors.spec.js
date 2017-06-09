@@ -363,29 +363,55 @@ describe('getRecentArticles', () => {
   })
 })
 
-test('getSocialConfig should return social config', () => {
+describe('getSocialConfig', () => {
   const props = {
     params: {
       slug: '美女最變態'
     }
   }
-  const state = Immutable.fromJS({
-    config: {
-      HOST_URL: 'HOST_URL'
-    },
-    routing: Immutable.Map({
-      locationBeforeTransitions: {
-        pathname: '/pathname'
+
+  test('should return social config', () => {
+    const state = Immutable.fromJS({
+      config: {
+        HOST_URL: 'HOST_URL'
+      },
+      routing: Immutable.Map({
+        locationBeforeTransitions: {
+          pathname: '/pathname'
+        }
+      }),
+      article: {
+        items: articles
       }
-    }),
-    article: {
-      items: articles
-    }
+    })
+
+    const expected = Immutable.fromJS({
+      shareUrl: 'HOST_URL/pathname',
+      title: '美女最變態'
+    })
+    expect(selectors.getSocialConfig(state, props)).toEqualImmutable(expected)
   })
 
-  const expected = Immutable.fromJS({
-    shareUrl: 'HOST_URL/pathname',
-    title: '美女最變態'
+  test('should return social config even when the article dont exist ', () => {
+    const state = Immutable.fromJS({
+      config: {
+        HOST_URL: 'HOST_URL'
+      },
+      routing: Immutable.Map({
+        locationBeforeTransitions: {
+          pathname: '/pathname'
+        }
+      }),
+      article: {
+        items: []
+      }
+    })
+
+    const expected = Immutable.fromJS({
+      shareUrl: 'HOST_URL/pathname',
+      title: 'HOST_URL/pathname'
+    })
+    expect(selectors.getSocialConfig(state, props)).toEqualImmutable(expected)
   })
-  expect(selectors.getSocialConfig(state, props)).toEqualImmutable(expected)
 })
+

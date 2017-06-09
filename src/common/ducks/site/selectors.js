@@ -26,15 +26,19 @@ export const getSiteHeadConfig = createSelector(
 
 export const getArticleSiteHeadConfig = createSelector(
   [
-    routingSelectors.getCurrentUrl,
+    getSiteHeadConfig,
     configSelectors.getSiteName,
     configSelectors.getSiteMeta,
-    configSelectors.getSiteLink,
+    routingSelectors.getCurrentUrl,
     articleSelectors.getArticle
   ],
-  (currentUrl, siteName, siteMeta, siteLink, article) => {
+  (headConfig, siteName, siteMeta, currentUrl, article) => {
+    if (!article) {
+      return headConfig
+    }
+
     const title = `${article.get('title')} - ${siteName}`
-    return Immutable.Map({
+    return headConfig.merge(Immutable.Map({
       title: title,
       meta: siteMeta
         .merge({
@@ -45,11 +49,7 @@ export const getArticleSiteHeadConfig = createSelector(
         })
         .entrySeq()
         .map(([name, content]) => Immutable.Map({name, content}))
-        .toList(),
-      link: siteLink
-        .entrySeq()
-        .map(([rel, href]) => Immutable.Map({rel, href}))
         .toList()
-    })
+    }))
   }
 )
