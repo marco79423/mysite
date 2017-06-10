@@ -18,8 +18,9 @@ export default class Article extends React.PureComponent {
     article: ImmutablePropTypes.contains({
       slug: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      content: PropTypes.content,
-      rawSummary: PropTypes.string
+      categories: ImmutablePropTypes.list.isRequired,
+      content: PropTypes.any.isRequired,
+      rawSummary: PropTypes.string.isRequired
     }),
     socialConfig: ImmutablePropTypes.map.isRequired,
     commentConfig: ImmutablePropTypes.map.isRequired

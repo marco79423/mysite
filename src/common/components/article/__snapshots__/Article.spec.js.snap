@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Article component correctly 1`] = `
+<article
+  className="root"
+>
+  <div />
+  <div>
+    <header
+      className="header"
+    >
+      <a
+        className="link"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        title
+      </a>
+    </header>
+    <div
+      className="root"
+    >
+      <span
+        className="field"
+      >
+        分類：
+        <a
+          className="category"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name
+        </a>
+      </span>
+      <span
+        className="field"
+      >
+        作者：兩大類
+      </span>
+      <span
+        className="field"
+      >
+        發表時間：
+        2017/07/09
+      </span>
+    </div>
+  </div>
+  <div
+    className="root"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "content",
+      }
+    }
+  />
+  <div />
+  <div />
+</article>
+`;
+
+exports[`It should render Article component correctly when the article is null 1`] = `
+<article
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <div
+      className="loadingImage twister"
+    />
+    <div
+      className="message"
+    >
+      正在努力讀取中…
+    </div>
+  </div>
+</article>
+`;

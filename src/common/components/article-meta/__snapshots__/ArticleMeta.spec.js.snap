@@ -15,6 +15,36 @@ exports[`It should render ArticleMeta component correctly 1`] = `
     >
       category 1
     </a>
+  </span>
+  <span
+    className="field"
+  >
+    作者：兩大類
+  </span>
+  <span
+    className="field"
+  >
+    發表時間：
+    2017/05/15
+  </span>
+</div>
+`;
+
+exports[`It should render ArticleMeta component correctly when article has been modified 1`] = `
+<div
+  className="root"
+>
+  <span
+    className="field"
+  >
+    分類：
+    <a
+      className="category"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      category 1
+    </a>
     <a
       className="category"
       onClick={[Function]}
@@ -64,36 +94,6 @@ exports[`It should render ArticleMeta component with multiple categories correct
       style={Object {}}
     >
       category 2
-    </a>
-  </span>
-  <span
-    className="field"
-  >
-    作者：兩大類
-  </span>
-  <span
-    className="field"
-  >
-    發表時間：
-    2017/05/15
-  </span>
-</div>
-`;
-
-exports[`It should render ArticleMeta component without modifiedDate correctly 1`] = `
-<div
-  className="root"
->
-  <span
-    className="field"
-  >
-    分類：
-    <a
-      className="category"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      category 1
     </a>
   </span>
   <span

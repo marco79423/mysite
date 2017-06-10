@@ -15,10 +15,13 @@ export default class SiteHead extends React.PureComponent {
         ref: PropTypes.string.isRequired,
         href: PropTypes.string.isRequired
       })
-    }).isRequired
+    })
   }
 
   render () {
+    if (!this.props.config) {
+      return <div/>
+    }
     return (
       <Helmet>
         <title>{this.props.config.get('title')}</title>

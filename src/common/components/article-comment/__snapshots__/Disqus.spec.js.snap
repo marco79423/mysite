@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Disqus component correctly 1`] = `
+<div>
+  <div
+    id="disqus_thread"
+  />
+  <a
+    className="dsq-brlink"
+    href="http://disqus.com"
+  >
+    Blog comments powered by 
+    <span
+      className="logo-disqus"
+    >
+      Disqus
+    </span>
+    .
+  </a>
+</div>
+`;

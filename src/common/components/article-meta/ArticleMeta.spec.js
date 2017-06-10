@@ -4,8 +4,7 @@ import renderer from 'react-test-renderer'
 
 import ArticleMeta from './ArticleMeta'
 
-
-test('It should render ArticleMeta component without modifiedDate correctly', () => {
+test('It should render ArticleMeta component correctly', () => {
   const props = Immutable.fromJS({
     categories: [
       {slug: 'slug 1', name: 'category 1'}
@@ -45,7 +44,7 @@ test('It should render ArticleMeta component with multiple categories correctly'
 })
 
 
-test('It should render ArticleMeta component correctly', () => {
+test('It should render ArticleMeta component correctly when article has been modified', () => {
   const props = Immutable.fromJS({
     categories: [
       {slug: 'slug 1', name: 'category 1'},

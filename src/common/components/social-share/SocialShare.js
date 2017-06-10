@@ -26,8 +26,10 @@ export default class SocialShare extends React.PureComponent {
   }
 
   render () {
+    if (!this.props.config) {
+      return <div/>
+    }
     const iconSize = 32
-
     return (
       <div className={styles.root}>
         <FacebookShareButton
