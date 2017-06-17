@@ -134,6 +134,7 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    'rest_framework.authtoken',
     "corsheaders",
 ]
 
@@ -156,6 +157,16 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+##################################################################
+# Django REST framework
+##################################################################
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 ##################################################################
 # Application settings
