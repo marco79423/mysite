@@ -12,11 +12,13 @@ PROJECT_CONFIG_FILE = "project_config.json"
 CONFIGS = {
     'prod': {
         'name': 'mysite-backend',
+        'default_branch': 'master',
         'debug': False,
         'server_name': 'api.marco79423.net',
     },
     'dev': {
         'name': 'mysite-backend-dev',
+        'default_branch': 'HEAD',
         'debug': False,
         'server_name': 'api-dev.marco79423.net',
     }
@@ -30,12 +32,12 @@ with open(PROJECT_CONFIG_FILE) as fp:
 
 
 @task
-def deploy(type_key='dev', branch='develop'):
+def deploy(type_key='dev', branch=None):
     execute(update_sys)
-    execute(_set_config, type_key)
-    execute(_upload_proj, branch)
+    execute(_set_config, type_key, branch)
+    execute(_upload_proj)
     execute(_install_pkgs)
-    execute(_setup_proj, branch)
+    execute(_setup_proj)
     execute(_test_proj)
     execute(build_content)
     execute(_setup_serv)
@@ -71,16 +73,17 @@ def restart_serv():
 #################
 
 @task
-def _set_config(type_key):
+def _set_config(type_key, branch):
     env.config = CONFIGS[type_key]
     env.config['project_path'] = '/var/www/' + env.config['name']
     env.config['source_path'] = env.config['project_path'] + '/src'
+    env.config['branch'] = branch if branch else env.config['default_branch']
 
 
 @task
-def _upload_proj(branch):
+def _upload_proj():
     sudo('mkdir -p {}'.format(env.config['project_path']))
-    archive = local('git archive --format=tar {} | gzip'.format(branch), capture=True)
+    archive = local('git archive --format=tar {} | gzip'.format(env.config['branch']), capture=True)
     with cd(env.config['project_path']):
         put(StringIO(archive), 'temp.tar.gz', use_sudo=True)
         sudo('tar zxf temp.tar.gz')
@@ -115,7 +118,7 @@ def _install_pkgs():
 
 
 @task
-def _setup_proj(branch):
+def _setup_proj():
     with cd(env.config['project_path']):
         if not exists('venv'):
             sudo('virtualenv venv -p python3')
@@ -128,8 +131,8 @@ def _setup_proj(branch):
             print(cyan('Changing setting for production ...'))
             sed('mysite_backend/settings.py', 'DEBUG = True', 'DEBUG = False', shell=True, use_sudo=True)
 
-        version = local('git rev-parse {}'.format(branch), capture=True)
-        sed('mysite_backend/settings.py', 'VERSION = ""', 'VERSION = "{} ({})"'.format(branch, version), shell=True, use_sudo=True)
+        version = local('git rev-parse {}'.format(env.config['branch']), capture=True)
+        sed('mysite_backend/settings.py', 'VERSION = ""', 'VERSION = "{} ({})"'.format(env.config['branch'], version), shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'USE_CACHE = False', 'USE_CACHE = True', shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(env.config['server_name']), shell=True, use_sudo=True)
         sed('mysite_backend/settings.py', 'SECRET_KEY = "I dont care in development env"', 'SECRET_KEY = "{}"'.format(env.secret_key), shell=True, use_sudo=True)
