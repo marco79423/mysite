@@ -8,4 +8,5 @@ djangorestframework==3.6.2
 django-cors-headers==2.0.2
 gunicorn==19.7.1
 css-html-js-minify==2.2.2
+htmlmin==0.1.10
 python-memcached==1.58

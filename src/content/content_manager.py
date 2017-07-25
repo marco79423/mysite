@@ -1,7 +1,7 @@
 from multiprocessing.pool import ThreadPool
 
 import slugify
-from css_html_js_minify import html_minify
+import htmlmin
 
 from content import entities
 from content import store
@@ -62,7 +62,7 @@ class ContentManager:
         content = article_data.content
         content = self._setup_item_images(content, article_data.title, article_data.item_images)
         content = self._setup_item_files(content, article_data.item_files)
-        content = html_minify(content)
+        content = htmlmin.minify(content)
 
         store.ArticleStore.create(entities.Article(
             title=article_data.title,
@@ -77,7 +77,7 @@ class ContentManager:
         content = page_data.content
         content = self._setup_item_images(content, page_data.title, page_data.item_images)
         content = self._setup_item_files(content, page_data.item_files)
-        content = html_minify(content)
+        content = htmlmin.minify(content)
 
         store.WebPageStore.create(entities.WebPage(
             app="me",
