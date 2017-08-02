@@ -1,13 +1,14 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from mysite_backend import settings
-from content import store
-from content import content_manager
-
 from api import serializers
+from content import content_manager
+from content import store
+from mysite_backend import settings
 
 
 @api_view(['GET'])
@@ -40,6 +41,7 @@ def get_info(request):
 
 
 @api_view(['POST'])
+@permission_classes((IsAuthenticated,))
 def post_rebuild_task(request):
     source_dir = settings.SOURCE_DIR
     builder = content_manager.ContentManager()
