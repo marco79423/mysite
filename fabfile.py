@@ -64,7 +64,8 @@ def build_content():
 
 @task
 def restart_serv():
-    sudo('service {name} restart'.format(name=env.config['name']))
+    sudo('service {name}-gunicorn restart'.format(name=env.config['name']))
+    sudo('service {name}-celeryd restart'.format(name=env.config['name']))
     sudo('service nginx restart')
 
 
@@ -152,25 +153,25 @@ def _test_proj():
 def _setup_serv():
     sudo('locale-gen zh_TW.UTF-8')
 
-    filename = env.config['name'] + '.conf'
-
-    print(cyan('Setup gunicorn ...'))
-    config_path = '/etc/init/' + filename
-    with cd(env.config['project_path']):
-        sudo('cp conf/init/service.conf ' + config_path)
-        sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
+    project_name = env.config['name']
+    for service_name in ['gunicorn', 'celeryd']:
+        print(cyan('Setup {} ...'.format(service_name)))
+        config_path = '/etc/init/{}-{}.conf'.format(project_name, service_name)
+        with cd(env.config['project_path']):
+            sudo('cp conf/init/service-{}.conf {}'.format(service_name, config_path))
+            sed(config_path, 'TARGET_NAME', project_name, shell=True, use_sudo=True)
 
     print(cyan('Setup nginx ...'))
     if exists('/etc/nginx/sites-enabled/default'):
         sudo('rm /etc/nginx/sites-enabled/default')
 
-    config_path = '/etc/nginx/sites-available/' + filename
+    config_path = '/etc/nginx/sites-available/{}.conf'.format(project_name)
     with cd(env.config['project_path']):
         sudo('cp conf/nginx/nginx.conf ' + config_path)
-        sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
+        sed(config_path, 'TARGET_NAME', project_name, shell=True, use_sudo=True)
         sed(config_path, 'SERVER_NAME', str(env.config['server_name']), shell=True, use_sudo=True)
 
     with cd('/etc/nginx/sites-enabled'):
-        if exists(filename):
-            sudo('rm ' + filename)
-        sudo('ln -s {config_path} {filename}'.format(config_path=config_path, filename=filename))
+        if exists(project_name + '.conf'):
+            sudo('rm ' + env.config['name'] + '.conf')
+        sudo('ln -s {config_path} {filename}'.format(config_path=config_path, filename=project_name + '.conf'))
