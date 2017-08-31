@@ -134,7 +134,10 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    'rest_framework.authtoken',
     "corsheaders",
+    'djcelery',
+    'kombu.transport.django',
 ]
 
 PROJECT_APPS = [
@@ -156,6 +159,23 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+##################################################################
+# Django REST framework
+##################################################################
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+##################################################################
+# Celery
+##################################################################
+
+BROKER_URL = 'django://'
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
 
 ##################################################################
 # Application settings
