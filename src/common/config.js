@@ -25,11 +25,11 @@ export const MENU_ITEMS = {
     {name: '專案作品', url: '/articles/category/專案作品/'},
     {name: '程式設計', url: '/articles/category/程式設計/'},
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
+    {name: '遊記', url: '/articles/category/遊記/'},
     {name: '胡言亂語', url: '/articles/category/胡言亂語/'}
   ],
   right: [
     {name: '閱讀計劃', url: '/me/閱讀計劃/'},
-    {name: '成功日記', url: '/me/成功日記/'},
     {name: '實驗室', url: '/lab/'}
   ]
 }
@@ -46,7 +46,7 @@ export const ABOUT_ME_CONFIG = {
 export const RECENT_ARTICLE_COUNT = 5
 
 export const HOST_URL = 'http://marco79423.net'
-export const API_SERVER_URL = "https://api.marco79423.net/api"  // eslint-disable-line
+export const API_SERVER_URL = "http://localhost:8000/api"  // eslint-disable-line
 export const PAGE_SIZE = 10
 
 export const COMMENT_CONFIG = {
