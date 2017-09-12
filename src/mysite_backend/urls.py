@@ -5,9 +5,9 @@ from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from rest_framework.authtoken import views as authtoken_views
 
+from blog import urls as api_urls
 from mysite_backend import settings
 from mysite_backend import sitemaps
-from api import urls as api_urls
 
 sitemaps = {
     'article': sitemaps.ArticleSitemap,

@@ -1,8 +1,8 @@
-import slugify
 import htmlmin
+import slugify
 
-from content import entities
-from content import store
+from blog import entities
+from blog import store
 from libs import rst_transformer
 from mysite_backend import settings
 

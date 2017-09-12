@@ -2,8 +2,8 @@ import datetime as dt
 
 from rest_framework.test import APITestCase
 
-from content import entities
-from content import store
+from blog import entities
+from blog import store
 
 
 class ArticleAPITest(APITestCase):

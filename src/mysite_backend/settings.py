@@ -141,8 +141,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "content",
-    "api",
+    "blog",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS

@@ -1,5 +1,5 @@
-from content import entities
-from content import models
+from blog import entities
+from blog import models
 
 
 class Store:

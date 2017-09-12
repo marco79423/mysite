@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from mysite_backend import settings
 from path import Path
 
-from content import content_manager
+from blog import content_manager
 
 
 class Command(BaseCommand):
