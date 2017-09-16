@@ -9,12 +9,12 @@ import AboutMe from '../../components/about-me'
 
 @connect(
   (state, props) => ({
-    config: configSelectors.getAboutMeConfig(state, props)
+    authorInfo: configSelectors.getAuthorInfo(state),
   })
 )
 export default class AboutMeContainer extends React.Component {
   static PropTypes = {
-    config: ImmutablePropTypes.contains({
+    authorInfo: ImmutablePropTypes.contains({
       socialLinks: ImmutablePropTypes.listOf(
         ImmutablePropTypes.contains({
           name: PropTypes.string.isRequired,
@@ -28,8 +28,8 @@ export default class AboutMeContainer extends React.Component {
   render () {
     return (
       <AboutMe
-        config={this.props.config}
-        quote={this.props.quote}/>
+        socialLinks={this.props.authorInfo.get('socialLinks')}
+        quote={this.props.authorInfo.get('quote')} />
     )
   }
 }

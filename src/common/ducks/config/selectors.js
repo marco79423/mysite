@@ -2,6 +2,8 @@ import {createSelector} from 'reselect'
 
 const _getConfig = (state) => state.get('config')
 
+export const getAuthorInfo = createSelector(_getConfig, config => config.get('AUTHOR_INFO'))
+
 export const getHostUrl = createSelector(_getConfig, config => config.get('HOST_URL'))
 export const getAPIServerUrl = createSelector(_getConfig, config => config.get('API_SERVER_URL'))
 
@@ -14,8 +16,6 @@ export const getRecentArticleCount = createSelector(_getConfig, config => config
 export const getCommentConfig = createSelector(_getConfig, config => config.get('COMMENT_CONFIG'))
 
 export const getMenuItems = createSelector(_getConfig, config => config.get('MENU_ITEMS'))
-export const getAboutMeConfig = createSelector(_getConfig, config => config.get('ABOUT_ME_CONFIG'))
-
 
 export const getSiteVersion = createSelector(_getConfig, config => config.get('SITE_VERSION'))
 export const getSiteUpdatedTime = createSelector(_getConfig, config => config.get('SITE_UPDATED_TIME'))

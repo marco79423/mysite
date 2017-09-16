@@ -19,8 +19,8 @@ export const FEED_TEMPLATE = {
     rss2: `${commonConfig.HOST_URL}/rss2.xml`,
   },
   author: {
-    name: '兩大類',
-    email: 'marco79423@gmail.com',
+    name: commonConfig.AUTHOR_INFO.name,
+    email: commonConfig.AUTHOR_INFO.email,
     link: commonConfig.HOST_URL
   }
 }
