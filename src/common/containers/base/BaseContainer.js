@@ -14,6 +14,7 @@ import * as configSelectors from '../../ducks/config/selectors'
     siteName: configSelectors.getSiteName(state, props),
     menuItems: configSelectors.getMenuItems(state, props),
     crazyMode: state.getIn(['lab', 'crazyMode']),
+    copyright: configSelectors.getCopyright(state, props),
     category: props.params.category,
   })
 )
@@ -22,6 +23,7 @@ export default class BaseContainer extends React.Component {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
+    copyright: PropTypes.string,
     category: PropTypes.string
   }
 

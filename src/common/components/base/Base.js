@@ -21,6 +21,7 @@ export default class Base extends React.Component {
     siteName: PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
     crazyMode: PropTypes.bool.isRequired,
+    copyright: PropTypes.string,
     category: PropTypes.string
   }
 
@@ -56,7 +57,7 @@ export default class Base extends React.Component {
           </div>
         </div>
         <div className={styles.footer}>
-          <Footer/>
+          <Footer copyright={this.props.copyright}/>
         </div>
       </div>
     )

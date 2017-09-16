@@ -30,6 +30,8 @@ export const SITE_LINK = {
   'shortcut icon': require('../common/img/favicon.ico')
 }
 
+export const COPYRIGHT = 'Copyright © 2017 - 兩大類'
+
 export const MENU_ITEMS = {
   left: [
     {name: 'Python', url: '/articles/category/python/'},

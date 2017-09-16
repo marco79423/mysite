@@ -12,7 +12,7 @@ export const FEED_TEMPLATE = {
   link: commonConfig.HOST_URL,
   // image: require('../common/img/logo.png'), TODO
   favicon: `${commonConfig.HOST_URL}/favicon.ico`,
-  copyright: 'All rights reserved 2017, 兩大類',
+  copyright: commonConfig.COPYRIGHT,
   updated: undefined,
   feedLinks: {
     atom: `${commonConfig.HOST_URL}/atom.xml`,

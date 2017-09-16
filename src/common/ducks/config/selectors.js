@@ -10,6 +10,7 @@ export const getAPIServerUrl = createSelector(_getConfig, config => config.get('
 export const getSiteName = createSelector(_getConfig, config => config.get('SITE_NAME'))
 export const getSiteMeta = createSelector(_getConfig, config => config.get('SITE_META'))
 export const getSiteLink = createSelector(_getConfig, config => config.get('SITE_LINK'))
+export const getCopyright = createSelector(_getConfig, config => config.get('COPYRIGHT'))
 
 export const getPageSize = createSelector(_getConfig, config => config.get('PAGE_SIZE'))
 export const getRecentArticleCount = createSelector(_getConfig, config => config.get('RECENT_ARTICLE_COUNT'))
