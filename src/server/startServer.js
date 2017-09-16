@@ -1,3 +1,4 @@
+
 import express from 'express'
 import apicache from 'apicache'
 import compression from 'compression'
@@ -9,7 +10,9 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 
 import webpackConfig from '../../webpack.config.client'
 
+import setRSSRoutes from './setRSSRoutes'
 import * as config from './config'
+
 import renderHtmlPage from './renderHtmlPage'
 
 function setDevMiddleware (app) {
@@ -42,6 +45,8 @@ export default function startServer () {
   const port = +argv.port || config.DEFAULT_PORT
 
   const app = express()
+  setRSSRoutes(app)
+
   if (process.env.DEBUG) {
     setDevMiddleware(app)
   } else {
