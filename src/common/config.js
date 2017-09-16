@@ -50,7 +50,7 @@ export const MENU_ITEMS = {
 export const RECENT_ARTICLE_COUNT = 5
 
 export const HOST_URL = 'http://marco79423.net'
-export const API_SERVER_URL = "http://localhost:8000/api"  // eslint-disable-line
+export const BACKEND_SERVER_URL = "http://localhost:8000"  // eslint-disable-line
 export const PAGE_SIZE = 10
 
 export const COMMENT_CONFIG = {

@@ -16,14 +16,14 @@ CONFIGS = {
         'default_branch': 'master',
         'port': 3000,
         'server_name': 'marco79423.net',
-        'api_server_url': 'https://api.marco79423.net'
+        'backend_server_url': 'https://api.marco79423.net'
     },
     'dev': {
         'name': 'mysite-frontend-dev',
         'default_branch': 'HEAD',
         'port': 4000,
         'server_name': 'dev.marco79423.net',
-        'api_server_url': 'https://api-dev.marco79423.net'
+        'backend_server_url': 'https://api-dev.marco79423.net'
     }
 }
 
@@ -97,8 +97,8 @@ def _setup_proj():
     with cd(env.config['project_path']):
         print(cyan('Prepare project ...'))
         settings_path = '{}/src/common/config.js'.format(env.config['project_path'])
-        sed(settings_path, 'API_SERVER_URL = "http://localhost:8000/api"',
-            'API_SERVER_URL = "{}/api"'.format(env.config['api_server_url']), shell=True, use_sudo=True)
+        sed(settings_path, 'BACKEND_SERVER_URL = "http://localhost:8000"',
+            'BACKEND_SERVER_URL = "{}"'.format(env.config['backend_server_url']), shell=True, use_sudo=True)
         sed(settings_path, 'SITE_VERSION = ""', 'SITE_VERSION = "{}"'.format(version), shell=True, use_sudo=True)
         sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True,
             use_sudo=True)
@@ -134,7 +134,7 @@ def _setup_serv():
     config_path = '/etc/nginx/sites-available/' + filename
     with cd(env.config['project_path']):
         sudo('cp conf/nginx/nginx.conf ' + config_path)
-        sed(config_path, 'API_SERVER_URL', env.config['api_server_url'], shell=True, use_sudo=True)
+        sed(config_path, 'BACKEND_SERVER_URL', env.config['backend_server_url'], shell=True, use_sudo=True)
         sed(config_path, 'TARGET_NAME', env.config['name'], shell=True, use_sudo=True)
         sed(config_path, 'SERVER_NAME', env.config['server_name'], shell=True, use_sudo=True)
         sed(config_path, 'PORT', str(env.config['port']), shell=True, use_sudo=True)
