@@ -1,10 +1,8 @@
-from multiprocessing.pool import ThreadPool
-
-import slugify
 import htmlmin
+import slugify
 
-from content import entities
-from content import store
+from blog import entities
+from blog import store
 from libs import rst_transformer
 from mysite_backend import settings
 
@@ -48,15 +46,11 @@ class ContentManager:
 
         self.clean()
 
-        pool = ThreadPool()
         for article_data in self._content_spider.parse(source_dir / "articles"):
-            pool.apply_async(self._process_article_data, (article_data,))
+            self._process_article_data(article_data)
 
         for page_data in self._content_spider.parse(source_dir / "web_pages"):
-            pool.apply_async(self._process_page_data, (page_data,))
-
-        pool.close()
-        pool.join()
+            self._process_page_data(page_data)
 
     def _process_article_data(self, article_data):
         content = article_data.content

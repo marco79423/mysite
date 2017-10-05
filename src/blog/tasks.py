@@ -1,6 +1,6 @@
 from celery import shared_task
 
-from content import content_manager
+from blog import content_manager
 from mysite_backend import settings
 
 

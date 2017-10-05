@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from api import views
+from blog import views
 
 urlpatterns = [
     url(r'^$', views.get_root),

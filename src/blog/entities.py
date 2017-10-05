@@ -1,6 +1,6 @@
 import re
 
-from content import utils
+from blog import utils
 
 
 class Entity:

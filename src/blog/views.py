@@ -6,9 +6,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from api import serializers
-from api import tasks
-from content import store
+from blog import serializers
+from blog import store
+from blog import tasks
 from mysite_backend import settings
 
 
