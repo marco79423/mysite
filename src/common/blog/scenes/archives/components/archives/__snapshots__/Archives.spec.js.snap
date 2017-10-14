@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Archives component correctly 1`] = `
+<section
+  className="archives"
+>
+  <article>
+    <header>
+      <h1>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          所有文章列表
+        </a>
+      </h1>
+    </header>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            2017/05/15
+          </td>
+          <td>
+            <a
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 1
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2017/05/16
+          </td>
+          <td>
+            <a
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 2
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2017/05/17
+          </td>
+          <td>
+            <a
+              onClick={[Function]}
+              style={Object {}}
+            >
+              title 3
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+`;
+
+exports[`It should render Archives component with empty articles correctly 1`] = `
+<section
+  className="archives"
+>
+  <div
+    className="root"
+  >
+    <div
+      className="loadingImage twister"
+    />
+    <div
+      className="message"
+    >
+      正在努力讀取中…
+    </div>
+  </div>
+</section>
+`;

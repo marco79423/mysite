@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Pagination component correctly 1`] = `
+<div
+  className="pagination"
+>
+  <ul>
+    <li>
+      <a
+        className="active"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        1
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
+<div
+  className="pagination"
+>
+  <ul>
+    <li>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      >
+        ←
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        className="active"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      >
+        →
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`It should render Pagination component with previous page link correctly 1`] = `
+<div
+  className="pagination"
+>
+  <ul>
+    <li>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      >
+        ←
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        className="active"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        3
+      </a>
+    </li>
+  </ul>
+</div>
+`;

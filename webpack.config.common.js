@@ -44,6 +44,12 @@ module.exports = {
         options: {
           limit: 100000
         }
+      },
+      {
+        test: /\.svg/,
+        loader: 'svg-url-loader',
+        options: {
+        }
       }
     ]
   },

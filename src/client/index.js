@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import Root from '../common/Root'
-import saga from '../common/ducks/saga'
+import saga from '../common/blog/saga'
 import { configureStore } from '../common/store'
 
 function run () {
