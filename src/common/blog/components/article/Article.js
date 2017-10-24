@@ -56,9 +56,9 @@ export default class Article extends React.PureComponent {
   renderContent = () => {
     const {article, socialConfig, commentConfig} = this.props
     return [
-      <ArticleContent content={article.get('content')}/>,
-      <SocialShare config={socialConfig}/>,
-      <Comment config={commentConfig}/>
+      <ArticleContent key="article-content" content={article.get('content')}/>,
+      <SocialShare  key="social-share" config={socialConfig}/>,
+      <Comment key="comment" config={commentConfig}/>
     ]
   }
 

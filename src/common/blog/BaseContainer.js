@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import SiteHead from './components/site-head'
-import _Base from './components/base'
+import Base from './components/base'
 
 import * as articleActions from './ducks/article/actions'
 import * as siteSelectors from './ducks/site/selectors'
@@ -24,7 +24,7 @@ import * as articleSelectors from './ducks/article/selectors'
     fetchArticles: () => dispatch(articleActions.fetchArticles())
   })
 )
-export default class Base extends React.Component {
+export default class BaseContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: PropTypes.string.isRequired,
@@ -43,10 +43,10 @@ export default class Base extends React.Component {
   render () {
     const props = this.props
     return (
-      <_Base {...props}>
+      <Base {...props}>
         <SiteHead config={this.props.siteConfig}/>
         {this.props.children}
-      </_Base>
+      </Base>
     )
   }
 }

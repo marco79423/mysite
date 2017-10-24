@@ -133,6 +133,7 @@ export default class Base extends React.Component {
   renderAdditionalLinks = () => {
     return (
       <section className={styles.additionalLinks}>
+        <h2></h2>
         <ul>
           <li><Link to='/articles/archives/'>所有文章列表</Link></li>
         </ul>
