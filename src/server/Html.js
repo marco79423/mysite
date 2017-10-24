@@ -16,7 +16,7 @@ export default class Html extends React.Component {
 
     if (!this.props.serverRendering) {
       return (
-        <html>
+        <html lang="zh-hant">
         <head>
           <meta charSet="UTF-8"/>
           <link href="/assets/styles/vendor.css" rel="stylesheet"/>
