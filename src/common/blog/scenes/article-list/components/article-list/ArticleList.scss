@@ -1,0 +1,12 @@
+.articleList {
+  float: left;
+  width: 800px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+
+  ul.articleContainer li:not(:first-child) {
+    margin-top: 3px;
+  }
+}

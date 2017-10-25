@@ -1,12 +1,6 @@
 export const AUTHOR_INFO = {
   name: '兩大類',
-  email: 'marco79423@gmail.com',
-  socialLinks: [
-    {name: 'GitHub', url: 'https://github.com/marco79423'},
-    {name: 'Bitbucket', url: 'https://bitbucket.org/marco79423'},
-    {name: 'facebook', url: 'https://www.facebook.com/marco79423'}
-  ],
-  quote: '能站著就別坐著，能走路就別騎車\n保持站起來的毅力和一步一腳印的耐心'
+  email: 'marco79423@gmail.com'
 }
 
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
@@ -27,13 +21,13 @@ export const SITE_META = {
 }
 
 export const SITE_LINK = {
-  'shortcut icon': require('../common/img/favicon.ico')
+  'shortcut icon': require('./blog/img/favicon.ico')
 }
 
 export const COPYRIGHT = 'Copyright © 2017 - 兩大類'
 
 export const MENU_ITEMS = {
-  left: [
+  main: [
     {name: 'Python', url: '/articles/category/python/'},
     {name: '專案作品', url: '/articles/category/專案作品/'},
     {name: '程式設計', url: '/articles/category/程式設計/'},
@@ -41,7 +35,7 @@ export const MENU_ITEMS = {
     {name: '遊記', url: '/articles/category/遊記/'},
     {name: '胡言亂語', url: '/articles/category/胡言亂語/'}
   ],
-  right: [
+  extra: [
     {name: '閱讀計劃', url: '/me/閱讀計劃/'},
     {name: '實驗室', url: '/lab/'}
   ]

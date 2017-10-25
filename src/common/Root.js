@@ -6,8 +6,6 @@ import { createRoutes } from './routes'
 
 import 'isomorphic-fetch'
 
-import './css/base.scss'
-
 export default class Root extends React.Component {
   static PropTypes = {
     type: PropTypes.oneOf(['server', 'client']).isRequired,

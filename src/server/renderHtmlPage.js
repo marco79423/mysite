@@ -10,9 +10,9 @@ import { createRoutes } from '../common/routes'
 import { configureStore } from '../common/store'
 
 import Root from '../common/Root'
-import saga from '../common/ducks/saga'
-import * as articleActions from '../common/ducks/article/actions'
-import * as pageActions from '../common/ducks/page/actions'
+import saga from '../common/blog/saga'
+import * as articleActions from '../common/blog/ducks/article/actions'
+import * as pageActions from '../common/blog/scenes/page/actions'
 
 import * as config from './config'
 import Html from './Html'

@@ -1,14 +1,15 @@
 import React from 'react'
 import { IndexRoute, Route, Router } from 'react-router'
 
-import BaseContainer from './containers/base'
-import ArticleListContainer from './containers/article-list'
-import CategorizedArticleListContainer from './containers/categorized-article-list'
-import ArticleContainer from './containers/article'
-import ArchivesContainer from './containers/archives'
-import SiteInfoContainer from './containers/site-info'
-import PageContainer from './containers/page'
-import LabContainer from './containers/lab'
+import BaseContainer from './blog/BaseContainer'
+import ArticleListContainer from './blog/scenes/article-list'
+import CategorizedArticleListContainer from './blog/scenes/categorized-article-list'
+import ArticleDetailContainer from './blog/scenes/article-detail'
+import ArchivesContainer from './blog/scenes/archives'
+import SiteInfoContainer from './blog/scenes/site-info'
+import PageContainer from './blog/scenes/page'
+import LabContainer from './blog/scenes/lab'
+
 
 export const createRoutes = (history) => (
   <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
@@ -20,7 +21,7 @@ export const createRoutes = (history) => (
       <Route path='/articles/category/:category/' component={CategorizedArticleListContainer}/>
       <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListContainer}/>
       <Route path='/articles/archives/' component={ArchivesContainer}/>
-      <Route path='/articles/:slug/' component={ArticleContainer}/>
+      <Route path='/articles/:slug/' component={ArticleDetailContainer}/>
       <Route path='/:app/:slug/' component={PageContainer}/>
     </Route>
   </Router>
