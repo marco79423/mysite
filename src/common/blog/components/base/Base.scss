@@ -41,6 +41,11 @@ ul {
     margin: 0;
     line-height: 90px;
     padding-left: 116px;
+    font-size: 2rem;
+
+    @media (max-width: 400px) {
+      font-size: 1.3rem;
+    }
   }
 
   a {
@@ -123,7 +128,7 @@ ul {
       height: 42px;
       line-height: 42px;
       padding: 0 16px;
-      font-size: 1.2em;
+      font-size: 1.2rem;
       color: #ECECEC;
       font-weight: 700;
 
