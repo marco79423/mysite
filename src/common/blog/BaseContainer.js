@@ -35,7 +35,7 @@ export default class BaseContainer extends React.Component {
 
   componentWillMount () {
     // for recent articles
-    if (!this.props.articles) {
+    if (this.props.recentArticles.isEmpty()) {
       this.props.fetchArticles()
     }
   }
