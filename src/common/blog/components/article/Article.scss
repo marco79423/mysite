@@ -5,15 +5,9 @@
   header {
     h1 {
       margin: 3px 0;
-      font-size: 2rem;
-
-      @media (max-width: 1200px) {
-        font-size: 1.3rem;
-
-        overflow : hidden;
-        text-overflow : ellipsis;
-        white-space : nowrap;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       a {
         font-size: 2rem;
@@ -23,14 +17,9 @@
 
   ul.metadata {
     font-size: 0.9rem;
-
-    @media (max-width: 1200px) {
-      font-size: 0.5rem;
-
-      overflow : hidden;
-      text-overflow : ellipsis;
-      white-space : nowrap;
-    }
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     li {
       display: inline;
