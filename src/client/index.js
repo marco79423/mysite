@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-import Root from '../common/Root'
-import saga from '../common/blog/saga'
-import { configureStore } from '../common/store'
+import Root from '../shared/Root'
+import saga from '../shared/blog/saga'
+import { configureStore } from '../shared/store'
 
 function run () {
   const store = configureStore()

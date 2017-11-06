@@ -1,4 +1,4 @@
-import * as commonConfig from '../common/config'
+import * as commonConfig from '../shared/config'
 
 export const DEFAULT_PORT = 3000
 export const SERVER_RENDERING = true

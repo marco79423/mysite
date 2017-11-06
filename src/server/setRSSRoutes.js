@@ -1,6 +1,6 @@
 import Feed from 'feed'
 
-import * as commonConfig from '../common/config'
+import * as commonConfig from '../shared/config'
 import * as config from './config'
 
 export default function setRSSRoutes (app) {
