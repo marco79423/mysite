@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import { Link } from 'react-router'
+import Link from '../../../../../generic/components/Link'
 
 import Loading from '../../../../components/loading'
 import ArticleContent from '../../../../components/article-content'
