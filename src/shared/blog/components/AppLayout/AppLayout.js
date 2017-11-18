@@ -5,7 +5,7 @@ import Link from '../../../generic/components/Link'
 import classNames from 'classnames'
 
 import 'normalize.css/normalize.css'
-import styles from './Base.scss'
+import styles from './AppLayout.scss'
 
 export default class Base extends React.Component {
   static PropTypes = {

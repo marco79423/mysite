@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexRoute, Route, Router } from 'react-router'
 
-import BaseContainer from './blog/BaseContainer'
+import AppLayoutContainer from './blog/AppLayoutContainer'
 import ArticleListContainer from './blog/pages/article-list'
 import CategorizedArticleListContainer from './blog/pages/categorized-article-list'
 import ArticleDetailContainer from './blog/pages/article-detail'
@@ -13,7 +13,7 @@ import LabContainer from './blog/pages/lab'
 
 export const createRoutes = (history) => (
   <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-    <Route path="/" component={BaseContainer}>
+    <Route path="/" component={AppLayoutContainer}>
       <IndexRoute component={ArticleListContainer}/>
       <Route path='/lab/' component={LabContainer}/>
       <Route path='/info/' component={SiteInfoContainer}/>

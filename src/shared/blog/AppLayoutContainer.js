@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import SiteHead from './components/site-head'
-import Base from './components/base'
+import AppLayout from './components/AppLayout'
 
 import * as articleActions from './ducks/article/actions'
 import * as siteSelectors from './ducks/site/selectors'
@@ -43,10 +43,10 @@ export default class BaseContainer extends React.Component {
   render () {
     const props = this.props
     return (
-      <Base {...props}>
+      <AppLayout {...props}>
         <SiteHead config={this.props.siteConfig}/>
         {this.props.children}
-      </Base>
+      </AppLayout>
     )
   }
 }
