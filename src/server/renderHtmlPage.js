@@ -12,7 +12,7 @@ import { configureStore } from '../shared/store'
 import Root from '../shared/Root'
 import saga from '../shared/blog/saga'
 import * as articleActions from '../shared/blog/ducks/article/actions'
-import * as pageActions from '../shared/blog/scenes/page/actions'
+import * as pageActions from '../shared/blog/pages/page/actions'
 
 import * as config from './config'
 import Html from './Html'

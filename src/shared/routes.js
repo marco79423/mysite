@@ -2,13 +2,13 @@ import React from 'react'
 import { IndexRoute, Route, Router } from 'react-router'
 
 import BaseContainer from './blog/BaseContainer'
-import ArticleListContainer from './blog/scenes/article-list'
-import CategorizedArticleListContainer from './blog/scenes/categorized-article-list'
-import ArticleDetailContainer from './blog/scenes/article-detail'
-import ArchivesContainer from './blog/scenes/archives'
-import SiteInfoContainer from './blog/scenes/site-info'
-import PageContainer from './blog/scenes/page'
-import LabContainer from './blog/scenes/lab'
+import ArticleListContainer from './blog/pages/article-list'
+import CategorizedArticleListContainer from './blog/pages/categorized-article-list'
+import ArticleDetailContainer from './blog/pages/article-detail'
+import ArchivesContainer from './blog/pages/archives'
+import SiteInfoContainer from './blog/pages/site-info'
+import PageContainer from './blog/pages/page'
+import LabContainer from './blog/pages/lab'
 
 
 export const createRoutes = (history) => (
