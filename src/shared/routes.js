@@ -6,9 +6,9 @@ import ArticleListContainer from './blog/containers/ArticleListContainer'
 import CategorizedArticleListContainer from './blog/containers/CategorizedArticleListContainer'
 import ArticleDetailContainer from './blog/containers/ArticleDetailContainer'
 import ArchivesContainer from './blog/containers/ArchivesContainer'
-import SiteInfoContainer from './blog/pages/site-info'
+import SiteInfoContainer from './blog/containers/SiteInfoContainer'
 import PageContainer from './blog/pages/page'
-import LabContainer from './blog/containers/Lab'
+import LabContainer from './blog/containers/LabContainer'
 
 
 export const createRoutes = (history) => (
