@@ -5,7 +5,7 @@ import Link from '../../../generic/components/Link'
 import dateformat from 'dateformat'
 
 import Loading from '../loading'
-import SocialShare from './social-share'
+import SocialShare from './SocialShare'
 import ArticleComment from './ArticleComment'
 import ArticleContent from '../article-content'
 
