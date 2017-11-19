@@ -3,7 +3,7 @@ import { IndexRoute, Route, Router } from 'react-router'
 
 import AppLayoutContainer from './blog/AppLayoutContainer'
 import ArticleListContainer from './blog/containers/ArticleListContainer'
-import CategorizedArticleListContainer from './blog/pages/categorized-article-list'
+import CategorizedArticleListContainer from './blog/containers/CategorizedArticleListContainer'
 import ArticleDetailContainer from './blog/containers/ArticleDetailContainer'
 import ArchivesContainer from './blog/containers/ArchivesContainer'
 import SiteInfoContainer from './blog/pages/site-info'
