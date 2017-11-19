@@ -1,6 +1,6 @@
 import { call, put, select } from 'redux-saga/effects'
 
-import { getBackendServerUrl } from '../../ducks/config/selectors'
+import { getBackendServerUrl } from '../config/selectors'
 
 import fetchJSON from '../../../../lib/fetchJSON'
 

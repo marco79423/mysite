@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
-import Page from '../../components/Page/index'
+import Page from '../../components/Page'
 
-import * as pageActions from './actions'
+import * as pageActions from '../../ducks/page/actions'
 
 @connect(
   (state, ownProps) => ( {
