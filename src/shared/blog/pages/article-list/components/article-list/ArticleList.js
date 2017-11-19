@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Pagination from './pagination'
 
-import Article from '../../../../components/article'
+import Article from '../../../../components/Article'
 
 import styles from './ArticleList.scss'
 
