@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../../../generic/components/Link'
 
-import Loading from '../../../../components/loading'
+import Loading from '../../../../components/Loading'
 import ArticleContent from '../../../../components/ArticleContent'
 
 import styles from './Page.scss'

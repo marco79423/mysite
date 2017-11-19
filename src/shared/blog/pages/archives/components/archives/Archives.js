@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../../../generic/components/Link'
 import dateformat from 'dateformat'
 
-import Loading from '../../../../components/loading'
+import Loading from '../../../../components/Loading'
 
 import styles from './Archives.scss'
 

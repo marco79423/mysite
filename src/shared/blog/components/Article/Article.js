@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../generic/components/Link'
 import dateformat from 'dateformat'
 
-import Loading from '../loading'
+import Loading from '../Loading'
 import SocialShare from './SocialShare'
 import ArticleComment from './ArticleComment'
 import ArticleContent from '../ArticleContent'
