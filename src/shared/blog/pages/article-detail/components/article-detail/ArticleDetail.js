@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
-import SiteHead from '../../../../components/site-head'
+import SiteHead from '../../../../components/SiteHead'
 import Article from '../../../../components/Article'
 
 import styles from './ArticleDetail.scss'
