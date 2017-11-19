@@ -2,7 +2,7 @@ import React from 'react'
 import { IndexRoute, Route, Router } from 'react-router'
 
 import AppLayoutContainer from './blog/AppLayoutContainer'
-import ArticleListContainer from './blog/pages/article-list'
+import ArticleListContainer from './blog/containers/ArticleListContainer'
 import CategorizedArticleListContainer from './blog/pages/categorized-article-list'
 import ArticleDetailContainer from './blog/containers/ArticleDetailContainer'
 import ArchivesContainer from './blog/containers/ArchivesContainer'
