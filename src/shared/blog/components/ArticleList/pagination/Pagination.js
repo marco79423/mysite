@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import range from 'lodash/range'
 import classNames from 'classnames'
-import Link from '../../../../../../generic/components/Link'
+import Link from '../../../../generic/components/Link/index'
 
 import styles from './Pagination.scss'
 

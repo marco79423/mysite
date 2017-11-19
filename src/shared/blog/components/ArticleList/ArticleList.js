@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Pagination from './pagination'
+import Pagination from './pagination/index'
 
-import Article from '../../../../components/Article'
+import Article from '../Article/index'
 
 import styles from './ArticleList.scss'
 
