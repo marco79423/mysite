@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
-import Page from '../../components/Page'
+import Page from '../../components/Page/index'
 
 import * as pageActions from './actions'
 

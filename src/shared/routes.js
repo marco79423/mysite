@@ -7,7 +7,7 @@ import CategorizedArticleListContainer from './blog/containers/CategorizedArticl
 import ArticleDetailContainer from './blog/containers/ArticleDetailContainer'
 import ArchivesContainer from './blog/containers/ArchivesContainer'
 import SiteInfoContainer from './blog/containers/SiteInfoContainer'
-import PageContainer from './blog/pages/page'
+import PageContainer from './blog/containers/PageContainer'
 import LabContainer from './blog/containers/LabContainer'
 
 
