@@ -10,7 +10,7 @@ import { createRoutes } from '../shared/routes'
 import { configureStore } from '../shared/store'
 
 import Root from '../shared/Root'
-import saga from '../shared/blog/saga'
+import saga from '../shared/blog/ducks/saga'
 import * as articleActions from '../shared/blog/ducks/article/actions'
 import * as pageActions from '../shared/blog/ducks/page/actions'
 

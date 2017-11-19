@@ -6,7 +6,7 @@ import { routerMiddleware } from 'react-router-redux'
 import { createTracker, EventTypes } from 'redux-segment'
 import createSagaMiddleware from 'redux-saga'
 
-import reducer from './blog/reducer'
+import reducer from './blog/ducks/reducer'
 
 const INITIAL_STATE = (typeof window !== 'undefined') ? window.__PRELOADED_STATE__ : {}
 const DEBUG = process.env.DEBUG
