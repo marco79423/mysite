@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../../../generic/components/Link'
 
 import Loading from '../../../../components/loading'
-import ArticleContent from '../../../../components/article-content'
+import ArticleContent from '../../../../components/ArticleContent'
 
 import styles from './Page.scss'
 

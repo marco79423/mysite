@@ -7,7 +7,7 @@ import dateformat from 'dateformat'
 import Loading from '../loading'
 import SocialShare from './SocialShare'
 import ArticleComment from './ArticleComment'
-import ArticleContent from '../article-content'
+import ArticleContent from '../ArticleContent'
 
 import styles from './Article.scss'
 
