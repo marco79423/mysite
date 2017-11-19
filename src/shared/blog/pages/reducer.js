@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immutable'
 
-import labReducer from './lab/reducer'
+import labReducer from '../containers/Lab/reducer'
 import pageReducer from './page/reducer'
 import siteInfoReducer from './site-info/reducer'
 

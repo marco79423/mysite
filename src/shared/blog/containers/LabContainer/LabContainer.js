@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Lab from '../../components/Lab'
+import Lab from '../../components/Lab/index'
 import * as LabActions from './actions'
 
 @connect(

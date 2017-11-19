@@ -8,7 +8,7 @@ import ArticleDetailContainer from './blog/containers/ArticleDetailContainer'
 import ArchivesContainer from './blog/containers/ArchivesContainer'
 import SiteInfoContainer from './blog/pages/site-info'
 import PageContainer from './blog/pages/page'
-import LabContainer from './blog/pages/lab'
+import LabContainer from './blog/containers/Lab'
 
 
 export const createRoutes = (history) => (
