@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from '../../../../../generic/components/Link'
+import Link from '../../../generic/components/Link/index'
 
-import Checkbox from '../../../../components/Checkbox'
+import Checkbox from '../Checkbox/index'
 
 import styles from './Lab.scss'
 
