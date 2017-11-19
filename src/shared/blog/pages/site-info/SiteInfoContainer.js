@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import SiteInfo from './components/site-info'
+import SiteInfo from '../../components/SiteInfo'
 
 import * as configSelectors from '../../ducks/config/selectors'
 import * as siteInfoSelectors from './selectors'
