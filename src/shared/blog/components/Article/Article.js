@@ -6,7 +6,7 @@ import dateformat from 'dateformat'
 
 import Loading from '../loading'
 import SocialShare from './social-share'
-import Comment from './comment'
+import ArticleComment from './ArticleComment'
 import ArticleContent from '../article-content'
 
 import styles from './Article.scss'
@@ -58,7 +58,7 @@ export default class Article extends React.PureComponent {
     return [
       <ArticleContent key="article-content" content={article.get('content')}/>,
       <SocialShare  key="social-share" config={socialConfig}/>,
-      <Comment key="comment" config={commentConfig}/>
+      <ArticleComment key="comment" config={commentConfig}/>
     ]
   }
 

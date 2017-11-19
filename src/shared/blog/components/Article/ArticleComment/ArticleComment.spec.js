@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import ArticleComment from './Comment'
+import ArticleComment from './ArticleComment'
 
 test('It should render ArticleComment component correctly', () => {
   const config = Immutable.Map({
