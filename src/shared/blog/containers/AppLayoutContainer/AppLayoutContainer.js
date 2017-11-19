@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
-import SiteHead from './components/SiteHead'
-import AppLayout from './components/AppLayout'
+import SiteHead from '../../components/SiteHead/index'
+import AppLayout from '../../components/AppLayout/index'
 
-import * as articleActions from './ducks/article/actions'
-import * as siteSelectors from './ducks/site/selectors'
-import * as configSelectors from './ducks/config/selectors'
-import * as articleSelectors from './ducks/article/selectors'
+import * as articleActions from '../../ducks/article/actions'
+import * as siteSelectors from '../../ducks/site/selectors'
+import * as configSelectors from '../../ducks/config/selectors'
+import * as articleSelectors from '../../ducks/article/selectors'
 
 @connect(
   (state, props) => ({
@@ -24,7 +24,7 @@ import * as articleSelectors from './ducks/article/selectors'
     fetchArticles: () => dispatch(articleActions.fetchArticles())
   })
 )
-export default class BaseContainer extends React.Component {
+export default class AppLayoutContainer extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: PropTypes.string.isRequired,
