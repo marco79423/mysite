@@ -1,1 +1,1 @@
-export const getBackendVersion = (state) => state.getIn(['scenes', 'siteInfo', 'version'])
+export const getBackendVersion = (state) => state.getIn(['siteInfo', 'version'])

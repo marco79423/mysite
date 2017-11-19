@@ -7,7 +7,7 @@ import * as LabActions from '../../ducks/lab/actions'
 
 @connect(
   (state, ownProps) => ({
-    crazyMode: state.getIn(['scenes', 'lab', 'crazyMode'])
+    crazyMode: state.getIn(['lab', 'crazyMode'])
   }),
   dispatch => ({
     setCrazyMode: crazyMode => dispatch(LabActions.setCrazyMode(crazyMode))

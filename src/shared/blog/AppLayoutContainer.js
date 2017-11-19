@@ -17,7 +17,7 @@ import * as articleSelectors from './ducks/article/selectors'
     siteName: configSelectors.getSiteName(state, props),
     menuItems: configSelectors.getMenuItems(state, props),
     recentArticles: articleSelectors.getRecentArticles(state, props),
-    crazyMode: state.getIn(['scenes', 'lab', 'crazyMode']),
+    crazyMode: state.getIn(['lab', 'crazyMode']),
     copyright: configSelectors.getCopyright(state, props),
   }),
   dispatch => ({

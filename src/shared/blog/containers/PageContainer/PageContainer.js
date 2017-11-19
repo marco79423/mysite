@@ -9,7 +9,7 @@ import * as pageActions from '../../ducks/page/actions'
 
 @connect(
   (state, ownProps) => ( {
-    page: state.getIn(['scenes', 'page', 'items']).find(page => (
+    page: state.getIn(['page', 'items']).find(page => (
       page.get('app') === ownProps.params.app &&
       page.get('slug') === ownProps.params.slug
     ))
