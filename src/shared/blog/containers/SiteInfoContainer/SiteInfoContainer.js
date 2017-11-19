@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import SiteInfo from '../../components/SiteInfo/index'
+import SiteInfo from '../../components/SiteInfo'
 
 import * as configSelectors from '../../ducks/config/selectors'
-import * as siteInfoSelectors from './selectors'
+import * as siteInfoSelectors from '../../ducks/site-info/selectors'
 
-import * as actions from './actions'
+import * as actions from '../../ducks/site-info/actions'
 
 @connect(
   (state, ownProps) => ({
