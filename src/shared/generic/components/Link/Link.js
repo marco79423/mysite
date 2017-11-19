@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 
 export default class Link extends React.PureComponent {
   static PropTypes = {
+    className: PropTypes.string,
     to: PropTypes.string.isRequired
   }
 
   render () {
     return (
-      <_Link to={this.props.to}>{this.props.children}</_Link>
+      <_Link {...this.props}>{this.props.children}</_Link>
     )
   }
 }
