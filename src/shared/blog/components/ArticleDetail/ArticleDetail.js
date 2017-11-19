@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 
-import SiteHead from '../../../../components/SiteHead'
-import Article from '../../../../components/Article'
+import SiteHead from '../SiteHead/index'
+import Article from '../Article/index'
 
 import styles from './ArticleDetail.scss'
 
