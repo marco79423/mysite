@@ -1,3 +1,0 @@
-import CategorizedArticleListContainer from './CategorizedArticleListContainer'
-
-export default CategorizedArticleListContainer

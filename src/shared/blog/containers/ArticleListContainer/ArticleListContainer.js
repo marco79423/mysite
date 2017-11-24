@@ -11,7 +11,8 @@ import * as configSelectors from '../../ducks/config/selectors'
 
 @connect(
   (state, ownProps) => ({
-    articles: articleSelectors.getArticles(state, ownProps),
+    category: ownProps.params.category,
+    articles: ownProps.params.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
     pageSize: configSelectors.getPageSize(state, ownProps),
     pageNum: +ownProps.params.pageNum || 1
   }),
@@ -41,7 +42,12 @@ export default class ArticleListContainer extends React.Component {
   }
 
   getPageLink = (pageNum) => {
-    return `/articles/page/${pageNum}/`
+    const {category} = this.props
+    if (category) {
+      return `/articles/category/${category}/page/${pageNum}/`
+    } else {
+      return `/articles/page/${pageNum}/`
+    }
   }
 
   render () {
