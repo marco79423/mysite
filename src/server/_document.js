@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import serialize from 'serialize-javascript'
 
-export default class Html extends React.Component {
+export default class Document extends React.Component {
   static propTypes = {
     serverRendering: PropTypes.bool,
     head: PropTypes.any,

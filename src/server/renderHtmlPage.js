@@ -15,7 +15,7 @@ import * as articleActions from '../shared/blog/ducks/article/actions'
 import * as pageActions from '../shared/blog/ducks/page/actions'
 
 import * as config from './config'
-import Html from './Html'
+import Document from './_document'
 
 function prepareFetchingPromise (store, url) {
   const rootTask = store.runSaga(saga)
@@ -48,14 +48,14 @@ export default function renderHtmlPage (req, res) {
               <Root store={store} renderProps={renderProps} type="server"/>
             )
             const head = Helmet.renderStatic()
-            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Html serverRendering head={head}
-                                                                            state={store.getState()} html={html}/>))
+            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document serverRendering head={head}
+                                                                                state={store.getState()} html={html}/>))
           })
           .catch(() => {
             res.status(500).send('網站出事惹！！！')
           })
       } else {
-        res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Html/>))
+        res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document/>))
       }
     } else {
       res.status(404).send('Not found')
