@@ -1,6 +1,7 @@
 import 'isomorphic-fetch'
 import React from 'react'
 import ReactDOMServer, { renderToString } from 'react-dom/server'
+import { ServerStyleSheet } from 'styled-components'
 import { createMemoryHistory, match } from 'react-router'
 import Helmet from 'react-helmet'
 import { END } from 'redux-saga'
@@ -44,11 +45,15 @@ export default function renderHtmlPage (req, res) {
         const store = configureStore(history)
         prepareFetchingPromise(store, req.url)
           .then(() => {
+            const sheet = new ServerStyleSheet()
             const html = ReactDOMServer.renderToString(
-              <Root store={store} renderProps={renderProps} type="server"/>
+              sheet.collectStyles(<Root store={store} renderProps={renderProps} type="server"/>)
             )
             const head = Helmet.renderStatic()
-            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document serverRendering head={head}
+            const styleElement = sheet.getStyleElement()
+            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document serverRendering
+                                                                                head={head}
+                                                                                styleElement={styleElement}
                                                                                 state={store.getState()} html={html}/>))
           })
           .catch(() => {
