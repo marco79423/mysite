@@ -2,12 +2,15 @@
 
 exports[`It should render Archives component correctly 1`] = `
 <section
-  className="archives"
+  className="Archives__Base-s1jd5i88-0 gfqolH"
 >
   <article>
-    <header>
+    <header
+      className="Archives__Header-s1jd5i88-1 eJRsCA"
+    >
       <h1>
         <a
+          className="Archives__TitleLink-s1jd5i88-2 gfEdtb NormalLink-s877q9z-0 coaBWT"
           onClick={[Function]}
           style={Object {}}
         >
@@ -15,7 +18,9 @@ exports[`It should render Archives component correctly 1`] = `
         </a>
       </h1>
     </header>
-    <table>
+    <table
+      className="Archives__ArticleTable-s1jd5i88-3 pAeWo"
+    >
       <tbody>
         <tr>
           <td>
@@ -23,6 +28,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
+              className="NormalLink-s877q9z-0 coaBWT"
               onClick={[Function]}
               style={Object {}}
             >
@@ -36,6 +42,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
+              className="NormalLink-s877q9z-0 coaBWT"
               onClick={[Function]}
               style={Object {}}
             >
@@ -49,6 +56,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
+              className="NormalLink-s877q9z-0 coaBWT"
               onClick={[Function]}
               style={Object {}}
             >
@@ -64,7 +72,7 @@ exports[`It should render Archives component correctly 1`] = `
 
 exports[`It should render Archives component with empty articles correctly 1`] = `
 <section
-  className="archives"
+  className="Archives__Base-s1jd5i88-0 gfqolH"
 >
   <div
     className="Loading__Base-s1d02ruw-0 idafHP"
