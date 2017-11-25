@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Metadata component correctly 1`] = `
+<ul
+  className="Metadata__ItemGroup-dlupfj-0 llqsil"
+>
+  <li
+    className="Metadata__Item-dlupfj-1 fpRYfi"
+  >
+    分類：
+    <ul
+      className="Metadata__Categories-dlupfj-2 CNRul"
+    >
+      <li
+        className="Metadata__Category-dlupfj-3 cJIpQm"
+      >
+        <a
+          className="NormalLink-s877q9z-0 coaBWT"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name
+        </a>
+      </li>
+      <li
+        className="Metadata__Category-dlupfj-3 cJIpQm"
+      >
+        <a
+          className="NormalLink-s877q9z-0 coaBWT"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name2
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li
+    className="Metadata__Item-dlupfj-1 fpRYfi"
+  >
+    發表時間：
+    2017/07/09
+  </li>
+</ul>
+`;
+
+exports[`It should render Metadata component correctly when target article has been modified 1`] = `
+<ul
+  className="Metadata__ItemGroup-dlupfj-0 llqsil"
+>
+  <li
+    className="Metadata__Item-dlupfj-1 fpRYfi"
+  >
+    分類：
+    <ul
+      className="Metadata__Categories-dlupfj-2 CNRul"
+    >
+      <li
+        className="Metadata__Category-dlupfj-3 cJIpQm"
+      >
+        <a
+          className="NormalLink-s877q9z-0 coaBWT"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li
+    className="Metadata__Item-dlupfj-1 fpRYfi"
+  >
+    發表時間：
+    2017/07/09
+  </li>
+  <li
+    className="Metadata__Item-dlupfj-1 fpRYfi"
+  >
+    最後更新：
+    2017/11/09
+  </li>
+</ul>
+`;
