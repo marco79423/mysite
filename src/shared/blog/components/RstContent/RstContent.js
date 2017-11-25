@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './ArticleContent.scss'
+import styles from './RstContent.scss'
 
-export default class ArticleContent extends React.PureComponent {
+export default class RstContent extends React.PureComponent {
   static PropTypes = {
     content: PropTypes.string.isRequired
   }

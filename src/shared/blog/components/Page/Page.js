@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../generic/components/Link/index'
 
 import Loading from '../Loading/index'
-import ArticleContent from '../ArticleContent/index'
+import RstContent from '../RstContent/index'
 
 import styles from './Page.scss'
 
@@ -36,7 +36,7 @@ export default class Page extends React.PureComponent {
               <h1><Link to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</Link></h1>
             </header>
           </div>
-          <ArticleContent content={page.get('content')}/>
+          <RstContent content={page.get('content')}/>
         </article>
       </section>
     )

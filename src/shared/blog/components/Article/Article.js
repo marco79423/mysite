@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../generic/components/Link'
-import dateformat from 'dateformat'
 
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
-import ArticleContent from '../ArticleContent'
+import RstContent from '../RstContent'
 
 import styles from './Article.scss'
 
@@ -42,13 +41,13 @@ export default class Article extends React.PureComponent {
   }
 
   renderSummary = () => {
-    return <ArticleContent content={this.props.article.get('summary')}/>
+    return <RstContent content={this.props.article.get('summary')}/>
   }
 
   renderContent = () => {
     const {article, socialConfig, commentConfig} = this.props
     return [
-      <ArticleContent key="article-content" content={article.get('content')}/>,
+      <RstContent key="article-content" content={article.get('content')}/>,
       <SocialShare  key="social-share" config={socialConfig}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
