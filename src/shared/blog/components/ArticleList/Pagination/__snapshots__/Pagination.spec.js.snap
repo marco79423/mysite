@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Pagination component correctly 1`] = `
-<div
-  className="pagination"
->
-  <ul>
+<div>
+  <ul
+    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+  >
     <li>
       <a
-        className="active"
+        active={true}
+        className="oehxgn-0-LinkButton-fjdEfS lNRvL"
         onClick={[Function]}
         style={Object {}}
       >
@@ -19,12 +20,13 @@ exports[`It should render Pagination component correctly 1`] = `
 `;
 
 exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
-<div
-  className="pagination"
->
-  <ul>
+<div>
+  <ul
+    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+  >
     <li>
       <a
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -33,7 +35,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className=""
+        active={false}
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -42,7 +45,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="active"
+        active={true}
+        className="oehxgn-0-LinkButton-fjdEfS lNRvL"
         onClick={[Function]}
         style={Object {}}
       >
@@ -51,7 +55,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className=""
+        active={false}
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -60,6 +65,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -71,12 +77,13 @@ exports[`It should render Pagination component with both next page link and prev
 `;
 
 exports[`It should render Pagination component with previous page link correctly 1`] = `
-<div
-  className="pagination"
->
-  <ul>
+<div>
+  <ul
+    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+  >
     <li>
       <a
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -85,7 +92,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className=""
+        active={false}
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -94,7 +102,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className=""
+        active={false}
+        className="oehxgn-0-LinkButton-fjdEfS bKbONs"
         onClick={[Function]}
         style={Object {}}
       >
@@ -103,7 +112,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="active"
+        active={true}
+        className="oehxgn-0-LinkButton-fjdEfS lNRvL"
         onClick={[Function]}
         style={Object {}}
       >
