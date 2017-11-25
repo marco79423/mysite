@@ -1,12 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Link from '../../../generic/components/Link/index'
+import styled from 'styled-components'
 
-import Loading from '../Loading/index'
-import RstContent from '../RstContent/index'
+import TitleLink from '../base/TitleLink'
+import Loading from '../Loading'
+import RstContent from '../RstContent'
 
-import styles from './Page.scss'
+const Base = styled.section`
+  float: left;
+  width: 800px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+
+  article {
+    padding: 2em;
+    border-bottom: 1px solid #eee;
+    background: white;
+
+    header {
+      
+    }
+  }
+`
+
+const Header = styled.header`
+  h1 {
+    margin: 3px 0 24px;
+  }
+`
 
 export default class Page extends React.PureComponent {
   static PropTypes = {
@@ -18,27 +42,32 @@ export default class Page extends React.PureComponent {
     })
   }
 
+  renderHeader = () => {
+    const {page} = this.props
+    return (
+      <Header>
+        <h1><TitleLink to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</TitleLink></h1>
+      </Header>
+    )
+  }
+
   render () {
     const {page} = this.props
     if (!page) {
       return (
-        <section className={styles.page}>
+        <Base>
           <Loading/>
-        </section>
+        </Base>
       )
     }
 
     return (
-      <section className={styles.page}>
+      <Base>
         <article>
-          <div>
-            <header>
-              <h1><Link to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</Link></h1>
-            </header>
-          </div>
+          {this.renderHeader()}
           <RstContent content={page.get('content')}/>
         </article>
-      </section>
+      </Base>
     )
   }
 }

@@ -1,22 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Page component correctly 1`] = `
+.c3 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c3:hover {
+  color: #065a76;
+}
+
+.c2 {
+  font-size: 2rem;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.c1 h1 {
+  margin: 3px 0 24px;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="page"
+  className="c0"
 >
   <article>
-    <div>
-      <header>
-        <h1>
-          <a
-            onClick={[Function]}
-            style={Object {}}
-          >
-            title
-          </a>
-        </h1>
-      </header>
-    </div>
+    <header
+      className="c1"
+    >
+      <h1>
+        <a
+          className="c2 c3"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          title
+        </a>
+      </h1>
+    </header>
     <div
       className="content"
       dangerouslySetInnerHTML={
@@ -30,7 +65,7 @@ exports[`It should render Page component correctly 1`] = `
 `;
 
 exports[`It should render Page component with empty articles correctly 1`] = `
-.c0 {
+.c1 {
   margin-top: 10%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -45,7 +80,7 @@ exports[`It should render Page component with empty articles correctly 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   display: inline-block;
   width: 90px;
   height: 90px;
@@ -62,23 +97,40 @@ exports[`It should render Page component with empty articles correctly 1`] = `
   z-index: 1000;
 }
 
-.c2 {
+.c3 {
   margin-top: 2rem;
   font-size: 2rem;
   text-align: center;
 }
 
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="page"
+  className="c0"
 >
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1"
+      className="c2"
     />
     <div
-      className="c2"
+      className="c3"
     >
       正在努力讀取中…
     </div>
