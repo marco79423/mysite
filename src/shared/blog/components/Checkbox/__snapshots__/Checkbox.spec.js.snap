@@ -1,33 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Checkbox component in checked state correctly 1`] = `
+.c0 {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.c3 {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.c3:after {
+  width: 50%;
+  height: 20%;
+  content: '';
+  position: absolute;
+  border-left: 0.3rem solid;
+  border-bottom: 0.3rem solid;
+  border-color: #065A76;
+  -webkit-transform: rotate(-45deg) translate3d(0,0,0);
+  -ms-transform: rotate(-45deg) translate3d(0,0,0);
+  transform: rotate(-45deg) translate3d(0,0,0);
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  left: 0;
+  right: 0;
+  top: 200%;
+  bottom: 5%;
+  margin: auto;
+}
+
+.c1 {
+  display: none;
+}
+
+.c1:checked + .c2:after {
+  top: 0;
+}
+
 <label
-  className="Checkbox__Label-kdsa1c-0 fBhZfC"
+  className="c0"
 >
   <input
     checked={false}
-    className="Checkbox__Input-kdsa1c-2 ixmBAX"
+    className="c1"
     onChange={[Function]}
     type="checkbox"
   />
   <div
-    className="Checkbox__Tick-kdsa1c-1 bOIznB"
+    className="c2 c3"
   />
 </label>
 `;
 
 exports[`It should render Checkbox component in checked state correctly 2`] = `
+.c0 {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.c3 {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.c3:after {
+  width: 50%;
+  height: 20%;
+  content: '';
+  position: absolute;
+  border-left: 0.3rem solid;
+  border-bottom: 0.3rem solid;
+  border-color: #065A76;
+  -webkit-transform: rotate(-45deg) translate3d(0,0,0);
+  -ms-transform: rotate(-45deg) translate3d(0,0,0);
+  transform: rotate(-45deg) translate3d(0,0,0);
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  transition: all 1.1s cubic-bezier(.19,1,.22,1);
+  left: 0;
+  right: 0;
+  top: 200%;
+  bottom: 5%;
+  margin: auto;
+}
+
+.c1 {
+  display: none;
+}
+
+.c1:checked + .c2:after {
+  top: 0;
+}
+
 <label
-  className="Checkbox__Label-kdsa1c-0 fBhZfC"
+  className="c0"
 >
   <input
     checked={true}
-    className="Checkbox__Input-kdsa1c-2 ixmBAX"
+    className="c1"
     onChange={[Function]}
     type="checkbox"
   />
   <div
-    className="Checkbox__Tick-kdsa1c-1 bOIznB"
+    className="c2 c3"
   />
 </label>
 `;

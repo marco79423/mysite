@@ -1,15 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Article component correctly 1`] = `
+.c3 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c3:hover {
+  color: #065a76;
+}
+
+.c2 {
+  font-size: 2rem;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.c8 > div:not(:first-child) {
+  margin-left: .5rem;
+}
+
+.c4 {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline;
+}
+
+.c5:not(:first-child) {
+  margin-left: 8px;
+}
+
+.c6 {
+  display: inline;
+}
+
+.c7 {
+  margin: 0;
+  display: inline;
+}
+
+.c7:not(:first-child):before {
+  content: "/";
+  margin: 0 3px;
+}
+
+.c0 {
+  background: white;
+  padding: 32px;
+}
+
+.c1 h1 {
+  margin: 3px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 <article
-  className="Article__Base-s1uhmpep-0 PrfaF"
+  className="c0"
 >
   <header
-    className="Article__Header-s1uhmpep-1 fshldK"
+    className="c1"
   >
     <h1>
       <a
-        className="TitleLink-is8ooy-0 kabovg NormalLink-s877q9z-0 coaBWT"
+        className="c2 c3"
         onClick={[Function]}
         style={Object {}}
       >
@@ -17,20 +83,20 @@ exports[`It should render Article component correctly 1`] = `
       </a>
     </h1>
     <ul
-      className="Metadata__ItemGroup-dlupfj-0 llqsil"
+      className="c4"
     >
       <li
-        className="Metadata__Item-dlupfj-1 fpRYfi"
+        className="c5"
       >
         分類：
         <ul
-          className="Metadata__Categories-dlupfj-2 CNRul"
+          className="c6"
         >
           <li
-            className="Metadata__Category-dlupfj-3 cJIpQm"
+            className="c7"
           >
             <a
-              className="NormalLink-s877q9z-0 coaBWT"
+              className="c3"
               onClick={[Function]}
               style={Object {}}
             >
@@ -40,7 +106,7 @@ exports[`It should render Article component correctly 1`] = `
         </ul>
       </li>
       <li
-        className="Metadata__Item-dlupfj-1 fpRYfi"
+        className="c5"
       >
         發表時間：
         2017/07/09
@@ -56,24 +122,67 @@ exports[`It should render Article component correctly 1`] = `
     }
   />
   <div
-    className="SocialShare__IconGroup-hghy08-0 gNCtfE"
+    className="c8"
   />
   <div />
 </article>
 `;
 
 exports[`It should render Article component correctly when the article is null 1`] = `
+.c1 {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background: url() no-repeat center;
+  background-size: 90px 90px;
+  border: 0.1em solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  -webkit-animation-name: bQMHby;
+  animation-name: bQMHby;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  z-index: 1000;
+}
+
+.c3 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.c0 {
+  background: white;
+  padding: 32px;
+}
+
 <article
-  className="Article__Base-s1uhmpep-0 PrfaF"
+  className="c0"
 >
   <div
-    className="Loading__Base-s1d02ruw-0 idafHP"
+    className="c1"
   >
     <div
-      className="Loading__LoadingImage-s1d02ruw-1 cjrynz"
+      className="c2"
     />
     <div
-      className="Loading__Message-s1d02ruw-2 fgoCqC"
+      className="c3"
     >
       正在努力讀取中…
     </div>

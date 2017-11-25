@@ -1,16 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Archives component correctly 1`] = `
+.c3 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c3:hover {
+  color: #065a76;
+}
+
+.c2 {
+  font-size: 2rem;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.c1 h1 {
+  margin: 3px 0 24px;
+}
+
+.c4 {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.c4 tr {
+  background: #eee;
+}
+
+.c4 tr:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.c4 tr td {
+  padding: 0.6em;
+  border: 1px solid #ccc;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="Archives__Base-qfj6hp-0 jUnrrm"
+  className="c0"
 >
   <article>
     <header
-      className="Archives__Header-qfj6hp-1 dHuEvY"
+      className="c1"
     >
       <h1>
         <a
-          className="TitleLink-is8ooy-0 kabovg NormalLink-s877q9z-0 coaBWT"
+          className="c2 c3"
           onClick={[Function]}
           style={Object {}}
         >
@@ -19,7 +72,7 @@ exports[`It should render Archives component correctly 1`] = `
       </h1>
     </header>
     <table
-      className="Archives__ArticleTable-qfj6hp-2 cqUuAw"
+      className="c4"
     >
       <tbody>
         <tr>
@@ -28,7 +81,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
-              className="NormalLink-s877q9z-0 coaBWT"
+              className="c3"
               onClick={[Function]}
               style={Object {}}
             >
@@ -42,7 +95,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
-              className="NormalLink-s877q9z-0 coaBWT"
+              className="c3"
               onClick={[Function]}
               style={Object {}}
             >
@@ -56,7 +109,7 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
           <td>
             <a
-              className="NormalLink-s877q9z-0 coaBWT"
+              className="c3"
               onClick={[Function]}
               style={Object {}}
             >
@@ -71,17 +124,72 @@ exports[`It should render Archives component correctly 1`] = `
 `;
 
 exports[`It should render Archives component with empty articles correctly 1`] = `
+.c1 {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background: url() no-repeat center;
+  background-size: 90px 90px;
+  border: 0.1em solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  -webkit-animation-name: bQMHby;
+  animation-name: bQMHby;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  z-index: 1000;
+}
+
+.c3 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="Archives__Base-qfj6hp-0 jUnrrm"
+  className="c0"
 >
   <div
-    className="Loading__Base-s1d02ruw-0 idafHP"
+    className="c1"
   >
     <div
-      className="Loading__LoadingImage-s1d02ruw-1 cjrynz"
+      className="c2"
     />
     <div
-      className="Loading__Message-s1d02ruw-2 fgoCqC"
+      className="c3"
     >
       正在努力讀取中…
     </div>
