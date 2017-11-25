@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import NormalLink from '../base/NormalLink'
+import TitleLink from '../base/TitleLink'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
-import Loading from '../Loading/index'
+import Loading from '../Loading'
 
 
 const Base = styled.section`
@@ -30,10 +31,6 @@ const Header = styled.header`
   h1 {
     margin: 3px 0 24px;
   }
-`
-
-const TitleLink = styled(NormalLink)`
-  font-size: 2rem;
 `
 
 const ArticleTable = styled.table`

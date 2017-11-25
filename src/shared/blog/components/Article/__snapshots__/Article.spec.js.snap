@@ -2,14 +2,14 @@
 
 exports[`It should render Article component correctly 1`] = `
 <article
-  className="Article__Base-s1h34w3o-0 kFyAxx"
+  className="Article__Base-s1uhmpep-0 PrfaF"
 >
   <header
-    className="Article__Header-s1h34w3o-1 fQsBeu"
+    className="Article__Header-s1uhmpep-1 fshldK"
   >
     <h1>
       <a
-        className="Article__TitleLink-s1h34w3o-2 gEmrBA NormalLink-s877q9z-0 coaBWT"
+        className="TitleLink-is8ooy-0 kabovg NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -64,7 +64,7 @@ exports[`It should render Article component correctly 1`] = `
 
 exports[`It should render Article component correctly when the article is null 1`] = `
 <article
-  className="Article__Base-s1h34w3o-0 kFyAxx"
+  className="Article__Base-s1uhmpep-0 PrfaF"
 >
   <div
     className="Loading__Base-s1d02ruw-0 idafHP"

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import NormalLink from '../base/NormalLink'
+import TitleLink from '../base/TitleLink'
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
@@ -23,10 +23,6 @@ const Header = styled.header`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-`
-
-const TitleLink = styled(NormalLink)`
-  font-size: 2rem;
 `
 
 export default class Article extends React.PureComponent {

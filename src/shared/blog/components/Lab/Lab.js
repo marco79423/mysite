@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import NormalLink from '../base/NormalLink'
+import TitleLink from '../base/TitleLink'
 
 import Checkbox from '../Checkbox/index'
 
@@ -26,10 +27,6 @@ const Header = styled.header`
   h1 {
     margin: 3px 0 24px;
   }
-`
-
-const TitleLink = styled(NormalLink)`
-  font-size: 2rem;
 `
 
 const ItemTable = styled.table`
