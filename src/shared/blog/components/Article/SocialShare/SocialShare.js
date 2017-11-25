@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { generateShareIcon, ShareButtons } from 'react-share'
-
-import styles from './SocialShare.scss'
+import styled from 'styled-components'
 
 const {
   FacebookShareButton,
@@ -11,6 +10,16 @@ const {
   LinkedinShareButton,
   TwitterShareButton
 } = ShareButtons
+
+
+const IconGroup = styled.div`
+  display: flex;
+  padding: 1rem;
+  
+  > div:not(:first-child) {
+    margin-left: .5rem;
+  }
+`
 
 const FacebookIcon = generateShareIcon('facebook')
 const GooglePlusIcon = generateShareIcon('google')
@@ -27,46 +36,34 @@ export default class SocialShare extends React.PureComponent {
 
   render () {
     if (!this.props.config) {
-      return <div/>
+      return <IconGroup/>
     }
     const iconSize = 32
     return (
-      <div className={styles.root}>
+      <IconGroup>
         <FacebookShareButton
           url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}
-          className={styles.item}>
-          <FacebookIcon
-            size={iconSize}
-            round/>
+          title={this.props.config.get('title')}>
+          <FacebookIcon size={iconSize} round/>
         </FacebookShareButton>
 
         <GooglePlusShareButton
-          url={this.props.config.get('shareUrl')}
-          className={styles.item}>
-          <GooglePlusIcon
-            size={iconSize}
-            round/>
+          url={this.props.config.get('shareUrl')}>
+          <GooglePlusIcon size={iconSize} round/>
         </GooglePlusShareButton>
 
         <TwitterShareButton
           url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}
-          className={styles.item}>
-          <TwitterIcon
-            size={iconSize}
-            round/>
+          title={this.props.config.get('title')}>
+          <TwitterIcon size={iconSize} round/>
         </TwitterShareButton>
 
         <LinkedinShareButton
           url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}
-          className={styles.item}>
-          <LinkedinIcon
-            size={iconSize}
-            round/>
+          title={this.props.config.get('title')}>
+          <LinkedinIcon size={iconSize} round/>
         </LinkedinShareButton>
-      </div>
+      </IconGroup>
     )
   }
 }

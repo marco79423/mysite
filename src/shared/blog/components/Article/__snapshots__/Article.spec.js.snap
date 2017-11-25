@@ -45,7 +45,9 @@ exports[`It should render Article component correctly 1`] = `
       }
     }
   />
-  <div />
+  <div
+    className="SocialShare__IconGroup-hghy08-0 gNCtfE"
+  />
   <div />
 </article>
 `;
