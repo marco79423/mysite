@@ -1,15 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Link from '../../../generic/components/Link'
+import styled from 'styled-components'
 
+import NormalLink from '../base/NormalLink'
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
 import RstContent from '../RstContent'
 
-import styles from './Article.scss'
+
+const Base = styled.article`
+  background: white;
+  padding: 32px;
+`
+
+const Header = styled.header`
+  h1 {
+    margin: 3px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`
+
+const TitleLink = styled(NormalLink)`
+  font-size: 2rem;
+`
 
 export default class Article extends React.PureComponent {
   static PropTypes = {
@@ -28,6 +46,16 @@ export default class Article extends React.PureComponent {
     }),
     socialConfig: ImmutablePropTypes.map,
     commentConfig: ImmutablePropTypes.map
+  }
+
+  renderHeader = () => {
+    const {article} = this.props
+    return (
+      <Header>
+        <h1><TitleLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</TitleLink></h1>
+        {this.renderMetadata()}
+      </Header>
+    )
   }
 
   renderMetadata = () => {
@@ -57,20 +85,17 @@ export default class Article extends React.PureComponent {
     const {article, summaryMode} = this.props
     if (!article) {
       return (
-        <article className={styles.article}>
+        <Base>
           <Loading/>
-        </article>
+        </Base>
       )
     }
 
     return (
-      <article className={styles.article}>
-        <header>
-          <h1><Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link></h1>
-          {this.renderMetadata()}
-        </header>
+      <Base>
+        {this.renderHeader()}
         {summaryMode ? this.renderSummary() : this.renderContent()}
-      </article>
+      </Base>
     )
   }
 }
