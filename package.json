@@ -88,7 +88,7 @@
       "jsx"
     ],
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "\\.(css|scss|jpg)$": "identity-obj-proxy"
     }
   }
 }

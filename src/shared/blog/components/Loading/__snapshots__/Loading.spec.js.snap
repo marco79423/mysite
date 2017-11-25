@@ -2,13 +2,13 @@
 
 exports[`It should render Loading component correctly 1`] = `
 <div
-  className="root"
+  className="Loading__Base-s1d02ruw-0 idafHP"
 >
   <div
-    className="loadingImage twister"
+    className="Loading__LoadingImage-s1d02ruw-1 cjrynz"
   />
   <div
-    className="message"
+    className="Loading__Message-s1d02ruw-2 fgoCqC"
   >
     正在努力讀取中…
   </div>
