@@ -2,30 +2,32 @@
 
 exports[`It should render Checkbox component in checked state correctly 1`] = `
 <label
-  className="root"
+  className="Checkbox__Label-kdsa1c-0 fBhZfC"
 >
   <input
     checked={false}
+    className="Checkbox__Input-kdsa1c-2 ixmBAX"
     onChange={[Function]}
     type="checkbox"
   />
   <div
-    className="box"
+    className="Checkbox__Tick-kdsa1c-1 bOIznB"
   />
 </label>
 `;
 
 exports[`It should render Checkbox component in checked state correctly 2`] = `
 <label
-  className="root"
+  className="Checkbox__Label-kdsa1c-0 fBhZfC"
 >
   <input
     checked={true}
+    className="Checkbox__Input-kdsa1c-2 ixmBAX"
     onChange={[Function]}
     type="checkbox"
   />
   <div
-    className="box"
+    className="Checkbox__Tick-kdsa1c-1 bOIznB"
   />
 </label>
 `;
