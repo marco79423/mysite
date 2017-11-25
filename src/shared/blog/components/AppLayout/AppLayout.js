@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Link from '../../../generic/components/Link'
-import classNames from 'classnames'
 
 import 'normalize.css/normalize.css'
+import PageHeader from './PageHeader'
+import PageFooter from './PageFooter'
 import styles from './AppLayout.scss'
 
 export default class Base extends React.Component {
@@ -42,13 +43,9 @@ export default class Base extends React.Component {
   }
 
   renderPageHeader = () => {
+
     return (
-      <header className={styles.pageHeader}>
-        <h1 className={styles.title}>
-          <Link to='/'><img src={require('../../img/logo.png')}/>{this.props.siteName}</Link>
-        </h1>
-        {this.props.crazyMode && <span className={classNames(styles.modeTitle, styles.intensifies)}>瘋狂模式</span>}
-      </header>
+      <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
     )
   }
 
@@ -143,9 +140,7 @@ export default class Base extends React.Component {
 
   renderPageFooter = () => {
     return (
-      <footer className={styles.pageFooter}>
-        <div className={styles.copyright}>Copyright © 2017 - 兩大類</div>
-      </footer>
+      <PageFooter/>
     )
   }
 

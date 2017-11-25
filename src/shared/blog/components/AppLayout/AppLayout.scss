@@ -31,97 +31,6 @@ ul {
   }
 }
 
-.pageHeader {
-  height: 90px;
-  background: #388ca8;
-  position: relative;
-
-  .title {
-    position: relative;
-    margin: 0;
-    line-height: 90px;
-    padding-left: 116px;
-    font-size: 2rem;
-
-    @media (max-width: 500px) {
-      font-size: 1.5rem;
-    }
-
-    @media (max-width: 400px) {
-      font-size: 1.3rem;
-    }
-  }
-
-  a {
-    color: #ffffff;
-  }
-
-  img {
-    position: absolute;
-    top: 18px;
-    left: 28px;
-    width: 54px;
-    height: 54px;
-
-    transform: rotate(-10deg);
-    transition-duration: 0.8s;
-    -webkit-backface-visibility: hidden;
-
-    &:hover {
-      transform: rotate(10deg);
-    }
-  }
-
-  .modeTitle {
-    z-index: 9999;
-    position: absolute;
-    right: 18px;
-    bottom: 8px;
-
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  .intensifies {
-    animation-timing-function: ease-out;
-    transform-origin: bottom center;
-    animation-name: intensifies;
-    animation-duration: 5s;
-  }
-
-  .animated {
-    animation-fill-mode: both;
-  }
-
-  @keyframes intensifies {
-
-    @for $i from 0 through 100 {
-
-      #{$i * 1%} {
-        // Rotate between left and right
-        $sign: -1;
-        @if $i % 2 == 0 {
-          $sign: 1;
-        }
-
-        // Rotation capped at 8
-        $rotation: 8;
-        @if $i < 10 {
-          $rotation: $i;
-        }
-
-        // Final frame is set back to 0
-        @if $i != 100 {
-          transform: translate($sign * random($i + 1) * 5px - $i * 5, $sign * random($i + 1) * 5px + $i * 5) scale(2 + $i / 25);
-        } @else {
-          transform: translate(0, 0) rotate(0deg);
-        }
-
-      }
-    }
-  }
-}
-
 .pageNav {
   height: 42px;
   background: #1A6E8A;
@@ -316,17 +225,5 @@ ul {
         padding-bottom: 10px;
       }
     }
-  }
-}
-
-.pageFooter {
-  height: 42px;
-  background: #1A6E8A;
-
-  .copyright {
-    margin: 0 auto;
-    text-align: center;
-    line-height: 42px;
-    color: #ECECEC;
   }
 }
