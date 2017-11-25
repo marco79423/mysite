@@ -6,6 +6,7 @@ import dateformat from 'dateformat'
 
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
+import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
 import ArticleContent from '../ArticleContent'
 
@@ -33,19 +34,10 @@ export default class Article extends React.PureComponent {
   renderMetadata = () => {
     const {article} = this.props
     return (
-      <ul className={styles.metadata}>
-        <li>分類：
-          <ul className={styles.categories}>
-            {article.get('categories').map(category => (
-              <li key={category.get('slug')}>
-                <Link to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-        <li>發表時間：{dateformat(article.get('date'), 'yyyy/mm/dd')}</li>
-        {article.get('modifiedDate') && <li>最後更新：{dateformat(article.get('modifiedDate'), 'yyyy/mm/dd')}</li>}
-      </ul>
+      <Metadata
+        categories={article.get('categories')}
+        date={article.get('date')}
+        modifiedDate={article.get('modifiedDate')} />
     )
   }
 

@@ -14,15 +14,20 @@ exports[`It should render Article component correctly 1`] = `
       </a>
     </h1>
     <ul
-      className="metadata"
+      className="Metadata__ItemGroup-dlupfj-0 llqsil"
     >
-      <li>
+      <li
+        className="Metadata__Item-dlupfj-1 fpRYfi"
+      >
         分類：
         <ul
-          className="categories"
+          className="Metadata__Categories-dlupfj-2 CNRul"
         >
-          <li>
+          <li
+            className="Metadata__Category-dlupfj-3 cJIpQm"
+          >
             <a
+              className="NormalLink-s877q9z-0 coaBWT"
               onClick={[Function]}
               style={Object {}}
             >
@@ -31,7 +36,9 @@ exports[`It should render Article component correctly 1`] = `
           </li>
         </ul>
       </li>
-      <li>
+      <li
+        className="Metadata__Item-dlupfj-1 fpRYfi"
+      >
         發表時間：
         2017/07/09
       </li>
