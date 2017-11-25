@@ -5,6 +5,7 @@ import Link from '../../../generic/components/Link'
 
 import 'normalize.css/normalize.css'
 import PageHeader from './PageHeader'
+import PageNav from './PageNav'
 import PageFooter from './PageFooter'
 import styles from './AppLayout.scss'
 
@@ -51,21 +52,7 @@ export default class Base extends React.Component {
 
   renderPageNav = () => {
     return (
-      <nav className={styles.pageNav}>
-        <div className={styles.menuContainer}>
-          <a className={styles.menuToggle} href="#">選單</a>
-          <ul className={styles.mainMenu}>
-            {this.props.menuItems.get('main').map(item => (
-              <li key={item.get('url')}><Link to={item.get('url')}>{item.get('name')}</Link></li>
-            ))}
-          </ul>
-          <ul className={styles.extraMenu}>
-            {this.props.menuItems.get('extra').map(item => (
-              <li key={item.get('url')}><Link to={item.get('url')}>{item.get('name')}</Link></li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+      <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')} />
     )
   }
 
