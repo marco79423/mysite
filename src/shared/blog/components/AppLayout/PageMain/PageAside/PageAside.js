@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import AboutMe from './AboutMe'
-import AdditionalLinks from './AdditionalLinks'
-import RecentArticles from './RecentArticles'
+import AboutMe from './AboutMe/index'
+import AdditionalLinks from './AdditionalLinks/index'
+import RecentArticles from './RecentArticles/index'
 
 const Base = styled.aside`
   float: left;

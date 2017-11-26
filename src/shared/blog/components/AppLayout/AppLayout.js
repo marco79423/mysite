@@ -6,7 +6,7 @@ import {normalize} from 'polished'
 
 import PageHeader from './PageHeader'
 import PageNav from './PageNav'
-import PageAside from './PageAside'
+import PageMain from './PageMain'
 import PageFooter from './PageFooter'
 
 injectGlobal`
@@ -46,11 +46,6 @@ const Base = styled.div`
   }
 `
 
-const PageMain = styled.div`
-  background: #ECECEC;
-  overflow: auto;
-`
-
 export default class AppLayout extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
@@ -83,11 +78,8 @@ export default class AppLayout extends React.Component {
     return (
       <Base>
         <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
-        <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')} />
-        <PageMain>
-          {this.props.children}
-          <PageAside recentArticles={this.props.recentArticles}/>
-        </PageMain>
+        <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')}/>
+        <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
         <PageFooter/>
       </Base>
     )

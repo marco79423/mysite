@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import NormalLink from '../../../base/NormalLink'
+import NormalLink from '../../../../base/NormalLink'
 
 const Base = styled.section`
   margin: 30px;
