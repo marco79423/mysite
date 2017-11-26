@@ -14,6 +14,12 @@ exports[`It should render Article component correctly 1`] = `
   font-size: 2rem;
 }
 
+.c8 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
 .c9 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -53,12 +59,6 @@ exports[`It should render Article component correctly 1`] = `
 .c7:not(:first-child):before {
   content: "/";
   margin: 0 3px;
-}
-
-.c8 {
-  margin-top: 16px;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
 }
 
 .c0 {

@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import SiteHead from '../../generic/SiteHead/index'
-import Article from '../../Article/index'
+import Article from '../../generic/Article'
 
 
 const Base = styled.section`

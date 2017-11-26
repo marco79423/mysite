@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import TitleLink from '../generic/TitleLink'
-import Loading from '../generic/Loading'
+import TitleLink from '../TitleLink'
+import Loading from '../Loading'
+import RstContent from '../RstContent'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
-import RstContent from '../generic/RstContent'
 
 
 const Base = styled.article`

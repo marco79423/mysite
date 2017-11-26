@@ -4,8 +4,8 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import TitleLink from '../../generic/TitleLink'
-import Loading from '../../generic/Loading/index'
-import RstContent from '../../generic/RstContent/index'
+import Loading from '../../generic/Loading'
+import RstContent from '../../generic/RstContent'
 
 const Base = styled.section`
   float: left;
