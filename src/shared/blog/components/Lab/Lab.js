@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import NormalLink from '../generic/NormalLink'
 import TitleLink from '../generic/TitleLink'
 
-import Checkbox from '../Checkbox/index'
+import Checkbox from '../generic/Checkbox/index'
 
 const Base = styled.section`
   float: left;
