@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled, {injectGlobal} from 'styled-components'
+import {normalize} from 'polished'
 
 import PageHeader from './PageHeader'
 import PageNav from './PageNav'
 import PageAside from './PageAside'
 import PageFooter from './PageFooter'
 
-import 'normalize.css/normalize.css'
-
 injectGlobal`
+  ${normalize()}
+
   html {
     color: #505050;
     font-size: 16px;
