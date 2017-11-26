@@ -8,7 +8,7 @@ import Loading from '../generic/Loading'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
-import RstContent from '../RstContent'
+import RstContent from '../generic/RstContent'
 
 
 const Base = styled.article`

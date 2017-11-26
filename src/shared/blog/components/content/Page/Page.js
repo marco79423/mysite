@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import TitleLink from '../../generic/TitleLink'
 import Loading from '../../generic/Loading/index'
-import RstContent from '../../RstContent/index'
+import RstContent from '../../generic/RstContent/index'
 
 const Base = styled.section`
   float: left;
