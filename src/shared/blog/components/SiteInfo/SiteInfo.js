@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import TitleLink from '../base/TitleLink'
+import TitleLink from '../generic/TitleLink'
 
 const Base = styled.section`
   float: left;

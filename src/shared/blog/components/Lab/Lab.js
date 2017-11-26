@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import NormalLink from '../base/NormalLink'
-import TitleLink from '../base/TitleLink'
+import NormalLink from '../generic/NormalLink'
+import TitleLink from '../generic/TitleLink'
 
 import Checkbox from '../Checkbox/index'
 

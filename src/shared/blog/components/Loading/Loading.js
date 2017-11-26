@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import twisterStyle from '../base/animation/twisterStyle'
+import twisterStyle from '../generic/animation/twisterStyle'
 import loadingImage from './img/loading.jpg'
 
 const Base = styled.div`

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import TitleLink from '../base/TitleLink'
+import TitleLink from '../generic/TitleLink'
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'

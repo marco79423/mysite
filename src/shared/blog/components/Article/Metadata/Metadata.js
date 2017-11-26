@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import NormalLink from '../../base/NormalLink'
+import NormalLink from '../../generic/NormalLink'
 import styled from 'styled-components'
 
 import dateformat from 'dateformat'

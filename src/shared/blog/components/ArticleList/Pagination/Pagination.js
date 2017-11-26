@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import range from 'lodash/range'
 import styled from 'styled-components'
-import LinkButton from '../../base/LinkButton'
+import LinkButton from '../../generic/LinkButton'
 
 const PageButtonGroup = styled.ul`
   margin: 0 auto;

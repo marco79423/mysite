@@ -2,7 +2,7 @@ import React from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import NormalLink from '../../base/NormalLink'
+import NormalLink from '../../generic/NormalLink'
 
 const Base = styled.nav`
   height: 42px;

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import NormalLink from '../../base/NormalLink'
-import intensifiesStyle from '../../base/animation/intensifiesStyle'
+import NormalLink from '../../generic/NormalLink'
+import intensifiesStyle from '../../generic/animation/intensifiesStyle'
 
 const Base = styled.header`
   height: 90px;
