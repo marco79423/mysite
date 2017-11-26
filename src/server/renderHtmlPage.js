@@ -1,6 +1,7 @@
 import 'isomorphic-fetch'
 import React from 'react'
 import ReactDOMServer, { renderToString } from 'react-dom/server'
+import { ServerStyleSheet } from 'styled-components'
 import { createMemoryHistory, match } from 'react-router'
 import Helmet from 'react-helmet'
 import { END } from 'redux-saga'
@@ -10,12 +11,12 @@ import { createRoutes } from '../shared/routes'
 import { configureStore } from '../shared/store'
 
 import Root from '../shared/Root'
-import saga from '../shared/blog/saga'
+import saga from '../shared/blog/ducks/saga'
 import * as articleActions from '../shared/blog/ducks/article/actions'
-import * as pageActions from '../shared/blog/scenes/page/actions'
+import * as pageActions from '../shared/blog/ducks/page/actions'
 
 import * as config from './config'
-import Html from './Html'
+import Document from './_document'
 
 function prepareFetchingPromise (store, url) {
   const rootTask = store.runSaga(saga)
@@ -44,18 +45,22 @@ export default function renderHtmlPage (req, res) {
         const store = configureStore(history)
         prepareFetchingPromise(store, req.url)
           .then(() => {
+            const sheet = new ServerStyleSheet()
             const html = ReactDOMServer.renderToString(
-              <Root store={store} renderProps={renderProps} type="server"/>
+              sheet.collectStyles(<Root store={store} renderProps={renderProps} type="server"/>)
             )
             const head = Helmet.renderStatic()
-            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Html serverRendering head={head}
-                                                                            state={store.getState()} html={html}/>))
+            const styleElement = sheet.getStyleElement()
+            res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document serverRendering
+                                                                                head={head}
+                                                                                styleElement={styleElement}
+                                                                                state={store.getState()} html={html}/>))
           })
           .catch(() => {
             res.status(500).send('網站出事惹！！！')
           })
       } else {
-        res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Html/>))
+        res.status(200).send('<!DOCTYPE html>\n' + renderToString(<Document/>))
       }
     } else {
       res.status(404).send('Not found')

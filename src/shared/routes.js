@@ -1,28 +1,25 @@
 import React from 'react'
-import { IndexRoute, Route, Router } from 'react-router'
+import { Route, Router } from 'react-router'
 
-import BaseContainer from './blog/BaseContainer'
-import ArticleListContainer from './blog/scenes/article-list'
-import CategorizedArticleListContainer from './blog/scenes/categorized-article-list'
-import ArticleDetailContainer from './blog/scenes/article-detail'
-import ArchivesContainer from './blog/scenes/archives'
-import SiteInfoContainer from './blog/scenes/site-info'
-import PageContainer from './blog/scenes/page'
-import LabContainer from './blog/scenes/lab'
+import ArticleListPage from './blog/pages/ArticleListPage'
+import CategorizedArticleListPage from './blog/pages/CategorizedArticleListPage'
+import ArticleDetailPage from './blog/pages/ArticleDetailPage'
+import ArchivesPage from './blog/pages/ArchivesPage'
+import SiteInfoPage from './blog/pages/SiteInfoPage'
+import PagePage from './blog/pages/PagePage'
+import LabPage from './blog/pages/LabPage'
 
 
 export const createRoutes = (history) => (
   <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-    <Route path="/" component={BaseContainer}>
-      <IndexRoute component={ArticleListContainer}/>
-      <Route path='/lab/' component={LabContainer}/>
-      <Route path='/info/' component={SiteInfoContainer}/>
-      <Route path='/articles/page/:pageNum/' component={ArticleListContainer}/>
-      <Route path='/articles/category/:category/' component={CategorizedArticleListContainer}/>
-      <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListContainer}/>
-      <Route path='/articles/archives/' component={ArchivesContainer}/>
-      <Route path='/articles/:slug/' component={ArticleDetailContainer}/>
-      <Route path='/:app/:slug/' component={PageContainer}/>
-    </Route>
+    <Route path='/' component={ArticleListPage}/>
+    <Route path='/lab/' component={LabPage}/>
+    <Route path='/info/' component={SiteInfoPage}/>
+    <Route path='/articles/page/:pageNum/' component={ArticleListPage}/>
+    <Route path='/articles/category/:category/' component={CategorizedArticleListPage}/>
+    <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListPage}/>
+    <Route path='/articles/archives/' component={ArchivesPage}/>
+    <Route path='/articles/:slug/' component={ArticleDetailPage}/>
+    <Route path='/:app/:slug/' component={PagePage}/>
   </Router>
 )
