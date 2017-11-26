@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import SiteHead from '../SiteHead'
-import Article from '../Article'
+import SiteHead from '../../SiteHead/index'
+import Article from '../../Article/index'
 
 
 const Base = styled.section`

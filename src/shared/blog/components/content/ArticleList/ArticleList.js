@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import Pagination from './Pagination'
-import Article from '../Article'
+import Pagination from './Pagination/index'
+import Article from '../../Article/index'
 
 const Base = styled.section`
   float: left;

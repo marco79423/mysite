@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
-import ArticleDetail from '../../components/ArticleDetail/index'
+import ArticleDetail from '../../components/content/ArticleDetail/index'
 
 import * as siteSelectors from '../../ducks/site/selectors'
 import * as articleActions from '../../ducks/article/actions'

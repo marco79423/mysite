@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import NormalLink from '../generic/NormalLink'
-import TitleLink from '../generic/TitleLink'
+import NormalLink from '../../generic/NormalLink'
+import TitleLink from '../../generic/TitleLink'
 
-import Checkbox from '../generic/Checkbox/index'
+import Checkbox from '../../generic/Checkbox/index'
 
 const Base = styled.section`
   float: left;
