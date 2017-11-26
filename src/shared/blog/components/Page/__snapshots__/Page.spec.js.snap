@@ -14,6 +14,12 @@ exports[`It should render Page component correctly 1`] = `
   font-size: 2rem;
 }
 
+.c4 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
 .c0 {
   float: left;
   width: 800px;
@@ -53,7 +59,7 @@ exports[`It should render Page component correctly 1`] = `
       </h1>
     </header>
     <div
-      className="content"
+      className="rst-content c4"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<div>今天天氣不錯</div>",

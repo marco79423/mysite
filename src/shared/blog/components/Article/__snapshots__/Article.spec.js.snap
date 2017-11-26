@@ -14,7 +14,7 @@ exports[`It should render Article component correctly 1`] = `
   font-size: 2rem;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22,7 +22,7 @@ exports[`It should render Article component correctly 1`] = `
   padding: 1rem;
 }
 
-.c8 > div:not(:first-child) {
+.c9 > div:not(:first-child) {
   margin-left: .5rem;
 }
 
@@ -53,6 +53,12 @@ exports[`It should render Article component correctly 1`] = `
 .c7:not(:first-child):before {
   content: "/";
   margin: 0 3px;
+}
+
+.c8 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 }
 
 .c0 {
@@ -114,7 +120,7 @@ exports[`It should render Article component correctly 1`] = `
     </ul>
   </header>
   <div
-    className="content"
+    className="rst-content c8"
     dangerouslySetInnerHTML={
       Object {
         "__html": "content",
@@ -122,7 +128,7 @@ exports[`It should render Article component correctly 1`] = `
     }
   />
   <div
-    className="c8"
+    className="c9"
   />
   <div />
 </article>
