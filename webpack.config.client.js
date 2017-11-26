@@ -6,9 +6,10 @@ const commonConfig = require('./webpack.config.common')
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
 module.exports = {
-  entry: ['./src/client/index.js'].concat(DEBUG ? [
-    'webpack-hot-middleware/client'
-  ] : []),
+  entry: [
+    'babel-polyfill',
+    './src/client/index.js'
+  ].concat(DEBUG ? ['webpack-hot-middleware/client'] : []),
   output: {
     publicPath: '/assets/',
     path: path.join(__dirname, 'dist', 'assets'),

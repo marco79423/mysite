@@ -3,7 +3,10 @@ const fs = require('fs')
 const commonConfig = require('./webpack.config.common')
 
 module.exports = {
-  entry: './src/server/index.js',
+  entry: [
+    'babel-polyfill',
+    './src/server/index.js'
+  ],
   output: {
     path: __dirname,
     filename: '__server.js'

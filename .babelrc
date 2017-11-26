@@ -3,8 +3,11 @@
     "react",
     ["env", {
       "targets": {
-        "node": "current"
+        "browsers": ["last 2 versions"],
+        "node": "current",
+        "uglify": true
       },
+      "useBuiltIns": true,
       "debug": true
     }],
     "stage-0"
