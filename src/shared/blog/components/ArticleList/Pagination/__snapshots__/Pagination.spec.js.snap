@@ -3,7 +3,7 @@
 exports[`It should render Pagination component correctly 1`] = `
 <div>
   <ul
-    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+    className="Pagination__PageButtonGroup-s1k0mkaj-0 jjzgbM"
   >
     <li>
       <a
@@ -21,7 +21,7 @@ exports[`It should render Pagination component correctly 1`] = `
 exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
 <div>
   <ul
-    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+    className="Pagination__PageButtonGroup-s1k0mkaj-0 jjzgbM"
   >
     <li>
       <a
@@ -75,7 +75,7 @@ exports[`It should render Pagination component with both next page link and prev
 exports[`It should render Pagination component with previous page link correctly 1`] = `
 <div>
   <ul
-    className="Pagination__PageButtonGroup-s176cloo-0 fCVWXD"
+    className="Pagination__PageButtonGroup-s1k0mkaj-0 jjzgbM"
   >
     <li>
       <a

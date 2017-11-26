@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import TitleLink from '../generic/TitleLink'
-import Loading from '../Loading'
+import Loading from '../generic/Loading'
 import RstContent from '../RstContent'
 
 const Base = styled.section`

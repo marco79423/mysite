@@ -5,7 +5,7 @@ import NormalLink from '../generic/NormalLink'
 import TitleLink from '../generic/TitleLink'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
-import Loading from '../Loading'
+import Loading from '../generic/Loading'
 
 
 const Base = styled.section`
