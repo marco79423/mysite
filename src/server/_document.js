@@ -20,8 +20,6 @@ export default class Document extends React.Component {
         <html lang="zh-hant">
         <head>
           <meta charSet="UTF-8"/>
-          <link href="/assets/styles/vendor.css" rel="stylesheet"/>
-          <link href="/assets/styles/styles.css" rel="stylesheet"/>
           <script dangerouslySetInnerHTML={{__html: trackCode}}/>
         </head>
         <body>
@@ -37,8 +35,6 @@ export default class Document extends React.Component {
         <html {...attrs}>
         <head>
           <meta charSet="UTF-8"/>
-          <link href="/assets/styles/vendor.css" rel="stylesheet"/>
-          <link href="/assets/styles/styles.css" rel="stylesheet"/>
           {this.props.styleElement}
           <script dangerouslySetInnerHTML={{__html: trackCode}}/>
           {this.props.head.title.toComponent()}
