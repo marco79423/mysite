@@ -1,5 +1,5 @@
 import React from 'react'
-import { IndexRoute, Route, Router } from 'react-router'
+import { Route, Router } from 'react-router'
 
 import ArticleListPage from './blog/pages/ArticleListPage'
 import CategorizedArticleListPage from './blog/pages/CategorizedArticleListPage'
