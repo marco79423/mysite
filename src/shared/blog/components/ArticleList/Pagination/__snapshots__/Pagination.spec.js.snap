@@ -7,8 +7,7 @@ exports[`It should render Pagination component correctly 1`] = `
   >
     <li>
       <a
-        active={true}
-        className="s1b5fu8y-0-LinkButton-fjdEfS kHYXie NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS gPmBNX NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -26,7 +25,7 @@ exports[`It should render Pagination component with both next page link and prev
   >
     <li>
       <a
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -35,8 +34,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        active={false}
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -45,8 +43,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        active={true}
-        className="s1b5fu8y-0-LinkButton-fjdEfS kHYXie NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS gPmBNX NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -55,8 +52,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        active={false}
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -65,7 +61,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -83,7 +79,7 @@ exports[`It should render Pagination component with previous page link correctly
   >
     <li>
       <a
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -92,8 +88,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        active={false}
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -102,8 +97,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        active={false}
-        className="s1b5fu8y-0-LinkButton-fjdEfS jgBaSQ NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS jhXxoW NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
@@ -112,8 +106,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        active={true}
-        className="s1b5fu8y-0-LinkButton-fjdEfS kHYXie NormalLink-s877q9z-0 coaBWT"
+        className="s1rf1ro1-0-LinkButton-fjdEfS gPmBNX NormalLink-s877q9z-0 coaBWT"
         onClick={[Function]}
         style={Object {}}
       >
