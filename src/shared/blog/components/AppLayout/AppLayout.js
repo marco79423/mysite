@@ -1,13 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Link from '../../../generic/components/Link'
-import classNames from 'classnames'
+import styled, {injectGlobal} from 'styled-components'
+import {normalize} from 'polished'
 
-import 'normalize.css/normalize.css'
-import styles from './AppLayout.scss'
+import PageHeader from './PageHeader'
+import PageNav from './PageNav'
+import PageAside from './PageAside'
+import PageFooter from './PageFooter'
 
-export default class Base extends React.Component {
+injectGlobal`
+  ${normalize()}
+
+  html {
+    color: #505050;
+    font-size: 16px;
+    font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
+    background: #646464;
+  }
+  
+  a {
+    color: #388ca8;
+    text-decoration: none;
+  
+    &:hover {
+      color: #065a76;
+    }
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+`
+
+const Base = styled.div`
+  position: relative;
+
+  width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`
+
+const PageMain = styled.div`
+  background: #ECECEC;
+  overflow: auto;
+`
+
+export default class AppLayout extends React.Component {
   static PropTypes = {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: PropTypes.string.isRequired,
@@ -25,12 +69,6 @@ export default class Base extends React.Component {
         })
       )
     }).isRequired,
-    socialLinks: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    ),
     recentArticles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
         slug: PropTypes.string,
@@ -41,122 +79,17 @@ export default class Base extends React.Component {
     copyright: PropTypes.string
   }
 
-  renderPageHeader = () => {
-    return (
-      <header className={styles.pageHeader}>
-        <h1 className={styles.title}>
-          <Link to='/'><img src={require('../../img/logo.png')}/>{this.props.siteName}</Link>
-        </h1>
-        {this.props.crazyMode && <span className={classNames(styles.modeTitle, styles.intensifies)}>瘋狂模式</span>}
-      </header>
-    )
-  }
-
-  renderPageNav = () => {
-    return (
-      <nav className={styles.pageNav}>
-        <div className={styles.menuContainer}>
-          <a className={styles.menuToggle} href="#">選單</a>
-          <ul className={styles.mainMenu}>
-            {this.props.menuItems.get('main').map(item => (
-              <li key={item.get('url')}><Link to={item.get('url')}>{item.get('name')}</Link></li>
-            ))}
-          </ul>
-          <ul className={styles.extraMenu}>
-            {this.props.menuItems.get('extra').map(item => (
-              <li key={item.get('url')}><Link to={item.get('url')}>{item.get('name')}</Link></li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-    )
-  }
-
-  renderPageMain = () => {
-    return (
-      <div className={styles.pageMain}>
-        {this.props.children}
-        {this.renderPageAside()}
-      </div>
-    )
-  }
-
-  renderPageAside = () => {
-    return (
-      <aside className={styles.aside}>
-        {this.renderAboutMe()}
-        {this.renderRecentArticles()}
-        {this.renderAdditionalLinks()}
-      </aside>
-    )
-  }
-
-  renderAboutMe = () => {
-    return (
-      <section className={styles.aboutMe}>
-        <img src={require('./img/me.jpg')} alt="兩大類"/>
-        <div className={styles.profile}>
-          <h3>兩大類</h3>
-          <div className={styles.motto}>
-            <div>能站著就別坐著，能走路就別騎車</div>
-            <div>保持站起來的毅力和一步一腳印的耐心</div>
-          </div>
-          <ul className={styles.contact}>
-            <li><a className={styles.facebook} href='https://www.facebook.com/marco79423'>facebook</a></li>
-            <li><a className={styles.linkedin} href='https://www.linkedin.com/in/%E8%A2%81%E7%A2%A9-%E6%9D%8E-911604b5/'>GitHub</a></li>
-            <li><a className={styles.github} href='https://github.com/marco79423'>LinkedIn</a></li>
-          </ul>
-        </div>
-      </section>
-    )
-  }
-
-  renderRecentArticles = () => {
-    return (
-      <section className={styles.recentArticles}>
-        <h2>近期文章</h2>
-        <ul>
-          {
-            this.props.recentArticles.map(article => (
-              <li key={article.get('slug')}>
-                <Link to={`/articles/${article.get('slug')}/`}>
-                  {article.get('title')}
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    )
-  }
-
-  renderAdditionalLinks = () => {
-    return (
-      <section className={styles.additionalLinks}>
-        <h2></h2>
-        <ul>
-          <li><Link to='/articles/archives/'>所有文章列表</Link></li>
-        </ul>
-      </section>
-    )
-  }
-
-  renderPageFooter = () => {
-    return (
-      <footer className={styles.pageFooter}>
-        <div className={styles.copyright}>Copyright © 2017 - 兩大類</div>
-      </footer>
-    )
-  }
-
   render () {
     return (
-      <div className={styles.container}>
-        {this.renderPageHeader()}
-        {this.renderPageNav()}
-        {this.renderPageMain()}
-        {this.renderPageFooter()}
-      </div>
+      <Base>
+        <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
+        <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')} />
+        <PageMain>
+          {this.props.children}
+          <PageAside recentArticles={this.props.recentArticles}/>
+        </PageMain>
+        <PageFooter/>
+      </Base>
     )
   }
 }

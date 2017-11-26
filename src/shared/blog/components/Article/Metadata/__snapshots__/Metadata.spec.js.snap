@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render Metadata component correctly 1`] = `
+.c4 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c4:hover {
+  color: #065a76;
+}
+
+.c0 {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 {
+  display: inline;
+}
+
+.c1:not(:first-child) {
+  margin-left: 8px;
+}
+
+.c2 {
+  display: inline;
+}
+
+.c3 {
+  margin: 0;
+  display: inline;
+}
+
+.c3:not(:first-child):before {
+  content: "/";
+  margin: 0 3px;
+}
+
+<ul
+  className="c0"
+>
+  <li
+    className="c1"
+  >
+    分類：
+    <ul
+      className="c2"
+    >
+      <li
+        className="c3"
+      >
+        <a
+          className="c4"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name
+        </a>
+      </li>
+      <li
+        className="c3"
+      >
+        <a
+          className="c4"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name2
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li
+    className="c1"
+  >
+    發表時間：
+    2017/07/09
+  </li>
+</ul>
+`;
+
+exports[`It should render Metadata component correctly when target article has been modified 1`] = `
+.c4 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c4:hover {
+  color: #065a76;
+}
+
+.c0 {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 {
+  display: inline;
+}
+
+.c1:not(:first-child) {
+  margin-left: 8px;
+}
+
+.c2 {
+  display: inline;
+}
+
+.c3 {
+  margin: 0;
+  display: inline;
+}
+
+.c3:not(:first-child):before {
+  content: "/";
+  margin: 0 3px;
+}
+
+<ul
+  className="c0"
+>
+  <li
+    className="c1"
+  >
+    分類：
+    <ul
+      className="c2"
+    >
+      <li
+        className="c3"
+      >
+        <a
+          className="c4"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          name
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li
+    className="c1"
+  >
+    發表時間：
+    2017/07/09
+  </li>
+  <li
+    className="c1"
+  >
+    最後更新：
+    2017/11/09
+  </li>
+</ul>
+`;

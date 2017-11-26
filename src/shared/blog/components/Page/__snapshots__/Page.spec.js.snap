@@ -1,24 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Page component correctly 1`] = `
+.c3 {
+  color: #388ca8;
+  text-decoration: none;
+}
+
+.c3:hover {
+  color: #065a76;
+}
+
+.c2 {
+  font-size: 2rem;
+}
+
+.c4 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.c1 h1 {
+  margin: 3px 0 24px;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="page"
+  className="c0"
 >
   <article>
-    <div>
-      <header>
-        <h1>
-          <a
-            onClick={[Function]}
-            style={Object {}}
-          >
-            title
-          </a>
-        </h1>
-      </header>
-    </div>
+    <header
+      className="c1"
+    >
+      <h1>
+        <a
+          className="c2 c3"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          title
+        </a>
+      </h1>
+    </header>
     <div
-      className="content"
+      className="rst-content c4"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<div>今天天氣不錯</div>",
@@ -30,17 +71,72 @@ exports[`It should render Page component correctly 1`] = `
 `;
 
 exports[`It should render Page component with empty articles correctly 1`] = `
+.c1 {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background: url() no-repeat center;
+  background-size: 90px 90px;
+  border: 0.1em solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  -webkit-animation-name: bQMHby;
+  animation-name: bQMHby;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  z-index: 1000;
+}
+
+.c3 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <section
-  className="page"
+  className="c0"
 >
   <div
-    className="root"
+    className="c1"
   >
     <div
-      className="loadingImage twister"
+      className="c2"
     />
     <div
-      className="message"
+      className="c3"
     >
       正在努力讀取中…
     </div>

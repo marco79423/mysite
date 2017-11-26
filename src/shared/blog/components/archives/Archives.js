@@ -1,12 +1,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Link from '../../../generic/components/Link/index'
+import NormalLink from '../base/NormalLink'
+import TitleLink from '../base/TitleLink'
 import dateformat from 'dateformat'
+import styled from 'styled-components'
+import Loading from '../Loading'
 
-import Loading from '../Loading/index'
 
-import styles from './Archives.scss'
+const Base = styled.section`
+  float: left;
+  width: 800px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+
+  article {
+    padding: 2em;
+    border-bottom: 1px solid #eee;
+    background: white;
+
+    table {
+      
+    }
+  }
+`
+
+const Header = styled.header`
+  h1 {
+    margin: 3px 0 24px;
+  }
+`
+
+const ArticleTable = styled.table`
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2em;
+
+  tr {
+    background: #eee;
+
+    &:nth-of-type(even) {
+      background: #f9f9f9;
+    }
+
+    td {
+      padding: 0.6em;
+      border: 1px solid #ccc;
+    }
+  }
+`
 
 export default class Archives extends React.PureComponent {
   static PropTypes = {
@@ -19,36 +63,47 @@ export default class Archives extends React.PureComponent {
     )
   }
 
+  renderHeader = () => {
+    return (
+      <Header>
+        <h1><TitleLink to='/articles/archives/'>所有文章列表</TitleLink></h1>
+      </Header>
+    )
+  }
+
+  renderArticleTable = () => {
+    const {articles} = this.props
+    return (
+      <ArticleTable>
+        <tbody>
+        {articles.map(article => (
+          <tr key={article.get('slug')}>
+            <td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</td>
+            <td><NormalLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</NormalLink></td>
+          </tr>
+        ))}
+        </tbody>
+      </ArticleTable>
+    )
+  }
+
   render () {
     const {articles} = this.props
     if (articles.isEmpty()) {
       return (
-        <section className={styles.archives}>
+        <Base>
           <Loading/>
-        </section>
+        </Base>
       )
     }
 
     return (
-      <section className={styles.archives}>
+      <Base>
         <article>
-          <header>
-            <h1><Link to='/articles/archives/'>所有文章列表</Link></h1>
-          </header>
-          <table>
-            <tbody>
-            {articles.map(article => (
-              <tr key={article.get('slug')}>
-                <td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</td>
-                <td>
-                  <Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link>
-                </td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
+          {this.renderHeader()}
+          {this.renderArticleTable()}
         </article>
-      </section>
+      </Base>
     )
   }
 }

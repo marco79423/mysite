@@ -1,11 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
+import styled from 'styled-components'
 
-import SiteHead from '../SiteHead/index'
-import Article from '../Article/index'
+import SiteHead from '../SiteHead'
+import Article from '../Article'
 
-import styles from './ArticleDetail.scss'
+
+const Base = styled.section`
+  float: left;
+  width: 800px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`
 
 export default class ArticleDetail extends React.PureComponent {
   static propTypes = {
@@ -29,7 +38,7 @@ export default class ArticleDetail extends React.PureComponent {
 
   render () {
     return (
-      <section className={styles.articleDetail}>
+      <Base>
         <SiteHead config={this.props.siteConfig}/>
         <Article
           siteConfig={this.props.siteConfig}
@@ -38,7 +47,7 @@ export default class ArticleDetail extends React.PureComponent {
           socialConfig={this.props.socialConfig}
           commentConfig={this.props.commentConfig}
         />
-      </section>
+      </Base>
     )
   }
 }

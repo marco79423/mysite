@@ -7,6 +7,7 @@ export default class Document extends React.Component {
   static propTypes = {
     serverRendering: PropTypes.bool,
     head: PropTypes.any,
+    styleElement: PropTypes.any,
     html: PropTypes.string,
     state: ImmutablePropTypes.map
   }
@@ -38,6 +39,7 @@ export default class Document extends React.Component {
           <meta charSet="UTF-8"/>
           <link href="/assets/styles/vendor.css" rel="stylesheet"/>
           <link href="/assets/styles/styles.css" rel="stylesheet"/>
+          {this.props.styleElement}
           <script dangerouslySetInnerHTML={{__html: trackCode}}/>
           {this.props.head.title.toComponent()}
           {this.props.head.meta.toComponent()}

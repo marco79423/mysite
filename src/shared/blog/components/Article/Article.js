@@ -1,15 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import Link from '../../../generic/components/Link'
-import dateformat from 'dateformat'
+import styled from 'styled-components'
 
+import TitleLink from '../base/TitleLink'
 import Loading from '../Loading'
 import SocialShare from './SocialShare'
+import Metadata from './Metadata'
 import ArticleComment from './ArticleComment'
-import ArticleContent from '../ArticleContent'
+import RstContent from '../RstContent'
 
-import styles from './Article.scss'
+
+const Base = styled.article`
+  background: white;
+  padding: 32px;
+`
+
+const Header = styled.header`
+  h1 {
+    margin: 3px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`
 
 export default class Article extends React.PureComponent {
   static PropTypes = {
@@ -30,33 +44,34 @@ export default class Article extends React.PureComponent {
     commentConfig: ImmutablePropTypes.map
   }
 
+  renderHeader = () => {
+    const {article} = this.props
+    return (
+      <Header>
+        <h1><TitleLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</TitleLink></h1>
+        {this.renderMetadata()}
+      </Header>
+    )
+  }
+
   renderMetadata = () => {
     const {article} = this.props
     return (
-      <ul className={styles.metadata}>
-        <li>分類：
-          <ul className={styles.categories}>
-            {article.get('categories').map(category => (
-              <li key={category.get('slug')}>
-                <Link to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-        <li>發表時間：{dateformat(article.get('date'), 'yyyy/mm/dd')}</li>
-        {article.get('modifiedDate') && <li>最後更新：{dateformat(article.get('modifiedDate'), 'yyyy/mm/dd')}</li>}
-      </ul>
+      <Metadata
+        categories={article.get('categories')}
+        date={article.get('date')}
+        modifiedDate={article.get('modifiedDate')} />
     )
   }
 
   renderSummary = () => {
-    return <ArticleContent content={this.props.article.get('summary')}/>
+    return <RstContent content={this.props.article.get('summary')}/>
   }
 
   renderContent = () => {
     const {article, socialConfig, commentConfig} = this.props
     return [
-      <ArticleContent key="article-content" content={article.get('content')}/>,
+      <RstContent key="article-content" content={article.get('content')}/>,
       <SocialShare  key="social-share" config={socialConfig}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
@@ -66,20 +81,17 @@ export default class Article extends React.PureComponent {
     const {article, summaryMode} = this.props
     if (!article) {
       return (
-        <article className={styles.article}>
+        <Base>
           <Loading/>
-        </article>
+        </Base>
       )
     }
 
     return (
-      <article className={styles.article}>
-        <header>
-          <h1><Link to={`/articles/${article.get('slug')}/`}>{article.get('title')}</Link></h1>
-          {this.renderMetadata()}
-        </header>
+      <Base>
+        {this.renderHeader()}
         {summaryMode ? this.renderSummary() : this.renderContent()}
-      </article>
+      </Base>
     )
   }
 }
