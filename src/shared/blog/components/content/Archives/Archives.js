@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import NormalLink from '../generic/NormalLink'
-import TitleLink from '../generic/TitleLink'
+import NormalLink from '../../generic/NormalLink'
+import TitleLink from '../../generic/TitleLink'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
-import Loading from '../generic/Loading'
+import Loading from '../../generic/Loading/index'
 
 
 const Base = styled.section`
