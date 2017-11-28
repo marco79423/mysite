@@ -1,11 +1,11 @@
 import Feed from 'feed'
 
-import * as commonConfig from '../shared/config'
-import * as config from './config'
+import * as sharedConfig from '../config/shared'
+import * as config from '../config/server'
 
 export default function setRSSRoutes (app) {
   app.get('/atom.xml', function (req, res) {
-    return fetch(`${commonConfig.BACKEND_SERVER_URL}/api/articles/`)
+    return fetch(`${sharedConfig.BACKEND_SERVER_URL}/api/articles/`)
       .then(res => res.json())
       .then(articles => {
         const feed = new Feed({
@@ -16,7 +16,7 @@ export default function setRSSRoutes (app) {
           feed.addItem({
             title: article.title,
             id: article.slug,
-            link: `${commonConfig.HOST_URL}/articles/${article.slug}/`,
+            link: `${sharedConfig.HOST_URL}/articles/${article.slug}/`,
             description: article.raw_summary,
             content: article.content,
             author: [
@@ -30,7 +30,7 @@ export default function setRSSRoutes (app) {
   })
 
   app.get('/rss.xml', function (req, res) {
-    return fetch(`${commonConfig.BACKEND_SERVER_URL}/api/articles/`)
+    return fetch(`${sharedConfig.BACKEND_SERVER_URL}/api/articles/`)
       .then(res => res.json())
       .then(articles => {
         const feed = new Feed({
@@ -41,7 +41,7 @@ export default function setRSSRoutes (app) {
           feed.addItem({
             title: article.title,
             id: article.slug,
-            link: `${commonConfig.HOST_URL}/articles/${article.slug}/`,
+            link: `${sharedConfig.HOST_URL}/articles/${article.slug}/`,
             description: article.raw_summary,
             content: article.content,
             author: [

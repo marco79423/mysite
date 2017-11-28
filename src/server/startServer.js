@@ -11,7 +11,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from '../../webpack.config.client'
 
 import setRSSRoutes from './setRSSRoutes'
-import * as config from './config'
+import * as config from '../config/server'
 
 import renderHtmlPage from './renderHtmlPage'
 

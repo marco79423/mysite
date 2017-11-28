@@ -15,7 +15,7 @@ import saga from '../shared/blog/ducks/saga'
 import * as articleActions from '../shared/blog/ducks/article/actions'
 import * as pageActions from '../shared/blog/ducks/page/actions'
 
-import * as config from './config'
+import * as config from '../config/server'
 import Document from './_document'
 
 function prepareFetchingPromise (store, url) {

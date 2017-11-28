@@ -21,7 +21,7 @@ export const SITE_META = {
 }
 
 export const SITE_LINK = {
-  'shortcut icon': require('./blog/img/favicon.ico')
+  'shortcut icon': require('../shared/blog/img/favicon.ico')
 }
 
 export const COPYRIGHT = 'Copyright © 2017 - 兩大類'
