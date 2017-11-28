@@ -4,7 +4,6 @@ const commonConfig = require('./webpack.config.common')
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/server/index.js'
   ],
   output: {

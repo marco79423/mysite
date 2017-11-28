@@ -7,7 +7,6 @@ const DEBUG = (process.env.NODE_ENV !== 'production')
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/client/index.js'
   ].concat(DEBUG ? ['webpack-hot-middleware/client'] : []),
   output: {
