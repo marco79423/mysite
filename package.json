@@ -47,7 +47,7 @@
     "apicache": "^0.8.4",
     "babel-polyfill": "^6.26.0",
     "compression": "^1.6.2",
-    "dateformat": "^2.0.0",
+    "dateformat": "^3.0.2",
     "express": "^4.15.2",
     "feed": "^1.1.0",
     "immutable": "^3.8.1",
