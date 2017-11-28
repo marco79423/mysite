@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import NormalLink from '../../generic/NormalLink'
-import TitleLink from '../../generic/TitleLink'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
+
+import {Table, Tbody, Tr, Td} from '../../generic/table'
+import NormalLink from '../../generic/NormalLink'
+import TitleLink from '../../generic/TitleLink'
 import Loading from '../../generic/Loading'
 
 
@@ -33,25 +35,6 @@ const Header = styled.header`
   }
 `
 
-const ArticleTable = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 1.2em;
-
-  tr {
-    background: #eee;
-
-    &:nth-of-type(even) {
-      background: #f9f9f9;
-    }
-
-    td {
-      padding: 0.6em;
-      border: 1px solid #ccc;
-    }
-  }
-`
-
 export default class Archives extends React.PureComponent {
   static PropTypes = {
     articles: ImmutablePropTypes.listOf(
@@ -74,16 +57,16 @@ export default class Archives extends React.PureComponent {
   renderArticleTable = () => {
     const {articles} = this.props
     return (
-      <ArticleTable>
-        <tbody>
+      <Table>
+        <Tbody>
         {articles.map(article => (
-          <tr key={article.get('slug')}>
-            <td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</td>
-            <td><NormalLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</NormalLink></td>
-          </tr>
+          <Tr key={article.get('slug')}>
+            <Td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</Td>
+            <Td><NormalLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</NormalLink></Td>
+          </Tr>
         ))}
-        </tbody>
-      </ArticleTable>
+        </Tbody>
+      </Table>
     )
   }
 

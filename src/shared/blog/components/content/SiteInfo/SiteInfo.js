@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import {Table, Tbody, Tr, Td} from '../../generic/table'
 import TitleLink from '../../generic/TitleLink'
 
 const Base = styled.section`
@@ -30,25 +31,6 @@ const Header = styled.header`
   }
 `
 
-const InfoTable = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 1.2em;
-
-  tr {
-    background: #eee;
-
-    &:nth-of-type(even) {
-      background: #f9f9f9;
-    }
-
-    td {
-      padding: 0.6em;
-      border: 1px solid #ccc;
-    }
-  }
-`
-
 export default class SiteInfo extends React.PureComponent {
   static PropTypes = {
     frontendVersion: PropTypes.string.isRequired,
@@ -66,22 +48,22 @@ export default class SiteInfo extends React.PureComponent {
 
   renderInfoTable = () => {
     return (
-      <InfoTable>
-        <tbody>
-        <tr>
-          <td>網站更新時間：</td>
-          <td>{this.props.updatedTime}</td>
-        </tr>
-        <tr>
-          <td>前端版本：</td>
-          <td>{this.props.frontendVersion}</td>
-        </tr>
-        <tr>
-          <td>後端版本：</td>
-          <td>{this.props.backendVersion}</td>
-        </tr>
-        </tbody>
-      </InfoTable>
+      <Table>
+        <Tbody>
+        <Tr>
+          <Td>網站更新時間：</Td>
+          <Td>{this.props.updatedTime}</Td>
+        </Tr>
+        <Tr>
+          <Td>前端版本：</Td>
+          <Td>{this.props.frontendVersion}</Td>
+        </Tr>
+        <Tr>
+          <Td>後端版本：</Td>
+          <Td>{this.props.backendVersion}</Td>
+        </Tr>
+        </Tbody>
+      </Table>
     )
   }
 

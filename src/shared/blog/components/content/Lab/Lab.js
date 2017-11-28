@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import {Table, Tbody, Tr, Td} from '../../generic/table'
 import NormalLink from '../../generic/NormalLink'
 import TitleLink from '../../generic/TitleLink'
 
@@ -29,25 +30,6 @@ const Header = styled.header`
   }
 `
 
-const ItemTable = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 1.2em;
-
-  tr {
-    background: #eee;
-
-    &:nth-of-type(even) {
-      background: #f9f9f9;
-    }
-
-    td {
-      padding: 0.6em;
-      border: 1px solid #ccc;
-    }
-  }
-`
-
 export default class Lab extends React.PureComponent {
   static PropTypes = {
     crazyMode: PropTypes.bool.isRequired,
@@ -64,22 +46,22 @@ export default class Lab extends React.PureComponent {
 
   renderItemTable = () => {
     return (
-      <ItemTable>
-        <tbody>
-        <tr>
-          <td>網站資訊頁面</td>
-          <td>
+      <Table>
+        <Tbody>
+        <Tr>
+          <Td>網站資訊頁面</Td>
+          <Td>
             <NormalLink to={`/info/`}>連結</NormalLink>
-          </td>
-        </tr>
-        <tr>
-          <td>瘋狂模式</td>
-          <td>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>瘋狂模式</Td>
+          <Td>
             <Checkbox checked={this.props.crazyMode} setChecked={this.props.setCrazyMode}/>
-          </td>
-        </tr>
-        </tbody>
-      </ItemTable>
+          </Td>
+        </Tr>
+        </Tbody>
+      </Table>
     )
   }
 

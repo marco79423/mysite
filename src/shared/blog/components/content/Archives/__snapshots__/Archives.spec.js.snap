@@ -1,6 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Archives component correctly 1`] = `
+.c4 {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.c5 {
+  background: #eee;
+}
+
+.c5:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.c6 {
+  padding: 0.6em;
+  border: 1px solid #ccc;
+}
+
 .c3 {
   color: #388ca8;
   text-decoration: none;
@@ -29,25 +48,6 @@ exports[`It should render Archives component correctly 1`] = `
   margin: 3px 0 24px;
 }
 
-.c4 {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 1.2em;
-}
-
-.c4 tr {
-  background: #eee;
-}
-
-.c4 tr:nth-of-type(even) {
-  background: #f9f9f9;
-}
-
-.c4 tr td {
-  padding: 0.6em;
-  border: 1px solid #ccc;
-}
-
 @media (max-width:1200px) {
   .c0 {
     width: 100%;
@@ -74,12 +74,20 @@ exports[`It should render Archives component correctly 1`] = `
     <table
       className="c4"
     >
-      <tbody>
-        <tr>
-          <td>
+      <tbody
+        className=""
+      >
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
             2017/05/15
           </td>
-          <td>
+          <td
+            className="c6"
+          >
             <a
               className="c3"
               onClick={[Function]}
@@ -89,11 +97,17 @@ exports[`It should render Archives component correctly 1`] = `
             </a>
           </td>
         </tr>
-        <tr>
-          <td>
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
             2017/05/16
           </td>
-          <td>
+          <td
+            className="c6"
+          >
             <a
               className="c3"
               onClick={[Function]}
@@ -103,11 +117,17 @@ exports[`It should render Archives component correctly 1`] = `
             </a>
           </td>
         </tr>
-        <tr>
-          <td>
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
             2017/05/17
           </td>
-          <td>
+          <td
+            className="c6"
+          >
             <a
               className="c3"
               onClick={[Function]}
