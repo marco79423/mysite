@@ -9,7 +9,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'src'),
-        use: (DEBUG ? ['react-hot-loader'] : []).concat(['babel-loader'])
+        loader: 'babel-loader'
       },
       {
         test: /\.(png|jpg|ico)/,

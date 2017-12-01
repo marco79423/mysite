@@ -6,9 +6,7 @@ const commonConfig = require('./webpack.config.common')
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
 module.exports = {
-  entry: [
-    './src/client/index.js'
-  ].concat(DEBUG ? ['webpack-hot-middleware/client'] : []),
+  entry: (DEBUG ? ['react-hot-loader/patch', 'webpack-hot-middleware/client'] : []).concat(['./src/client/index.js']),
   output: {
     publicPath: '/assets/',
     path: path.join(__dirname, 'dist', 'assets'),
@@ -20,9 +18,6 @@ module.exports = {
       'immutable$': path.join(__dirname, 'node_modules/immutable/dist/immutable.min.js')
     }
   },
-  plugins: commonConfig.plugins.concat(DEBUG ? [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ] : []),
+  plugins: commonConfig.plugins.concat(DEBUG ? [new webpack.HotModuleReplacementPlugin()] : []),
   devtool: DEBUG ? 'eval' : false
 }
