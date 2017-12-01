@@ -19,5 +19,21 @@
     ["babel-plugin-styled-components", {
       "ssr": true
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "react",
+        "env",
+        "stage-0"
+      ],
+      "plugins": [
+        "transform-runtime",
+        "transform-decorators-legacy",
+        ["babel-plugin-styled-components", {
+          "ssr": true
+        }]
+      ]
+    }
+  }
 }
