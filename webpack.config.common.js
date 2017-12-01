@@ -3,6 +3,19 @@ const path = require('path')
 
 const DEBUG = (process.env.NODE_ENV !== 'production')
 
+const plugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      DEBUG: DEBUG
+    }
+  })
+]
+
+if (!DEBUG) {
+  plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
+}
+
 module.exports = {
   module: {
     rules: [
@@ -26,12 +39,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        DEBUG: DEBUG
-      }
-    })
-  ]
+  plugins: plugins
 }

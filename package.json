@@ -13,7 +13,7 @@
     "test:coverage": "jest --coverage",
     "prod": "npm run dist && npm start",
     "dev": "cross-env NODE_ENV=development webpack && npm start",
-    "dist": "rimraf dist && cross-env NODE_ENV=production webpack -p",
+    "dist": "rimraf dist && cross-env NODE_ENV=production webpack -p  --display-optimization-bailout",
     "start": "node __server.js"
   },
   "license": "BSD-3-Clause",
@@ -40,7 +40,7 @@
     "rimraf": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
     "svg-url-loader": "^2.2.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.4.1",
+    "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
   },
