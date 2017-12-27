@@ -16,6 +16,7 @@ import * as articleSelectors from '../../ducks/article/selectors'
     siteConfig: siteSelectors.getSiteHeadConfig(state, props),
     siteName: configSelectors.getSiteName(state, props),
     menuItems: configSelectors.getMenuItems(state, props),
+    theme: configSelectors.getTheme(state, props),
     recentArticles: articleSelectors.getRecentArticles(state, props),
     crazyMode: state.getIn(['lab', 'crazyMode']),
     copyright: configSelectors.getCopyright(state, props),
@@ -29,6 +30,7 @@ export default class AppLayoutContainer extends React.Component {
     siteConfig: ImmutablePropTypes.map.isRequired,
     siteName: PropTypes.string.isRequired,
     menuItems: ImmutablePropTypes.map.isRequired,
+    theme: PropTypes.object.isRequired,
     copyright: PropTypes.string,
     recentArticles: PropTypes.array
   }

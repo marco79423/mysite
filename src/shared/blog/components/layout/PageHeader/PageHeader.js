@@ -7,7 +7,7 @@ import intensifiesStyle from '../../generic/animation/intensifiesStyle'
 
 const Base = styled.header`
   height: 90px;
-  background: #388ca8;
+  background: ${props => props.theme.page.header.background};
   position: relative;
 `
 
