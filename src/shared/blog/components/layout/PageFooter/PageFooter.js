@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 const Base = styled.footer`
   height: 42px;
-  background: #1A6E8A;
+  background: ${props => props.theme.page.footer.background};
 `
 
 const Copyright = styled.div`
   margin: 0 auto;
   text-align: center;
   line-height: 42px;
-  color: #ECECEC;
+  color: ${props => props.theme.page.footer.copyrightColor};
 `
 
 export default class PageFooter extends React.Component {
