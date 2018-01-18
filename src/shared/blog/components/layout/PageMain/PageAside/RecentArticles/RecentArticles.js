@@ -4,23 +4,13 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import NormalLink from '../../../../generic/NormalLink'
+import Section from '../generic/Section'
 
-const Base = styled.section`
-  margin: 30px;
-  width: 340px;
-  
+const Base = styled(Section)`
   @media (max-width: 1200px) {
     display: none;
   }
-
-  h2 {
-    color: #6F6F6F;
-    font-size: 1.5em;
-    font-weight: 700;
-    border-bottom: 1px solid #DDDDDD;
-    padding-bottom: 10px;
-  }
-
+  
   li:not(:first-child) {
     margin-top: 8px;
   }

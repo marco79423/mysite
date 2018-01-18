@@ -8,10 +8,11 @@ import RecentArticles from './RecentArticles/index'
 
 const Base = styled.aside`
   float: left;
+  background: ${props => props.theme.page.main.aside.background};
 
   @media (max-width: 1200px) {
     width: 100%;
-    background: #1A6E8A;
+    background: ${props => props.theme.page.main.aside.darkerBackground};
   }
 `
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Base = styled.section`
-  margin: 30px;
-  width: 340px;
+import Section from '../generic/Section'
+
+const Base = styled(Section)`
   position: relative;
 `
 
