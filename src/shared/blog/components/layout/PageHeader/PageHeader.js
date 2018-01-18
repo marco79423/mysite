@@ -16,15 +16,6 @@ const Title = styled.h1`
   margin: 0;
   line-height: 90px;
   padding-left: 116px;
-  font-size: 2rem;
-
-  @media (max-width: 500px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 1.3rem;
-  }
 `
 
 const Logo = styled.img`
@@ -56,9 +47,19 @@ const ModeName = styled.span`
 `
 
 const TitleLink = styled(NormalLink)`
-  color: #ffffff;
+  color: ${props => props.theme.page.header.titleColor};
+  font-size: 2rem;
+  
   &:hover {
-    color: #ffffff
+    color: ${props => props.theme.page.header.titleColor};
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 1.3rem;
   }
 `
 
