@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import PageAside from './PageAside'
 
 const Base = styled.header`
-  background: #ECECEC;
+  background: ${props => props.theme.page.main.background};
   overflow: auto;
 `
 

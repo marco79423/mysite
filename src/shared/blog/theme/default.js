@@ -15,6 +15,13 @@ const colorTable = {
 }
 
 export default {
+  global: {
+    fontColor: colorTable['grey-900'],
+    link: {
+      color: colorTable['cyan-700'],
+      hoverColor: colorTable['cyan-900']
+    }
+  },
   page: {
     background: colorTable['grey-700'],
     header: {
