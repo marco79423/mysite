@@ -23,7 +23,7 @@ injectGlobal`
     }
   
     a, a:visited, a:hover {
-      color: #388CA8;
+      color: ${props => props.theme.global.link.color};
       text-decoration: none;
     }
   
@@ -47,7 +47,7 @@ injectGlobal`
     }
   
     h2, h3, h4, h5 {
-      color: #505050;
+      color: ${props => props.theme.page.main.content.article.header.color};
     }
   
     h2 {
@@ -97,17 +97,17 @@ injectGlobal`
     pre {
       font-size: 1.2rem;
       font-family: Consolas, Arial, Microsoft JhengHei;
-      color: white;
-      background-color: #388CA8;
-      border: 1px solid #ccc;
+      color: ${props => props.theme.page.main.content.article.block.color};
+      background: ${props => props.theme.page.main.content.article.block.background};
+      border: 1px solid ${props => props.theme.page.main.content.article.block.borderColor};
       padding: 0.7rem;
       margin-bottom: 1rem;
       white-space: pre-wrap;
   
       &.doctest-block {
         border: 0;
-        background-color: #6D6D6D;
-        color: #fff;
+        color: ${props => props.theme.page.main.content.article.doctestBlock.color};
+        background: ${props => props.theme.page.main.content.article.doctestBlock.background};
       }
     }
   
@@ -135,7 +135,7 @@ injectGlobal`
       width: 100%;
   
       th {
-        background: #388CA8;
+        background: ${props => props.theme.page.main.content.article.table.header.background};
         color: white;
         padding: 0.7rem;
         font-size: 1.2rem;
@@ -160,16 +160,16 @@ injectGlobal`
     }
   
     .note {
-      background-color: #ECECEC;
+      background-color: ${props => props.theme.page.main.content.article.note.background};
       padding: 0.1rem 0.7rem 0.7rem 0.7rem;
       margin-bottom: 1rem;
-      border: 1px solid #ccc;
+      border: 1px solid ${props => props.theme.page.main.content.article.note.borderColor};
   
       /*解決 note 的問題*/
       p.first {
         font-size: 1.2rem;
         font-weight: bold;
-        color: #388CA8;
+        color: ${props => props.theme.page.main.content.article.note.titleColor};
         margin-bottom: 0.1rem;
       }
   

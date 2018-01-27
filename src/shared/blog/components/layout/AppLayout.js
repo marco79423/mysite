@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import styled, {injectGlobal} from 'styled-components'
+import styled, {injectGlobal, ThemeProvider} from 'styled-components'
 import {normalize} from 'polished'
 
 import PageHeader from './PageHeader'
@@ -9,23 +9,13 @@ import PageNav from './PageNav'
 import PageMain from './PageMain'
 import PageFooter from './PageFooter'
 
+
 injectGlobal`
   ${normalize()}
-
+  
   html {
-    color: #505050;
     font-size: 16px;
     font-family: Arial, Microsoft JhengHei, Open Sans, sans-serif;
-    background: #646464;
-  }
-  
-  a {
-    color: #388ca8;
-    text-decoration: none;
-  
-    &:hover {
-      color: #065a76;
-    }
   }
   
   ul {
@@ -36,14 +26,24 @@ injectGlobal`
 `
 
 const Base = styled.div`
+  width: 100%;
+  height: 100%;
+  
+  color: ${props => props.theme.global.fontColor};
+  background: ${props => props.theme.page.background};
+`
+
+const Container = styled.div`
   position: relative;
 
   width: 1200px;
   margin: 0 auto;
-
+  
   @media (max-width: 1200px) {
     width: 100%;
   }
+  
+  
 `
 
 export default class AppLayout extends React.Component {
@@ -64,6 +64,7 @@ export default class AppLayout extends React.Component {
         })
       )
     }).isRequired,
+    theme: PropTypes.object.isRequired,
     recentArticles: ImmutablePropTypes.listOf(
       ImmutablePropTypes.contains({
         slug: PropTypes.string,
@@ -76,12 +77,16 @@ export default class AppLayout extends React.Component {
 
   render () {
     return (
-      <Base>
-        <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
-        <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')}/>
-        <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
-        <PageFooter/>
-      </Base>
+      <ThemeProvider theme={this.props.theme.toJS()}>
+        <Base>
+          <Container>
+            <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
+            <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')}/>
+            <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
+            <PageFooter/>
+          </Container>
+        </Base>
+      </ThemeProvider>
     )
   }
 }

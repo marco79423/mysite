@@ -2,18 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 import NormalLink from '../../../../generic/NormalLink'
+import Section from '../generic/Section'
 
-const Base = styled.section`
-  margin: 30px;
-  width: 340px;
-  
+const Base = styled(Section)`
   @media (max-width: 1200px) {
     display: none;
   }
-
-  h2 {
-    border-bottom: 1px solid #DDDDDD;
-    padding-bottom: 10px;
+  
+  li:not(:first-child) {
+    margin-top: 8px;
   }
 `
 

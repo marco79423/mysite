@@ -6,7 +6,7 @@ import NormalLink from '../../generic/NormalLink'
 
 const Base = styled.nav`
   height: 42px;
-  background: #1A6E8A;
+  background: ${props => props.theme.page.nav.background};
 `
 
 const MenuLink = styled(NormalLink)`
@@ -15,16 +15,17 @@ const MenuLink = styled(NormalLink)`
   line-height: 42px;
   padding: 0 16px;
   font-size: 1.2rem;
-  color: #ECECEC;
+  color: ${props => props.theme.page.nav.menu.color};
+  background: ${props => props.theme.page.nav.menu.background};
   font-weight: 700;
 
   &:hover {
-    color: #ECECEC;
-    background: #065A76;
+    color: ${props => props.theme.page.nav.menu.color};
+    background: ${props => props.theme.page.nav.menu.hoverBackground};
   }
   
   @media (max-width: 1200px) {
-    background: #388ca8;
+    background: ${props => props.theme.page.nav.menu.dropdown.background};
   }
 `
 
@@ -46,7 +47,7 @@ const MenuToggle = styled(MenuLink)`
   
   @media (max-width: 1200px) {
     display: block;
-    background: #1A6E8A;
+    background: ${props => props.theme.page.nav.menu.background};
     &:hover {
       background: none;
     }
@@ -75,7 +76,7 @@ const ExtraMenu = BaseMenu.extend`
   float: right;
   
   @media (max-width: 1200px) {
-    border-top: 3px #1A6E8A solid;
+    border-top: 3px ${props => props.theme.page.nav.menu.dropdown.borderColor} solid;
   }
 `
 

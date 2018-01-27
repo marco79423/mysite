@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import range from 'lodash/range'
 import styled from 'styled-components'
-import LinkButton from '../../../generic/LinkButton'
+import NormalLink from '../../../generic/NormalLink'
 
 const PageButtonGroup = styled.ul`
   margin: 0 auto;
@@ -25,11 +25,18 @@ const PageButtonGroup = styled.ul`
   }
 `
 
-const PageButton = LinkButton.extend`
+const PageButton = NormalLink.extend`
   display: block;
   text-align: center;
   line-height: 32px;
   font-size: 1.5rem;
+  color: ${props => props.theme.page.main.content.pagination.color};
+  background: ${props => props.active ? props.theme.page.main.content.pagination.activeBackground : props.theme.page.main.content.pagination.background};
+  pointer-events: ${props => props.active ? 'none' : 'auto'};
+
+  &:hover {
+    background: ${props => props.theme.page.main.content.pagination.hoverBackground};
+  }
 `
 
 export default class Pagination extends React.PureComponent {

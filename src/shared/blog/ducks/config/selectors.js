@@ -18,5 +18,7 @@ export const getCommentConfig = createSelector(_getConfig, config => config.get(
 
 export const getMenuItems = createSelector(_getConfig, config => config.get('MENU_ITEMS'))
 
+export const getTheme = createSelector(_getConfig, config => config.get('theme'))
+
 export const getSiteVersion = createSelector(_getConfig, config => config.get('SITE_VERSION'))
 export const getSiteUpdatedTime = createSelector(_getConfig, config => config.get('SITE_UPDATED_TIME'))

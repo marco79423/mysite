@@ -12,7 +12,7 @@ import ArticleComment from './ArticleComment'
 
 
 const Base = styled.article`
-  background: white;
+  background: ${props => props.theme.page.main.content.article.background};
   padding: 32px;
 `
 
