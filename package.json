@@ -11,8 +11,8 @@
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watchAll",
     "test:coverage": "jest --coverage",
-    "prod": "npm run dist && npm start",
-    "dev": "cross-env NODE_ENV=development webpack && npm start",
+    "prod": "yarn run dist && yarn start",
+    "dev": "cross-env NODE_ENV=development webpack && yarn start",
     "dist": "rimraf dist && cross-env NODE_ENV=production webpack -p  --display-optimization-bailout",
     "start": "node __server.js"
   },
