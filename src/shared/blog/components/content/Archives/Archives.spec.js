@@ -2,14 +2,18 @@ import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {ThemeProvider} from 'styled-components'
 
 import Archives from './Archives'
+import theme from '../../../theme/default'
 
 test('It should render Archives component with empty articles correctly', () => {
   const articles = Immutable.fromJS([])
 
   const component = renderer.create(
-    <Archives articles={articles}/>
+    <ThemeProvider theme={theme}>
+      <Archives articles={articles}/>
+    </ThemeProvider>
   )
   expect(component.toJSON()).toMatchSnapshot()
 })
@@ -22,7 +26,9 @@ test('It should render Archives component correctly', () => {
   ])
 
   const component = renderer.create(
-    <Archives articles={articles}/>
+    <ThemeProvider theme={theme}>
+      <Archives articles={articles}/>
+    </ThemeProvider>
   )
   expect(component.toJSON()).toMatchSnapshot()
 })

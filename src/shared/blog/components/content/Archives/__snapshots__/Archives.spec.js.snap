@@ -21,12 +21,12 @@ exports[`It should render Archives component correctly 1`] = `
 }
 
 .c3 {
-  color: #388ca8;
+  color: #0097A7;
   text-decoration: none;
 }
 
 .c3:hover {
-  color: #065a76;
+  color: #006064;
 }
 
 .c2 {

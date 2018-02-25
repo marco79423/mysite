@@ -2,22 +2,28 @@ import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {ThemeProvider} from 'styled-components'
 
 import Metadata from './Metadata'
+import theme from '../../../../theme/default'
 
 test('It should render Metadata component correctly', () => {
-  const categories = Immutable.fromJS([{
-    slug: 'slug',
-    name: 'name'
-  },
-  {
-    slug: 'slug2',
-    name: 'name2'
-  }])
+  const categories = Immutable.fromJS([
+    {
+      slug: 'slug',
+      name: 'name'
+    },
+    {
+      slug: 'slug2',
+      name: 'name2'
+    }
+  ])
   const date = new Date(2017, 6, 9)
 
   const component = renderer.create(
-    <Metadata categories={categories} date={date} />
+    <ThemeProvider theme={theme}>
+      <Metadata categories={categories} date={date}/>
+    </ThemeProvider>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -32,7 +38,9 @@ test('It should render Metadata component correctly when target article has been
   const modifiedDate = new Date(2017, 10, 9)
 
   const component = renderer.create(
-    <Metadata categories={categories} date={date} modifiedDate={modifiedDate} />
+    <ThemeProvider theme={theme}>
+      <Metadata categories={categories} date={date} modifiedDate={modifiedDate}/>
+    </ThemeProvider>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

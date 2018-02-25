@@ -2,12 +2,12 @@
 
 exports[`It should render Metadata component correctly 1`] = `
 .c4 {
-  color: #388ca8;
+  color: #0097A7;
   text-decoration: none;
 }
 
 .c4:hover {
-  color: #065a76;
+  color: #006064;
 }
 
 .c0 {
@@ -84,12 +84,12 @@ exports[`It should render Metadata component correctly 1`] = `
 
 exports[`It should render Metadata component correctly when target article has been modified 1`] = `
 .c4 {
-  color: #388ca8;
+  color: #0097A7;
   text-decoration: none;
 }
 
 .c4:hover {
-  color: #065a76;
+  color: #006064;
 }
 
 .c0 {

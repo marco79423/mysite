@@ -2,8 +2,10 @@ import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {ThemeProvider} from 'styled-components'
 
 import SiteInfo from './SiteInfo'
+import theme from '../../../theme/default'
 
 
 test('It should render SiteInfo component correctly', () => {
@@ -14,11 +16,13 @@ test('It should render SiteInfo component correctly', () => {
   })
 
   const component = renderer.create(
-    <SiteInfo
-      frontendVersion={props.get('frontendVersion')}
-      backendVersion={props.get('backendVersion')}
-      updatedTime={props.get('updatedTime')}
-    />
+    <ThemeProvider theme={theme}>
+      <SiteInfo
+        frontendVersion={props.get('frontendVersion')}
+        backendVersion={props.get('backendVersion')}
+        updatedTime={props.get('updatedTime')}
+      />
+    </ThemeProvider>
   )
   expect(component.toJSON()).toMatchSnapshot()
 })

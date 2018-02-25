@@ -14,26 +14,23 @@ exports[`It should render Pagination component correctly 1`] = `
 }
 
 .c1 {
-  color: #ECECEC;
-  background: #065a76;
-  pointer-events: none;
+  color: #0097A7;
+  text-decoration: none;
   display: block;
   text-align: center;
   line-height: 32px;
   font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #006064;
+  pointer-events: none;
 }
 
 .c1:hover {
-  background: #065a76;
+  color: #006064;
 }
 
-.c2 {
-  color: #388ca8;
-  text-decoration: none;
-}
-
-.c2:hover {
-  color: #065a76;
+.c1:hover {
+  background: #006064;
 }
 
 @media (max-width:1200px) {
@@ -55,7 +52,8 @@ exports[`It should render Pagination component correctly 1`] = `
   >
     <li>
       <a
-        className="c1 c2"
+        active={true}
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -79,41 +77,44 @@ exports[`It should render Pagination component with both next page link and prev
   height: 32px;
 }
 
-.c3 {
-  color: #ECECEC;
-  background: #065a76;
-  pointer-events: none;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-}
-
-.c3:hover {
-  background: #065a76;
-}
-
-.c1 {
-  color: #ECECEC;
-  background: #388ca8;
-  pointer-events: auto;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-}
-
-.c1:hover {
-  background: #065a76;
-}
-
 .c2 {
-  color: #388ca8;
+  color: #0097A7;
   text-decoration: none;
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #006064;
+  pointer-events: none;
 }
 
 .c2:hover {
-  color: #065a76;
+  color: #006064;
+}
+
+.c2:hover {
+  background: #006064;
+}
+
+.c1 {
+  color: #0097A7;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #0097A7;
+  pointer-events: auto;
+}
+
+.c1:hover {
+  color: #006064;
+}
+
+.c1:hover {
+  background: #006064;
 }
 
 @media (max-width:1200px) {
@@ -135,7 +136,7 @@ exports[`It should render Pagination component with both next page link and prev
   >
     <li>
       <a
-        className="c1 c2"
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -144,7 +145,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1 c2"
+        active={false}
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -153,7 +155,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c3 c2"
+        active={true}
+        className="c2"
         onClick={[Function]}
         style={Object {}}
       >
@@ -162,7 +165,8 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1 c2"
+        active={false}
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -171,7 +175,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1 c2"
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -195,41 +199,44 @@ exports[`It should render Pagination component with previous page link correctly
   height: 32px;
 }
 
-.c3 {
-  color: #ECECEC;
-  background: #065a76;
-  pointer-events: none;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-}
-
-.c3:hover {
-  background: #065a76;
-}
-
-.c1 {
-  color: #ECECEC;
-  background: #388ca8;
-  pointer-events: auto;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-}
-
-.c1:hover {
-  background: #065a76;
-}
-
 .c2 {
-  color: #388ca8;
+  color: #0097A7;
   text-decoration: none;
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #006064;
+  pointer-events: none;
 }
 
 .c2:hover {
-  color: #065a76;
+  color: #006064;
+}
+
+.c2:hover {
+  background: #006064;
+}
+
+.c1 {
+  color: #0097A7;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #0097A7;
+  pointer-events: auto;
+}
+
+.c1:hover {
+  color: #006064;
+}
+
+.c1:hover {
+  background: #006064;
 }
 
 @media (max-width:1200px) {
@@ -251,7 +258,7 @@ exports[`It should render Pagination component with previous page link correctly
   >
     <li>
       <a
-        className="c1 c2"
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -260,7 +267,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c1 c2"
+        active={false}
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -269,7 +277,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c1 c2"
+        active={false}
+        className="c1"
         onClick={[Function]}
         style={Object {}}
       >
@@ -278,7 +287,8 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c3 c2"
+        active={true}
+        className="c2"
         onClick={[Function]}
         style={Object {}}
       >

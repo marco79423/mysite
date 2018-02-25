@@ -2,14 +2,18 @@ import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {ThemeProvider} from 'styled-components'
 
 import Page from './Page'
+import theme from '../../../theme/default'
 
 test('It should render Page component with empty articles correctly', () => {
   const page = null
 
   const component = renderer.create(
-    <Page page={page}/>
+    <ThemeProvider theme={theme}>
+      <Page page={page}/>
+    </ThemeProvider>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -24,7 +28,9 @@ test('It should render Page component correctly', () => {
   })
 
   const component = renderer.create(
-    <Page page={page}/>
+    <ThemeProvider theme={theme}>
+      <Page page={page}/>
+    </ThemeProvider>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
