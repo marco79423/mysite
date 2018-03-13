@@ -11,8 +11,10 @@ export const getArticles = (state) => state
     .merge({
       date: new Date(article.get('date')),
       modifiedDate: article.get('modified_date') ? new Date(article.get('modified_date')) : null,
+      chickenCount: article.get('chicken_count'),
       rawSummary: article.get('raw_summary')
     })
+    .delete('chicken_count')
     .delete('modified_date')
     .delete('raw_summary')
   )
