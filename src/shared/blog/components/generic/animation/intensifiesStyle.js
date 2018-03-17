@@ -2,7 +2,7 @@ import {keyframes, css} from 'styled-components'
 
 
 let frame = ''
-for (let i = 0; i <= 100; i++) {
+for (let i = 0; i <= 20; i++) {
   // Rotate between left and right
   const sign = (i % 2 === 0) ? 1 : -1
 
