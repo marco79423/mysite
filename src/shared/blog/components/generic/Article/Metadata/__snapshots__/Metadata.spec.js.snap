@@ -3,6 +3,7 @@
 exports[`It should render Metadata component correctly 1`] = `
 .c4 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -12,6 +13,7 @@ exports[`It should render Metadata component correctly 1`] = `
 
 .c0 {
   font-size: 0.9rem;
+  line-height: 1.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -37,6 +39,44 @@ exports[`It should render Metadata component correctly 1`] = `
 .c3:not(:first-child):before {
   content: "/";
   margin: 0 3px;
+}
+
+.c5 {
+  margin-bottom: -5px;
+}
+
+.c5:hover {
+  -webkit-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+.c6 {
+  display: none;
+  position: absolute;
+  line-height: 1.2em;
+  padding: 4px;
+  background: #00ACC1;
+  color: #FFFFFF;
+  -webkit-transition: opacity .3s ease-out;
+  transition: opacity .3s ease-out;
+}
+
+.c6:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 4px;
+  border: 8px solid transparent;
+  border-right-color: #00ACC1;
+}
+
+@media (max-width:800px) {
+  .c6 {
+    display: none;
+  }
 }
 
 <ul
@@ -76,6 +116,29 @@ exports[`It should render Metadata component correctly 1`] = `
   <li
     className="c1"
   >
+    字數：
+    <img
+      alt="雞"
+      className="c5"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src={
+        Object {
+          "default": Object {},
+        }
+      }
+    />
+     x 
+    1
+    <span
+      className="c6"
+    >
+      雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關
+    </span>
+  </li>
+  <li
+    className="c1"
+  >
     發表時間：
     2017/07/09
   </li>
@@ -85,6 +148,7 @@ exports[`It should render Metadata component correctly 1`] = `
 exports[`It should render Metadata component correctly when target article has been modified 1`] = `
 .c4 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -94,6 +158,7 @@ exports[`It should render Metadata component correctly when target article has b
 
 .c0 {
   font-size: 0.9rem;
+  line-height: 1.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -121,6 +186,44 @@ exports[`It should render Metadata component correctly when target article has b
   margin: 0 3px;
 }
 
+.c5 {
+  margin-bottom: -5px;
+}
+
+.c5:hover {
+  -webkit-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+.c6 {
+  display: none;
+  position: absolute;
+  line-height: 1.2em;
+  padding: 4px;
+  background: #00ACC1;
+  color: #FFFFFF;
+  -webkit-transition: opacity .3s ease-out;
+  transition: opacity .3s ease-out;
+}
+
+.c6:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 4px;
+  border: 8px solid transparent;
+  border-right-color: #00ACC1;
+}
+
+@media (max-width:800px) {
+  .c6 {
+    display: none;
+  }
+}
+
 <ul
   className="c0"
 >
@@ -143,6 +246,29 @@ exports[`It should render Metadata component correctly when target article has b
         </a>
       </li>
     </ul>
+  </li>
+  <li
+    className="c1"
+  >
+    字數：
+    <img
+      alt="雞"
+      className="c5"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src={
+        Object {
+          "default": Object {},
+        }
+      }
+    />
+     x 
+    1
+    <span
+      className="c6"
+    >
+      雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關
+    </span>
   </li>
   <li
     className="c1"

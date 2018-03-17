@@ -19,10 +19,11 @@ test('It should render Metadata component correctly', () => {
     }
   ])
   const date = new Date(2017, 6, 9)
+  const chickenCount = 1
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <Metadata categories={categories} date={date}/>
+      <Metadata categories={categories} chickenCount={chickenCount} date={date}/>
     </ThemeProvider>
   )
   let tree = component.toJSON()
@@ -34,12 +35,13 @@ test('It should render Metadata component correctly when target article has been
     slug: 'slug',
     name: 'name'
   }])
+  const chickenCount = 1
   const date = new Date(2017, 6, 9)
   const modifiedDate = new Date(2017, 10, 9)
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <Metadata categories={categories} date={date} modifiedDate={modifiedDate}/>
+      <Metadata categories={categories} chickenCount={chickenCount} date={date} modifiedDate={modifiedDate}/>
     </ThemeProvider>
   )
   let tree = component.toJSON()

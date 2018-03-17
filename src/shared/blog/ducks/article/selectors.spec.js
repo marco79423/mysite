@@ -19,6 +19,7 @@ const articles = [
         'name': 'Python'
       }
     ],
+    'chicken_count': 199,
     'content': 'content',
     'summary': 'summary',
     'raw_summary': 'raw_summary'
@@ -34,6 +35,7 @@ const articles = [
         'name': '胡言亂語'
       }
     ],
+    'chicken_count': 1,
     'content': 'content',
     'summary': 'summary',
     'raw_summary': 'raw_summary'
@@ -49,6 +51,7 @@ const articles = [
         'name': '胡言亂語'
       }
     ],
+    'chicken_count': 0,
     'content': 'content',
     'summary': 'summary',
     'raw_summary': 'raw_summary'
@@ -81,6 +84,7 @@ test('getArticles should return articles with correct naming convention', () => 
           'name': 'Python'
         }
       ],
+      'chickenCount': 199,
       'content': 'content',
       'summary': 'summary',
       'rawSummary': 'raw_summary'
@@ -96,6 +100,7 @@ test('getArticles should return articles with correct naming convention', () => 
           'name': '胡言亂語'
         }
       ],
+      'chickenCount': 1,
       'content': 'content',
       'summary': 'summary',
       'rawSummary': 'raw_summary'
@@ -111,6 +116,7 @@ test('getArticles should return articles with correct naming convention', () => 
           'name': '胡言亂語'
         }
       ],
+      'chickenCount': 0,
       'content': 'content',
       'summary': 'summary',
       'rawSummary': 'raw_summary'
@@ -136,6 +142,7 @@ describe('getArticlesByCategory', () => {
           'name': 'Python'
         }
       ],
+      'chickenCount': 199,
       'content': 'content',
       'summary': 'summary',
       'rawSummary': 'raw_summary'
@@ -194,6 +201,7 @@ test('getArticle should return articles with correct naming convention', () => {
         'name': '胡言亂語'
       }
     ],
+    'chickenCount': 0,
     'content': 'content',
     'summary': 'summary',
     'rawSummary': 'raw_summary'
@@ -228,6 +236,7 @@ describe('getRecentArticles', () => {
             'name': 'Python'
           }
         ],
+        'chickenCount': 199,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -243,6 +252,7 @@ describe('getRecentArticles', () => {
             'name': '胡言亂語'
           }
         ],
+        'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -277,6 +287,7 @@ describe('getRecentArticles', () => {
             'name': 'Python'
           }
         ],
+        'chickenCount': 199,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -292,6 +303,7 @@ describe('getRecentArticles', () => {
             'name': '胡言亂語'
           }
         ],
+        'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -307,6 +319,7 @@ describe('getRecentArticles', () => {
             'name': '胡言亂語'
           }
         ],
+        'chickenCount': 0,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -339,6 +352,7 @@ describe('getRecentArticles', () => {
             'name': '胡言亂語'
           }
         ],
+        'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'
@@ -354,6 +368,7 @@ describe('getRecentArticles', () => {
             'name': '胡言亂語'
           }
         ],
+        'chickenCount': 0,
         'content': 'content',
         'summary': 'summary',
         'rawSummary': 'raw_summary'

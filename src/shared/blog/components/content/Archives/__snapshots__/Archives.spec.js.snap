@@ -22,6 +22,7 @@ exports[`It should render Archives component correctly 1`] = `
 
 .c3 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 

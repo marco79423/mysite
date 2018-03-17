@@ -16,6 +16,7 @@ test('It should render Article component correctly', () => {
       name: 'name'
     }],
     date: new Date(2017, 6, 9),
+    chickenCount: 1,
     content: 'content',
     rawSummary: 'raw_summary'
   })

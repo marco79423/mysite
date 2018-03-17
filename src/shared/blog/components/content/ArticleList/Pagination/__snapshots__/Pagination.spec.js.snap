@@ -15,6 +15,7 @@ exports[`It should render Pagination component correctly 1`] = `
 
 .c1 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -79,6 +80,7 @@ exports[`It should render Pagination component with both next page link and prev
 
 .c2 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -99,6 +101,7 @@ exports[`It should render Pagination component with both next page link and prev
 
 .c1 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -201,6 +204,7 @@ exports[`It should render Pagination component with previous page link correctly
 
 .c2 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -221,6 +225,7 @@ exports[`It should render Pagination component with previous page link correctly
 
 .c1 {
   color: #0097A7;
+  -webkit-text-decoration: none;
   text-decoration: none;
   display: block;
   text-align: center;
