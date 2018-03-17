@@ -8,7 +8,7 @@ from fabric.api import *
 from fabric.colors import cyan
 from fabric.contrib.files import exists, sed
 
-HOST_CONFIG_FILE = "hosts.json"
+HOST_CONFIG_FILE = "project_config.json"
 
 CONFIGS = {
     'prod': {
