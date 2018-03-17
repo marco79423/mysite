@@ -19,6 +19,7 @@ export default class Document extends React.Component {
       return (
         <html lang="zh-hant">
         <head>
+          <link rel="alternate" type="application/rss+xml" href="https://marco79423.net/rss.xml"/>
           <meta charSet="UTF-8"/>
           <script dangerouslySetInnerHTML={{__html: trackCode}}/>
         </head>
@@ -34,6 +35,7 @@ export default class Document extends React.Component {
       return (
         <html {...attrs}>
         <head>
+          <link rel="alternate" type="application/rss+xml" href="https://marco79423.net/rss.xml"/>
           <meta charSet="UTF-8"/>
           {this.props.styleElement}
           <script dangerouslySetInnerHTML={{__html: trackCode}}/>
