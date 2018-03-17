@@ -78,7 +78,8 @@ exports[`It should render Article component correctly 1`] = `
   position: absolute;
   line-height: 1.2em;
   padding: 4px;
-  background: #00ACC1;
+  border-radius: 3px;
+  background: #00897B;
   color: #FFFFFF;
   -webkit-transition: opacity .3s ease-out;
   transition: opacity .3s ease-out;
@@ -92,7 +93,7 @@ exports[`It should render Article component correctly 1`] = `
   left: -15px;
   top: 4px;
   border: 8px solid transparent;
-  border-right-color: #00ACC1;
+  border-right-color: #00897B;
 }
 
 .c0 {

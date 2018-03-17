@@ -22,7 +22,7 @@ exports[`It should render Pagination component correctly 1`] = `
   line-height: 32px;
   font-size: 1.5rem;
   color: #EEEEEE;
-  background: #006064;
+  background: #004D40;
   pointer-events: none;
 }
 
@@ -31,7 +31,7 @@ exports[`It should render Pagination component correctly 1`] = `
 }
 
 .c1:hover {
-  background: #006064;
+  background: #004D40;
 }
 
 @media (max-width:1200px) {
@@ -87,7 +87,7 @@ exports[`It should render Pagination component with both next page link and prev
   line-height: 32px;
   font-size: 1.5rem;
   color: #EEEEEE;
-  background: #006064;
+  background: #004D40;
   pointer-events: none;
 }
 
@@ -96,7 +96,7 @@ exports[`It should render Pagination component with both next page link and prev
 }
 
 .c2:hover {
-  background: #006064;
+  background: #004D40;
 }
 
 .c1 {
@@ -108,7 +108,7 @@ exports[`It should render Pagination component with both next page link and prev
   line-height: 32px;
   font-size: 1.5rem;
   color: #EEEEEE;
-  background: #0097A7;
+  background: #00796B;
   pointer-events: auto;
 }
 
@@ -117,7 +117,7 @@ exports[`It should render Pagination component with both next page link and prev
 }
 
 .c1:hover {
-  background: #006064;
+  background: #004D40;
 }
 
 @media (max-width:1200px) {
@@ -211,7 +211,7 @@ exports[`It should render Pagination component with previous page link correctly
   line-height: 32px;
   font-size: 1.5rem;
   color: #EEEEEE;
-  background: #006064;
+  background: #004D40;
   pointer-events: none;
 }
 
@@ -220,7 +220,7 @@ exports[`It should render Pagination component with previous page link correctly
 }
 
 .c2:hover {
-  background: #006064;
+  background: #004D40;
 }
 
 .c1 {
@@ -232,7 +232,7 @@ exports[`It should render Pagination component with previous page link correctly
   line-height: 32px;
   font-size: 1.5rem;
   color: #EEEEEE;
-  background: #0097A7;
+  background: #00796B;
   pointer-events: auto;
 }
 
@@ -241,7 +241,7 @@ exports[`It should render Pagination component with previous page link correctly
 }
 
 .c1:hover {
-  background: #006064;
+  background: #004D40;
 }
 
 @media (max-width:1200px) {

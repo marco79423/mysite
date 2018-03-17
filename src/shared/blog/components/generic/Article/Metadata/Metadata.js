@@ -47,6 +47,7 @@ const Tooltip = styled.span`
   position: absolute;
   line-height: 1.2em;
   padding: 4px;
+  border-radius: 3px;
   background: ${props => props.theme.page.main.content.article.metadata.tip.background};
   color: ${props => props.theme.page.main.content.article.metadata.tip.color};
   
