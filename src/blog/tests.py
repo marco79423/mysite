@@ -20,7 +20,7 @@ class ArticleAPITest(APITestCase):
             title='Title 2',
             date=dt.datetime(2017, 5, 7),
             modified_date=None,
-            content='content 2',
+            content='content 2  chicken 雞',
             categories=[entities.Category(category) for category in ['C1']],
             series='series'
         ))
@@ -28,7 +28,7 @@ class ArticleAPITest(APITestCase):
             title='Title 3',
             date=dt.datetime(2017, 5, 8),
             modified_date=dt.datetime(2017, 5, 9),
-            content='content 3',
+            content='content 3 雞',
             categories=[entities.Category(category) for category in ['C2']],
             series=None
         ))
@@ -46,9 +46,10 @@ class ArticleAPITest(APITestCase):
                     "categories": [
                         {"slug": "c2", "name": "C2"}
                     ],
-                    "content": "content 3",
-                    "summary": "content 3",
-                    "raw_summary": "content 3",
+                    "chicken_count": 1,
+                    "content": "content 3 雞",
+                    "summary": "content 3 雞",
+                    "raw_summary": "content 3 雞",
                     "series": None
                 },
                 {
@@ -59,9 +60,10 @@ class ArticleAPITest(APITestCase):
                     "categories": [
                         {"slug": "c1", "name": "C1"}
                     ],
-                    "content": "content 2",
-                    "summary": "content 2",
-                    "raw_summary": "content 2",
+                    "chicken_count": 2,
+                    "content": "content 2  chicken 雞",
+                    "summary": "content 2  chicken 雞",
+                    "raw_summary": "content 2  chicken 雞",
                     "series": "series"
                 },
                 {
@@ -73,6 +75,7 @@ class ArticleAPITest(APITestCase):
                         {"slug": "c1", "name": "C1"},
                         {"slug": "c2", "name": "C2"},
                     ],
+                    "chicken_count": 0,
                     "content": "content 1",
                     "summary": "content 1",
                     "raw_summary": "content 1",

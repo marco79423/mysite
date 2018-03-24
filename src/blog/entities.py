@@ -22,6 +22,10 @@ class Article(Entity):
         return utils.convert_to_slug(self.title)
 
     @property
+    def chicken_count(self):
+        return len(re.findall(r'(?:chicken|雞)', self.content))
+
+    @property
     def summary(self):
         return self._get_summary(self.content, 15)
 

@@ -12,6 +12,7 @@ class ArticleSerializer(serializers.Serializer):
     date = serializers.DateTimeField(read_only=True)
     modified_date = serializers.DateTimeField(read_only=True)
     categories = CategorySerializer(many=True, read_only=True)
+    chicken_count = serializers.IntegerField(read_only=True)
     content = serializers.CharField(read_only=True)
     summary = serializers.CharField(read_only=True)
     raw_summary = serializers.CharField(read_only=True)
