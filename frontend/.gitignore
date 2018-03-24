@@ -1,0 +1,12 @@
+/styles
+/node_modules
+/dist
+/coverage
+/.idea
+
+npm-debug.log
+/__server.js
+/hosts.json
+/*.pem
+
+*.pyc
