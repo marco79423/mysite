@@ -1,10 +1,10 @@
-¡u¨â¤jÃş x ¨â¤jÃş = ¥|¤jÃş¡vºô¯¸
+ã€Œå…©å¤§é¡ x å…©å¤§é¡ = å››å¤§é¡ã€ç¶²ç«™
 ################################
 
 
-ºô§}¡G https://marco79423.net
+ç¶²å€ï¼š https://marco79423.net
 
 =========== ================================================
-  ºô¯¸¥»Åé    https://github.com/marco79423/mysite
-  ºô¯¸¤º®e    https://github.com/marco79423/mysite-content
+  ç¶²ç«™æœ¬é«”    https://github.com/marco79423/mysite
+  ç¶²ç«™å…§å®¹    https://github.com/marco79423/mysite-content
 =========== ================================================
