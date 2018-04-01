@@ -1,0 +1,48 @@
+version: '3.6'
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"  # for now
+    volumes:
+      - "logs:/logs"
+  backend:
+    build:
+      context: ./backend
+    command: main
+    ports:
+      - "8000:8000"  # for now
+    depends_on:
+      - redis
+    volumes:
+      - "logs:/logs"
+  backend-celery-worker:
+    build:
+      context: ./backend
+    command: celery-worker
+    depends_on:
+      - redis
+    volumes:
+      - "logs:/logs"
+  backend-celery-beat:
+    build:
+      context: ./backend
+    command: celery-beat
+    depends_on:
+      - redis
+    volumes:
+      - "logs:/logs"
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "./frontend/conf/nginx/nginx.conf:/etc/nginx/conf.d/frontend.conf:ro"
+      - "./backend/conf/nginx/nginx.conf:/etc/nginx/conf.d/backend.conf:ro"
+      - "logs:/logs"
+  redis:
+    image: redis:alpine
+    command: ["redis-server", "--appendonly", "yes"]
+volumes:
+  logs:
