@@ -12,7 +12,9 @@ def call(cmd, ignore_error=False):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("operation", default='main')
+parser.add_argument("operation",
+                    choices=['main', 'celery-worker', 'celery-beat'],
+                    default='main')
 
 args = parser.parse_args()
 if args.operation == 'main':

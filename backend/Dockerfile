@@ -10,4 +10,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src .
 
 ENTRYPOINT ["python", "docker_entry.py"]
+CMD ["--help"]
 EXPOSE 8000
