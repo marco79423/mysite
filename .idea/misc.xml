@@ -3,7 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5.3 (C:\Anaconda3\envs\mysite-backend\python.exe)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (mysite)" project-jdk-type="Python SDK" />
   <component name="WebPackConfiguration">
     <option name="path" value="$PROJECT_DIR$/frontend/webpack.config.js" />
   </component>
