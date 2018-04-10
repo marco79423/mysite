@@ -39,8 +39,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - "./frontend/conf/nginx/nginx.conf:/etc/nginx/conf.d/frontend.conf:ro"
-      - "./backend/conf/nginx/nginx.conf:/etc/nginx/conf.d/backend.conf:ro"
+      - "./conf/nginx.conf:/etc/nginx/conf.d/mysite.conf:ro"
       - "logs:/logs"
   memcached:
     image: memcached:alpine
