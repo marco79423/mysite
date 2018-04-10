@@ -36,6 +36,7 @@ MIDDLEWARE = [
     'django.middleware.cache.UpdateCacheMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -61,6 +62,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ##################################################################
 # Media
@@ -104,18 +107,16 @@ DATABASES = {
 # Cache
 ##################################################################
 
-USE_CACHE = False
-if USE_CACHE:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
-            'TIMEOUT': 60 * 60 * 24,  # 1d
-            'OPTIONS': {
-                'MAX_ENTRIES': 1000
-            }
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'memcached:11211',
+        'TIMEOUT': 60 * 60 * 24,  # 1d
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
         }
     }
+}
 
 ##################################################################
 # Apps

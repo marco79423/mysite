@@ -14,6 +14,7 @@ services:
     ports:
       - "8000:8000"  # for now
     depends_on:
+      - memcached
       - redis
     volumes:
       - "logs:/logs"
@@ -41,6 +42,8 @@ services:
       - "./frontend/conf/nginx/nginx.conf:/etc/nginx/conf.d/frontend.conf:ro"
       - "./backend/conf/nginx/nginx.conf:/etc/nginx/conf.d/backend.conf:ro"
       - "logs:/logs"
+  memcached:
+    image: memcached:alpine
   redis:
     image: redis:alpine
     command: ["redis-server", "--appendonly", "yes"]
