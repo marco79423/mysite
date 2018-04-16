@@ -1,7 +1,5 @@
 import { call, put, select } from 'redux-saga/effects'
 
-import { getBackendServerUrl } from '../config/selectors'
-
 import fetchJSON from '../../../../lib/fetchJSON'
 
 import * as actions from './actions'
@@ -10,13 +8,8 @@ import { fetchArticlesSaga } from './saga'
 describe('fetchArticlesSaga', () => {
   const generator = fetchArticlesSaga()
 
-  test('should get backend server url from state', () => {
-    expect(generator.next().value).toEqual(select(getBackendServerUrl))
-  })
-
   test('should fetch articles from backend server', () => {
-    const backendServerUrl = 'BACKEND_SERVER_URL'
-    expect(generator.next(backendServerUrl).value).toEqual(call(fetchJSON, `${backendServerUrl}/api/articles/`))
+    expect(generator.next().value).toEqual(call(fetchJSON, '/api/articles/'))
   })
 
   test('should create action for the response', () => {

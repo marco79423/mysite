@@ -48,3 +48,4 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
 volumes:
   logs:
+

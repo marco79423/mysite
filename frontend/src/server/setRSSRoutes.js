@@ -5,7 +5,7 @@ import * as config from '../config/server'
 
 export default function setRSSRoutes (app) {
   app.get('/atom.xml', function (req, res) {
-    return fetch(`${sharedConfig.BACKEND_SERVER_URL}/api/articles/`)
+    return fetch('/api/articles/')
       .then(res => res.json())
       .then(articles => {
         const feed = new Feed({
@@ -30,7 +30,7 @@ export default function setRSSRoutes (app) {
   })
 
   app.get('/rss.xml', function (req, res) {
-    return fetch(`${sharedConfig.BACKEND_SERVER_URL}/api/articles/`)
+    return fetch('/api/articles/')
       .then(res => res.json())
       .then(articles => {
         const feed = new Feed({
