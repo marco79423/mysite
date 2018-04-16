@@ -154,7 +154,9 @@ SECRET_KEY = "I dont care in development env"
 ALLOWED_HOSTS = [
     "localhost",
     "api.marco79423.net",
-    "api-dev.marco79423.net"
+    "api-dev.marco79423.net",
+    "marco79423.net",
+    "dev.marco79423.net",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -173,8 +175,8 @@ REST_FRAMEWORK = {
 # Celery
 ##################################################################
 
-BROKER_URL = 'django://'
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
+BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 
 ##################################################################
 # Application settings
