@@ -11,15 +11,21 @@ matrix:
       cache:
         directories:
           - "frontend/node_modules"
-    - language: python
+    - sudo: required
+      language: python
+      services:
+        - docker
       python: "3.5"
-      before_install:
-        - cd backend
-      install:
-        - pip install -r requirements.txt
       before_script:
-        - cd src
-        - python manage.py collectstatic --no-input
+        - cd backend
       script:
-        - python manage.py test
-
+        - docker --version
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build --no-cache -t marco79423/mysite-backend:latest .
+      after_success:
+        - docker push marco79423/mysite-backend:latest
+        - |
+          if [ ! -z "$TRAVIS_TAG" ]; then
+            docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:$TRAVIS_TAG
+            docker push marco79423/mysite-backend:$TRAVIS_TAG
+          fi
