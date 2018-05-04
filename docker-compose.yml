@@ -1,34 +1,26 @@
 version: '3.6'
 services:
   frontend:
-    build:
-      context: ./frontend
-    ports:
-      - "3000:3000"  # for now
+    image: marco79423/mysite-frontend
     volumes:
       - "logs:/logs"
   backend:
-    build:
-      context: ./backend
+    image: marco79423/mysite-backend
     command: main
-    ports:
-      - "8000:8000"  # for now
     depends_on:
       - memcached
       - redis
     volumes:
       - "logs:/logs"
   backend-celery-worker:
-    build:
-      context: ./backend
+    image: marco79423/mysite-backend
     command: celery-worker
     depends_on:
       - redis
     volumes:
       - "logs:/logs"
   backend-celery-beat:
-    build:
-      context: ./backend
+    image: marco79423/mysite-backend
     command: celery-beat
     depends_on:
       - redis
@@ -48,4 +40,3 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
 volumes:
   logs:
-
