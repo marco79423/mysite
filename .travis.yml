@@ -1,21 +1,24 @@
 matrix:
   include:
-    - language: node_js
-      node_js: "6"
-      before_install:
+    - sudo: required
+      language: node_js
+      before_script:
         - cd frontend
-      install:
-        - yarn
       script:
-        - yarn test
-      cache:
-        directories:
-          - "frontend/node_modules"
+        - docker --version
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build --no-cache -t marco79423/mysite-frontend:latest .
+      after_success:
+        - docker push marco79423/mysite-frontend:latest
+        - |
+          if [ ! -z "$TRAVIS_TAG" ]; then
+            docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:$TRAVIS_TAG
+            docker push marco79423/mysite-frontend:$TRAVIS_TAG
+          fi
     - sudo: required
       language: python
       services:
         - docker
-      python: "3.5"
       before_script:
         - cd backend
       script:
