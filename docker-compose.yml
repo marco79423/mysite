@@ -11,6 +11,7 @@ services:
       - memcached
       - redis
     volumes:
+      - "./content:/content:ro"
       - "logs:/logs"
   backend-celery-worker:
     image: marco79423/mysite-backend

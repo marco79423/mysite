@@ -20,6 +20,7 @@ args = parser.parse_args()
 if args.operation == 'main':
     call('python manage.py migrate')
     call('python manage.py collectstatic --no-input')
+    call('python manage.py build /content')
     call('gunicorn mysite_backend.wsgi:application -b :8000')
 elif args.operation == 'celery-worker':
     os.environ['C_FORCE_ROOT'] = '1'
