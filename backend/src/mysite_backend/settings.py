@@ -11,7 +11,6 @@ PROJECT_NAME = PROJECT_DIR.basename()
 ROOT_URLCONF = 'mysite_backend.urls'
 
 WSGI_APPLICATION = 'mysite_backend.wsgi.application'
-HOST = "http://localhost:8000"
 
 DEBUG = True
 

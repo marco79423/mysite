@@ -1,3 +1,5 @@
+import os
+
 import htmlmin
 import slugify
 
@@ -24,8 +26,8 @@ class ContentSpider:
 
 
 class ContentManager:
-    BASE_IMAGE_URL = settings.HOST + settings.MEDIA_URL + "images/"
-    BASE_APPFILE_URL = settings.HOST + settings.MEDIA_URL + "appfiles/"
+    BASE_IMAGE_URL = settings.MEDIA_URL + "images/"
+    BASE_APPFILE_URL = settings.MEDIA_URL + "appfiles/"
 
     MEDIA_IMAGE_DIR = settings.MEDIA_ROOT / "images"
     MEDIA_APPFILE_DIR = settings.MEDIA_ROOT / "appfiles"
