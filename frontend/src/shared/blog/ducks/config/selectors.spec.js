@@ -17,6 +17,16 @@ test('getHostUrl should return host url', () => {
   expect(selectors.getHostUrl(state)).toEqualImmutable(expected)
 })
 
+test('getBackendServerUrl should return api server url', () => {
+  const state = Immutable.fromJS({
+    config: {
+      BACKEND_SERVER_URL: 'BACKEND_SERVER_URL'
+    }
+  })
+  const expected = 'BACKEND_SERVER_URL'
+  expect(selectors.getBackendServerUrl(state)).toEqualImmutable(expected)
+})
+
 test('getSiteName should return site name', () => {
   const state = Immutable.fromJS({
     config: {

@@ -44,6 +44,7 @@ export const MENU_ITEMS = {
 export const RECENT_ARTICLE_COUNT = 5
 
 export const HOST_URL = 'https://marco79423.net'
+export const BACKEND_SERVER_URL = ''
 export const PAGE_SIZE = 10
 
 export const COMMENT_CONFIG = {
