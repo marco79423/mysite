@@ -88,30 +88,8 @@ def _install_pkgs():
     sudo('apt-get install -y nginx')
 
 
-@task
-def _setup_proj():
-    version = "{} ({})".format(env.config['branch'],
-                               local('git rev-parse {}'.format(env.config['branch']), capture=True))
-    updated_time = str(dt.datetime.now())
-
-    with cd(env.config['project_path']):
-        print(cyan('Prepare project ...'))
-        settings_path = '{}/src/config/shared.js'.format(env.config['project_path'])
-        sed(settings_path, 'BACKEND_SERVER_URL = "https://api.marco79423.net"',
-            'BACKEND_SERVER_URL = "{}"'.format(env.config['backend_server_url']), shell=True, use_sudo=True)
-        sed(settings_path, 'SITE_VERSION = ""', 'SITE_VERSION = "{}"'.format(version), shell=True, use_sudo=True)
-        sed(settings_path, 'SITE_UPDATED_TIME = ""', 'SITE_UPDATED_TIME = "{}"'.format(updated_time), shell=True,
-            use_sudo=True)
-
-        sudo('npm install', warn_only=True)
-        sudo('npm run dist')
-        sudo('chown -R www-data:www-data .')
 
 
-@task
-def _test_proj():
-    with cd(env.config['project_path']):
-        sudo("npm run test")
 
 
 @task
