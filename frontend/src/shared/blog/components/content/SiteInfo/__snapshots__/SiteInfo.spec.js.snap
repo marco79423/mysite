@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render SiteInfo component correctly 1`] = `
+.c4 {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.c5 {
+  background: #eee;
+}
+
+.c5:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.c6 {
+  padding: 0.6em;
+  border: 1px solid #ccc;
+}
+
+.c3 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  color: #006064;
+}
+
+.c2 {
+  font-size: 2rem;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  min-height: 600px;
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.c1 h1 {
+  margin: 3px 0 24px;
+}
+
+.c1 h1 a {
+  font-size: 2rem;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+<section
+  className="c0"
+>
+  <article>
+    <header
+      className="c1"
+    >
+      <h1>
+        <a
+          className="c2 c3"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          網站資訊
+        </a>
+      </h1>
+    </header>
+    <table
+      className="c4"
+    >
+      <tbody
+        className=""
+      >
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
+            網站更新時間：
+          </td>
+          <td
+            className="c6"
+          >
+            2017-04-08 12:01:57.198000
+          </td>
+        </tr>
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
+            前端版本：
+          </td>
+          <td
+            className="c6"
+          >
+            master (3f5eb304b501ea2b5437ed6c4612bbc66077b7b8)
+          </td>
+        </tr>
+        <tr
+          className="c5"
+        >
+          <td
+            className="c6"
+          >
+            後端版本：
+          </td>
+          <td
+            className="c6"
+          >
+            develop (81ccde3550325c06a10b6acce75b4df529955472)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+`;
