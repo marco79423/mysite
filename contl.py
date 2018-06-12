@@ -45,12 +45,14 @@ def upload_proj(project_path, branch):
 
 @task
 def install_frontend_required_pkgs():
-    print(cyan('Install node and associated packages...'))
-    sudo('curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -')
+    if not exists('/usr/bin/node'):
+        print(cyan('Install node and associated packages...'))
+        sudo('curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -')
 
-    sudo('curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -')
-    sudo('echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list')
-    sudo('sudo apt-get update && sudo apt-get install yarn')
+    if not exists('/usr/bin/yarn'):
+        sudo('curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -')
+        sudo('echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list')
+        sudo('sudo apt-get update && sudo apt-get install yarn')
 
     print(cyan('Install http server ...'))
     sudo('apt-get install -y nginx')
