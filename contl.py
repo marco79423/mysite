@@ -36,6 +36,7 @@ def upload_proj(project_path, branch):
     sudo('mkdir -p {}'.format(project_path))
     local('git archive --format=tar {} > dist.tar'.format(branch))
     with cd(project_path):
+        sudo('rm -rf *')
         put('dist.tar', 'dist.tar', use_sudo=True)
         sudo('tar vxf dist.tar')
         sudo('rm dist.tar')
