@@ -179,7 +179,7 @@ CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
 # Application settings
 ##################################################################
 
-SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "mysite-content"
+SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "content"
 
 ##################################################################
 # Other

@@ -4,6 +4,8 @@ export const AUTHOR_INFO = {
 }
 
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
+export const HOST_URL = 'https://marco79423.net'
+export const BACKEND_SERVER_URL = ""  // eslint-disable-line
 
 export const SITE_META = {
   viewport: 'width=device-width, initial-scale=1.0',
@@ -12,7 +14,7 @@ export const SITE_META = {
   description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
   author: AUTHOR_INFO.name,
 
-  'og:image': 'http://api.marco79423.net/static/resources/img/marco.jpg',
+  'og:image': `${BACKEND_SERVER_URL}/static/resources/img/marco.jpg`,
   'og:description': '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
 
   'fb:admins': '100000038752074',
@@ -43,8 +45,6 @@ export const MENU_ITEMS = {
 
 export const RECENT_ARTICLE_COUNT = 5
 
-export const HOST_URL = 'https://marco79423.net'
-export const BACKEND_SERVER_URL = "https://api.marco79423.net"  // eslint-disable-line
 export const PAGE_SIZE = 10
 
 export const COMMENT_CONFIG = {
