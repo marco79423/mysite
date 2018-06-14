@@ -135,9 +135,9 @@ def setup_backend_proj(backend_path, server_name, project_version, backend_secre
             sed('mysite_backend/settings.py', 'HOST = "http://localhost:8000"', 'HOST = "https://{}"'.format(server_name), shell=True, use_sudo=True)
             sed('mysite_backend/settings.py', 'SECRET_KEY = "I dont care in development env"', 'SECRET_KEY = "{}"'.format(backend_secret_key), shell=True, use_sudo=True)
 
-            sudo('../venv/bin/python manage.py migrate')
-            sudo('../venv/bin/python manage.py collectstatic --noinput')
-            sudo('../venv/bin/python manage.py createcachetable')
+            sudo('../venv/bin/python manage.py migrate', user='www-data')
+            sudo('../venv/bin/python manage.py collectstatic --noinput', user='www-data')
+            sudo('../venv/bin/python manage.py createcachetable', user='www-data')
 
             sudo("../venv/bin/python manage.py test")
 
