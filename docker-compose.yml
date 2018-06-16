@@ -1,0 +1,6 @@
+version: '3.6'
+services:
+  frontend-dev:
+    image: marco79423/mysite-frontend
+    ports:
+      - "4000:3000"
