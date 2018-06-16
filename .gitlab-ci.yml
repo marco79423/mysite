@@ -1,0 +1,28 @@
+image: python:3
+
+.deploy-template: &deploy-template
+  stage: deploy
+  before_script:
+    - pip install -r requirements-deploy.txt
+    - echo "$PROJECT_CONFIG" > project_config.json
+    - echo "$SSH_PRIVATE_KEY" > my_aws.pem
+
+deploy-dev:
+  <<: *deploy-template
+  except:
+    - tags
+  script:
+    - python contl.py deploy
+  environment:
+    name: development
+    url: https://dev.marco79423.net
+
+deploy-prod:
+  <<: *deploy-template
+  only:
+    - tags
+  script:
+    - python contl.py deploy --prod
+  environment:
+    name: production
+    url: https://marco79423.net
