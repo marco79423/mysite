@@ -1,11 +1,41 @@
-image: python:3
+image: docker:stable
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+build-frontend-dev:
+  stage: build
+  before_script:
+    - docker --version
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git tzdata
+    - BACKEND_SERVER_URL=https://dev.marco79423.net
+    - SITE_VERSION=`git describe --tags`
+    - SITE_UPDATED_TIME=`TZ=Asia/Taipei date -Iseconds`
+  script:
+    - cd frontend
+    - docker build
+      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg SITE_VERSION=$SITE_VERSION
+      --build-arg SITE_UPDATED_TIME=$SITE_UPDATED_TIME
+      --tag marco79423/mysite-frontend:latest
+      .
+    - docker push marco79423/mysite-frontend:latest
+    - docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
+    - docker push marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
 
 .deploy-template: &deploy-template
+  image: python:3
   stage: deploy
   before_script:
     - pip install -r requirements-deploy.txt
     - echo "$PROJECT_CONFIG" > project_config.json
     - echo "$SSH_PRIVATE_KEY" > my_aws.pem
+  when: on_success
 
 deploy-dev:
   <<: *deploy-template

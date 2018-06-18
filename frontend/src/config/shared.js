@@ -5,7 +5,7 @@ export const AUTHOR_INFO = {
 
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
 export const HOST_URL = 'https://marco79423.net'
-export const BACKEND_SERVER_URL = ""  // eslint-disable-line
+export const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL || HOST_URL
 
 export const SITE_META = {
   viewport: 'width=device-width, initial-scale=1.0',
@@ -51,5 +51,5 @@ export const COMMENT_CONFIG = {
   shortName: 'marco79423'
 }
 
-export const SITE_VERSION = ""  // eslint-disable-line
-export const SITE_UPDATED_TIME = ""  // eslint-disable-line
+export const SITE_VERSION = process.env.SITE_VERSION || ""
+export const SITE_UPDATED_TIME = process.env.SITE_UPDATED_TIME || ""
