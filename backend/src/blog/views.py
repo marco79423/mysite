@@ -1,4 +1,3 @@
-from celery.result import AsyncResult
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import permission_classes
@@ -8,7 +7,6 @@ from rest_framework.reverse import reverse
 
 from blog import serializers
 from blog import store
-from blog import tasks
 from mysite_backend import settings
 
 
@@ -38,20 +36,4 @@ def get_web_page_list(request):
 def get_info(request):
     return Response({
         'version': settings.VERSION,
-    })
-
-
-@api_view(['POST'])
-@permission_classes((IsAuthenticated,))
-def post_rebuild_task(request):
-    task = tasks.rebuild_content.delay()
-    return Response({'id': task.task_id}, status=status.HTTP_201_CREATED)
-
-
-@api_view(['GET'])
-@permission_classes((IsAuthenticated,))
-def get_rebuild_task(request, task_id):
-    result = AsyncResult(task_id)
-    return Response({
-        'state': result.state
     })
