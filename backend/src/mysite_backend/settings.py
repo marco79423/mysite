@@ -33,7 +33,6 @@ USE_L10N = True
 ##################################################################
 
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -42,7 +41,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ##################################################################
@@ -100,22 +98,6 @@ DATABASES = {
     },
 }
 
-##################################################################
-# Cache
-##################################################################
-
-USE_CACHE = False
-if USE_CACHE:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
-            'TIMEOUT': 60 * 60 * 24,  # 1d
-            'OPTIONS': {
-                'MAX_ENTRIES': 1000
-            }
-        }
-    }
 
 ##################################################################
 # Apps
