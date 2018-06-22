@@ -135,8 +135,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     'rest_framework.authtoken',
     "corsheaders",
-    'djcelery',
-    'kombu.transport.django',
 ]
 
 PROJECT_APPS = [
@@ -167,13 +165,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
-##################################################################
-# Celery
-##################################################################
-
-BROKER_URL = 'django://'
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
 
 ##################################################################
 # Application settings

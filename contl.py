@@ -107,7 +107,7 @@ def setup_backend_proj(backend_path, server_name, project_version, backend_secre
 
 @task
 def setup_backend_serv(backend_path, project_name):
-    for service_name in ['gunicorn', 'celeryd']:
+    for service_name in ['gunicorn']:
         print(cyan('Setup {} ...'.format(service_name)))
         config_path = '/etc/init/{}-{}.conf'.format(project_name, service_name)
         with cd(backend_path):
@@ -117,7 +117,7 @@ def setup_backend_serv(backend_path, project_name):
 
 @task
 def restart_backend_service(project_name):
-    for service_name in ['gunicorn', 'celeryd']:
+    for service_name in ['gunicorn']:
         sudo('service {}-{} restart'.format(project_name, service_name))
 
 
