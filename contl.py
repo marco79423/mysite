@@ -41,6 +41,22 @@ def upload_proj(project_path, branch):
         sudo('tar vxf dist.tar')
         sudo('rm dist.tar')
         sudo('chown -R www-data:www-data .')
+
+
+@task
+def setup_project_serv(project_path, branch):
+    sudo('mkdir -p {}'.format(project_path))
+    local('git archive --format=tar {} > dist.tar'.format(branch))
+    with cd(project_path):
+        sudo('rm -rf *')
+        put('dist.tar', 'dist.tar', use_sudo=True)
+        sudo('tar vxf dist.tar')
+        sudo('rm dist.tar')
+
+        sudo('docker-compose pull')
+        sudo('docker-compose up --force-recreate --detach')
+
+        sudo('chown -R www-data:www-data .')
     local('rm dist.tar')
 
 
@@ -103,11 +119,7 @@ def deploy(branch, prod):
     print('deploy: mode: {} branch: {}'.format('prod' if prod else 'dev', branch))
 
     project_path = '/var/www/{}/'.format(config['name'])
-    execute(upload_proj, project_path, branch)
-
-    with cd(project_path):
-        sudo('docker-compose pull')
-        sudo('docker-compose up --force-recreate --detach')
+    execute(setup_project_serv, project_path, branch)
 
     project_name = config['name']
     server_name = config['server_name']
