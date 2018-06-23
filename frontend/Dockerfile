@@ -2,11 +2,11 @@ FROM node:6-alpine
 
 RUN mkdir /app
 WORKDIR /app
-COPY package.json ./package.json
-COPY yarn.lock ./yarn.lock
+COPY frontend/package.json ./package.json
+COPY frontend/yarn.lock ./yarn.lock
 RUN yarn
 
-COPY . .
+COPY frontend .
 
 ARG BACKEND_SERVER_URL
 ARG SITE_VERSION
