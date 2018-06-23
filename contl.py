@@ -91,7 +91,7 @@ def server(operation):
 @main.command()
 @click.option('--prod', is_flag=True)
 @click.option('--branch')
-def deploy(target, branch, prod):
+def deploy(branch, prod):
     if prod:
         config = CONFIGS['prod']
     else:
@@ -100,7 +100,7 @@ def deploy(target, branch, prod):
     if not branch:
         branch = config['default_branch']
 
-    print('deploy target: {} mode: {} branch: {}'.format(target, 'prod' if prod else 'dev', branch))
+    print('deploy: mode: {} branch: {}'.format('prod' if prod else 'dev', branch))
 
     project_path = '/var/www/{}/'.format(config['name'])
     execute(upload_proj, project_path, branch)
