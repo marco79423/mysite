@@ -28,6 +28,26 @@ build-frontend-dev:
     - docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
 
+build-backend-dev:
+  stage: build
+  before_script:
+    - docker --version
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git tzdata
+    - BACKEND_SERVER_URL=https://dev.marco79423.net
+    - SITE_VERSION=`git describe --tags`
+  script:
+    - cd backend
+    - docker build
+      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg BACKEND_SECRET_KEY=$BACKEND_SECRET_KEY
+      --build-arg SITE_VERSION=$SITE_VERSION
+      --tag marco79423/mysite-backend:latest
+      .
+    - docker push marco79423/mysite-backend:latest
+    - docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:$CI_COMMIT_REF_NAME
+    - docker push marco79423/mysite-backend:$CI_COMMIT_REF_NAME
+
 .deploy-template: &deploy-template
   image: python:3
   stage: deploy

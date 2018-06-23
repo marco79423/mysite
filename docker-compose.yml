@@ -4,3 +4,11 @@ services:
     image: marco79423/mysite-frontend
     ports:
       - "4000:3000"
+  backend-dev:
+    image: marco79423/mysite-backend
+    volumes:
+      - "./content:/content:ro"
+      - "./backend/src/static:/app/static"
+      - "./backend/src/media:/app/media"
+    ports:
+      - "9000:8000"

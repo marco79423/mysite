@@ -1,3 +1,5 @@
+import os
+
 from path import Path
 
 
@@ -11,7 +13,7 @@ PROJECT_NAME = PROJECT_DIR.basename()
 ROOT_URLCONF = 'mysite_backend.urls'
 
 WSGI_APPLICATION = 'mysite_backend.wsgi.application'
-HOST = "http://localhost:8000"
+HOST = os.environ.get('BACKEND_SERVER_URL', 'http://localhost:8000')
 
 DEBUG = True
 
@@ -129,7 +131,7 @@ INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 # Security
 ##################################################################
 
-SECRET_KEY = "I dont care in development env"
+SECRET_KEY = os.environ.get('ARG BACKEND_SECRET_KEY', 'I dont care in development env')
 ALLOWED_HOSTS = [
     "localhost",
     "api.marco79423.net",
@@ -158,4 +160,4 @@ SOURCE_DIR = Path(PROJECT_DIR) / ".." / ".." / "content"
 # Other
 ##################################################################
 
-VERSION = ""
+VERSION = os.environ.get('SITE_VERSION', '')
