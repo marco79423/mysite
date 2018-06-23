@@ -8,16 +8,19 @@ ENV BACKEND_SERVER_URL $BACKEND_SERVER_URL
 ENV BACKEND_SECRET_KEY $BACKEND_SECRET_KEY
 ENV SITE_VERSION $SITE_VERSION
 
-RUN mkdir /app
+RUN mkdir /app && mkdir /content
+COPY content /content
+
 WORKDIR /app
-COPY requirements.txt ./requirements.txt
+COPY backend/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src .
+COPY backend/src .
 
 RUN python manage.py collectstatic --no-input
 RUN python manage.py migrate
 RUN python manage.py test
+RUN python manage.py build /content
 
-CMD ["python", "docker_entry.py"]
+CMD ["gunicorn", "mysite_backend.wsgi:application", "-b", ":8000"]
 EXPOSE 8000

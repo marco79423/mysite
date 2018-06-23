@@ -7,7 +7,6 @@ services:
   backend-dev:
     image: marco79423/mysite-backend
     volumes:
-      - "./content:/content:ro"
       - "./backend/src/static:/app/static"
       - "./backend/src/media:/app/media"
     ports:

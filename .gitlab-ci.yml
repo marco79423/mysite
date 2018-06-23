@@ -37,8 +37,8 @@ build-backend-dev:
     - BACKEND_SERVER_URL=https://dev.marco79423.net
     - SITE_VERSION=`git describe --tags`
   script:
-    - cd backend
     - docker build
+      --file backend/Dockerfile
       --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --build-arg BACKEND_SECRET_KEY=$BACKEND_SECRET_KEY
       --build-arg SITE_VERSION=$SITE_VERSION
