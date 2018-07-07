@@ -1,5 +1,6 @@
 version: '3.6'
 services:
+  # app
   frontend-dev:
     image: marco79423/mysite-frontend-dev:latest
     depends_on:
@@ -20,6 +21,7 @@ services:
       - "backend-static:/app/static"
       - "backend-media:/app/media"
 
+  # proxy
   proxy:
     image: nginx:alpine
     ports:
@@ -43,9 +45,20 @@ services:
 
       - "backend-static:/backend-static"
       - "backend-media:/backend-media"
+
+  # monitor
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "portainer-data:/data"
 volumes:
   backend-static-dev:
   backend-media-dev:
 
   backend-static:
   backend-media:
+
+  portainer-data:
