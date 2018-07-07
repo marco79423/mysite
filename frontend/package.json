@@ -2,9 +2,9 @@
   "name": "mysite-frontend",
   "version": "3.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src"
   },
   "dependencies": {
     "next": "^6.1.1",
