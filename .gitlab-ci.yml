@@ -17,8 +17,29 @@ build-frontend-dev:
     - SITE_VERSION=`git describe --tags`
     - SITE_UPDATED_TIME=`TZ=Asia/Taipei date -Iseconds`
   script:
-    - cd frontend
     - docker build
+      --file frontend/Dockerfile
+      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg SITE_VERSION=$SITE_VERSION
+      --build-arg SITE_UPDATED_TIME=$SITE_UPDATED_TIME
+      --tag marco79423/mysite-frontend-dev:latest
+      .
+    - docker push marco79423/mysite-frontend-dev:latest
+    - docker tag marco79423/mysite-frontend-dev:latest marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
+    - docker push marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
+
+build-frontend:
+  stage: build
+  before_script:
+    - docker --version
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git tzdata
+    - BACKEND_SERVER_URL=https://marco79423.net
+    - SITE_VERSION=`git describe --tags`
+    - SITE_UPDATED_TIME=`TZ=Asia/Taipei date -Iseconds`
+  script:
+    - docker build
+      --file frontend/Dockerfile
       --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --build-arg SITE_VERSION=$SITE_VERSION
       --build-arg SITE_UPDATED_TIME=$SITE_UPDATED_TIME
@@ -37,8 +58,28 @@ build-backend-dev:
     - BACKEND_SERVER_URL=https://dev.marco79423.net
     - SITE_VERSION=`git describe --tags`
   script:
-    - cd backend
     - docker build
+      --file backend/Dockerfile
+      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg BACKEND_SECRET_KEY=$BACKEND_SECRET_KEY
+      --build-arg SITE_VERSION=$SITE_VERSION
+      --tag marco79423/mysite-backend-dev:latest
+      .
+    - docker push marco79423/mysite-backend-dev:latest
+    - docker tag marco79423/mysite-backend-dev:latest marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
+    - docker push marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
+
+build-backend:
+  stage: build
+  before_script:
+    - docker --version
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git tzdata
+    - BACKEND_SERVER_URL=https://marco79423.net
+    - SITE_VERSION=`git describe --tags`
+  script:
+    - docker build
+      --file backend/Dockerfile
       --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --build-arg BACKEND_SECRET_KEY=$BACKEND_SECRET_KEY
       --build-arg SITE_VERSION=$SITE_VERSION
@@ -48,7 +89,7 @@ build-backend-dev:
     - docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-backend:$CI_COMMIT_REF_NAME
 
-.deploy-template: &deploy-template
+deploy:
   image: python:3
   stage: deploy
   before_script:
@@ -56,23 +97,5 @@ build-backend-dev:
     - echo "$PROJECT_CONFIG" > project_config.json
     - echo "$SSH_PRIVATE_KEY" > my_aws.pem
   when: on_success
-
-deploy-dev:
-  <<: *deploy-template
-  except:
-    - tags
   script:
     - python contl.py deploy
-  environment:
-    name: development
-    url: https://dev.marco79423.net
-
-deploy-prod:
-  <<: *deploy-template
-  only:
-    - tags
-  script:
-    - python contl.py deploy --prod
-  environment:
-    name: production
-    url: https://marco79423.net
