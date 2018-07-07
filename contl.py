@@ -4,7 +4,7 @@ import click
 from fabric.api import *
 
 PROJECT_CONFIG_FILE = "project_config.json"
-PROJECT_PATH = '/var/www/mysite-dev/'
+PROJECT_PATH = '/var/www/mysite/'
 
 @task
 def update_sys():
