@@ -1,10 +1,12 @@
 import React from 'react'
 
+import style from './MainLayout.scss'
+
 export default class MainLayout extends React.Component {
 
   render(){
     return (
-      <div style={{background: 'green'}}>{this.props.children}</div>
+      <div className={style.root}>{this.props.children}</div>
     )
   }
 }
