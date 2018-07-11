@@ -56,15 +56,11 @@ build-backend-dev:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - apk update && apk add -U git tzdata
-    - BACKEND_SERVER_URL=https://dev.marco79423.net
-    - SITE_VERSION=`git describe --tags`
+    - STATIC_URL=https://dev.marco79423.net/static/
   script:
     - docker build
       --file backend/Dockerfile
-      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
-      --build-arg BACKEND_SECRET_KEY=$BACKEND_SECRET_KEY
-      --build-arg SITE_VERSION=$SITE_VERSION
+      --build-arg STATIC_URL=$STATIC_URL
       --tag marco79423/mysite-backend-dev:latest
       .
     - docker push marco79423/mysite-backend-dev:latest

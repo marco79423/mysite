@@ -1,10 +1,10 @@
+# python associated
+
 *.pyc
 __pycache__
-/.idea
-/src/static
-/src/media
-/src/db.sqlite3
 
-/project_config.json
-/*.pem
-/*.ppk
+# test associated
+.pytest_cache
+
+# dev datbase
+*.db
