@@ -4,7 +4,7 @@ export const AUTHOR_INFO = {
 }
 
 export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
-export const HOST_URL = 'https://marco79423.net'
+export const HOST_URL = 'http://localhost:8000'
 export const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL || HOST_URL
 
 export const SITE_META = {

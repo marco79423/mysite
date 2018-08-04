@@ -1,4 +1,5 @@
 import io
+import uuid
 from datetime import datetime
 
 import dateutil.parser
@@ -7,15 +8,17 @@ import docutils.io
 import docutils.nodes
 from PIL import Image
 
-from libs.rst_transformer import entities
-from libs.rst_transformer.directives import pygments
-from libs.rst_transformer.directives import youtube
+from domain.base_types import Service
+from domain.rst_parser.entities.article import Article
+from domain.rst_parser.entities.resource import Resource
+from domain.rst_parser.services.directives import youtube, pygments
 
 youtube.register()
 pygments.register()
 
 
-class RstTransformer:
+class TransformRstService(Service):
+
     def __init__(self):
         self._extra_params = {
             'initial_header_level': '2',
@@ -25,17 +28,17 @@ class RstTransformer:
             'embed_stylesheet': False
         }
 
-    def transform_rst_to_html(self, file_path):
+    def generate_article(self, file_path):
         with open(file_path, encoding='utf-8') as fp:
             raw_data = fp.read()
 
         publisher = self._get_publisher(raw_data)
-        return entities.Article(
+        return Article(
             title=self._get_title(publisher),
             tags=self._get_tags(publisher),
             content=self._get_content(publisher),
-            item_images=self._get_item_images(file_path.parent),
-            item_files=self._get_item_files(file_path.parent)
+            images=self._get_images(file_path.parent),
+            files=self._get_files(file_path.parent)
         )
 
     def _get_publisher(self, raw_data):
@@ -70,8 +73,6 @@ class RstTransformer:
         categories_text = self._get_custom_tag(publisher, "categories")
         tags["categories"] = categories_text.split(";") if categories_text else []
 
-        tags["series"] = self._get_custom_tag(publisher, "series")
-
         return tags
 
     @staticmethod
@@ -94,8 +95,8 @@ class RstTransformer:
         return None
 
     @staticmethod
-    def _get_item_images(item_dir):
-        images = []
+    def _get_images(item_dir):
+        image_data = []
         image_dir = item_dir / "images"
         if image_dir.exists():
             for file in image_dir.files():
@@ -112,25 +113,26 @@ class RstTransformer:
                     )
                     data = buffer.getvalue()
 
-                images.append(entities.Resource(
-                    original_url="images/" + file.name,
+                image_data.append(Resource(
+                    url="images/" + file.name,
                     basename=file.name,
                     data=data
                 ))
-        return images
+
+        return image_data
 
     @staticmethod
-    def _get_item_files(item_dir):
-        files = []
+    def _get_files(item_dir):
+        file_data = []
         file_dir = item_dir / "files"
         if file_dir.exists():
             for file in file_dir.files():
-                files.append(entities.Resource(
-                    original_url="files/" + file.name,
+                file_data.append(Resource(
+                    url="files/" + file.name,
                     basename=file.name,
                     data=file.bytes()
                 ))
-        return files
+        return file_data
 
     @staticmethod
     def _get_article_path(item_dir):
@@ -138,7 +140,3 @@ class RstTransformer:
             if item_dir.abspath().name in file_path:
                 return file_path
         raise FileNotFoundError
-
-
-def transform_rst_to_html(file_path):
-    return RstTransformer().transform_rst_to_html(file_path)

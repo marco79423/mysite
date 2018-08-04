@@ -1,12 +1,10 @@
-from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.decorators import permission_classes
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from blog import serializers
-from blog import store
+from blog.domain_injector import domain_injector
+from domain.base_types import Request
+from domain.blog.use_cases.get_articles import GetArticlesUseCase
 from mysite_backend import settings
 
 
@@ -20,16 +18,16 @@ def get_root(request):
 
 @api_view(['GET'])
 def get_article_list(request):
-    articles = store.ArticleStore.get_all()
-    serializer = serializers.ArticleSerializer(articles, many=True)
-    return Response(serializer.data)
+    uc = domain_injector.get(GetArticlesUseCase)
+    res = uc.execute(Request({'type': 'normal'}))
+    return Response(res.data)
 
 
 @api_view(['GET'])
 def get_web_page_list(request):
-    web_pages = store.WebPageStore.get_all()
-    serializer = serializers.WebPageSerializer(web_pages, many=True)
-    return Response(serializer.data)
+    uc = domain_injector.get(GetArticlesUseCase)
+    res = uc.execute(Request({'type': 'web_page'}))
+    return Response(res.data)
 
 
 @api_view(['GET'])
