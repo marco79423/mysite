@@ -17,10 +17,10 @@ def create_app():
 
     # routing
     from imports.applications.server.routes.default import default_routes
-    from imports.applications.server.routes.api import api_v1_routes
+    from imports.applications.server.routes.api import api_routes
 
     app.register_blueprint(default_routes)
-    app.register_blueprint(api_v1_routes)
+    app.register_blueprint(api_routes)
 
     # initialization
     with app.app_context():
