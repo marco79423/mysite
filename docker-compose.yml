@@ -12,11 +12,11 @@ services:
       - "backend-media-dev:/app/media"
 
   frontend:
-    image: marco79423/mysite-frontend:2.0.0
+    image: marco79423/mysite-frontend:3.0.0
     depends_on:
       - backend
   backend:
-    image: marco79423/mysite-backend:2.0.0
+    image: marco79423/mysite-backend:3.0.0
     volumes:
       - "backend-static:/app/static"
       - "backend-media:/app/media"
