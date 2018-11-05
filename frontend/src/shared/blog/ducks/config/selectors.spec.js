@@ -86,23 +86,3 @@ test('getCommentConfig should return the max count of recent articles', () => {
   const expected = 'COMMENT_CONFIG'
   expect(selectors.getCommentConfig(state)).toEqualImmutable(expected)
 })
-
-test('getSiteVersion should return the version of this site', () => {
-  const state = Immutable.fromJS({
-    config: {
-      SITE_VERSION: 'SITE_VERSION'
-    }
-  })
-  const expected = 'SITE_VERSION'
-  expect(selectors.getSiteVersion(state)).toEqualImmutable(expected)
-})
-
-test('getSiteUpdatedTime should return the updated time of this site', () => {
-  const state = Immutable.fromJS({
-    config: {
-      SITE_UPDATED_TIME: 'SITE_UPDATED_TIME'
-    }
-  })
-  const expected = 'SITE_UPDATED_TIME'
-  expect(selectors.getSiteUpdatedTime(state)).toEqualImmutable(expected)
-})

@@ -3,6 +3,7 @@ from flask import Blueprint
 
 from imports.applications.server.domain_injector import domain_injector
 from imports.domains.blog.use_cases.query_articles_use_case import QueryArticlesUseCase
+from imports.domains.blog.use_cases.query_site_info_use_case import QuerySiteInfoUseCase
 from imports.domains.blog.use_cases.query_web_pages_use_case import QueryWebPagesUseCase
 
 api_routes = Blueprint('api', __name__, url_prefix='/api')
@@ -26,6 +27,7 @@ def get_web_pages():
 
 @api_routes.route('/info/')
 def get_info():
-    return flask.jsonify({
-        'version': '0.0.0',
-    })
+    uc = domain_injector.get(QuerySiteInfoUseCase)
+    res = uc.execute()
+    site_info = res.data
+    return flask.jsonify(site_info)
