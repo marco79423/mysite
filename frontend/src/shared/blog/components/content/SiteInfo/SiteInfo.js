@@ -33,8 +33,7 @@ const Header = styled.header`
 
 export default class SiteInfo extends React.PureComponent {
   static PropTypes = {
-    frontendVersion: PropTypes.string.isRequired,
-    backendVersion: PropTypes.string.isRequired,
+    repositoryVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
   }
 
@@ -55,12 +54,8 @@ export default class SiteInfo extends React.PureComponent {
           <Td>{this.props.updatedTime}</Td>
         </Tr>
         <Tr>
-          <Td>前端版本：</Td>
-          <Td>{this.props.frontendVersion}</Td>
-        </Tr>
-        <Tr>
-          <Td>後端版本：</Td>
-          <Td>{this.props.backendVersion}</Td>
+          <Td>儲存庫版本：</Td>
+          <Td>{this.props.repositoryVersion}</Td>
         </Tr>
         </Tbody>
       </Table>

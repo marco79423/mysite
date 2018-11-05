@@ -3,6 +3,7 @@ from unittest.mock import MagicMock, call
 
 from imports.domains.base_types import ResponseError, Request, Response
 from imports.domains.blog.entities.article import Article
+from imports.domains.blog.entities.site_info import SiteInfo
 from imports.domains.blog.entities.web_page import WebPage
 from imports.domains.blog.use_cases.import_blog_data_use_case import ImportBlogDataUseCase
 
@@ -10,8 +11,11 @@ from imports.domains.blog.use_cases.import_blog_data_use_case import ImportBlogD
 def test_invalid_input():
     uc = ImportBlogDataUseCase(
         transform_rst_uc=MagicMock(),
+        site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=MagicMock(),
+        time_serv=MagicMock(),
+        env_serv=MagicMock(),
         path_serv=MagicMock(),
         slug_serv=MagicMock(),
         asset_serv=MagicMock(),
@@ -39,8 +43,11 @@ def test_invalid_input():
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=MagicMock(),
+        site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=MagicMock(),
+        time_serv=MagicMock(),
+        env_serv=MagicMock(),
         path_serv=path_serv,
         slug_serv=MagicMock(),
         asset_serv=MagicMock(),
@@ -100,8 +107,11 @@ def test_import_article_data():
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=transform_rst_uc,
+        site_info_repo=MagicMock(),
         article_repo=article_repo,
         web_page_repo=MagicMock(),
+        time_serv=MagicMock(),
+        env_serv=MagicMock(),
         path_serv=path_serv,
         slug_serv=slug_serv,
         asset_serv=asset_serv,
@@ -181,8 +191,11 @@ def test_import_web_page_data():
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=transform_rst_uc,
+        site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=web_page_repo,
+        time_serv=MagicMock(),
+        env_serv=MagicMock(),
         path_serv=path_serv,
         slug_serv=slug_serv,
         asset_serv=asset_serv,
@@ -209,6 +222,45 @@ def test_import_web_page_data():
         slug='slug',
         title='title',
         content='content static_image_url static_file_url',
+    ))
+
+    assert isinstance(res, Response)
+    assert res.data is None
+
+
+def test_import_site_info_data():
+    path_serv = MagicMock()
+    path_serv.exists.return_value = True
+    path_serv.get_all_article_paths.return_value = []
+    path_serv.get_all_web_page_paths.return_value = []
+
+    site_info_repo = MagicMock()
+    time_serv = MagicMock()
+    time_serv.get_utc_now.return_value = dt.datetime(2018, 11, 5, 15, 56, 30)
+
+    env_serv = MagicMock()
+    env_serv.get.return_value = 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+
+    uc = ImportBlogDataUseCase(
+        transform_rst_uc=MagicMock(),
+        site_info_repo=site_info_repo,
+        article_repo=MagicMock(),
+        web_page_repo=MagicMock(),
+        time_serv=time_serv,
+        env_serv=env_serv,
+        path_serv=path_serv,
+        slug_serv=MagicMock(),
+        asset_serv=MagicMock(),
+        truncate_html_serv=MagicMock()
+    )
+    res = uc.execute(Request({'source_dir': 'source_dir', 'max_summary_length': 15}))
+
+    time_serv.get_utc_now.assert_called_once()
+    env_serv.get.assert_called_once_with('REPO_VERSION', '')
+
+    site_info_repo.add.assert_called_once_with(SiteInfo(
+        updated_time=dt.datetime(2018, 11, 5, 15, 56, 30),
+        repo_version='develop (81ccde3550325c06a10b6acce75b4df529955472)',
     ))
 
     assert isinstance(res, Response)

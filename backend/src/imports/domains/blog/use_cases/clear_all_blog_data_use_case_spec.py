@@ -5,6 +5,7 @@ from imports.domains.blog.use_cases.clear_all_blog_data_use_case import ClearAll
 
 
 def test_fail_to_clear_blog_data():
+    site_info_repo = MagicMock()
     article_repo = MagicMock()
     web_page_repo = MagicMock()
     asset_repo = MagicMock()
@@ -12,6 +13,7 @@ def test_fail_to_clear_blog_data():
     web_page_repo.clear.side_effect = Exception('Some errors')
 
     uc = ClearAllBlogDataUseCase(
+        site_info_repo=site_info_repo,
         article_repo=article_repo,
         web_page_repo=web_page_repo,
         asset_repo=asset_repo,
@@ -23,11 +25,13 @@ def test_fail_to_clear_blog_data():
 
 
 def test_clear_all_blog_data():
+    site_info_repo = MagicMock()
     article_repo = MagicMock()
     web_page_repo = MagicMock()
     asset_repo = MagicMock()
 
     uc = ClearAllBlogDataUseCase(
+        site_info_repo=site_info_repo,
         article_repo=article_repo,
         web_page_repo=web_page_repo,
         asset_repo=asset_repo,
@@ -35,6 +39,7 @@ def test_clear_all_blog_data():
 
     res = uc.execute()
 
+    site_info_repo.clear.assert_called_once()
     article_repo.clear.assert_called_once()
     web_page_repo.clear.assert_called_once()
     asset_repo.clear.assert_called_once()

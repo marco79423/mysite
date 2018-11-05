@@ -11,6 +11,8 @@ COPY backend/src .
 
 COPY content /content
 ARG STATIC_URL
+ARG REPO_VERSION
+
 RUN python manage.py import-blog-data /content
 
 CMD ["gunicorn", "wsgi:app", "-b", ":8000"]

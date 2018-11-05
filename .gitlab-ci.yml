@@ -12,16 +12,11 @@ build-frontend-dev:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - apk update && apk add -U git tzdata
     - BACKEND_SERVER_URL=https://dev.marco79423.net
-    - SITE_VERSION=`git describe --tags`
-    - SITE_UPDATED_TIME=`TZ=Asia/Taipei date -Iseconds`
   script:
     - docker build
       --file frontend/Dockerfile
       --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
-      --build-arg SITE_VERSION=$SITE_VERSION
-      --build-arg SITE_UPDATED_TIME=$SITE_UPDATED_TIME
       --tag marco79423/mysite-frontend-dev:latest
       .
     - docker push marco79423/mysite-frontend-dev:latest
@@ -35,16 +30,11 @@ build-frontend:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - apk update && apk add -U git tzdata
     - BACKEND_SERVER_URL=https://marco79423.net
-    - SITE_VERSION=`git describe --tags`
-    - SITE_UPDATED_TIME=`TZ=Asia/Taipei date -Iseconds`
   script:
     - docker build
       --file frontend/Dockerfile
       --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
-      --build-arg SITE_VERSION=$SITE_VERSION
-      --build-arg SITE_UPDATED_TIME=$SITE_UPDATED_TIME
       --tag marco79423/mysite-frontend:latest
       .
     - docker push marco79423/mysite-frontend:latest
@@ -56,11 +46,14 @@ build-backend-dev:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git
     - STATIC_URL=https://dev.marco79423.net/static/
+    - REPO_VERSION=`git describe --tags`
   script:
     - docker build
       --file backend/Dockerfile
       --build-arg STATIC_URL=$STATIC_URL
+      --build-arg REPO_VERSION=$REPO_VERSION
       --tag marco79423/mysite-backend-dev:latest
       .
     - docker push marco79423/mysite-backend-dev:latest
@@ -74,11 +67,14 @@ build-backend:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - apk update && apk add -U git
     - STATIC_URL=https://marco79423.net/static/
+    - REPO_VERSION=`git describe --tags`
   script:
     - docker build
       --file backend/Dockerfile
       --build-arg STATIC_URL=$STATIC_URL
+      --build-arg REPO_VERSION=$REPO_VERSION
       --tag marco79423/mysite-backend:latest
       .
     - docker push marco79423/mysite-backend:latest

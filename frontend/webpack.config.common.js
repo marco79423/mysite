@@ -8,9 +8,7 @@ const plugins = [
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       DEBUG: DEBUG,
-      BACKEND_SERVER_URL: JSON.stringify(process.env.BACKEND_SERVER_URL),
-      SITE_VERSION: JSON.stringify(process.env.SITE_VERSION),
-      SITE_UPDATED_TIME: JSON.stringify(process.env.SITE_UPDATED_TIME)
+      BACKEND_SERVER_URL: JSON.stringify(process.env.BACKEND_SERVER_URL)
     }
   })
 ]

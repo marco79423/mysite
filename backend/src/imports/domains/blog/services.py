@@ -1,4 +1,5 @@
 import abc
+import datetime as dt
 
 from imports.domains.base_types import Service
 
@@ -33,4 +34,16 @@ class AssetService(Service):
 class TruncateHTMLService(Service):
     @abc.abstractmethod
     def truncate(self, html: str, max_length: int, without_tag: bool) -> str:
+        pass
+
+
+class TimeService(Service):
+    @abc.abstractmethod
+    def get_utc_now(self) -> dt.datetime:
+        pass
+
+
+class EnvService(Service):
+    @abc.abstractmethod
+    def get(self, name: str, default=None) -> str:
         pass

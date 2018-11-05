@@ -7,9 +7,11 @@ from imports.domains import base_types
 from imports.domains.base_types import Request, Response, ResponseError
 from imports.domains.blog.entities.article import Article
 from imports.domains.blog.entities.category import Category
+from imports.domains.blog.entities.site_info import SiteInfo
 from imports.domains.blog.entities.web_page import WebPage
-from imports.domains.blog.repositories import ArticleRepository, WebPageRepository
-from imports.domains.blog.services import PathService, SlugService, AssetService, TruncateHTMLService
+from imports.domains.blog.repositories import ArticleRepository, WebPageRepository, SiteInfoRepository
+from imports.domains.blog.services import PathService, SlugService, AssetService, TruncateHTMLService, TimeService, \
+    EnvService
 from imports.domains.rst_parser.use_cases.transform_rst_use_case import TransformRstUseCase
 
 
@@ -19,16 +21,22 @@ class ImportBlogDataUseCase(base_types.UseCase):
     @injector.inject
     def __init__(self,
                  transform_rst_uc: TransformRstUseCase,
+                 site_info_repo: SiteInfoRepository,
                  article_repo: ArticleRepository,
                  web_page_repo: WebPageRepository,
+                 time_serv: TimeService,
+                 env_serv: EnvService,
                  path_serv: PathService,
                  slug_serv: SlugService,
                  asset_serv: AssetService,
                  truncate_html_serv: TruncateHTMLService):
 
         self.transform_rst_uc = transform_rst_uc
+        self.site_info_repo = site_info_repo
         self.article_repo = article_repo
         self.web_page_repo = web_page_repo
+        self.time_serv = time_serv
+        self.env_serv = env_serv
         self.path_serv = path_serv
         self.slug_serv = slug_serv
         self.asset_serv = asset_serv
@@ -90,6 +98,11 @@ class ImportBlogDataUseCase(base_types.UseCase):
                     title=web_page_data['title'],
                     content=web_page_data['content'],
                 ))
+
+            self.site_info_repo.add(SiteInfo(
+                updated_time=self.time_serv.get_utc_now(),
+                repo_version=self.env_serv.get('REPO_VERSION', ''),
+            ))
 
             return Response()
         except Exception as e:

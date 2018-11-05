@@ -103,27 +103,11 @@ exports[`It should render SiteInfo component correctly 1`] = `
           <td
             className="c6"
           >
-            前端版本：
+            儲存庫版本：
           </td>
           <td
             className="c6"
-          >
-            master (3f5eb304b501ea2b5437ed6c4612bbc66077b7b8)
-          </td>
-        </tr>
-        <tr
-          className="c5"
-        >
-          <td
-            className="c6"
-          >
-            後端版本：
-          </td>
-          <td
-            className="c6"
-          >
-            develop (81ccde3550325c06a10b6acce75b4df529955472)
-          </td>
+          />
         </tr>
       </tbody>
     </table>

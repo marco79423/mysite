@@ -5,13 +5,16 @@ import reducer from './reducer'
 
 test('article reducer return a state with new site info', () => {
   const state = Immutable.fromJS({
-    version: ''
+    repositoryVersion: '',
+    siteUpdatedTime: '',
   })
   const action = actions.setSiteInfo({
-    version: 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+    repositoryVersion: 'develop (81ccde3550325c06a10b6acce75b4df529955472)',
+    siteUpdatedTime: '2018-11-05T07:31:32.095886+00:00',
   })
   const expectedNextState = Immutable.fromJS({
-    version: 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+    repositoryVersion: 'develop (81ccde3550325c06a10b6acce75b4df529955472)',
+    siteUpdatedTime: '2018-11-05T07:31:32.095886+00:00',
   })
 
   expect(reducer(state, action)).toEqual(expectedNextState)
