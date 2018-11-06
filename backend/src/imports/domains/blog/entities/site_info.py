@@ -11,8 +11,8 @@ class SiteInfo(base_types.Entity):
 
     def serialize(self):
         return {
-            'updated_time': self.updated_time.isoformat(),
-            'repo_version': self.repo_version,
+            'siteUpdatedTime': self.updated_time.isoformat(),
+            'repositoryVersion': self.repo_version,
         }
 
     def __eq__(self, site_info):

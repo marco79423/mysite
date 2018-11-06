@@ -10,13 +10,8 @@ export const getArticles = (state) => state
   .map(article => article
     .merge({
       date: new Date(article.get('date')),
-      modifiedDate: article.get('modified_date') ? new Date(article.get('modified_date')) : null,
-      chickenCount: article.get('chicken_count'),
-      rawSummary: article.get('raw_summary')
+      modifiedDate: article.get('modifiedDate') ? new Date(article.get('modifiedDate')) : null
     })
-    .delete('chicken_count')
-    .delete('modified_date')
-    .delete('raw_summary')
   )
 
 export const getArticlesByCategory = createSelector(

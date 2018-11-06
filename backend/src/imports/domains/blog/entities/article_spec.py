@@ -28,14 +28,14 @@ def test_serialize_article():
         'slug': 'slug',
         'title': 'title',
         'date': '2018-09-09',
-        'modified_date': None,
+        'modifiedDate': None,
         'categories': [
             category.serialize() for category in article.categories
         ],
-        'chicken_count': 3,
+        'chickenCount': 3,
         'content': 'content',
         'summary': 'summary',
-        'raw_summary': 'raw_summary',
+        'rawSummary': 'raw_summary',
     }
 
 
@@ -64,12 +64,12 @@ def test_serialize_modified_article():
         'slug': 'slug',
         'title': 'title',
         'date': '2018-09-09',
-        'modified_date': '2018-09-10',
+        'modifiedDate': '2018-09-10',
         'categories': [
             category.serialize() for category in article.categories
         ],
-        'chicken_count': 3,
+        'chickenCount': 3,
         'content': 'content',
         'summary': 'summary',
-        'raw_summary': 'raw_summary',
+        'rawSummary': 'raw_summary',
     }

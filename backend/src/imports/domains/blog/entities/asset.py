@@ -11,7 +11,7 @@ class Asset(Entity):
     def serialize(self):
         return {
             'uuid': self.uuid,
-            'is_attachment': self.is_attachment,
+            'isAttachment': self.is_attachment,
             'filename': self.filename,
             'data': self.data,
         }
