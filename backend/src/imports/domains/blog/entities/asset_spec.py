@@ -11,7 +11,7 @@ def test_serialize_asset():
 
     assert category.serialize() == {
         'uuid': 'uuid',
-        'is_attachment': 'is_attachment',
+        'isAttachment': 'is_attachment',
         'filename': 'filename',
         'data': 'data',
     }

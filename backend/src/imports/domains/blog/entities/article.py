@@ -33,12 +33,12 @@ class Article(base_types.Entity):
             'slug': self.slug,
             'title': self.title,
             'date': self.date.isoformat(),
-            'modified_date': self.modified_date.isoformat() if self.modified_date else None,
+            'modifiedDate': self.modified_date.isoformat() if self.modified_date else None,
             'categories': [category.serialize() for category in self.categories],
-            'chicken_count': self.chicken_count,
+            'chickenCount': self.chicken_count,
             'content': self.content,
             'summary': self.summary,
-            'raw_summary': self.raw_summary,
+            'rawSummary': self.raw_summary,
         }
 
     def __lt__(self, article):

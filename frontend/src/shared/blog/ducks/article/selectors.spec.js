@@ -8,7 +8,7 @@ const articles = [
     'slug': '淺談-regex-及其應用',
     'title': '淺談 regex 及其應用',
     'date': '2015-10-04T00:00:00',
-    'modified_date': '2015-11-22T00:00:00',
+    'modifiedDate': '2015-11-22T00:00:00',
     'categories': [
       {
         'slug': '程式設計',
@@ -19,42 +19,42 @@ const articles = [
         'name': 'Python'
       }
     ],
-    'chicken_count': 199,
+    'chickenCount': 199,
     'content': 'content',
     'summary': 'summary',
-    'raw_summary': 'raw_summary'
+    'rawSummary': 'rawSummary'
   },
   {
     'slug': '擁抱',
     'title': '擁抱',
     'date': '2013-02-16T00:00:00',
-    'modified_date': null,
+    'modifiedDate': null,
     'categories': [
       {
         'slug': '胡言亂語',
         'name': '胡言亂語'
       }
     ],
-    'chicken_count': 1,
+    'chickenCount': 1,
     'content': 'content',
     'summary': 'summary',
-    'raw_summary': 'raw_summary'
+    'rawSummary': 'rawSummary'
   },
   {
     'slug': '美女最變態',
     'title': '美女最變態',
     'date': '2013-02-02T00:00:00',
-    'modified_date': '2015-08-24T00:00:00',
+    'modifiedDate': '2015-08-24T00:00:00',
     'categories': [
       {
         'slug': '胡言亂語',
         'name': '胡言亂語'
       }
     ],
-    'chicken_count': 0,
+    'chickenCount': 0,
     'content': 'content',
     'summary': 'summary',
-    'raw_summary': 'raw_summary'
+    'rawSummary': 'rawSummary'
   }
 ]
 
@@ -87,7 +87,7 @@ test('getArticles should return articles with correct naming convention', () => 
       'chickenCount': 199,
       'content': 'content',
       'summary': 'summary',
-      'rawSummary': 'raw_summary'
+      'rawSummary': 'rawSummary'
     },
     {
       'slug': '擁抱',
@@ -103,7 +103,7 @@ test('getArticles should return articles with correct naming convention', () => 
       'chickenCount': 1,
       'content': 'content',
       'summary': 'summary',
-      'rawSummary': 'raw_summary'
+      'rawSummary': 'rawSummary'
     },
     {
       'slug': '美女最變態',
@@ -119,7 +119,7 @@ test('getArticles should return articles with correct naming convention', () => 
       'chickenCount': 0,
       'content': 'content',
       'summary': 'summary',
-      'rawSummary': 'raw_summary'
+      'rawSummary': 'rawSummary'
     }
   ])
   expect(selectors.getArticles(state)).toEqualImmutable(expected)
@@ -145,7 +145,7 @@ describe('getArticlesByCategory', () => {
       'chickenCount': 199,
       'content': 'content',
       'summary': 'summary',
-      'rawSummary': 'raw_summary'
+      'rawSummary': 'rawSummary'
     }
   ])
 
@@ -204,7 +204,7 @@ test('getArticle should return articles with correct naming convention', () => {
     'chickenCount': 0,
     'content': 'content',
     'summary': 'summary',
-    'rawSummary': 'raw_summary'
+    'rawSummary': 'rawSummary'
   })
   expect(selectors.getArticle(state, props)).toEqualImmutable(expected)
 })
@@ -239,7 +239,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 199,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       },
       {
         'slug': '擁抱',
@@ -255,7 +255,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       }
     ])
     expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)
@@ -290,7 +290,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 199,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       },
       {
         'slug': '擁抱',
@@ -306,7 +306,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       },
       {
         'slug': '美女最變態',
@@ -322,7 +322,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 0,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       }
     ])
     expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)
@@ -355,7 +355,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 1,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       },
       {
         'slug': '美女最變態',
@@ -371,7 +371,7 @@ describe('getRecentArticles', () => {
         'chickenCount': 0,
         'content': 'content',
         'summary': 'summary',
-        'rawSummary': 'raw_summary'
+        'rawSummary': 'rawSummary'
       }
     ])
     expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)

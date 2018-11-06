@@ -111,7 +111,7 @@ describe('getArticleSiteHeadConfig', () => {
             'slug': '美女最變態',
             'title': '美女最變態',
             'summary': 'summary',
-            'raw_summary': 'raw_summary'
+            'rawSummary': 'rawSummary'
           }
         ]
       }
@@ -121,10 +121,10 @@ describe('getArticleSiteHeadConfig', () => {
       meta: [
         {name: 'name1', content: 'content1'},
         {name: 'name2', content: 'content2'},
-        {name: 'description', content: 'raw_summary'},
+        {name: 'description', content: 'rawSummary'},
         {name: 'og:title', content: '美女最變態 - SITE_NAME'},
         {name: 'og:url', content: 'HOST_URL/pathname'},
-        {name: 'og:description', content: 'raw_summary'}
+        {name: 'og:description', content: 'rawSummary'}
       ],
       link: [
         {rel: 'rel1', href: 'href1'},

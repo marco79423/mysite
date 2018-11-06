@@ -4,8 +4,8 @@ import {handleActions} from 'redux-actions'
 import * as actionTypes from './actionTypes'
 
 const defaultState = Immutable.fromJS({
-  repo_version: '',
-  updated_time: '',
+  repositoryVersion: '',
+  siteUpdatedTime: '',
 })
 
 const reducerMap = {
