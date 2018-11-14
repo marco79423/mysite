@@ -83,7 +83,7 @@ export default class AppLayout extends React.Component {
             <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
             <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')}/>
             <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
-            <PageFooter/>
+            <PageFooter copyright={this.props.copyright}/>
           </Container>
         </Base>
       </ThemeProvider>

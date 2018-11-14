@@ -1,3 +1,4 @@
+
 export const AUTHOR_INFO = {
   name: '兩大類',
   email: 'marco79423@gmail.com'
@@ -26,7 +27,7 @@ export const SITE_LINK = {
   'shortcut icon': require('../shared/blog/img/favicon.ico')
 }
 
-export const COPYRIGHT = 'Copyright © 2017 - 兩大類'
+export const COPYRIGHT = `Copyright © ${new Date().getFullYear()} - 兩大類`
 
 export const MENU_ITEMS = {
   main: [
