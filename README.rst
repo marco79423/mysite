@@ -1,4 +1,4 @@
-「兩大類 x 兩大類 = 四大類」網站
+「兩大類」網站
 ################################
 
 .. image:: https://gitlab.com/marco79423/mysite/badges/master/pipeline.svg

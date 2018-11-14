@@ -48,18 +48,14 @@ const ModeName = styled.span`
 
 const TitleLink = styled(NormalLink)`
   color: ${props => props.theme.page.header.titleColor};
-  font-size: 2rem;
+  font-size:2.5rem;
   
   &:hover {
     color: ${props => props.theme.page.header.titleColor};
   }
   
   @media (max-width: 500px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 `
 
