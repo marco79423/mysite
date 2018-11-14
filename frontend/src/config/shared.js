@@ -4,7 +4,7 @@ export const AUTHOR_INFO = {
   email: 'marco79423@gmail.com'
 }
 
-export const SITE_NAME = '兩大類 x 兩大類 = 四大類'
+export const SITE_NAME = '兩大類的部落格'
 export const HOST_URL = 'https://marco79423.net'
 export const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL || HOST_URL
 
