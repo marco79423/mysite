@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Base = styled.footer`
@@ -14,10 +15,14 @@ const Copyright = styled.div`
 `
 
 export default class PageFooter extends React.Component {
-  render () {
+  static PropTypes = {
+    copyright: PropTypes.string,
+  }
+
+  render() {
     return (
       <Base>
-        <Copyright>Copyright © 2017 - 兩大類</Copyright>
+        <Copyright>{this.props.copyright}</Copyright>
       </Base>
     )
   }
