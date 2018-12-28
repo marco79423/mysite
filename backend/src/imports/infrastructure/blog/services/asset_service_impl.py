@@ -1,8 +1,6 @@
-import uuid
-
 import injector
 
-from imports.applications.manage import config
+from imports.domains.blog.adapters import IdentityAdapter, ConfigAdapter
 from imports.domains.blog.entities.asset import Asset
 from imports.domains.blog.repositories import AssetRepository
 from imports.domains.blog.services import AssetService
@@ -12,19 +10,23 @@ from imports.domains.blog.services import AssetService
 class AssetServiceImpl(AssetService):
 
     @injector.inject
-    def __init__(self, asset_repo: AssetRepository):
+    def __init__(self, asset_repo: AssetRepository, config_adapter: ConfigAdapter, identity_adapter: IdentityAdapter):
         self.asset_repo = asset_repo
+        self.config_adapter = config_adapter
+        self.identity_adapter = identity_adapter
 
     def save_and_return_static_url(self, filename: str, data: str, is_attachment: bool) -> str:
-        file_uuid = str(uuid.uuid1())
-        self.asset_repo.add(Asset(
-            uuid=file_uuid,
+        identity = self.identity_adapter.generate()
+        self._save_to_repository(Asset(
+            uuid=identity,
             is_attachment=is_attachment,
             filename=filename,
             data=data,
         ))
-        return self._generate_static_url(file_uuid)
+        return self._generate_static_url(identity)
 
-    @staticmethod
-    def _generate_static_url(item_uuid):
-        return '{}{}/'.format(config.STATIC_URL, item_uuid)
+    def _save_to_repository(self, asset: Asset) -> None:
+        return self.asset_repo.add(asset)
+
+    def _generate_static_url(self, identity):
+        return '{}{}/'.format(self.config_adapter.get_base_static_url(), identity)
