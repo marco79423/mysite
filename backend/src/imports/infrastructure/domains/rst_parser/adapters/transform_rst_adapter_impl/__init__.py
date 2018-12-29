@@ -1,3 +1,4 @@
+import injector
 import io
 from datetime import datetime
 from pathlib import Path
@@ -17,6 +18,7 @@ youtube.register()
 pygments.register()
 
 
+@injector.singleton
 class TransformRstAdapterImpl(TransformRstAdapter):
 
     def __init__(self):
