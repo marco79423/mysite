@@ -2,8 +2,8 @@ import injector
 
 from imports.domains.blog.entities.web_page import WebPage
 from imports.domains.blog.repositories import WebPageRepository
-from imports.infrastructure.blog.model import db
-from imports.infrastructure.blog.model.web_page_model import WebPageModel
+from imports.infrastructure.domains.blog.model import db
+from imports.infrastructure.domains.blog.model.web_page_model import WebPageModel
 
 
 @injector.singleton

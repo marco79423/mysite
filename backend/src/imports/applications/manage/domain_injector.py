@@ -6,17 +6,17 @@ def mapping_blog_domain(binder):
     from imports.domains.blog.repositories import WebPageRepository, AssetRepository, ArticleRepository
     from imports.domains.blog.adapters import SlugAdapter, IdentityAdapter, PathAdapter, ConfigAdapter, EnvAdapter, \
         TruncateHTMLAdapter, TimeAdapter
-    from imports.infrastructure.blog.repository.article_repository_impl import ArticleRepositoryImpl
-    from imports.infrastructure.blog.repository.asset_repository_impl import AssetRepositoryImpl
-    from imports.infrastructure.blog.repository.site_info_repository_impl import SiteInfoRepositoryImpl
-    from imports.infrastructure.blog.repository.web_page_repository_impl import WebPageRepositoryImpl
-    from imports.infrastructure.blog.adapters.slug_adapter_impl import SlugAdapterImpl
-    from imports.infrastructure.blog.adapters.config_adapter_impl import ConfigAdapterImpl
-    from imports.infrastructure.blog.adapters.env_adapter_impl import EnvAdapterImpl
-    from imports.infrastructure.blog.adapters.identity_adapter_impl import IdentityAdapterImpl
-    from imports.infrastructure.blog.adapters.path_adapter_impl import PathAdapterImpl
-    from imports.infrastructure.blog.adapters.time_adapter_impl import TimeAdapterImpl
-    from imports.infrastructure.blog.adapters.truncate_html_adapter_impl import TruncateHTMLAdapterImpl
+    from imports.infrastructure.domains.blog.repository.article_repository_impl import ArticleRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.asset_repository_impl import AssetRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.site_info_repository_impl import SiteInfoRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.web_page_repository_impl import WebPageRepositoryImpl
+    from imports.infrastructure.domains.blog.adapters.slug_adapter_impl import SlugAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.config_adapter_impl import ConfigAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.env_adapter_impl import EnvAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.identity_adapter_impl import IdentityAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.path_adapter_impl import PathAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.time_adapter_impl import TimeAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.truncate_html_adapter_impl import TruncateHTMLAdapterImpl
 
     binder.bind(ConfigAdapter, to=ConfigAdapterImpl)
     binder.bind(EnvAdapter, to=EnvAdapterImpl)

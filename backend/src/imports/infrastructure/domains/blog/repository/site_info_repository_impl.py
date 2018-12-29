@@ -3,8 +3,8 @@ import injector
 
 from imports.domains.blog.entities.site_info import SiteInfo
 from imports.domains.blog.repositories import SiteInfoRepository
-from imports.infrastructure.blog.model import db
-from imports.infrastructure.blog.model.site_info_model import SiteInfoModel
+from imports.infrastructure.domains.blog.model import db
+from imports.infrastructure.domains.blog.model.site_info_model import SiteInfoModel
 
 
 @injector.singleton

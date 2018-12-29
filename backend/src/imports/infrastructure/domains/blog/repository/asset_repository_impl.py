@@ -4,8 +4,8 @@ import injector
 
 from imports.domains.blog.entities.asset import Asset
 from imports.domains.blog.repositories import AssetRepository
-from imports.infrastructure.blog.model import db
-from imports.infrastructure.blog.model.asset_model import AssetModel
+from imports.infrastructure.domains.blog.model import db
+from imports.infrastructure.domains.blog.model.asset_model import AssetModel
 
 
 @injector.singleton
