@@ -1,11 +1,11 @@
 import injector
 
+from imports.domains.base_types import Service
 from imports.domains.blog.adapters import PathAdapter
-from imports.domains.blog.services import SourcePathService
 
 
 @injector.singleton
-class SourcePathServiceImpl(SourcePathService):
+class SourcePathService(Service):
 
     @injector.inject
     def __init__(self, path_adapter: PathAdapter):

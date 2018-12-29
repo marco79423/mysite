@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock
 
-from imports.infrastructure.blog.services.source_path_service_impl import SourcePathServiceImpl
+from imports.domains.blog.services.source_path_service import SourcePathService
 
 
 def test_get_all_article_paths():
@@ -13,7 +13,7 @@ def test_get_all_article_paths():
         'source_dir/articles/b',
     ]
 
-    source_path_serv = SourcePathServiceImpl(path_adapter)
+    source_path_serv = SourcePathService(path_adapter)
     article_paths = source_path_serv.get_all_article_paths(source_dir='source_dir')
 
     assert article_paths == [
@@ -32,7 +32,7 @@ def test_get_all_web_page_paths():
         'source_dir/web_pages/b',
     ]
 
-    source_path_serv = SourcePathServiceImpl(path_adapter)
+    source_path_serv = SourcePathService(path_adapter)
     article_paths = source_path_serv.get_all_web_page_paths(source_dir='source_dir')
 
     assert article_paths == [

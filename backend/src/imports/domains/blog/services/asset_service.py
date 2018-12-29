@@ -1,13 +1,13 @@
 import injector
 
+from imports.domains.base_types import Service
 from imports.domains.blog.adapters import IdentityAdapter, ConfigAdapter
 from imports.domains.blog.entities.asset import Asset
 from imports.domains.blog.repositories import AssetRepository
-from imports.domains.blog.services import AssetService
 
 
 @injector.singleton
-class AssetServiceImpl(AssetService):
+class AssetService(Service):
 
     @injector.inject
     def __init__(self, asset_repo: AssetRepository, config_adapter: ConfigAdapter, identity_adapter: IdentityAdapter):

@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 
 from imports.domains.blog.entities.asset import Asset
-from imports.infrastructure.blog.services.asset_service_impl import AssetServiceImpl
+from imports.domains.blog.services.asset_service import AssetService
 
 
 def test_save_and_return_static_url():
@@ -13,7 +13,7 @@ def test_save_and_return_static_url():
     identity_adapter = MagicMock()
     identity_adapter.generate.return_value = 'identity'
 
-    asset_serv = AssetServiceImpl(
+    asset_serv = AssetService(
         asset_repo=asset_repo,
         config_adapter=config_adapter,
         identity_adapter=identity_adapter,

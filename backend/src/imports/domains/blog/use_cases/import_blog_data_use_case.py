@@ -10,7 +10,8 @@ from imports.domains.blog.entities.category import Category
 from imports.domains.blog.entities.site_info import SiteInfo
 from imports.domains.blog.entities.web_page import WebPage
 from imports.domains.blog.repositories import ArticleRepository, WebPageRepository, SiteInfoRepository
-from imports.domains.blog.services import SourcePathService, AssetService
+from imports.domains.blog.services.asset_service import AssetService
+from imports.domains.blog.services.source_path_service import SourcePathService
 from imports.domains.rst_parser.use_cases.transform_rst_use_case import TransformRstUseCase
 
 

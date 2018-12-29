@@ -6,14 +6,11 @@ def mapping_blog_domain(binder):
     from imports.domains.blog.repositories import WebPageRepository, AssetRepository, ArticleRepository
     from imports.domains.blog.adapters import SlugAdapter, IdentityAdapter, PathAdapter, ConfigAdapter, EnvAdapter, \
         TruncateHTMLAdapter, TimeAdapter
-    from imports.domains.blog.services import AssetService, SourcePathService
     from imports.infrastructure.blog.repository.article_repository_impl import ArticleRepositoryImpl
     from imports.infrastructure.blog.repository.asset_repository_impl import AssetRepositoryImpl
     from imports.infrastructure.blog.repository.site_info_repository_impl import SiteInfoRepositoryImpl
     from imports.infrastructure.blog.repository.web_page_repository_impl import WebPageRepositoryImpl
     from imports.infrastructure.blog.adapters.slug_adapter_impl import SlugAdapterImpl
-    from imports.infrastructure.blog.services.asset_service_impl import AssetServiceImpl
-    from imports.infrastructure.blog.services.source_path_service_impl import SourcePathServiceImpl
     from imports.infrastructure.blog.adapters.config_adapter_impl import ConfigAdapterImpl
     from imports.infrastructure.blog.adapters.env_adapter_impl import EnvAdapterImpl
     from imports.infrastructure.blog.adapters.identity_adapter_impl import IdentityAdapterImpl
@@ -28,9 +25,6 @@ def mapping_blog_domain(binder):
     binder.bind(SlugAdapter, to=SlugAdapterImpl)
     binder.bind(TimeAdapter, to=TimeAdapterImpl)
     binder.bind(TruncateHTMLAdapter, to=TruncateHTMLAdapterImpl)
-
-    binder.bind(SourcePathService, to=SourcePathServiceImpl)
-    binder.bind(AssetService, to=AssetServiceImpl)
 
     binder.bind(SiteInfoRepository, to=SiteInfoRepositoryImpl)
     binder.bind(WebPageRepository, to=WebPageRepositoryImpl)
