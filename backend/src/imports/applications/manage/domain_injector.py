@@ -34,8 +34,8 @@ def mapping_blog_domain(binder):
 
 def mapping_rst_parser_domain(binder):
     from imports.domains.rst_parser.adapters import PathAdapter, TransformRstAdapter
-    from imports.infrastructure.rst_parser.adapters.transform_rst_adapter_impl import TransformRstAdapterImpl
-    from imports.infrastructure.rst_parser.adapters.path_adapter_impl import PathAdapterImpl
+    from imports.infrastructure.domains.rst_parser.adapters.transform_rst_adapter_impl import TransformRstAdapterImpl
+    from imports.infrastructure.domains.rst_parser.adapters.path_adapter_impl import PathAdapterImpl
 
     binder.bind(PathAdapter, to=PathAdapterImpl)
     binder.bind(TransformRstAdapter, to=TransformRstAdapterImpl)
