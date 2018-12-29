@@ -33,17 +33,12 @@ def mapping_blog_domain(binder):
 
 
 def mapping_rst_parser_domain(binder):
-    from imports.domains.rst_parser.services import PathService, TransformRstService
-    from imports.domains.blog.adapters import PathAdapter
-    from imports.infrastructure.rst_parser.services.path_service_impl import PathServiceImpl
-    from imports.infrastructure.rst_parser.services.transform_rst_service_impl import TransformRstServiceImpl
-    from imports.infrastructure.blog.adapters.path_adapter_impl import PathAdapterImpl
-
-    binder.bind(PathService, to=PathServiceImpl)
+    from imports.domains.rst_parser.adapters import PathAdapter, TransformRstAdapter
+    from imports.infrastructure.rst_parser.adapters.transform_rst_adapter_impl import TransformRstAdapterImpl
+    from imports.infrastructure.rst_parser.adapters.path_adapter_impl import PathAdapterImpl
 
     binder.bind(PathAdapter, to=PathAdapterImpl)
-
-    binder.bind(TransformRstService, to=TransformRstServiceImpl)
+    binder.bind(TransformRstAdapter, to=TransformRstAdapterImpl)
 
 
 domain_injector = injector.Injector([mapping_blog_domain, mapping_rst_parser_domain])

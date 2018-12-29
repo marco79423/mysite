@@ -10,14 +10,14 @@ from PIL import Image
 
 from imports.domains.rst_parser.entities.article import Article
 from imports.domains.rst_parser.entities.resource import Resource
-from imports.domains.rst_parser.services import TransformRstService
-from imports.infrastructure.rst_parser.services.transform_rst_service_impl.directives import youtube, pygments
+from imports.domains.rst_parser.adapters import TransformRstAdapter
+from imports.infrastructure.rst_parser.adapters.transform_rst_adapter_impl.directives import youtube, pygments
 
 youtube.register()
 pygments.register()
 
 
-class TransformRstServiceImpl(TransformRstService):
+class TransformRstAdapterImpl(TransformRstAdapter):
 
     def __init__(self):
         self._extra_params = {

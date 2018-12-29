@@ -6,8 +6,8 @@ from imports.domains.rst_parser.use_cases.transform_rst_use_case import Transfor
 
 def test_invalid_input():
     uc = TransformRstUseCase(
-        path_serv=MagicMock(),
-        transform_rst_serv=MagicMock(),
+        path_adapter=MagicMock(),
+        transform_rst_adapter=MagicMock(),
     )
 
     res = uc.execute()
@@ -15,19 +15,19 @@ def test_invalid_input():
     assert res.reason == 'A request is required'
 
     uc = TransformRstUseCase(
-        path_serv=MagicMock(),
-        transform_rst_serv=MagicMock(),
+        path_adapter=MagicMock(),
+        transform_rst_adapter=MagicMock(),
     )
     res = uc.execute(Request())
     assert isinstance(res, ResponseError)
     assert res.reason == 'Invalid input'
 
-    path_serv = MagicMock()
-    path_serv.exists.return_value = False
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = False
 
     uc = TransformRstUseCase(
-        path_serv=path_serv,
-        transform_rst_serv=MagicMock(),
+        path_adapter=path_adapter,
+        transform_rst_adapter=MagicMock(),
     )
     res = uc.execute(Request('invalid_path'))
 
@@ -36,18 +36,18 @@ def test_invalid_input():
 
 
 def test_transform_rst():
-    path_serv = MagicMock()
-    path_serv.exists.return_value = True
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = True
 
     article = MagicMock()
     article.serialize.return_value = 'Article'
 
-    transform_rst_serv = MagicMock()
-    transform_rst_serv.generate_article.return_value = article
+    transform_rst_adapter = MagicMock()
+    transform_rst_adapter.generate_article.return_value = article
 
     uc = TransformRstUseCase(
-        path_serv=path_serv,
-        transform_rst_serv=transform_rst_serv,
+        path_adapter=path_adapter,
+        transform_rst_adapter=transform_rst_adapter,
     )
     res = uc.execute(Request('article_path'))
 

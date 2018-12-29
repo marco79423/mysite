@@ -1,8 +1,8 @@
 import os
 
-from imports.domains.rst_parser.services import PathService
+from imports.domains.rst_parser.adapters import PathAdapter
 
 
-class PathServiceImpl(PathService):
+class PathAdapterImpl(PathAdapter):
     def exists(self, file_path: [str]) -> bool:
         return os.path.exists(file_path)
