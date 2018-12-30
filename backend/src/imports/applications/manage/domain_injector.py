@@ -4,25 +4,27 @@ import injector
 def mapping_blog_domain(binder):
     from imports.domains.blog.repositories import SiteInfoRepository
     from imports.domains.blog.repositories import WebPageRepository, AssetRepository, ArticleRepository
-    from imports.domains.blog.services import AssetService, PathService, SlugService, TruncateHTMLService, EnvService, \
-        TimeService
-    from imports.infrastructure.blog.repository.article_repository_impl import ArticleRepositoryImpl
-    from imports.infrastructure.blog.repository.asset_repository_impl import AssetRepositoryImpl
-    from imports.infrastructure.blog.repository.site_info_repository_impl import SiteInfoRepositoryImpl
-    from imports.infrastructure.blog.repository.web_page_repository_impl import WebPageRepositoryImpl
-    from imports.infrastructure.blog.services.asset_service_impl import AssetServiceImpl
-    from imports.infrastructure.blog.services.env_service_impl import EnvServiceImpl
-    from imports.infrastructure.blog.services.path_service_impl import PathServiceImpl
-    from imports.infrastructure.blog.services.slug_service_impl import SlugServiceImpl
-    from imports.infrastructure.blog.services.time_service_impl import TimeServiceImpl
-    from imports.infrastructure.blog.services.truncate_html_service_impl import TruncateHTMLServiceImpl
+    from imports.domains.blog.adapters import SlugAdapter, IdentityAdapter, PathAdapter, ConfigAdapter, EnvAdapter, \
+        TruncateHTMLAdapter, TimeAdapter
+    from imports.infrastructure.domains.blog.repository.article_repository_impl import ArticleRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.asset_repository_impl import AssetRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.site_info_repository_impl import SiteInfoRepositoryImpl
+    from imports.infrastructure.domains.blog.repository.web_page_repository_impl import WebPageRepositoryImpl
+    from imports.infrastructure.domains.blog.adapters.slug_adapter_impl import SlugAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.config_adapter_impl import ConfigAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.env_adapter_impl import EnvAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.identity_adapter_impl import IdentityAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.path_adapter_impl import PathAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.time_adapter_impl import TimeAdapterImpl
+    from imports.infrastructure.domains.blog.adapters.truncate_html_adapter_impl import TruncateHTMLAdapterImpl
 
-    binder.bind(EnvService, to=EnvServiceImpl)
-    binder.bind(TimeService, to=TimeServiceImpl)
-    binder.bind(PathService, to=PathServiceImpl)
-    binder.bind(SlugService, to=SlugServiceImpl)
-    binder.bind(AssetService, to=AssetServiceImpl)
-    binder.bind(TruncateHTMLService, to=TruncateHTMLServiceImpl)
+    binder.bind(ConfigAdapter, to=ConfigAdapterImpl)
+    binder.bind(EnvAdapter, to=EnvAdapterImpl)
+    binder.bind(IdentityAdapter, to=IdentityAdapterImpl)
+    binder.bind(PathAdapter, to=PathAdapterImpl)
+    binder.bind(SlugAdapter, to=SlugAdapterImpl)
+    binder.bind(TimeAdapter, to=TimeAdapterImpl)
+    binder.bind(TruncateHTMLAdapter, to=TruncateHTMLAdapterImpl)
 
     binder.bind(SiteInfoRepository, to=SiteInfoRepositoryImpl)
     binder.bind(WebPageRepository, to=WebPageRepositoryImpl)
@@ -31,13 +33,12 @@ def mapping_blog_domain(binder):
 
 
 def mapping_rst_parser_domain(binder):
-    from imports.domains.rst_parser.services import PathService, TransformRstService
-    from imports.infrastructure.rst_parser.services.path_service_impl import PathServiceImpl
-    from imports.infrastructure.rst_parser.services.transform_rst_service_impl import TransformRstServiceImpl
+    from imports.domains.rst_parser.adapters import PathAdapter, TransformRstAdapter
+    from imports.infrastructure.domains.rst_parser.adapters.transform_rst_adapter_impl import TransformRstAdapterImpl
+    from imports.infrastructure.domains.rst_parser.adapters.path_adapter_impl import PathAdapterImpl
 
-    binder.bind(PathService, to=PathServiceImpl)
-
-    binder.bind(TransformRstService, to=TransformRstServiceImpl)
+    binder.bind(PathAdapter, to=PathAdapterImpl)
+    binder.bind(TransformRstAdapter, to=TransformRstAdapterImpl)
 
 
 domain_injector = injector.Injector([mapping_blog_domain, mapping_rst_parser_domain])

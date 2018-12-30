@@ -10,6 +10,10 @@ class Repository(abc.ABC):
     pass
 
 
+class Adapter(abc.ABC):
+    pass
+
+
 class Service(abc.ABC):
     pass
 

@@ -14,12 +14,13 @@ def test_invalid_input():
         site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=MagicMock(),
-        time_serv=MagicMock(),
-        env_serv=MagicMock(),
-        path_serv=MagicMock(),
-        slug_serv=MagicMock(),
+        source_path_serv=MagicMock(),
+        env_adapter=MagicMock(),
+        path_adapter=MagicMock(),
+        slug_adapter=MagicMock(),
+        time_adapter=MagicMock(),
+        truncate_html_adapter=MagicMock(),
         asset_serv=MagicMock(),
-        truncate_html_serv=MagicMock(),
     )
 
     res = uc.execute()
@@ -38,20 +39,21 @@ def test_invalid_input():
     assert isinstance(res, ResponseError)
     assert res.reason == 'Invalid input'
 
-    path_serv = MagicMock()
-    path_serv.exists.return_value = False
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = False
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=MagicMock(),
         site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=MagicMock(),
-        time_serv=MagicMock(),
-        env_serv=MagicMock(),
-        path_serv=path_serv,
-        slug_serv=MagicMock(),
+        source_path_serv=MagicMock(),
+        env_adapter=MagicMock(),
+        path_adapter=path_adapter,
+        slug_adapter=MagicMock(),
+        time_adapter=MagicMock(),
+        truncate_html_adapter=MagicMock(),
         asset_serv=MagicMock(),
-        truncate_html_serv=MagicMock(),
     )
     res = uc.execute(Request({'source_dir': 'invalid_path', 'max_summary_length': 15}))
 
@@ -85,10 +87,12 @@ def test_import_article_data():
 
     article_repo = MagicMock()
 
-    path_serv = MagicMock()
-    path_serv.exists.return_value = True
-    path_serv.get_all_article_paths.return_value = ['article_path']
-    path_serv.get_all_web_page_paths.return_value = []
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = True
+
+    source_path_serv = MagicMock()
+    source_path_serv.get_all_article_paths.return_value = ['article_path']
+    source_path_serv.get_all_web_page_paths.return_value = []
 
     asset_serv = MagicMock()
     asset_serv.save_and_return_static_url.side_effect = [
@@ -96,11 +100,11 @@ def test_import_article_data():
         'static_file_url',
     ]
 
-    slug_serv = MagicMock()
-    slug_serv.to_slug.return_value = 'slug'
+    slug_adapter = MagicMock()
+    slug_adapter.to_slug.return_value = 'slug'
 
-    truncate_html_serv = MagicMock()
-    truncate_html_serv.truncate.side_effect = [
+    truncate_html_adapter = MagicMock()
+    truncate_html_adapter.truncate.side_effect = [
         'summary',
         'raw_summary',
     ]
@@ -110,12 +114,13 @@ def test_import_article_data():
         site_info_repo=MagicMock(),
         article_repo=article_repo,
         web_page_repo=MagicMock(),
-        time_serv=MagicMock(),
-        env_serv=MagicMock(),
-        path_serv=path_serv,
-        slug_serv=slug_serv,
+        source_path_serv=source_path_serv,
+        env_adapter=MagicMock(),
+        path_adapter=path_adapter,
+        slug_adapter=slug_adapter,
+        time_adapter=MagicMock(),
+        truncate_html_adapter=truncate_html_adapter,
         asset_serv=asset_serv,
-        truncate_html_serv=truncate_html_serv,
     )
     res = uc.execute(Request({'source_dir': 'source_dir', 'max_summary_length': 15}))
     transform_rst_uc.execute.assert_called_once_with(Request('article_path'))
@@ -175,10 +180,12 @@ def test_import_web_page_data():
 
     web_page_repo = MagicMock()
 
-    path_serv = MagicMock()
-    path_serv.exists.return_value = True
-    path_serv.get_all_article_paths.return_value = []
-    path_serv.get_all_web_page_paths.return_value = ['web_page_path']
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = True
+
+    source_path_serv = MagicMock()
+    source_path_serv.get_all_article_paths.return_value = []
+    source_path_serv.get_all_web_page_paths.return_value = ['web_page_path']
 
     asset_serv = MagicMock()
     asset_serv.save_and_return_static_url.side_effect = [
@@ -186,20 +193,21 @@ def test_import_web_page_data():
         'static_file_url',
     ]
 
-    slug_serv = MagicMock()
-    slug_serv.to_slug.return_value = 'slug'
+    slug_adapter = MagicMock()
+    slug_adapter.to_slug.return_value = 'slug'
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=transform_rst_uc,
         site_info_repo=MagicMock(),
         article_repo=MagicMock(),
         web_page_repo=web_page_repo,
-        time_serv=MagicMock(),
-        env_serv=MagicMock(),
-        path_serv=path_serv,
-        slug_serv=slug_serv,
+        source_path_serv=source_path_serv,
+        env_adapter=MagicMock(),
+        path_adapter=path_adapter,
+        slug_adapter=slug_adapter,
+        time_adapter=MagicMock(),
+        truncate_html_adapter=MagicMock(),
         asset_serv=asset_serv,
-        truncate_html_serv=MagicMock()
     )
     res = uc.execute(Request({'source_dir': 'source_dir', 'max_summary_length': 15}))
     transform_rst_uc.execute.assert_called_once_with(Request('web_page_path'))
@@ -229,34 +237,37 @@ def test_import_web_page_data():
 
 
 def test_import_site_info_data():
-    path_serv = MagicMock()
-    path_serv.exists.return_value = True
-    path_serv.get_all_article_paths.return_value = []
-    path_serv.get_all_web_page_paths.return_value = []
+    path_adapter = MagicMock()
+    path_adapter.exists.return_value = True
+
+    source_path_serv = MagicMock()
+    source_path_serv.get_all_article_paths.return_value = []
+    source_path_serv.get_all_web_page_paths.return_value = []
 
     site_info_repo = MagicMock()
-    time_serv = MagicMock()
-    time_serv.get_utc_now.return_value = dt.datetime(2018, 11, 5, 15, 56, 30)
+    time_adapter = MagicMock()
+    time_adapter.get_utc_now.return_value = dt.datetime(2018, 11, 5, 15, 56, 30)
 
-    env_serv = MagicMock()
-    env_serv.get.return_value = 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+    env_adapter = MagicMock()
+    env_adapter.get.return_value = 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
 
     uc = ImportBlogDataUseCase(
         transform_rst_uc=MagicMock(),
         site_info_repo=site_info_repo,
         article_repo=MagicMock(),
         web_page_repo=MagicMock(),
-        time_serv=time_serv,
-        env_serv=env_serv,
-        path_serv=path_serv,
-        slug_serv=MagicMock(),
+        source_path_serv=source_path_serv,
+        env_adapter=env_adapter,
+        slug_adapter=MagicMock(),
+        time_adapter=time_adapter,
+        path_adapter=path_adapter,
+        truncate_html_adapter=MagicMock(),
         asset_serv=MagicMock(),
-        truncate_html_serv=MagicMock()
     )
     res = uc.execute(Request({'source_dir': 'source_dir', 'max_summary_length': 15}))
 
-    time_serv.get_utc_now.assert_called_once()
-    env_serv.get.assert_called_once_with('REPO_VERSION', '')
+    time_adapter.get_utc_now.assert_called_once()
+    env_adapter.get.assert_called_once_with('REPO_VERSION', '')
 
     site_info_repo.add.assert_called_once_with(SiteInfo(
         updated_time=dt.datetime(2018, 11, 5, 15, 56, 30),

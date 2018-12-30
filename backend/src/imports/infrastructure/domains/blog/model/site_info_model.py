@@ -1,4 +1,4 @@
-from imports.infrastructure.blog.model import db
+from imports.infrastructure.domains.blog.model import db
 
 
 class SiteInfoModel(db.Model):

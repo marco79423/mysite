@@ -15,3 +15,11 @@ class Asset(Entity):
             'filename': self.filename,
             'data': self.data,
         }
+
+    def __eq__(self, asset):
+        return (
+                self.uuid == asset.uuid and
+                self.is_attachment == asset.is_attachment and
+                self.filename == asset.filename and
+                self.data == asset.data
+        )

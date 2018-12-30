@@ -12,7 +12,7 @@ def create_app():
     # 3rd party modules
     CORS(app)
 
-    from imports.infrastructure.blog.model import db
+    from imports.infrastructure.domains.blog.model import db
     db.init_app(app)
 
     # routing

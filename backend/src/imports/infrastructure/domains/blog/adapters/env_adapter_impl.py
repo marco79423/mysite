@@ -1,12 +1,11 @@
+import injector
 import os
 
-import injector
-
-from imports.domains.blog.services import EnvService
+from imports.domains.blog.adapters import EnvAdapter
 
 
 @injector.singleton
-class EnvServiceImpl(EnvService):
+class EnvAdapterImpl(EnvAdapter):
 
     def get(self, name: str, default=None):
         return os.environ.get(name, default)

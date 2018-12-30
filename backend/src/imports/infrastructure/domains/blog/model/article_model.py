@@ -1,5 +1,5 @@
-from imports.infrastructure.blog.model import db
-from imports.infrastructure.blog.model.category_model import CategoryModel
+from imports.infrastructure.domains.blog.model import db
+from imports.infrastructure.domains.blog.model.category_model import CategoryModel
 
 categories = db.Table('categories',
                       db.Column('article_id', db.Integer, db.ForeignKey('article.id'), primary_key=True),
