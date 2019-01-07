@@ -1,2 +1,2 @@
-export const getRepositoryVersion = (state) => state.getIn(['siteInfo', 'repositoryVersion'])
-export const getSiteUpdatedTime = (state) => state.getIn(['siteInfo', 'siteUpdatedTime'])
+export const getRepositoryVersion = (state) => state.siteInfo.repositoryVersion
+export const getSiteUpdatedTime = (state) => state.siteInfo.siteUpdatedTime

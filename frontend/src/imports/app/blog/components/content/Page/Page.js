@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import TitleLink from '../../generic/TitleLink'
@@ -33,20 +32,12 @@ const Header = styled.header`
 `
 
 export default class Page extends React.PureComponent {
-  static PropTypes = {
-    page: ImmutablePropTypes.contains({
-      app: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      content: PropTypes.content
-    })
-  }
 
   renderHeader = () => {
     const {page} = this.props
     return (
       <Header>
-        <h1><TitleLink to={`/${page.get('app')}/${page.get('slug')}/`}>{page.get('title')}</TitleLink></h1>
+        <h1><TitleLink to={`/${page.app}/${page.slug}/`}>{page.title}</TitleLink></h1>
       </Header>
     )
   }
@@ -65,7 +56,7 @@ export default class Page extends React.PureComponent {
       <Base>
         <article>
           {this.renderHeader()}
-          <RstContent content={page.get('content')}/>
+          <RstContent content={page.content}/>
         </article>
       </Base>
     )

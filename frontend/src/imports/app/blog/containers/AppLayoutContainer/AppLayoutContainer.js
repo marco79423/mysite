@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 
 import SiteHead from '../../components/generic/SiteHead'
 import AppLayout from '../../components/layout/AppLayout'
@@ -18,7 +17,7 @@ import * as articleSelectors from '../../ducks/article/selectors'
     menuItems: configSelectors.getMenuItems(state, props),
     theme: configSelectors.getTheme(state, props),
     recentArticles: articleSelectors.getRecentArticles(state, props),
-    crazyMode: state.getIn(['lab', 'crazyMode']),
+    crazyMode: state.lab.crazyMode,
     copyright: configSelectors.getCopyright(state, props),
   }),
   dispatch => ({
@@ -26,18 +25,10 @@ import * as articleSelectors from '../../ducks/article/selectors'
   })
 )
 export default class AppLayoutContainer extends React.Component {
-  static PropTypes = {
-    siteConfig: ImmutablePropTypes.map.isRequired,
-    siteName: PropTypes.string.isRequired,
-    menuItems: ImmutablePropTypes.map.isRequired,
-    theme: PropTypes.object.isRequired,
-    copyright: PropTypes.string,
-    recentArticles: PropTypes.array
-  }
 
   componentWillMount () {
     // for recent articles
-    if (this.props.recentArticles.isEmpty()) {
+    if (this.props.recentArticles.length === 0) {
       this.props.fetchArticles()
     }
   }

@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import Pagination from './Pagination'
@@ -20,19 +18,6 @@ const Base = styled.section`
 `
 
 export default class ArticleList extends React.PureComponent {
-  static propTypes = {
-    articles: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        slug: PropTypes.string,
-        title: PropTypes.string,
-        summary: PropTypes.string
-      })
-    ),
-    pageNum: PropTypes.number,
-    pageSize: PropTypes.number,
-
-    getPageLink: PropTypes.func
-  }
 
   renderArticleList = () => {
     const {articles, pageNum, pageSize} = this.props
@@ -40,7 +25,7 @@ export default class ArticleList extends React.PureComponent {
       <ul>
         {
           articles.slice((pageNum - 1) * pageSize, pageNum * pageSize).map(article => (
-            <li key={article.get('slug')}>
+            <li key={article.slug}>
               <Article summaryMode={true} article={article}/>
             </li>
           ))
@@ -56,7 +41,7 @@ export default class ArticleList extends React.PureComponent {
         {this.renderArticleList()}
         <Pagination
           current={pageNum}
-          max={Math.ceil(articles.count() / pageSize)}
+          max={Math.ceil(articles.length / pageSize)}
           makeLink={getPageLink}
         />
       </Base>

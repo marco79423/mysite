@@ -22,7 +22,7 @@ test('getSiteHeadConfig should return site head config', () => {
       }
     }
   })
-  const expected = Immutable.fromJS({
+  const expected = {
     title: 'SITE_NAME',
     meta: [
       {name: 'name1', content: 'content1'},
@@ -34,8 +34,8 @@ test('getSiteHeadConfig should return site head config', () => {
       {rel: 'rel2', href: 'href2'},
     ],
 
-  })
-  expect(selectors.getSiteHeadConfig(state)).toEqualImmutable(expected)
+  }
+  expect(selectors.getSiteHeadConfig(state)).toEqual(expected)
 })
 
 describe('getArticleSiteHeadConfig', () => {
@@ -69,7 +69,7 @@ describe('getArticleSiteHeadConfig', () => {
         items: []
       }
     })
-    const expected = Immutable.fromJS({
+    const expected = {
       title: 'SITE_NAME',
       meta: [
         {name: 'name1', content: 'content1'},
@@ -80,9 +80,9 @@ describe('getArticleSiteHeadConfig', () => {
         {rel: 'rel1', href: 'href1'},
         {rel: 'rel2', href: 'href2'}
       ]
-    })
+    }
 
-    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqualImmutable(expected)
+    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqual(expected)
   })
 
   test('should return site head config for articles', () => {
@@ -116,7 +116,7 @@ describe('getArticleSiteHeadConfig', () => {
         ]
       }
     })
-    const expected = Immutable.fromJS({
+    const expected = {
       title: '美女最變態 - SITE_NAME',
       meta: [
         {name: 'name1', content: 'content1'},
@@ -130,9 +130,9 @@ describe('getArticleSiteHeadConfig', () => {
         {rel: 'rel1', href: 'href1'},
         {rel: 'rel2', href: 'href2'}
       ]
-    })
+    }
 
-    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqualImmutable(expected)
+    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqual(expected)
   })
 })
 

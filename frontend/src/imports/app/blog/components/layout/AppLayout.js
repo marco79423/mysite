@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled, {injectGlobal, ThemeProvider} from 'styled-components'
 import {normalize} from 'polished'
 
@@ -47,41 +46,14 @@ const Container = styled.div`
 `
 
 export default class AppLayout extends React.Component {
-  static PropTypes = {
-    siteConfig: ImmutablePropTypes.map.isRequired,
-    siteName: PropTypes.string.isRequired,
-    menuItems: ImmutablePropTypes.contains({
-      main: ImmutablePropTypes.listOf(
-        ImmutablePropTypes.contains({
-          url: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired
-        })
-      ),
-      extra: ImmutablePropTypes.listOf(
-        ImmutablePropTypes.contains({
-          url: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired
-        })
-      )
-    }).isRequired,
-    theme: PropTypes.object.isRequired,
-    recentArticles: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        slug: PropTypes.string,
-        title: PropTypes.string
-      })
-    ),
-    crazyMode: PropTypes.bool.isRequired,
-    copyright: PropTypes.string
-  }
 
   render () {
     return (
-      <ThemeProvider theme={this.props.theme.toJS()}>
+      <ThemeProvider theme={this.props.theme}>
         <Base>
           <Container>
             <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
-            <PageNav mainMenu={this.props.menuItems.get('main')} extraMenu={this.props.menuItems.get('extra')}/>
+            <PageNav mainMenu={this.props.menuItems.main} extraMenu={this.props.menuItems.extra}/>
             <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
             <PageFooter copyright={this.props.copyright}/>
           </Container>

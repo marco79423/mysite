@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import TitleLink from '../TitleLink'
@@ -26,30 +24,12 @@ const Header = styled.header`
 `
 
 export default class Article extends React.PureComponent {
-  static PropTypes = {
-    summaryMode: PropTypes.bool,
-    article: ImmutablePropTypes.contains({
-      slug: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      categories: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-        slug: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
-      })).isRequired,
-      chickenCount: PropTypes.number.isRequired,
-      date: PropTypes.instanceOf(Date).isRequired,
-      modifiedDate: PropTypes.instanceOf(Date),
-      content: PropTypes.any.isRequired,
-      summary: PropTypes.string.isRequired
-    }),
-    socialConfig: ImmutablePropTypes.map,
-    commentConfig: ImmutablePropTypes.map
-  }
 
   renderHeader = () => {
     const {article} = this.props
     return (
       <Header>
-        <h1><TitleLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</TitleLink></h1>
+        <h1><TitleLink to={`/articles/${article.slug}/`}>{article.title}</TitleLink></h1>
         {this.renderMetadata()}
       </Header>
     )
@@ -59,27 +39,27 @@ export default class Article extends React.PureComponent {
     const {article} = this.props
     return (
       <Metadata
-        categories={article.get('categories')}
-        chickenCount={article.get('chickenCount')}
-        date={article.get('date')}
-        modifiedDate={article.get('modifiedDate')} />
+        categories={article.categories}
+        chickenCount={article.chickenCount}
+        date={article.date}
+        modifiedDate={article.modifiedDate}/>
     )
   }
 
   renderSummary = () => {
-    return <RstContent content={this.props.article.get('summary')}/>
+    return <RstContent content={this.props.article.summary}/>
   }
 
   renderContent = () => {
     const {article, socialConfig, commentConfig} = this.props
     return [
-      <RstContent key="article-content" content={article.get('content')}/>,
-      <SocialShare  key="social-share" config={socialConfig}/>,
+      <RstContent key="article-content" content={article.content}/>,
+      <SocialShare key="social-share" config={socialConfig}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
   }
 
-  render () {
+  render() {
     const {article, summaryMode} = this.props
     if (!article) {
       return (

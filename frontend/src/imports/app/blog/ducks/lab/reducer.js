@@ -1,14 +1,16 @@
-import * as Immutable from 'immutable'
-import { handleActions } from 'redux-actions'
+import {handleActions} from 'redux-actions'
 
 import * as actionTypes from './actionTypes'
 
-const defaultState = Immutable.fromJS({
+const defaultState = {
   crazyMode: false
-})
+}
 
 const reducerMap = {
-  [actionTypes.SET_CRAZY_MODE]: (state, action) => state.update('crazyMode', crazyMode => action.payload)
+  [actionTypes.SET_CRAZY_MODE]: (state, action) => ({
+    ...state,
+    crazyMode: action.payload,
+  })
 }
 
 export default handleActions(reducerMap, defaultState)

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
 import ArticleDetail from '../../components/content/ArticleDetail'
@@ -22,14 +21,6 @@ import * as configSelectors from '../../ducks/config/selectors'
   })
 )
 export default class ArticleContainer extends React.Component {
-  static PropTypes = {
-    siteConfig: ImmutablePropTypes.map.isRequired,
-    article: ImmutablePropTypes.map.isRequired,
-    socialConfig: ImmutablePropTypes.map.isRequired,
-    commentConfig: ImmutablePropTypes.map.isRequired,
-
-    fetchArticles: PropTypes.func.isRequired
-  }
 
   componentWillMount () {
     if (!this.props.article) {

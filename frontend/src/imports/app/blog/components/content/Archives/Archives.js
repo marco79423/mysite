@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
 
@@ -36,15 +35,6 @@ const Header = styled.header`
 `
 
 export default class Archives extends React.PureComponent {
-  static PropTypes = {
-    articles: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        slug: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        date: PropTypes.any.isRequired
-      })
-    )
-  }
 
   renderHeader = () => {
     return (
@@ -60,9 +50,9 @@ export default class Archives extends React.PureComponent {
       <Table>
         <Tbody>
         {articles.map(article => (
-          <Tr key={article.get('slug')}>
-            <Td>{dateformat(article.get('date'), 'yyyy/mm/dd')}</Td>
-            <Td><NormalLink to={`/articles/${article.get('slug')}/`}>{article.get('title')}</NormalLink></Td>
+          <Tr key={article.slug}>
+            <Td>{dateformat(article.date, 'yyyy/mm/dd')}</Td>
+            <Td><NormalLink to={`/articles/${article.slug}/`}>{article.title}</NormalLink></Td>
           </Tr>
         ))}
         </Tbody>
@@ -72,7 +62,7 @@ export default class Archives extends React.PureComponent {
 
   render () {
     const {articles} = this.props
-    if (articles.isEmpty()) {
+    if (articles.length === 0) {
       return (
         <Base>
           <Loading/>

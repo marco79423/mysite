@@ -18,9 +18,9 @@ test('It should render SiteInfo component correctly', () => {
   const component = renderer.create(
     <ThemeProvider theme={theme}>
       <SiteInfo
-        frontendVersion={props.get('frontendVersion')}
-        backendVersion={props.get('backendVersion')}
-        updatedTime={props.get('updatedTime')}
+        frontendVersion={props.frontendVersion}
+        backendVersion={props.backendVersion}
+        updatedTime={props.updatedTime}
       />
     </ThemeProvider>
   )

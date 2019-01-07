@@ -10,7 +10,7 @@ import {configureStore} from './imports/app/store'
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState(state) {
-    return state.get('routing').toObject()
+    return state.routing
   }
 })
 store.runSaga(saga)

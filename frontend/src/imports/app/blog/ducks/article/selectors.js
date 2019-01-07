@@ -1,27 +1,28 @@
-import * as Immutable from 'immutable'
-import { createSelector } from 'reselect'
-import get from 'lodash/get'
+import fp from 'lodash/fp'
+import {createSelector} from 'reselect'
 
 import * as configSelectors from '../config/selectors'
 import * as routingSelectors from '../routing/selectors'
 
-export const getArticles = (state) => state
-  .getIn(['article', 'items'])
-  .map(article => article
-    .merge({
-      date: new Date(article.get('date')),
-      modifiedDate: article.get('modifiedDate') ? new Date(article.get('modifiedDate')) : null
-    })
-  )
+
+export const getArticles = (state) => fp.flow(
+  fp.map(article => ({
+    ...article,
+    date: new Date(article.date),
+    modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null
+  })),
+)(state.article.items)
 
 export const getArticlesByCategory = createSelector(
   [
-    (state, props) => get(props, 'params.category') || get(props, 'category'),
+    (state, props) => fp.get('params.category')(props) || fp.get('category')(props),
     getArticles
   ],
-  (category, articles) => articles.filter(article => article
-    .get('categories')
-    .some(c => !category || c.get('slug') === category))
+  (queryCategory, articles) => fp.flow(
+    fp.filter(article => fp.flow(
+      fp.some(category => !queryCategory || category.slug === queryCategory),
+    )(article.categories))
+  )(articles)
 )
 
 export const getArticle = createSelector(
@@ -29,7 +30,9 @@ export const getArticle = createSelector(
     getArticles,
     (state, props) => props.params.slug
   ],
-  (articles, currentArticleSlug) => articles.find(article => article.get('slug') === currentArticleSlug)
+  (articles, currentArticleSlug) => fp.flow(
+    fp.find(article => article.slug === currentArticleSlug)
+  )(articles)
 )
 
 export const getRecentArticles = createSelector(
@@ -37,7 +40,9 @@ export const getRecentArticles = createSelector(
     getArticlesByCategory,
     configSelectors.getRecentArticleCount
   ],
-  (articles, recentArticleCount) => articles.take(recentArticleCount)
+  (articles, recentArticleCount) => fp.flow(
+    fp.take(recentArticleCount),
+  )(articles)
 )
 
 export const getSocialConfig = createSelector(
@@ -45,8 +50,8 @@ export const getSocialConfig = createSelector(
     routingSelectors.getCurrentUrl,
     getArticle
   ],
-  (currentUrl, article) => Immutable.Map({
+  (currentUrl, article) => ({
     shareUrl: currentUrl,
-    title: article ? article.get('title') : currentUrl
+    title: article ? article.title : currentUrl
   })
 )

@@ -1,5 +1,5 @@
+import fp from 'lodash/fp'
 import {createSelector} from 'reselect'
-import * as Immutable from 'immutable'
 
 import * as configSelectors from '../config/selectors'
 import * as articleSelectors from '../article/selectors'
@@ -11,18 +11,25 @@ export const getSiteHeadConfig = createSelector(
     configSelectors.getSiteMeta,
     configSelectors.getSiteLink
   ],
-  (siteName, siteMeta, siteLink) => Immutable.Map({
+  (siteName, siteMeta, siteLink) => ({
     title: siteName,
-    meta: siteMeta
-      .entrySeq()
-      .map(([name, content]) => Immutable.Map({name, content}))
-      .toList(),
-    link: siteLink
-      .entrySeq()
-      .map(([rel, href]) => Immutable.Map({rel, href}))
-      .toList()
+    meta: fp.flow(
+      fp.keys,
+      fp.map(name => ({
+        name: name,
+        content: siteMeta[name],
+      })),
+    )(siteMeta),
+    link: fp.flow(
+      fp.keys,
+      fp.map(rel => ({
+        rel: rel,
+        href: siteLink[rel],
+      })),
+    )(siteLink),
   })
 )
+
 
 export const getArticleSiteHeadConfig = createSelector(
   [
@@ -37,19 +44,26 @@ export const getArticleSiteHeadConfig = createSelector(
       return headConfig
     }
 
-    const title = `${article.get('title')} - ${siteName}`
-    return headConfig.merge(Immutable.Map({
+    const title = `${article.title} - ${siteName}`
+
+    siteMeta = {
+      ...siteMeta,
+      description: article.rawSummary,
+      'og:title': title,
+      'og:url': currentUrl,
+      'og:description': article.rawSummary,
+    }
+
+    return {
+      ...headConfig,
       title: title,
-      meta: siteMeta
-        .merge({
-          description: article.get('rawSummary'),
-          'og:title': title,
-          'og:url': currentUrl,
-          'og:description': article.get('rawSummary')
-        })
-        .entrySeq()
-        .map(([name, content]) => Immutable.Map({name, content}))
-        .toList()
-    }))
+      meta: fp.flow(
+        fp.keys,
+        fp.map(name => ({
+          name: name,
+          content: siteMeta[name],
+        })),
+      )(siteMeta),
+    }
   }
 )

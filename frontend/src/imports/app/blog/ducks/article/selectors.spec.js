@@ -1,5 +1,4 @@
 import * as Immutable from 'immutable'
-import * as matchers from 'jest-immutable-matchers'
 
 import * as selectors from './selectors'
 
@@ -58,17 +57,13 @@ const articles = [
   }
 ]
 
-beforeAll(() => {
-  jest.addMatchers(matchers)
-})
-
 test('getArticles should return articles with correct naming convention', () => {
   const state = Immutable.fromJS({
     article: {
       items: articles
     }
   })
-  const expected = Immutable.fromJS([
+  const expected = [
     {
       'slug': '淺談-regex-及其應用',
       'title': '淺談 regex 及其應用',
@@ -121,12 +116,12 @@ test('getArticles should return articles with correct naming convention', () => 
       'summary': 'summary',
       'rawSummary': 'rawSummary'
     }
-  ])
-  expect(selectors.getArticles(state)).toEqualImmutable(expected)
+  ]
+  expect(selectors.getArticles(state)).toEqual(expected)
 })
 
 describe('getArticlesByCategory', () => {
-  const expected = Immutable.fromJS([
+  const expected = [
     {
       'slug': '淺談-regex-及其應用',
       'title': '淺談 regex 及其應用',
@@ -147,7 +142,7 @@ describe('getArticlesByCategory', () => {
       'summary': 'summary',
       'rawSummary': 'rawSummary'
     }
-  ])
+  ]
 
   test('should return article list by props.params.category', () => {
     const props = {
@@ -161,7 +156,7 @@ describe('getArticlesByCategory', () => {
         items: articles
       }
     })
-    expect(selectors.getArticlesByCategory(state, props)).toEqualImmutable(expected)
+    expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
   })
 
   test('should return article list by props.category', () => {
@@ -174,7 +169,7 @@ describe('getArticlesByCategory', () => {
         items: articles
       }
     })
-    expect(selectors.getArticlesByCategory(state, props)).toEqualImmutable(expected)
+    expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
   })
 })
 
@@ -190,7 +185,7 @@ test('getArticle should return articles with correct naming convention', () => {
     }
   })
 
-  const expected = Immutable.fromJS({
+  const expected = {
     'slug': '美女最變態',
     'title': '美女最變態',
     'date': new Date('2013-02-02T00:00:00'),
@@ -205,8 +200,8 @@ test('getArticle should return articles with correct naming convention', () => {
     'content': 'content',
     'summary': 'summary',
     'rawSummary': 'rawSummary'
-  })
-  expect(selectors.getArticle(state, props)).toEqualImmutable(expected)
+  }
+  expect(selectors.getArticle(state, props)).toEqual(expected)
 })
 
 describe('getRecentArticles', () => {
@@ -220,7 +215,7 @@ describe('getRecentArticles', () => {
         items: articles
       }
     })
-    const expected = Immutable.fromJS([
+    const expected = [
       {
         'slug': '淺談-regex-及其應用',
         'title': '淺談 regex 及其應用',
@@ -257,8 +252,8 @@ describe('getRecentArticles', () => {
         'summary': 'summary',
         'rawSummary': 'rawSummary'
       }
-    ])
-    expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)
+    ]
+    expect(selectors.getRecentArticles(state, props)).toEqual(expected)
   })
 
   test('should return recent articles (articles < config)', () => {
@@ -271,7 +266,7 @@ describe('getRecentArticles', () => {
         items: articles
       }
     })
-    const expected = Immutable.fromJS([
+    const expected = [
       {
         'slug': '淺談-regex-及其應用',
         'title': '淺談 regex 及其應用',
@@ -324,8 +319,8 @@ describe('getRecentArticles', () => {
         'summary': 'summary',
         'rawSummary': 'rawSummary'
       }
-    ])
-    expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)
+    ]
+    expect(selectors.getRecentArticles(state, props)).toEqual(expected)
   })
 
   test('should return recent categorized articles', () => {
@@ -340,7 +335,7 @@ describe('getRecentArticles', () => {
         items: articles
       }
     })
-    const expected = Immutable.fromJS([
+    const expected = [
       {
         'slug': '擁抱',
         'title': '擁抱',
@@ -373,8 +368,8 @@ describe('getRecentArticles', () => {
         'summary': 'summary',
         'rawSummary': 'rawSummary'
       }
-    ])
-    expect(selectors.getRecentArticles(state, props)).toEqualImmutable(expected)
+    ]
+    expect(selectors.getRecentArticles(state, props)).toEqual(expected)
   })
 })
 
@@ -400,11 +395,11 @@ describe('getSocialConfig', () => {
       }
     })
 
-    const expected = Immutable.fromJS({
+    const expected = {
       shareUrl: 'HOST_URL/pathname',
       title: '美女最變態'
-    })
-    expect(selectors.getSocialConfig(state, props)).toEqualImmutable(expected)
+    }
+    expect(selectors.getSocialConfig(state, props)).toEqual(expected)
   })
 
   test('should return social config even when the article dont exist ', () => {
@@ -422,11 +417,11 @@ describe('getSocialConfig', () => {
       }
     })
 
-    const expected = Immutable.fromJS({
+    const expected = {
       shareUrl: 'HOST_URL/pathname',
       title: 'HOST_URL/pathname'
-    })
-    expect(selectors.getSocialConfig(state, props)).toEqualImmutable(expected)
+    }
+    expect(selectors.getSocialConfig(state, props)).toEqual(expected)
   })
 })
 

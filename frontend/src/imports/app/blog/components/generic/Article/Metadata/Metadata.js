@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import NormalLink from '../../NormalLink'
 import styled from 'styled-components'
 
@@ -70,15 +68,6 @@ const Tooltip = styled.span`
 `
 
 export default class Metadata extends React.PureComponent {
-  static PropTypes = {
-    categories: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-      slug: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })).isRequired,
-    chickenCount: PropTypes.number.isRequired,
-    date: PropTypes.instanceOf(Date).isRequired,
-    modifiedDate: PropTypes.instanceOf(Date)
-  }
 
   state = {
     hoverChickenImage: false
@@ -89,8 +78,8 @@ export default class Metadata extends React.PureComponent {
       <Item>分類：
         <Categories>
           {categories.map(category => (
-            <Category key={category.get('slug')}>
-              <NormalLink to={`/articles/category/${category.get('slug')}/`}>{category.get('name')}</NormalLink>
+            <Category key={category.slug}>
+              <NormalLink to={`/articles/category/${category.slug}/`}>{category.name}</NormalLink>
             </Category>
           ))}
         </Categories>
@@ -109,7 +98,9 @@ export default class Metadata extends React.PureComponent {
   renderChickenCountItem = (chickenCount) => {
     const tooltip = '雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關'
     return (
-      <Item>字數：<ChickenImage src={require('./img/chicken.png')} alt='雞' onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/> x {chickenCount}<Tooltip hover={this.state.hoverChickenImage}>{tooltip}</Tooltip></Item>
+      <Item>字數：<ChickenImage src={require('./img/chicken.png')} alt='雞' onMouseEnter={this.onMouseEnter}
+                             onMouseLeave={this.onMouseLeave}/> x {chickenCount}<Tooltip
+        hover={this.state.hoverChickenImage}>{tooltip}</Tooltip></Item>
     )
   }
 
@@ -125,7 +116,7 @@ export default class Metadata extends React.PureComponent {
     )
   }
 
-  render () {
+  render() {
     return (
       <ItemGroup>
         {this.renderCategoryItem(this.props.categories)}

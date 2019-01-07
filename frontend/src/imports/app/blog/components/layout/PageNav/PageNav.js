@@ -1,5 +1,4 @@
 import React from 'react'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import NormalLink from '../../generic/NormalLink'
@@ -81,16 +80,12 @@ const ExtraMenu = BaseMenu.extend`
 `
 
 export default class PageNav extends React.Component {
-  static PropTypes = {
-    mainMenu: ImmutablePropTypes.list.isRequired,
-    extraMenu: ImmutablePropTypes.list.isRequired
-  }
 
   renderMainMenu = () => {
     return (
       <MainMenu>
         {this.props.mainMenu.map(item => (
-          <li key={item.get('url')}><MenuLink to={item.get('url')}>{item.get('name')}</MenuLink></li>
+          <li key={item.url}><MenuLink to={item.url}>{item.name}</MenuLink></li>
         ))}
       </MainMenu>
     )
@@ -100,7 +95,7 @@ export default class PageNav extends React.Component {
     return (
       <ExtraMenu>
         {this.props.extraMenu.map(item => (
-          <li key={item.get('url')}><MenuLink to={item.get('url')}>{item.get('name')}</MenuLink></li>
+          <li key={item.url}><MenuLink to={item.url}>{item.name}</MenuLink></li>
         ))}
       </ExtraMenu>
     )

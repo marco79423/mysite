@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import { generateShareIcon, ShareButtons } from 'react-share'
 import styled from 'styled-components'
 
@@ -27,12 +26,6 @@ const LinkedinIcon = generateShareIcon('linkedin')
 const TwitterIcon = generateShareIcon('twitter')
 
 export default class SocialShare extends React.PureComponent {
-  static PropTypes = {
-    config: ImmutablePropTypes.contains({
-      shareUrl: PropTypes.string.isRequired,
-      title: PropTypes.string
-    })
-  }
 
   render () {
     if (!this.props.config) {
@@ -42,25 +35,25 @@ export default class SocialShare extends React.PureComponent {
     return (
       <IconGroup>
         <FacebookShareButton
-          url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}>
+          url={this.props.config.shareUrl}
+          title={this.props.config.title}>
           <FacebookIcon size={iconSize} round/>
         </FacebookShareButton>
 
         <GooglePlusShareButton
-          url={this.props.config.get('shareUrl')}>
+          url={this.props.config.shareUrl}>
           <GooglePlusIcon size={iconSize} round/>
         </GooglePlusShareButton>
 
         <TwitterShareButton
-          url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}>
+          url={this.props.config.shareUrl}
+          title={this.props.config.title}>
           <TwitterIcon size={iconSize} round/>
         </TwitterShareButton>
 
         <LinkedinShareButton
-          url={this.props.config.get('shareUrl')}
-          title={this.props.config.get('title')}>
+          url={this.props.config.shareUrl}
+          title={this.props.config.title}>
           <LinkedinIcon size={iconSize} round/>
         </LinkedinShareButton>
       </IconGroup>

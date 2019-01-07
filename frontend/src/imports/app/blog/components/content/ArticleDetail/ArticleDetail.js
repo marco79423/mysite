@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
 import SiteHead from '../../generic/SiteHead'
@@ -17,26 +15,8 @@ const Base = styled.section`
 `
 
 export default class ArticleDetail extends React.PureComponent {
-  static propTypes = {
-    siteConfig: ImmutablePropTypes.map,
-    summaryMode: PropTypes.bool,
-    article: ImmutablePropTypes.contains({
-      slug: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      categories: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-        slug: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
-      })).isRequired,
-      date: PropTypes.instanceOf(Date).isRequired,
-      modifiedDate: PropTypes.instanceOf(Date),
-      content: PropTypes.any.isRequired,
-      summary: PropTypes.string.isRequired
-    }),
-    socialConfig: ImmutablePropTypes.map,
-    commentConfig: ImmutablePropTypes.map
-  }
 
-  render () {
+  render() {
     return (
       <Base>
         <SiteHead config={this.props.siteConfig}/>

@@ -1,14 +1,16 @@
-import * as Immutable from 'immutable'
 import {handleActions} from 'redux-actions'
 
 import * as actionTypes from './actionTypes'
 
-const defaultState = Immutable.fromJS({
+const defaultState = {
   items: []
-})
+}
 
 const reducerMap = {
-  [actionTypes.SET_ARTICLES]: (state, action) => state.set('items', Immutable.fromJS(action.payload))
+  [actionTypes.SET_ARTICLES]: (state, action) => ({
+    ...state,
+    items: action.payload,
+  })
 }
 
 export default handleActions(reducerMap, defaultState)

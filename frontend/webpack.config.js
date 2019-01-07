@@ -24,11 +24,6 @@ module.exports = {
     path: path.join(__dirname, 'dist', 'assets'),
     filename: 'bundle.js'
   },
-  resolve: {
-    alias: {
-      'immutable$': path.join(__dirname, 'node_modules/immutable/dist/immutable.min.js')
-    }
-  },
   plugins: plugins,
   devtool: DEBUG ? 'eval' : false,
   module: {

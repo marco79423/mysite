@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
 import ArticleList from '../../components/content/ArticleList'
@@ -21,22 +20,9 @@ import * as configSelectors from '../../ducks/config/selectors'
   })
 )
 export default class ArticleListContainer extends React.Component {
-  static propTypes = {
-    articles: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.contains({
-        slug: PropTypes.string,
-        title: PropTypes.string,
-        summary: PropTypes.string
-      })
-    ).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    pageSize: PropTypes.number.isRequired,
-
-    fetchArticles: PropTypes.func.isRequired
-  }
 
   componentWillMount () {
-    if (this.props.articles.isEmpty()) {
+    if (this.props.articles.length === 0) {
       this.props.fetchArticles()
     }
   }
