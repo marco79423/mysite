@@ -6,7 +6,7 @@ import {Table, Tbody, Tr, Td} from '../../generic/table'
 import NormalLink from '../../generic/NormalLink'
 import TitleLink from '../../generic/TitleLink'
 
-import Checkbox from '../../generic/Checkbox/index'
+import Checkbox from '../../generic/Checkbox'
 
 const Base = styled.section`
   float: left;

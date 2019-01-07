@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import styled from 'styled-components'
 
-import SiteHead from '../../generic/SiteHead/index'
+import SiteHead from '../../generic/SiteHead'
 import Article from '../../generic/Article'
 
 

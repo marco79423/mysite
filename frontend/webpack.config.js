@@ -18,7 +18,7 @@ if (!DEBUG) {
 }
 
 module.exports = {
-  entry: './src/client/index.js',
+  entry: './src/index.js',
   output: {
     publicPath: '/assets/',
     path: path.join(__dirname, 'dist', 'assets'),

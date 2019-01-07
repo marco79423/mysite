@@ -24,7 +24,7 @@ export const SITE_META = {
 }
 
 export const SITE_LINK = {
-  'shortcut icon': require('../shared/blog/img/favicon.ico')
+  'shortcut icon': require('../app/blog/img/favicon.ico')
 }
 
 export const COPYRIGHT = `Copyright © ${new Date().getFullYear()} - 兩大類`
