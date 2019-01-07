@@ -13,7 +13,7 @@ import ArchivesPage from './blog/pages/ArchivesPage'
 import ArticleDetailPage from './blog/pages/ArticleDetailPage'
 import PagePage from './blog/pages/PagePage'
 
-export default class Root extends React.Component {
+export default class App extends React.Component {
   static PropTypes = {
     store: PropTypes.any.isRequired,
     history: PropTypes.any,
