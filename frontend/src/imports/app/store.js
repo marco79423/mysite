@@ -1,14 +1,11 @@
 import 'isomorphic-fetch'
-import * as Immutable from 'immutable'
-import { applyMiddleware, compose, createStore } from 'redux'
-import { browserHistory } from 'react-router'
-import { routerMiddleware } from 'react-router-redux'
-import { createTracker, EventTypes } from 'redux-segment'
+import {applyMiddleware, compose, createStore} from 'redux'
+import {routerMiddleware} from 'react-router-redux'
+import {createTracker, EventTypes} from 'redux-segment'
 import createSagaMiddleware from 'redux-saga'
 
 import reducer from './blog/ducks/reducer'
 
-const INITIAL_STATE = (typeof window !== 'undefined') ? window.__PRELOADED_STATE__ : {}
 const DEBUG = process.env.DEBUG
 
 const customMapper = {
@@ -19,20 +16,14 @@ const customMapper = {
 
 const tracker = createTracker(customMapper)
 
-export function configureStore (history) {
-  if (!history) {
-    history = browserHistory
-  }
-
+export function configureStore(history) {
   const composeEnhancers = (DEBUG && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
   const sagaMiddleware = createSagaMiddleware()
 
-  const initialState = Immutable.fromJS(INITIAL_STATE)
   return {
     ...createStore(
       reducer,
-      initialState,
       composeEnhancers(
         applyMiddleware(
           sagaMiddleware,
