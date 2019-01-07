@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import TitleLink from '../../generic/TitleLink'
@@ -42,7 +41,7 @@ export default class Page extends React.PureComponent {
     )
   }
 
-  render () {
+  render() {
     const {page} = this.props
     if (!page) {
       return (
