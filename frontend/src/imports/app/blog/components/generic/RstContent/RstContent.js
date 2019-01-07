@@ -10,8 +10,7 @@ const Base = styled.div`
   line-height: 1.6rem;
 `
 
-@withTheme
-export default class RstContent extends React.PureComponent {
+export class RstContent extends React.PureComponent {
   static PropTypes = {
     theme: PropTypes.object.isRequired,
     content: PropTypes.string.isRequired
@@ -221,3 +220,5 @@ export default class RstContent extends React.PureComponent {
     )
   }
 }
+
+export default withTheme(RstContent)

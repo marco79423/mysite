@@ -14,7 +14,6 @@
   ],
   "plugins": [
     "transform-runtime",
-    "transform-decorators-legacy",
     "babel-plugin-styled-components"
   ],
   "env": {
@@ -26,7 +25,6 @@
       ],
       "plugins": [
         "transform-runtime",
-        "transform-decorators-legacy",
         "babel-plugin-styled-components"
       ]
     }

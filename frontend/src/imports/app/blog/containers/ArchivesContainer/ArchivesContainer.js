@@ -6,15 +6,7 @@ import Archives from '../../components/content/Archives'
 import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 
-@connect(
-  (state, ownProps) => ({
-    articles: articleSelectors.getArticles(state, ownProps)
-  }),
-  dispatch => ({
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  })
-)
-export default class ArchivesContainer extends React.Component {
+export class ArchivesContainer extends React.Component {
 
   componentWillMount() {
     if (this.props.articles.length === 0) {
@@ -29,3 +21,12 @@ export default class ArchivesContainer extends React.Component {
     )
   }
 }
+
+export default connect(
+  (state, ownProps) => ({
+    articles: articleSelectors.getArticles(state, ownProps)
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)(ArchivesContainer)

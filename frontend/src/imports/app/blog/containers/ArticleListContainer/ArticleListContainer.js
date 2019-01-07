@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import ArticleList from '../../components/content/ArticleList'
 
@@ -8,20 +7,9 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-@connect(
-  (state, ownProps) => ({
-    category: ownProps.params.category,
-    articles: ownProps.params.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
-    pageSize: configSelectors.getPageSize(state, ownProps),
-    pageNum: +ownProps.params.pageNum || 1
-  }),
-  dispatch => ({
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  })
-)
-export default class ArticleListContainer extends React.Component {
+export class ArticleListContainer extends React.Component {
 
-  componentWillMount () {
+  componentWillMount() {
     if (this.props.articles.length === 0) {
       this.props.fetchArticles()
     }
@@ -36,7 +24,7 @@ export default class ArticleListContainer extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <ArticleList
         articles={this.props.articles}
@@ -47,3 +35,16 @@ export default class ArticleListContainer extends React.Component {
     )
   }
 }
+
+
+export default connect(
+  (state, ownProps) => ({
+    category: ownProps.params.category,
+    articles: ownProps.params.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
+    pageSize: configSelectors.getPageSize(state, ownProps),
+    pageNum: +ownProps.params.pageNum || 1
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)(ArticleListContainer)

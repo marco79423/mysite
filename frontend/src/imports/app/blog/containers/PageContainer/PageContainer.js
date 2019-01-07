@@ -6,18 +6,7 @@ import Page from '../../components/content/Page'
 
 import * as pageActions from '../../ducks/page/actions'
 
-@connect(
-  (state, ownProps) => ( {
-    page: state.page.items.find(page => (
-      page.app === ownProps.params.app &&
-      page.slug === ownProps.params.slug
-    ))
-  }),
-  dispatch => ({
-    fetchPages: () => dispatch(pageActions.fetchPages())
-  })
-)
-export default class PageContainer extends React.Component {
+export class PageContainer extends React.Component {
 
   componentWillMount () {
     if (!this.props.page) {
@@ -31,3 +20,15 @@ export default class PageContainer extends React.Component {
     )
   }
 }
+
+export default connect(
+  (state, ownProps) => ( {
+    page: state.page.items.find(page => (
+      page.app === ownProps.params.app &&
+      page.slug === ownProps.params.slug
+    ))
+  }),
+  dispatch => ({
+    fetchPages: () => dispatch(pageActions.fetchPages())
+  })
+)(PageContainer)

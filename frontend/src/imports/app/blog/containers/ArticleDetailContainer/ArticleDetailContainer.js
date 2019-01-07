@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import ArticleDetail from '../../components/content/ArticleDetail'
 
@@ -9,26 +8,15 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-@connect(
-  (state, ownProps) => ({
-    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
-    article: articleSelectors.getArticle(state, ownProps),
-    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
-    commentConfig: configSelectors.getCommentConfig(state)
-  }),
-  dispatch => ({
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  })
-)
-export default class ArticleContainer extends React.Component {
+export class ArticleDetailContainer extends React.Component {
 
-  componentWillMount () {
+  componentWillMount() {
     if (!this.props.article) {
       this.props.fetchArticles()
     }
   }
 
-  render () {
+  render() {
     return (
       <ArticleDetail
         siteConfig={this.props.siteConfig}
@@ -41,3 +29,14 @@ export default class ArticleContainer extends React.Component {
   }
 }
 
+export default connect(
+  (state, ownProps) => ({
+    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
+    article: articleSelectors.getArticle(state, ownProps),
+    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
+    commentConfig: configSelectors.getCommentConfig(state)
+  }),
+  dispatch => ({
+    fetchArticles: () => dispatch(articleActions.fetchArticles())
+  })
+)(ArticleDetailContainer)

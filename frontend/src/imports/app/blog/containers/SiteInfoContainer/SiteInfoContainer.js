@@ -7,16 +7,7 @@ import * as siteInfoSelectors from '../../ducks/site-info/selectors'
 
 import * as actions from '../../ducks/site-info/actions'
 
-@connect(
-  (state, ownProps) => ({
-    repositoryVersion: siteInfoSelectors.getRepositoryVersion(state),
-    updatedTime: siteInfoSelectors.getSiteUpdatedTime(state)
-  }),
-  dispatch => ({
-    fetchSiteInfo: () => dispatch(actions.fetchSiteInfo())
-  })
-)
-export default class SiteInfoContainer extends React.Component {
+export class SiteInfoContainer extends React.Component {
   static PropTypes = {
     repositoryVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
@@ -37,3 +28,13 @@ export default class SiteInfoContainer extends React.Component {
     )
   }
 }
+
+export default connect(
+  (state, ownProps) => ({
+    repositoryVersion: siteInfoSelectors.getRepositoryVersion(state),
+    updatedTime: siteInfoSelectors.getSiteUpdatedTime(state)
+  }),
+  dispatch => ({
+    fetchSiteInfo: () => dispatch(actions.fetchSiteInfo())
+  })
+)(SiteInfoContainer)
