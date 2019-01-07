@@ -8,24 +8,15 @@ import 'isomorphic-fetch'
 
 export default class Root extends React.Component {
   static PropTypes = {
-    type: PropTypes.oneOf(['server', 'client']).isRequired,
     store: PropTypes.any.isRequired,
     history: PropTypes.any,
     renderProps: PropTypes.any,
   }
 
-  renderRoutes = () => {
-    if (this.props.type === 'server') {
-      return <RouterContext {...this.props.renderProps} />
-    } else {
-      return createRoutes(this.props.history)
-    }
-  }
-
   render () {
     return (
       <Provider store={this.props.store}>
-        {this.renderRoutes()}
+        {createRoutes(this.props.history)}
       </Provider>
     )
   }
