@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "dateformat": "^3.0.2",
-    "express": "^4.15.2",
     "feed": "^1.1.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
