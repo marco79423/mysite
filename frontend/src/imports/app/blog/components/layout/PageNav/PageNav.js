@@ -67,11 +67,11 @@ const BaseMenu = styled.ul`
   }
 `
 
-const MainMenu = BaseMenu.extend`
+const MainMenu = styled(BaseMenu)`
   float: left;
 `
 
-const ExtraMenu = BaseMenu.extend`
+const ExtraMenu = styled(BaseMenu)`
   float: right;
   
   @media (max-width: 1200px) {

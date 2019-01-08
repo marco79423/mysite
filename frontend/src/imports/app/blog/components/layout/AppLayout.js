@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled, {injectGlobal, ThemeProvider} from 'styled-components'
+import styled, {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {normalize} from 'polished'
 
 import PageHeader from './PageHeader'
@@ -9,7 +8,7 @@ import PageMain from './PageMain'
 import PageFooter from './PageFooter'
 
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   ${normalize()}
   
   html {
@@ -41,23 +40,24 @@ const Container = styled.div`
   @media (max-width: 1200px) {
     width: 100%;
   }
-  
-  
 `
 
 export default class AppLayout extends React.Component {
 
-  render () {
+  render() {
     return (
       <ThemeProvider theme={this.props.theme}>
-        <Base>
-          <Container>
-            <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
-            <PageNav mainMenu={this.props.menuItems.main} extraMenu={this.props.menuItems.extra}/>
-            <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
-            <PageFooter copyright={this.props.copyright}/>
-          </Container>
-        </Base>
+        <React.Fragment>
+          <GlobalStyle/>
+          <Base>
+            <Container>
+              <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
+              <PageNav mainMenu={this.props.menuItems.main} extraMenu={this.props.menuItems.extra}/>
+              <PageMain recentArticles={this.props.recentArticles} content={this.props.children}/>
+              <PageFooter copyright={this.props.copyright}/>
+            </Container>
+          </Base>
+        </React.Fragment>
       </ThemeProvider>
     )
   }

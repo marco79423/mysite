@@ -25,7 +25,7 @@ const PageButtonGroup = styled.ul`
   }
 `
 
-const PageButton = NormalLink.extend`
+const PageButton = styled(NormalLink)`
   display: block;
   text-align: center;
   line-height: 32px;

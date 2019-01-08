@@ -1,21 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Page component correctly 1`] = `
-.c3 {
+.c2 {
   color: #0097A7;
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.c3:hover {
-  color: #006064;
-}
-
-.c2 {
   font-size: 2rem;
 }
 
-.c4 {
+.c2:hover {
+  color: #006064;
+}
+
+.c3 {
   margin-top: 16px;
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -51,7 +48,7 @@ exports[`It should render Page component correctly 1`] = `
     >
       <h1>
         <a
-          className="c2 c3"
+          className="c2"
           onClick={[Function]}
           style={Object {}}
         >
@@ -59,14 +56,16 @@ exports[`It should render Page component correctly 1`] = `
         </a>
       </h1>
     </header>
-    <div
-      className="rst-content c4"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<div>今天天氣不錯</div>",
+    <div>
+      <div
+        className="rst-content c3"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<div>今天天氣不錯</div>",
+          }
         }
-      }
-    />
+      />
+    </div>
   </article>
 </section>
 `;

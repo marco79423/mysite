@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {injectGlobal, withTheme} from 'styled-components'
+import styled, {createGlobalStyle, withTheme} from 'styled-components'
 
 import pygmentsStyle from './pygmentsStyle'
 
@@ -10,15 +10,8 @@ const Base = styled.div`
   line-height: 1.6rem;
 `
 
-export class RstContent extends React.PureComponent {
-  static PropTypes = {
-    theme: PropTypes.object.isRequired,
-    content: PropTypes.string.isRequired
-  }
-
-  injectGlobalStyle = () => {
-    injectGlobal`
-      .rst-content {
+const RstStyle = createGlobalStyle`
+  .rst-content {
         ${pygmentsStyle}
         
         hr {
@@ -30,7 +23,7 @@ export class RstContent extends React.PureComponent {
         }
       
         a, a:visited, a:hover {
-          color: ${this.props.theme.global.link.color};
+          color: ${props => props.theme.global.link.color};
           text-decoration: none;
         }
       
@@ -54,7 +47,7 @@ export class RstContent extends React.PureComponent {
         }
       
         h2, h3, h4, h5 {
-          color: ${this.props.theme.page.main.content.article.header.color};
+          color: ${props => props.theme.page.main.content.article.header.color};
         }
       
         h2 {
@@ -104,17 +97,17 @@ export class RstContent extends React.PureComponent {
         pre {
           font-size: 1.2rem;
           font-family: Consolas, Arial, Microsoft JhengHei;
-          color: ${this.props.theme.page.main.content.article.block.color};
-          background: ${this.props.theme.page.main.content.article.block.background};
-          border: 1px solid ${this.props.theme.page.main.content.article.block.borderColor};
+          color: ${props => props.theme.page.main.content.article.block.color};
+          background: ${props => props.theme.page.main.content.article.block.background};
+          border: 1px solid ${props => props.theme.page.main.content.article.block.borderColor};
           padding: 0.7rem;
           margin-bottom: 1rem;
           white-space: pre-wrap;
       
           &.doctest-block {
             border: 0;
-            color: ${this.props.theme.page.main.content.article.doctestBlock.color};
-            background: ${this.props.theme.page.main.content.article.doctestBlock.background};
+            color: ${props => props.theme.page.main.content.article.doctestBlock.color};
+            background: ${props => props.theme.page.main.content.article.doctestBlock.background};
           }
         }
       
@@ -142,7 +135,7 @@ export class RstContent extends React.PureComponent {
           width: 100%;
       
           th {
-            background: ${this.props.theme.page.main.content.article.table.header.background};
+            background: ${props => props.theme.page.main.content.article.table.header.background};
             color: white;
             padding: 0.7rem;
             font-size: 1.2rem;
@@ -167,16 +160,16 @@ export class RstContent extends React.PureComponent {
         }
       
         .note {
-          background-color: ${this.props.theme.page.main.content.article.note.background};
+          background-color: ${props => props.theme.page.main.content.article.note.background};
           padding: 0.1rem 0.7rem 0.7rem 0.7rem;
           margin-bottom: 1rem;
-          border: 1px solid ${this.props.theme.page.main.content.article.note.borderColor};
+          border: 1px solid ${props => props.theme.page.main.content.article.note.borderColor};
       
           /*解決 note 的問題*/
           p.first {
             font-size: 1.2rem;
             font-weight: bold;
-            color: ${this.props.theme.page.main.content.article.note.titleColor};
+            color: ${props => props.theme.page.main.content.article.note.titleColor};
             margin-bottom: 0.1rem;
           }
       
@@ -211,12 +204,19 @@ export class RstContent extends React.PureComponent {
         }
       }
     `
+
+export class RstContent extends React.PureComponent {
+  static PropTypes = {
+    theme: PropTypes.object.isRequired,
+    content: PropTypes.string.isRequired
   }
 
   render() {
-    this.injectGlobalStyle()
     return (
-      <Base className='rst-content' dangerouslySetInnerHTML={{__html: this.props.content}}/>
+      <div>
+        <RstStyle/>
+        <Base className='rst-content' dangerouslySetInnerHTML={{__html: this.props.content}}/>
+      </div>
     )
   }
 }

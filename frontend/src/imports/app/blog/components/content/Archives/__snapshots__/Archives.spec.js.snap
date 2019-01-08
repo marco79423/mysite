@@ -1,37 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Archives component correctly 1`] = `
-.c4 {
+.c3 {
   border-collapse: collapse;
   width: 100%;
   font-size: 1.2em;
 }
 
-.c5 {
+.c4 {
   background: #eee;
 }
 
-.c5:nth-of-type(even) {
+.c4:nth-of-type(even) {
   background: #f9f9f9;
 }
 
-.c6 {
+.c5 {
   padding: 0.6em;
   border: 1px solid #ccc;
 }
 
-.c3 {
+.c6 {
   color: #0097A7;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c3:hover {
+.c6:hover {
   color: #006064;
 }
 
 .c2 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   font-size: 2rem;
+}
+
+.c2:hover {
+  color: #006064;
 }
 
 .c0 {
@@ -64,7 +71,7 @@ exports[`It should render Archives component correctly 1`] = `
     >
       <h1>
         <a
-          className="c2 c3"
+          className="c2"
           onClick={[Function]}
           style={Object {}}
         >
@@ -73,24 +80,24 @@ exports[`It should render Archives component correctly 1`] = `
       </h1>
     </header>
     <table
-      className="c4"
+      className="c3"
     >
       <tbody
         className=""
       >
         <tr
-          className="c5"
+          className="c4"
         >
           <td
-            className="c6"
+            className="c5"
           >
             2017/05/15
           </td>
           <td
-            className="c6"
+            className="c5"
           >
             <a
-              className="c3"
+              className="c6"
               onClick={[Function]}
               style={Object {}}
             >
@@ -99,18 +106,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c5"
+          className="c4"
         >
           <td
-            className="c6"
+            className="c5"
           >
             2017/05/16
           </td>
           <td
-            className="c6"
+            className="c5"
           >
             <a
-              className="c3"
+              className="c6"
               onClick={[Function]}
               style={Object {}}
             >
@@ -119,18 +126,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c5"
+          className="c4"
         >
           <td
-            className="c6"
+            className="c5"
           >
             2017/05/17
           </td>
           <td
-            className="c6"
+            className="c5"
           >
             <a
-              className="c3"
+              className="c6"
               onClick={[Function]}
               style={Object {}}
             >

@@ -7,12 +7,14 @@ exports[`It should render RstContent component correctly 1`] = `
   line-height: 1.6rem;
 }
 
-<div
-  className="rst-content c0"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "<div>天氣不錯</div>",
+<div>
+  <div
+    className="rst-content c0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<div>天氣不錯</div>",
+      }
     }
-  }
-/>
+  />
+</div>
 `;

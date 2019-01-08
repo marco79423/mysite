@@ -61,17 +61,17 @@ const BaseIcon = styled.a`
   overflow: hidden;
 `
 
-const FacebookIcon = BaseIcon.extend`
+const FacebookIcon = styled(BaseIcon)`
   background: url(${require('./img/icon/i-facebook.svg')}) no-repeat;
   background-size: 100%;
 `
 
-const LinkedinIcon = BaseIcon.extend`
+const LinkedinIcon = styled(BaseIcon)`
   background: url(${require('./img/icon/i-linkedin.svg')}) no-repeat;
   background-size: 100%;
 `
 
-const GithubIcon = BaseIcon.extend`
+const GithubIcon = styled(BaseIcon)`
   background: url(${require('./img/icon/i-github.svg')}) no-repeat;
   background-size: 100%;
 `
