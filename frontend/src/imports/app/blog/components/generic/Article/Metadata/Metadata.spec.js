@@ -1,4 +1,3 @@
-import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
@@ -8,7 +7,7 @@ import Metadata from './Metadata'
 import theme from '../../../../theme/default'
 
 test('It should render Metadata component correctly', () => {
-  const categories = Immutable.fromJS([
+  const categories = [
     {
       slug: 'slug',
       name: 'name'
@@ -17,7 +16,7 @@ test('It should render Metadata component correctly', () => {
       slug: 'slug2',
       name: 'name2'
     }
-  ])
+  ]
   const date = new Date(2017, 6, 9)
   const chickenCount = 1
 
@@ -31,10 +30,10 @@ test('It should render Metadata component correctly', () => {
 })
 
 test('It should render Metadata component correctly when target article has been modified', () => {
-  const categories = Immutable.fromJS([{
+  const categories = [{
     slug: 'slug',
     name: 'name'
-  }])
+  }]
   const chickenCount = 1
   const date = new Date(2017, 6, 9)
   const modifiedDate = new Date(2017, 10, 9)

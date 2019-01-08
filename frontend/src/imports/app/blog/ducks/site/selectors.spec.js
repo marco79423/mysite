@@ -1,14 +1,7 @@
-import * as Immutable from 'immutable'
-import * as matchers from 'jest-immutable-matchers'
-
 import * as selectors from './selectors'
 
-beforeAll(() => {
-  jest.addMatchers(matchers)
-})
-
 test('getSiteHeadConfig should return site head config', () => {
-  const state = Immutable.fromJS({
+  const state = {
     config: {
       SITE_NAME: 'SITE_NAME',
       SITE_META: {
@@ -21,7 +14,7 @@ test('getSiteHeadConfig should return site head config', () => {
         rel2: 'href2',
       }
     }
-  })
+  }
   const expected = {
     title: 'SITE_NAME',
     meta: [
@@ -46,12 +39,12 @@ describe('getArticleSiteHeadConfig', () => {
   }
 
   test('should return default site head config if the article is undefined', () => {
-    const state = Immutable.fromJS({
-      routing: Immutable.Map({
+    const state = {
+      routing: {
         locationBeforeTransitions: {
           pathname: '/pathname'
         }
-      }),
+      },
       config: {
         SITE_NAME: 'SITE_NAME',
         HOST_URL: 'HOST_URL',
@@ -68,7 +61,7 @@ describe('getArticleSiteHeadConfig', () => {
       article: {
         items: []
       }
-    })
+    }
     const expected = {
       title: 'SITE_NAME',
       meta: [
@@ -86,12 +79,12 @@ describe('getArticleSiteHeadConfig', () => {
   })
 
   test('should return site head config for articles', () => {
-    const state = Immutable.fromJS({
-      routing: Immutable.Map({
+    const state = {
+      routing: {
         locationBeforeTransitions: {
           pathname: '/pathname'
         }
-      }),
+      },
       config: {
         SITE_NAME: 'SITE_NAME',
         HOST_URL: 'HOST_URL',
@@ -115,7 +108,7 @@ describe('getArticleSiteHeadConfig', () => {
           }
         ]
       }
-    })
+    }
     const expected = {
       title: '美女最變態 - SITE_NAME',
       meta: [

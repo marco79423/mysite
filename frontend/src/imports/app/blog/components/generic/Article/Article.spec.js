@@ -1,4 +1,3 @@
-import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
@@ -8,7 +7,7 @@ import Article from './Article'
 import theme from '../../../theme/default'
 
 test('It should render Article component correctly', () => {
-  const article = Immutable.fromJS({
+  const article = {
     slug: 'slug',
     title: 'title',
     categories: [{
@@ -19,7 +18,7 @@ test('It should render Article component correctly', () => {
     chickenCount: 1,
     content: 'content',
     rawSummary: 'raw_summary'
-  })
+  }
   const component = renderer.create(
     <ThemeProvider theme={theme}>
       <Article article={article}/>

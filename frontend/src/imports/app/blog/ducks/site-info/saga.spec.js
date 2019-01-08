@@ -1,11 +1,11 @@
-import { call, put, select } from 'redux-saga/effects'
+import {call, put, select} from 'redux-saga/effects'
 
-import { getBackendServerUrl } from '../config/selectors'
+import {getBackendServerUrl} from '../config/selectors'
 
 import fetchJSON from '../../../../lib/fetchJSON'
 
 import * as actions from './actions'
-import { fetchSiteInfoSaga } from './saga'
+import {fetchSiteInfoSaga} from './saga'
 
 describe('fetchSiteInfoSaga', () => {
   const generator = fetchSiteInfoSaga()

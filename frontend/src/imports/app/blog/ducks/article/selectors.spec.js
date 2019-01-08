@@ -1,5 +1,3 @@
-import * as Immutable from 'immutable'
-
 import * as selectors from './selectors'
 
 const articles = [
@@ -58,11 +56,11 @@ const articles = [
 ]
 
 test('getArticles should return articles with correct naming convention', () => {
-  const state = Immutable.fromJS({
+  const state = {
     article: {
       items: articles
     }
-  })
+  }
   const expected = [
     {
       'slug': '淺談-regex-及其應用',
@@ -151,11 +149,11 @@ describe('getArticlesByCategory', () => {
       }
     }
 
-    const state = Immutable.fromJS({
+    const state = {
       article: {
         items: articles
       }
-    })
+    }
     expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
   })
 
@@ -164,11 +162,11 @@ describe('getArticlesByCategory', () => {
       category: 'python'
     }
 
-    const state = Immutable.fromJS({
+    const state = {
       article: {
         items: articles
       }
-    })
+    }
     expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
   })
 })
@@ -179,11 +177,11 @@ test('getArticle should return articles with correct naming convention', () => {
       slug: '美女最變態'
     }
   }
-  const state = Immutable.fromJS({
+  const state = {
     article: {
       items: articles
     }
-  })
+  }
 
   const expected = {
     'slug': '美女最變態',
@@ -207,14 +205,14 @@ test('getArticle should return articles with correct naming convention', () => {
 describe('getRecentArticles', () => {
   test('should return recent articles (articles > config)', () => {
     const props = {}
-    const state = Immutable.fromJS({
+    const state = {
       config: {
         RECENT_ARTICLE_COUNT: 2
       },
       article: {
         items: articles
       }
-    })
+    }
     const expected = [
       {
         'slug': '淺談-regex-及其應用',
@@ -258,14 +256,14 @@ describe('getRecentArticles', () => {
 
   test('should return recent articles (articles < config)', () => {
     const props = {}
-    const state = Immutable.fromJS({
+    const state = {
       config: {
         RECENT_ARTICLE_COUNT: 4
       },
       article: {
         items: articles
       }
-    })
+    }
     const expected = [
       {
         'slug': '淺談-regex-及其應用',
@@ -327,14 +325,14 @@ describe('getRecentArticles', () => {
     const props = {
       category: '胡言亂語'
     }
-    const state = Immutable.fromJS({
+    const state = {
       config: {
         RECENT_ARTICLE_COUNT: 4
       },
       article: {
         items: articles
       }
-    })
+    }
     const expected = [
       {
         'slug': '擁抱',
@@ -381,19 +379,19 @@ describe('getSocialConfig', () => {
   }
 
   test('should return social config', () => {
-    const state = Immutable.fromJS({
+    const state = {
       config: {
         HOST_URL: 'HOST_URL'
       },
-      routing: Immutable.Map({
+      routing: {
         locationBeforeTransitions: {
           pathname: '/pathname'
         }
-      }),
+      },
       article: {
         items: articles
       }
-    })
+    }
 
     const expected = {
       shareUrl: 'HOST_URL/pathname',
@@ -403,19 +401,19 @@ describe('getSocialConfig', () => {
   })
 
   test('should return social config even when the article dont exist ', () => {
-    const state = Immutable.fromJS({
+    const state = {
       config: {
         HOST_URL: 'HOST_URL'
       },
-      routing: Immutable.Map({
+      routing: {
         locationBeforeTransitions: {
           pathname: '/pathname'
         }
-      }),
+      },
       article: {
         items: []
       }
-    })
+    }
 
     const expected = {
       shareUrl: 'HOST_URL/pathname',

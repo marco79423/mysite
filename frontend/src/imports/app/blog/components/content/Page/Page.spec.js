@@ -1,4 +1,3 @@
-import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
@@ -20,12 +19,12 @@ test('It should render Page component with empty articles correctly', () => {
 })
 
 test('It should render Page component correctly', () => {
-  const page = Immutable.fromJS({
+  const page = {
     app: 'app',
     slug: 'slug',
     title: 'title',
     content: '<div>今天天氣不錯</div>'
-  })
+  }
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>

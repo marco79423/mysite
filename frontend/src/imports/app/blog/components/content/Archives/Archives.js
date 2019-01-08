@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import dateformat from 'dateformat'
 import styled from 'styled-components'
 
-import {Table, Tbody, Tr, Td} from '../../generic/table'
+import {Table, Tbody, Td, Tr} from '../../generic/table'
 import NormalLink from '../../generic/NormalLink'
 import TitleLink from '../../generic/TitleLink'
 import Loading from '../../generic/Loading'
@@ -60,7 +59,7 @@ export default class Archives extends React.PureComponent {
     )
   }
 
-  render () {
+  render() {
     const {articles} = this.props
     if (articles.length === 0) {
       return (

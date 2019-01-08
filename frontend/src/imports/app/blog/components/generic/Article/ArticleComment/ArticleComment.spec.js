@@ -1,13 +1,12 @@
-import Immutable from 'immutable'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
 import ArticleComment from './ArticleComment'
 
 test('It should render ArticleComment component correctly', () => {
-  const config = Immutable.Map({
+  const config = {
     shortName: 'marco79423'
-  })
+  }
   const component = renderer.create(
     <ArticleComment config={config}/>
   )
