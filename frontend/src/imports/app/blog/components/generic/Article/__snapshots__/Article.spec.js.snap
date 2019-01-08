@@ -168,11 +168,7 @@ exports[`It should render Article component correctly 1`] = `
           className="c8"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          src={
-            Object {
-              "default": Object {},
-            }
-          }
+          src="chicken.png"
         />
          x 
         1
@@ -227,7 +223,7 @@ exports[`It should render Article component correctly when the article is null 1
   display: inline-block;
   width: 90px;
   height: 90px;
-  background: url() no-repeat center;
+  background: url(loading.jpg) no-repeat center;
   background-size: 90px 90px;
   border: 0.1em solid #FFFFFF;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);

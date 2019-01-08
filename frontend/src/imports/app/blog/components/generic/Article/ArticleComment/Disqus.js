@@ -20,8 +20,8 @@ export default class Disqus extends React.Component {
 
   loadDisqus = () => {
     // If Disqus has already been added, reset it
-    if (typeof DISQUS !== 'undefined') {
-      DISQUS.reset({
+    if (typeof window.DISQUS !== 'undefined') {
+      window.DISQUS.reset({
         reload: true,
         config: function config () {
           this.page.url = this.page.url.replace(/#/, '') + '#!newthread'

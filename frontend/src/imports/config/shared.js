@@ -9,8 +9,6 @@ export const HOST_URL = 'https://marco79423.net'
 export const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL || HOST_URL
 
 export const SITE_META = {
-  viewport: 'width=device-width, initial-scale=1.0',
-
   keywords: 'Python,Javascript,網站設計,兩大類',
   description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
   author: AUTHOR_INFO.name,
@@ -24,7 +22,7 @@ export const SITE_META = {
 }
 
 export const SITE_LINK = {
-  'shortcut icon': require('../app/blog/img/favicon.ico')
+
 }
 
 export const COPYRIGHT = `Copyright © ${new Date().getFullYear()} - 兩大類`

@@ -3,45 +3,28 @@
   "version": "1.0.1",
   "description": "兩大類的個人網站",
   "author": "兩大類 <marco79423@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:marco79423/mysite-frontend.git"
-  },
   "scripts": {
-    "test": "jest --verbose",
-    "test:watch": "jest --verbose --watchAll",
-    "test:coverage": "jest --coverage",
+    "test": "react-scripts test",
+    "test:watch": "react-scripts test --verbose --watchAll",
+    "test:coverage": "react-scripts test --coverage",
     "prod": "yarn run dist && yarn start",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --port 3000",
-    "dist": "rimraf dist && cross-env NODE_ENV=production webpack -p  --display-optimization-bailout",
+    "dev": "react-scripts start",
+    "dist": "react-scripts build",
     "start": "node __server.js"
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
     "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.2",
-    "babel-loader": "^7.0.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.0.0",
-    "eslint": "^3.18.0",
-    "eslint-plugin-react": "^7.0.1",
-    "file-loader": "^0.11.1",
-    "jest": "^22.4.2",
     "jest-styled-components": "^6.3.1",
-    "react-test-renderer": "^16.7.0",
-    "rimraf": "https://registry.npmjs.org/rimraf/-/rimraf-2.6.1.tgz",
-    "svg-url-loader": "^2.2.0",
-    "url-loader": "^0.5.8",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "2.x"
+    "react-test-renderer": "^16.7.0"
   },
   "dependencies": {
     "dateformat": "^3.0.2",
     "feed": "^1.1.0",
-    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "polished": "^1.9.0",
     "prop-types": "^15.5.8",
@@ -51,26 +34,30 @@
     "react-redux": "^5.0.4",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.8",
+    "react-scripts": "^2.1.3",
     "react-share": "^1.11.1",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.0",
-    "styled-components": "^4.1.3"
+    "styled-components": "^4.1.3",
+    "typescript": "^3.2.2"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
     "coverageReporters": [
       "html"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleNameMapper": {
-      ".+\\.(png|jpg)$": "<rootDir>/src/__mock__/image.js"
-    }
+    ]
   }
 }
