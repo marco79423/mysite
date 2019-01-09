@@ -23,8 +23,8 @@ export class PageContainer extends React.Component {
 export default connect(
   (state, ownProps) => ({
     page: state.page.items.find(page => (
-      page.app === ownProps.params.app &&
-      page.slug === ownProps.params.slug
+      page.app === ownProps.match.params.app &&
+      page.slug === ownProps.match.params.slug
     ))
   }),
   dispatch => ({

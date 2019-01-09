@@ -39,10 +39,10 @@ export class ArticleListContainer extends React.Component {
 
 export default connect(
   (state, ownProps) => ({
-    category: ownProps.params.category,
-    articles: ownProps.params.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
+    category: ownProps.match.params.category,
+    articles: ownProps.match.params.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
     pageSize: configSelectors.getPageSize(state, ownProps),
-    pageNum: +ownProps.params.pageNum || 1
+    pageNum: +ownProps.match.params.pageNum || 1
   }),
   dispatch => ({
     fetchArticles: () => dispatch(articleActions.fetchArticles())

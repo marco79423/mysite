@@ -2,7 +2,7 @@ import fp from 'lodash/fp'
 import {createSelector} from 'reselect'
 
 import * as configSelectors from '../config/selectors'
-import * as routingSelectors from '../routing/selectors'
+import * as routingSelectors from '../router/selectors'
 
 
 export const getArticles = (state) => fp.flow(
@@ -15,7 +15,7 @@ export const getArticles = (state) => fp.flow(
 
 export const getArticlesByCategory = createSelector(
   [
-    (state, props) => fp.get('params.category')(props) || fp.get('category')(props),
+    (state, props) => fp.get('match.params.category')(props) || fp.get('category')(props),
     getArticles
   ],
   (queryCategory, articles) => fp.flow(
@@ -28,7 +28,7 @@ export const getArticlesByCategory = createSelector(
 export const getArticle = createSelector(
   [
     getArticles,
-    (state, props) => props.params.slug
+    (state, props) => props.match.params.slug
   ],
   (articles, currentArticleSlug) => fp.flow(
     fp.find(article => article.slug === currentArticleSlug)

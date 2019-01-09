@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import configReducer from './config/reducer'
 import articleReducer from './article/reducer'
-import routingReducer from './routing/reducer'
+import routerReducer from './router/reducer'
 import labReducer from './lab/reducer'
 import pageReducer from './page/reducer'
 import siteInfoReducer from './site-info/reducer'
@@ -12,6 +12,6 @@ export default combineReducers({
   config: configReducer,
   lab: labReducer,
   page: pageReducer,
-  routing: routingReducer,
+  router: routerReducer,
   siteInfo: siteInfoReducer
 })

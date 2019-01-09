@@ -3,7 +3,7 @@ import {createSelector} from 'reselect'
 
 import * as configSelectors from '../config/selectors'
 import * as articleSelectors from '../article/selectors'
-import * as routingSelectors from '../routing/selectors'
+import * as routingSelectors from '../router/selectors'
 
 export const getSiteHeadConfig = createSelector(
   [

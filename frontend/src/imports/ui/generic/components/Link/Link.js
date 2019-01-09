@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link as RouterLink} from 'react-router'
+import {Link as RouterLink} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 export default class Link extends React.PureComponent {
@@ -8,9 +8,12 @@ export default class Link extends React.PureComponent {
     to: PropTypes.string.isRequired
   }
 
-  render () {
+  render() {
+    const Component = this.props.to ? RouterLink : 'a'
     return (
-      <RouterLink {...this.props}>{this.props.children}</RouterLink>
+      <Component {...this.props}>
+        {this.props.children}
+      </Component>
     )
   }
 }

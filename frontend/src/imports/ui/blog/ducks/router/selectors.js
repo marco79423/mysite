@@ -1,9 +1,8 @@
-import get from 'lodash/get'
-import { createSelector } from 'reselect'
+import {createSelector} from 'reselect'
 
 import * as configSelectors from '../config/selectors'
 
-export const getPathName = (state) => get(state.routing.locationBeforeTransitions, 'pathname') || '/'
+export const getPathName = (state) => state.router.pathname
 export const getCurrentUrl = createSelector(
   [
     configSelectors.getHostUrl,

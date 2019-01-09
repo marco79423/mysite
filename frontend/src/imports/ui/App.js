@@ -1,5 +1,6 @@
 import React from 'react'
-import {Route, Router} from 'react-router'
+import {Route, Switch} from 'react-router-dom'
+import {ConnectedRouter} from 'connected-react-router'
 import {Provider} from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -16,12 +17,11 @@ import PagePage from './blog/pages/PagePage'
 export default class App extends React.Component {
   static propTypes = {
     store: PropTypes.any.isRequired,
-    history: PropTypes.any,
     renderProps: PropTypes.any,
   }
 
   componentDidMount() {
-    this.props.history.listen((location, action) => {
+    this.props.store.history.listen((location, action) => {
       window.scrollTo(0, 0)
     })
   }
@@ -29,17 +29,21 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={this.props.store}>
-        <Router history={this.props.history}>
-          <Route path='/' component={ArticleListPage}/>
-          <Route path='/lab/' component={LabPage}/>
-          <Route path='/info/' component={SiteInfoPage}/>
-          <Route path='/articles/page/:pageNum/' component={ArticleListPage}/>
-          <Route path='/articles/category/:category/' component={CategorizedArticleListPage}/>
-          <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListPage}/>
-          <Route path='/articles/archives/' component={ArchivesPage}/>
-          <Route path='/articles/:slug/' component={ArticleDetailPage}/>
-          <Route path='/:app/:slug/' component={PagePage}/>
-        </Router>
+        <ConnectedRouter history={this.props.store.history}>
+          <>
+            <Switch>
+              <Route exact path='/' component={ArticleListPage}/>
+              <Route path='/lab/' component={LabPage}/>
+              <Route path='/info/' component={SiteInfoPage}/>
+              <Route path='/articles/page/:pageNum/' component={ArticleListPage}/>
+              <Route path='/articles/category/:category/' component={CategorizedArticleListPage}/>
+              <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListPage}/>
+              <Route path='/articles/archives/' component={ArchivesPage}/>
+              <Route path='/articles/:slug/' component={ArticleDetailPage}/>
+              <Route path='/:app/:slug/' component={PagePage}/>
+            </Switch>
+          </>
+        </ConnectedRouter>
       </Provider>
     )
   }
