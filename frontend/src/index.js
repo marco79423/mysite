@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import {browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 
-import App from './imports/app/App'
-import saga from './imports/app/blog/ducks/saga'
-import {configureStore} from './imports/app/store'
+import App from './imports/ui/App'
+import saga from './imports/ui/blog/ducks/saga'
+import {configureStore} from './imports/ui/store'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store, {

@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import reducer from './blog/ducks/reducer'
 
-const DEBUG = process.env.DEBUG
+const DEBUG = process.env.REACT_APP_DEBUG
 
 export function configureStore(history) {
   const composeEnhancers = (DEBUG && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
