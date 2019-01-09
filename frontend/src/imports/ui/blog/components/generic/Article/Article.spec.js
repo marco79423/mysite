@@ -1,6 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {MemoryRouter} from 'react-router'
 import {ThemeProvider} from 'styled-components'
 
 import Article from './Article'
@@ -21,7 +22,9 @@ test('It should render Article component correctly', () => {
   }
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <Article article={article}/>
+      <MemoryRouter>
+        <Article article={article}/>
+      </MemoryRouter>
     </ThemeProvider>
   )
   let tree = component.toJSON()

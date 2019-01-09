@@ -2,6 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import {ThemeProvider} from 'styled-components'
+import {MemoryRouter} from 'react-router'
 
 import Page from './Page'
 import theme from '../../../theme/default'
@@ -28,7 +29,9 @@ test('It should render Page component correctly', () => {
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <Page page={page}/>
+      <MemoryRouter>
+        <Page page={page}/>
+      </MemoryRouter>
     </ThemeProvider>
   )
   let tree = component.toJSON()

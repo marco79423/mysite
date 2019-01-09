@@ -33,15 +33,17 @@ test('getSiteHeadConfig should return site head config', () => {
 
 describe('getArticleSiteHeadConfig', () => {
   const props = {
-    params: {
-      slug: '美女最變態'
+    match: {
+      params: {
+        slug: '美女最變態'
+      }
     }
   }
 
   test('should return default site head config if the article is undefined', () => {
     const state = {
-      routing: {
-        locationBeforeTransitions: {
+      router: {
+        location: {
           pathname: '/pathname'
         }
       },
@@ -80,8 +82,8 @@ describe('getArticleSiteHeadConfig', () => {
 
   test('should return site head config for articles', () => {
     const state = {
-      routing: {
-        locationBeforeTransitions: {
+      router: {
+        location: {
           pathname: '/pathname'
         }
       },

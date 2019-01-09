@@ -130,8 +130,8 @@ exports[`It should render Article component correctly 1`] = `
     <h1>
       <a
         className="c2"
+        href="/articles/slug/"
         onClick={[Function]}
-        style={Object {}}
       >
         title
       </a>
@@ -151,8 +151,8 @@ exports[`It should render Article component correctly 1`] = `
           >
             <a
               className="c7"
+              href="/articles/category/slug/"
               onClick={[Function]}
-              style={Object {}}
             >
               name
             </a>

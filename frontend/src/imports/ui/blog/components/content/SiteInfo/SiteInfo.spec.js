@@ -2,6 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import {ThemeProvider} from 'styled-components'
+import {MemoryRouter} from 'react-router'
 
 import SiteInfo from './SiteInfo'
 import theme from '../../../theme/default'
@@ -15,10 +16,12 @@ test('It should render SiteInfo component correctly', () => {
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <SiteInfo
-        repositoryVersion={props.repositoryVersion}
-        updatedTime={props.updatedTime}
-      />
+      <MemoryRouter>
+        <SiteInfo
+          repositoryVersion={props.repositoryVersion}
+          updatedTime={props.updatedTime}
+        />
+      </MemoryRouter>
     </ThemeProvider>
   )
   expect(component.toJSON()).toMatchSnapshot()

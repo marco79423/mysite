@@ -67,8 +67,8 @@ exports[`It should render SiteInfo component correctly 1`] = `
       <h1>
         <a
           className="c2"
+          href="/info/"
           onClick={[Function]}
-          style={Object {}}
         >
           網站資訊
         </a>

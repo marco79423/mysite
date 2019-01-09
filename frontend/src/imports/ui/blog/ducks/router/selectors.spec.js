@@ -3,23 +3,13 @@ import * as selectors from './selectors'
 describe('getPathName', () => {
   test('should return current path name', () => {
     const state = {
-      routing: {
-        locationBeforeTransitions: {
+      router: {
+        location: {
           pathname: '/pathname'
         }
       }
     }
     const expected = '/pathname'
-    expect(selectors.getPathName(state)).toEqual(expected)
-  })
-
-  test('should return "/" without path information', () => {
-    const state = {
-      routing: {
-        locationBeforeTransitions: null
-      }
-    }
-    const expected = '/'
     expect(selectors.getPathName(state)).toEqual(expected)
   })
 })
@@ -29,8 +19,8 @@ test('getCurrentUrl should return current url', () => {
     config: {
       HOST_URL: 'HOST_URL'
     },
-    routing: {
-      locationBeforeTransitions: {
+    router: {
+      location: {
         pathname: '/pathname'
       }
     }

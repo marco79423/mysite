@@ -95,8 +95,8 @@ exports[`It should render Metadata component correctly 1`] = `
       >
         <a
           className="c4"
+          href="/articles/category/slug/"
           onClick={[Function]}
-          style={Object {}}
         >
           name
         </a>
@@ -106,8 +106,8 @@ exports[`It should render Metadata component correctly 1`] = `
       >
         <a
           className="c4"
+          href="/articles/category/slug2/"
           onClick={[Function]}
-          style={Object {}}
         >
           name2
         </a>
@@ -237,8 +237,8 @@ exports[`It should render Metadata component correctly when target article has b
       >
         <a
           className="c4"
+          href="/articles/category/slug/"
           onClick={[Function]}
-          style={Object {}}
         >
           name
         </a>

@@ -4,8 +4,6 @@ import {ConnectedRouter} from 'connected-react-router'
 import {Provider} from 'react-redux'
 import PropTypes from 'prop-types'
 
-import 'isomorphic-fetch'
-
 import ArticleListPage from './blog/pages/ArticleListPage'
 import LabPage from './blog/pages/LabPage'
 import SiteInfoPage from './blog/pages/SiteInfoPage'

@@ -55,8 +55,8 @@ exports[`It should render Pagination component correctly 1`] = `
       <a
         active={true}
         className="c1"
+        href="/articles/page/1/"
         onClick={[Function]}
-        style={Object {}}
       >
         1
       </a>
@@ -140,8 +140,8 @@ exports[`It should render Pagination component with both next page link and prev
     <li>
       <a
         className="c1"
+        href="/articles/page/1/"
         onClick={[Function]}
-        style={Object {}}
       >
         ←
       </a>
@@ -150,8 +150,8 @@ exports[`It should render Pagination component with both next page link and prev
       <a
         active={false}
         className="c1"
+        href="/articles/page/1/"
         onClick={[Function]}
-        style={Object {}}
       >
         1
       </a>
@@ -160,8 +160,8 @@ exports[`It should render Pagination component with both next page link and prev
       <a
         active={true}
         className="c2"
+        href="/articles/page/2/"
         onClick={[Function]}
-        style={Object {}}
       >
         2
       </a>
@@ -170,8 +170,8 @@ exports[`It should render Pagination component with both next page link and prev
       <a
         active={false}
         className="c1"
+        href="/articles/page/3/"
         onClick={[Function]}
-        style={Object {}}
       >
         3
       </a>
@@ -179,8 +179,8 @@ exports[`It should render Pagination component with both next page link and prev
     <li>
       <a
         className="c1"
+        href="/articles/page/3/"
         onClick={[Function]}
-        style={Object {}}
       >
         →
       </a>
@@ -264,8 +264,8 @@ exports[`It should render Pagination component with previous page link correctly
     <li>
       <a
         className="c1"
+        href="/articles/page/2/"
         onClick={[Function]}
-        style={Object {}}
       >
         ←
       </a>
@@ -274,8 +274,8 @@ exports[`It should render Pagination component with previous page link correctly
       <a
         active={false}
         className="c1"
+        href="/articles/page/1/"
         onClick={[Function]}
-        style={Object {}}
       >
         1
       </a>
@@ -284,8 +284,8 @@ exports[`It should render Pagination component with previous page link correctly
       <a
         active={false}
         className="c1"
+        href="/articles/page/2/"
         onClick={[Function]}
-        style={Object {}}
       >
         2
       </a>
@@ -294,8 +294,8 @@ exports[`It should render Pagination component with previous page link correctly
       <a
         active={true}
         className="c2"
+        href="/articles/page/3/"
         onClick={[Function]}
-        style={Object {}}
       >
         3
       </a>

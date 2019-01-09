@@ -72,8 +72,8 @@ exports[`It should render Archives component correctly 1`] = `
       <h1>
         <a
           className="c2"
+          href="/articles/archives/"
           onClick={[Function]}
-          style={Object {}}
         >
           所有文章列表
         </a>
@@ -98,8 +98,8 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
+              href="/articles/slug 1/"
               onClick={[Function]}
-              style={Object {}}
             >
               title 1
             </a>
@@ -118,8 +118,8 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
+              href="/articles/slug 2/"
               onClick={[Function]}
-              style={Object {}}
             >
               title 2
             </a>
@@ -138,8 +138,8 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
+              href="/articles/slug 3/"
               onClick={[Function]}
-              style={Object {}}
             >
               title 3
             </a>

@@ -49,8 +49,8 @@ exports[`It should render Page component correctly 1`] = `
       <h1>
         <a
           className="c2"
+          href="/app/slug/"
           onClick={[Function]}
-          style={Object {}}
         >
           title
         </a>

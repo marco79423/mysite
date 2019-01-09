@@ -142,24 +142,13 @@ describe('getArticlesByCategory', () => {
     }
   ]
 
-  test('should return article list by props.params.category', () => {
+  test('should return article list by props.match.params.category', () => {
     const props = {
-      params: {
-        category: 'python'
+      match: {
+        params: {
+          category: 'python'
+        }
       }
-    }
-
-    const state = {
-      article: {
-        items: articles
-      }
-    }
-    expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
-  })
-
-  test('should return article list by props.category', () => {
-    const props = {
-      category: 'python'
     }
 
     const state = {
@@ -173,8 +162,10 @@ describe('getArticlesByCategory', () => {
 
 test('getArticle should return articles with correct naming convention', () => {
   const props = {
-    params: {
-      slug: '美女最變態'
+    match: {
+      params: {
+        slug: '美女最變態'
+      }
     }
   }
   const state = {
@@ -320,61 +311,14 @@ describe('getRecentArticles', () => {
     ]
     expect(selectors.getRecentArticles(state, props)).toEqual(expected)
   })
-
-  test('should return recent categorized articles', () => {
-    const props = {
-      category: '胡言亂語'
-    }
-    const state = {
-      config: {
-        RECENT_ARTICLE_COUNT: 4
-      },
-      article: {
-        items: articles
-      }
-    }
-    const expected = [
-      {
-        'slug': '擁抱',
-        'title': '擁抱',
-        'date': new Date('2013-02-16T00:00:00'),
-        'modifiedDate': null,
-        'categories': [
-          {
-            'slug': '胡言亂語',
-            'name': '胡言亂語'
-          }
-        ],
-        'chickenCount': 1,
-        'content': 'content',
-        'summary': 'summary',
-        'rawSummary': 'rawSummary'
-      },
-      {
-        'slug': '美女最變態',
-        'title': '美女最變態',
-        'date': new Date('2013-02-02T00:00:00'),
-        'modifiedDate': new Date('2015-08-24T00:00:00'),
-        'categories': [
-          {
-            'slug': '胡言亂語',
-            'name': '胡言亂語'
-          }
-        ],
-        'chickenCount': 0,
-        'content': 'content',
-        'summary': 'summary',
-        'rawSummary': 'rawSummary'
-      }
-    ]
-    expect(selectors.getRecentArticles(state, props)).toEqual(expected)
-  })
 })
 
 describe('getSocialConfig', () => {
   const props = {
-    params: {
-      slug: '美女最變態'
+    match: {
+      params: {
+        slug: '美女最變態'
+      }
     }
   }
 
@@ -383,8 +327,8 @@ describe('getSocialConfig', () => {
       config: {
         HOST_URL: 'HOST_URL'
       },
-      routing: {
-        locationBeforeTransitions: {
+      router: {
+        location: {
           pathname: '/pathname'
         }
       },
@@ -405,8 +349,8 @@ describe('getSocialConfig', () => {
       config: {
         HOST_URL: 'HOST_URL'
       },
-      routing: {
-        locationBeforeTransitions: {
+      router: {
+        location: {
           pathname: '/pathname'
         }
       },

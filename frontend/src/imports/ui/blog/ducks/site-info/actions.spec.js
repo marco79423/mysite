@@ -1,5 +1,3 @@
-import 'isomorphic-fetch'
-
 import * as actionTypes from './actionTypes'
 import * as actions from './actions'
 

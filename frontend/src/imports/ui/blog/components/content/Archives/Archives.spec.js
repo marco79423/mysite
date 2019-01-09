@@ -1,6 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import {MemoryRouter} from 'react-router'
 import {ThemeProvider} from 'styled-components'
 
 import Archives from './Archives'
@@ -26,7 +27,9 @@ test('It should render Archives component correctly', () => {
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <Archives articles={articles}/>
+      <MemoryRouter>
+        <Archives articles={articles}/>
+      </MemoryRouter>
     </ThemeProvider>
   )
   expect(component.toJSON()).toMatchSnapshot()
