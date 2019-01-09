@@ -6,7 +6,7 @@ export const AUTHOR_INFO = {
 
 export const SITE_NAME = '兩大類的部落格'
 export const HOST_URL = 'https://marco79423.net'
-export const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL || HOST_URL
+export const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL || HOST_URL
 
 export const SITE_META = {
   keywords: 'Python,Javascript,網站設計,兩大類',
@@ -50,8 +50,8 @@ export const COMMENT_CONFIG = {
   shortName: 'marco79423'
 }
 
-export const SITE_VERSION = process.env.SITE_VERSION || ""
-export const SITE_UPDATED_TIME = process.env.SITE_UPDATED_TIME || ""
+export const SITE_VERSION = process.env.REACT_APP_SITE_VERSION || ""
+export const SITE_UPDATED_TIME = process.env.REACT_APP_SITE_UPDATED_TIME || ""
 
 export const DEFAULT_PORT = 3000
 export const QUERY_TIMEOUT = 10000

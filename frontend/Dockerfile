@@ -8,7 +8,7 @@ RUN yarn
 
 COPY frontend .
 
-ARG BACKEND_SERVER_URL
+ARG REACT_APP_BACKEND_SERVER_URL
 
 RUN yarn test
 

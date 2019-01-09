@@ -16,7 +16,7 @@ build-frontend-dev:
   script:
     - docker build
       --file frontend/Dockerfile
-      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg REACT_APP_BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --tag marco79423/mysite-frontend-dev:latest
       .
     - docker push marco79423/mysite-frontend-dev:latest
@@ -34,7 +34,7 @@ build-frontend:
   script:
     - docker build
       --file frontend/Dockerfile
-      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg REACT_APP_BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --tag marco79423/mysite-frontend:latest
       .
     - docker push marco79423/mysite-frontend:latest
