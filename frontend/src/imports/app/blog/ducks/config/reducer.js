@@ -1,7 +1,7 @@
-import * as sharedConfig from '../../../../config/shared'
+import * as config from '../../../../config'
 
 const defaultState = {
-  ...sharedConfig,
+  ...config,
   theme: require(`../../theme/default`).default
 }
 

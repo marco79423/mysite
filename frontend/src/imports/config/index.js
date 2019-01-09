@@ -52,3 +52,27 @@ export const COMMENT_CONFIG = {
 
 export const SITE_VERSION = process.env.SITE_VERSION || ""
 export const SITE_UPDATED_TIME = process.env.SITE_UPDATED_TIME || ""
+
+export const DEFAULT_PORT = 3000
+export const QUERY_TIMEOUT = 10000
+export const CACHE_TIMEOUT = '1 hour'
+
+export const FEED_TEMPLATE = {
+  title: SITE_NAME,
+  description: SITE_META.description,
+  id: HOST_URL,
+  link: HOST_URL,
+  // image: require('../common/img/logo.png'), TODO
+  favicon: `${HOST_URL}/favicon.ico`,
+  copyright: COPYRIGHT,
+  updated: undefined,
+  feedLinks: {
+    atom: `${HOST_URL}/atom.xml`,
+    rss2: `${HOST_URL}/rss2.xml`,
+  },
+  author: {
+    name: AUTHOR_INFO.name,
+    email: AUTHOR_INFO.email,
+    link: HOST_URL
+  }
+}
