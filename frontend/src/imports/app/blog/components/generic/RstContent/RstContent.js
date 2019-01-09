@@ -206,7 +206,7 @@ const RstStyle = createGlobalStyle`
     `
 
 export class RstContent extends React.PureComponent {
-  static PropTypes = {
+  static propTypes = {
     theme: PropTypes.object.isRequired,
     content: PropTypes.string.isRequired
   }

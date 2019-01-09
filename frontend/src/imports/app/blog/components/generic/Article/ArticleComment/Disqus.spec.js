@@ -5,7 +5,7 @@ import Disqus from './Disqus'
 
 test('It should render Disqus component correctly', () => {
   const component = renderer.create(
-    <Disqus shortName={'marco79423'}/>
+    <Disqus shortname={'marco79423'}/>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

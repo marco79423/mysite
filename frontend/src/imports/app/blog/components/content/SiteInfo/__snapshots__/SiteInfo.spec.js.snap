@@ -104,7 +104,9 @@ exports[`It should render SiteInfo component correctly 1`] = `
           </td>
           <td
             className="c5"
-          />
+          >
+            develop (81ccde3550325c06a10b6acce75b4df529955472)
+          </td>
         </tr>
       </tbody>
     </table>

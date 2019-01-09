@@ -6,7 +6,7 @@ import Lab from '../../components/content/Lab'
 import * as LabActions from '../../ducks/lab/actions'
 
 export class LabContainer extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     crazyMode: PropTypes.bool.isRequired,
     setCrazyMode: PropTypes.func.isRequired
   }

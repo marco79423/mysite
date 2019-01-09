@@ -15,7 +15,7 @@ const Copyright = styled.div`
 `
 
 export default class PageFooter extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     copyright: PropTypes.string,
   }
 

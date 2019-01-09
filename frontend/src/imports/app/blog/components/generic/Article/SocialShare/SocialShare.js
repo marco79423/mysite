@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { generateShareIcon, ShareButtons } from 'react-share'
+import {generateShareIcon, ShareButtons} from 'react-share'
 import styled from 'styled-components'
 
 const {
@@ -27,7 +26,7 @@ const TwitterIcon = generateShareIcon('twitter')
 
 export default class SocialShare extends React.PureComponent {
 
-  render () {
+  render() {
     if (!this.props.config) {
       return <IconGroup/>
     }

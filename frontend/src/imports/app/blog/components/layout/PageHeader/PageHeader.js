@@ -60,7 +60,7 @@ const TitleLink = styled(NormalLink)`
 `
 
 export default class PageHeader extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     siteName: PropTypes.string.isRequired,
     crazyMode: PropTypes.bool.isRequired
   }

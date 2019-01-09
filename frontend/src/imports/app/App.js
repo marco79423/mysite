@@ -14,7 +14,7 @@ import ArticleDetailPage from './blog/pages/ArticleDetailPage'
 import PagePage from './blog/pages/PagePage'
 
 export default class App extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     store: PropTypes.any.isRequired,
     history: PropTypes.any,
     renderProps: PropTypes.any,

@@ -31,7 +31,7 @@ const Header = styled.header`
 `
 
 export default class Lab extends React.PureComponent {
-  static PropTypes = {
+  static propTypes = {
     crazyMode: PropTypes.bool.isRequired,
     setCrazyMode: PropTypes.func.isRequired
   }

@@ -17,7 +17,7 @@ const Base = styled.aside`
 `
 
 export default class PageAside extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     recentArticles: PropTypes.string.isRequired
   }
 

@@ -50,7 +50,7 @@ const Input = styled.input.attrs({type: 'checkbox'})`
 
 
 export default class Checkbox extends React.PureComponent {
-  static PropTypes = {
+  static propTypes = {
     checked: PropTypes.bool.isRequired,
     setChecked: PropTypes.func.isRequired
   }

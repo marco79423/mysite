@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default class Disqus extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     /**
      * ref: https://github.com/mzabriskie/react-disqus-thread/blob/master/lib/components/DisqusThread.js
      * ref: https://github.com/disqus/DISQUS-API-Recipes/blob/master/snippets/js/disqus-reset/disqus_reset.html

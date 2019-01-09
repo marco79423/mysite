@@ -32,7 +32,7 @@ const Header = styled.header`
 `
 
 export default class SiteInfo extends React.PureComponent {
-  static PropTypes = {
+  static propTypes = {
     repositoryVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
   }

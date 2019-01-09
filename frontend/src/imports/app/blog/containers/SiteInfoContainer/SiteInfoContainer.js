@@ -8,7 +8,7 @@ import * as siteInfoSelectors from '../../ducks/site-info/selectors'
 import * as actions from '../../ducks/site-info/actions'
 
 export class SiteInfoContainer extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     repositoryVersion: PropTypes.string.isRequired,
     updatedTime: PropTypes.string.isRequired
   }
