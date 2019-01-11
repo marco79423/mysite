@@ -21,10 +21,11 @@
     "react-test-renderer": "^16.7.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "connected-react-router": "^6.1.0",
     "dateformat": "^3.0.2",
     "express": "^4.16.4",
-    "feed": "^1.1.0",
+    "feed": "^2.0.2",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
     "polished": "^1.9.0",
