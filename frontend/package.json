@@ -10,16 +10,20 @@
     "prod": "yarn run dist && yarn start",
     "dev": "react-scripts start",
     "dist": "react-scripts build",
-    "start": "node __server.js"
+    "start": "node server/bootstrap.js"
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
     "jest-styled-components": "^6.3.1",
     "react-test-renderer": "^16.7.0"
   },
   "dependencies": {
     "connected-react-router": "^6.1.0",
     "dateformat": "^3.0.2",
+    "express": "^4.16.4",
     "feed": "^1.1.0",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
