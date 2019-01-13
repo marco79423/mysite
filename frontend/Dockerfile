@@ -10,7 +10,7 @@ COPY frontend .
 
 ARG REACT_APP_BACKEND_SERVER_URL
 
-RUN yarn test
+RUN CI=true yarn test:coverage
 
 RUN yarn run dist
 CMD ["yarn", "start"]

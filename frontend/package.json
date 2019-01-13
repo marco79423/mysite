@@ -5,7 +5,6 @@
   "author": "兩大類 <marco79423@gmail.com>",
   "scripts": {
     "test": "react-scripts test",
-    "test:watch": "react-scripts test --verbose --watchAll",
     "test:coverage": "react-scripts test --coverage",
     "prod": "yarn run dist && yarn start",
     "dev": "react-scripts start",
