@@ -6,7 +6,7 @@ export const AUTHOR_INFO = {
 
 export const SITE_NAME = '兩大類的部落格'
 export const HOST_URL = 'https://marco79423.net'
-export const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL || HOST_URL
+export const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL || `${HOST_URL}/backend`
 
 export const SITE_META = {
   keywords: 'Python,Javascript,網站設計,兩大類',
