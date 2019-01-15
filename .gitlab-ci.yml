@@ -22,6 +22,7 @@ build-frontend-dev:
     - docker push marco79423/mysite-frontend-dev:latest
     - docker tag marco79423/mysite-frontend-dev:latest marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
+  coverage: '/^Statements\s+: ([\d.]+%)/'
 
 build-frontend:
   stage: build
@@ -40,6 +41,7 @@ build-frontend:
     - docker push marco79423/mysite-frontend:latest
     - docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
+  coverage: '/^Statements\s+: ([\d.]+%)/'
 
 build-backend-dev:
   stage: build
@@ -59,6 +61,7 @@ build-backend-dev:
     - docker push marco79423/mysite-backend-dev:latest
     - docker tag marco79423/mysite-backend-dev:latest marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
+  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)$/'
 
 build-backend:
   stage: build
@@ -80,6 +83,7 @@ build-backend:
     - docker push marco79423/mysite-backend:latest
     - docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-backend:$CI_COMMIT_REF_NAME
+  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)$/'
 
 deploy:
   image: python:3

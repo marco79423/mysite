@@ -4,15 +4,17 @@ RUN mkdir /app
 RUN mkdir /content
 
 WORKDIR /app
-COPY backend/requirements.txt ./requirements.txt
+COPY backend .
+
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pytest
 
-COPY backend/src .
+WORKDIR /app/src
 
-COPY content /content
 ARG STATIC_URL
 ARG REPO_VERSION
 
+COPY content /content
 RUN python manage.py import-blog-data /content
 
 CMD ["gunicorn", "wsgi:app", "-b", ":8000"]
