@@ -3,10 +3,14 @@ services:
   # app
   frontend-dev:
     image: marco79423/mysite-frontend-dev:latest
+    environment:
+      - REACT_APP_BACKEND_SERVER_URL=https://dev.marco79423.net/backend  # for RSS
     depends_on:
       - backend-dev
   backend-dev:
     image: marco79423/mysite-backend-dev:latest
+    environment:
+      - REACT_APP_BACKEND_SERVER_URL=https://dev.marco79423.net/backend  # for RSS
     volumes:
       - "backend-static-dev:/app/static"
       - "backend-media-dev:/app/media"
