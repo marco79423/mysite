@@ -9,6 +9,10 @@ stages:
 
 build-frontend-dev:
   stage: build
+  only:
+    changes:
+      - frontend/**/*
+      - deploy/**/*
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -45,6 +49,10 @@ build-frontend:
 
 build-backend-dev:
   stage: build
+  only:
+    changes:
+      - backend/**/*
+      - deploy/**/*
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
