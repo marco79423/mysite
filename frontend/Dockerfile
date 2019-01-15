@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:10-alpine
 
 RUN mkdir /app
 WORKDIR /app
@@ -8,9 +8,9 @@ RUN yarn
 
 COPY frontend .
 
-ARG BACKEND_SERVER_URL
+ARG REACT_APP_BACKEND_SERVER_URL
 
-RUN yarn test
+RUN CI=true yarn test:coverage
 
 RUN yarn run dist
 CMD ["yarn", "start"]

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should render SiteInfo component correctly 1`] = `
+.c3 {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.c4 {
+  background: #eee;
+}
+
+.c4:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.c5 {
+  padding: 0.6em;
+  border: 1px solid #ccc;
+}
+
+.c2 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.c2:hover {
+  color: #006064;
+}
+
+.c0 {
+  float: left;
+  width: 800px;
+}
+
+.c0 article {
+  min-height: 600px;
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.c1 h1 {
+  margin: 3px 0 24px;
+}
+
+.c1 h1 a {
+  font-size: 2rem;
+}
+
+@media (max-width:1200px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+<section
+  className="c0"
+>
+  <article>
+    <header
+      className="c1"
+    >
+      <h1>
+        <a
+          className="c2"
+          href="/info/"
+          onClick={[Function]}
+        >
+          網站資訊
+        </a>
+      </h1>
+    </header>
+    <table
+      className="c3"
+    >
+      <tbody
+        className=""
+      >
+        <tr
+          className="c4"
+        >
+          <td
+            className="c5"
+          >
+            網站更新時間：
+          </td>
+          <td
+            className="c5"
+          >
+            2017-04-08 12:01:57.198000
+          </td>
+        </tr>
+        <tr
+          className="c4"
+        >
+          <td
+            className="c5"
+          >
+            儲存庫版本：
+          </td>
+          <td
+            className="c5"
+          >
+            develop (81ccde3550325c06a10b6acce75b4df529955472)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+`;

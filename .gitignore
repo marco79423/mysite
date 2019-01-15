@@ -1,8 +1,4 @@
 .DS_Store
 
 /.idea
-/venv
 
-/my_aws.pem
-/my_aws.ppk
-/project_config.json

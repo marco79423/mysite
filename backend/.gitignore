@@ -5,6 +5,7 @@ __pycache__
 
 # test associated
 .pytest_cache
+.coverage
 
 # dev datbase
 *.db

@@ -9,19 +9,24 @@ stages:
 
 build-frontend-dev:
   stage: build
+  only:
+    changes:
+      - frontend/**/*
+      - deploy/**/*
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - BACKEND_SERVER_URL=https://dev.marco79423.net
+    - BACKEND_SERVER_URL=https://dev.marco79423.net/backend
   script:
     - docker build
       --file frontend/Dockerfile
-      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg REACT_APP_BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --tag marco79423/mysite-frontend-dev:latest
       .
     - docker push marco79423/mysite-frontend-dev:latest
     - docker tag marco79423/mysite-frontend-dev:latest marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
+  coverage: '/^Statements\s+: ([\d.]+%)/'
 
 build-frontend:
   stage: build
@@ -30,24 +35,30 @@ build-frontend:
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - BACKEND_SERVER_URL=https://marco79423.net
+    - BACKEND_SERVER_URL=https://marco79423.net/backend
   script:
     - docker build
       --file frontend/Dockerfile
-      --build-arg BACKEND_SERVER_URL=$BACKEND_SERVER_URL
+      --build-arg REACT_APP_BACKEND_SERVER_URL=$BACKEND_SERVER_URL
       --tag marco79423/mysite-frontend:latest
       .
     - docker push marco79423/mysite-frontend:latest
     - docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
+  coverage: '/^Statements\s+: ([\d.]+%)/'
 
 build-backend-dev:
   stage: build
+  only:
+    changes:
+      - backend/**/*
+      - content/**/*
+      - deploy/**/*
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - apk update && apk add -U git
-    - STATIC_URL=https://dev.marco79423.net/static/
+    - STATIC_URL=https://dev.marco79423.net/backend/static/
     - REPO_VERSION=`git describe --tags`
   script:
     - docker build
@@ -59,6 +70,7 @@ build-backend-dev:
     - docker push marco79423/mysite-backend-dev:latest
     - docker tag marco79423/mysite-backend-dev:latest marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
+  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)$/'
 
 build-backend:
   stage: build
@@ -68,7 +80,7 @@ build-backend:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - apk update && apk add -U git
-    - STATIC_URL=https://marco79423.net/static/
+    - STATIC_URL=https://marco79423.net/backend/static/
     - REPO_VERSION=`git describe --tags`
   script:
     - docker build
@@ -80,12 +92,14 @@ build-backend:
     - docker push marco79423/mysite-backend:latest
     - docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:$CI_COMMIT_REF_NAME
     - docker push marco79423/mysite-backend:$CI_COMMIT_REF_NAME
+  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)$/'
 
 deploy:
   image: python:3
   stage: deploy
   before_script:
-    - pip install -r requirements-deploy.txt
+    - cd deploy
+    - pip install -r requirements.txt
     - echo "$PROJECT_CONFIG" > project_config.json
     - echo "$SSH_PRIVATE_KEY" > my_aws.pem
   when: on_success

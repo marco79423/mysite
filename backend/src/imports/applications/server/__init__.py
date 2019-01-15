@@ -16,11 +16,9 @@ def create_app():
     db.init_app(app)
 
     # routing
-    from imports.applications.server.routes.default import default_routes
-    from imports.applications.server.routes.api import api_routes
+    from imports.applications.server.routes.blog_backend import blog_backend_routes
 
-    app.register_blueprint(default_routes)
-    app.register_blueprint(api_routes)
+    app.register_blueprint(blog_backend_routes)
 
     # initialization
     with app.app_context():
