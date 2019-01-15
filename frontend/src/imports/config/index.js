@@ -76,3 +76,5 @@ export const FEED_TEMPLATE = {
     link: HOST_URL
   }
 }
+
+export const GTAG_TRACKER_ID = 'UA-38552387-1'

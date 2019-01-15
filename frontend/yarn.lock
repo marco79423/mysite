@@ -927,6 +927,11 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@redux-beacon/google-analytics-gtag@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/google-analytics-gtag/-/google-analytics-gtag-1.0.4.tgz#44f257218740afcfa80084921690b79d48b230f4"
+  integrity sha512-GEqAZsX3byzN+e4NpL4jCGdOqaO8SYC5Ryup6+4j6z+37K/AhBIUNG50PIcg5oArJMMZz0mTb2o3wz4S12HDWA==
+
 "@svgr/core@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@svgr/core/-/core-2.4.1.tgz#03a407c28c4a1d84305ae95021e8eabfda8fa731"
@@ -1347,6 +1352,11 @@ array-filter@~0.0.0:
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
+
+array-flatten@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-2.1.1.tgz#426bb9da84090c1838d812c8150af20a8331e296"
+  integrity sha1-Qmu52oQJDBg42BLIFQryCoMx4pY=
 
 array-flatten@^2.1.0:
   version "2.1.2"
@@ -8376,6 +8386,13 @@ redux-actions@^2.0.1:
     lodash "^4.13.1"
     lodash-es "^4.17.4"
     reduce-reducers "^0.1.0"
+
+redux-beacon@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.5.tgz#1aa1db7c4544a31e8df91676adca2e7277b08cc6"
+  integrity sha512-h2XCqu72+TWz2HHUDKSgp3y4OlnnmMsp9EOfdI5+BWNcch/kxaJbm+rt3SSqjOPdP9CL3aqSISZ4VD4Ev85xcw==
+  dependencies:
+    array-flatten "2.1.1"
 
 redux-saga@^0.16.0:
   version "0.16.0"

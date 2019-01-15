@@ -20,6 +20,7 @@
     "react-test-renderer": "^16.7.0"
   },
   "dependencies": {
+    "@redux-beacon/google-analytics-gtag": "^1.0.4",
     "axios": "^0.18.0",
     "compression": "^1.7.3",
     "connected-react-router": "^6.1.0",
@@ -41,6 +42,7 @@
     "react-share": "^1.11.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.0.1",
+    "redux-beacon": "^2.0.5",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.0",
     "styled-components": "^4.1.3",
