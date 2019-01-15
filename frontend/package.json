@@ -9,7 +9,7 @@
     "prod": "yarn run dist && yarn start",
     "dev": "react-scripts start",
     "dist": "react-scripts build",
-    "start": "node server/bootstrap.js"
+    "start": "cross-env NODE_ENV=production node server/bootstrap.js"
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^6.1.0",
+    "cross-env": "^5.2.0",
     "dateformat": "^3.0.2",
     "express": "^4.16.4",
     "feed": "^2.0.2",
