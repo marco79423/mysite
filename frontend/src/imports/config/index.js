@@ -62,7 +62,7 @@ export const FEED_TEMPLATE = {
   description: SITE_META.description,
   id: HOST_URL,
   link: HOST_URL,
-  // image: require('../common/img/logo.png'), TODO
+  image: `${HOST_URL}/img/logo.png`,
   favicon: `${HOST_URL}/favicon.ico`,
   copyright: COPYRIGHT,
   updated: undefined,
