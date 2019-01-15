@@ -67,7 +67,6 @@ export const FEED_TEMPLATE = {
   copyright: COPYRIGHT,
   updated: undefined,
   feedLinks: {
-    atom: `${HOST_URL}/atom.xml`,
     rss2: `${HOST_URL}/rss2.xml`,
   },
   author: {
