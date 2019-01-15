@@ -3,6 +3,7 @@ import express from 'express'
 import compression from 'compression'
 import {Feed} from 'feed'
 import axios from 'axios'
+import escapeHtml from 'escape-html'
 
 import * as config from '../src/imports/config'
 
@@ -12,7 +13,7 @@ const PORT = 3000
 const app = express()
 app.use(compression())
 
-app.get('/rss.xml', function (req, res) {
+app.get('/atom.xml', function (req, res) {
   return axios.get(`${config.BACKEND_SERVER_URL}/api/articles/`)
     .then(res => res.data)
     .then(articles => {
@@ -22,18 +23,18 @@ app.get('/rss.xml', function (req, res) {
       })
       articles.forEach(article => {
         feed.addItem({
-          title: article.title,
-          id: article.slug,
-          link: `${config.HOST_URL}/articles/${article.slug}/`,
-          description: article.rawSummary,
-          content: article.content,
+          title: escapeHtml(article.title),
+          id: encodeURI(`${config.HOST_URL}/articles/${article.slug}/`),
+          link: encodeURI(`${config.HOST_URL}/articles/${article.slug}/`),
+          date: new Date(article.date),
           author: [
             config.FEED_TEMPLATE.author
           ],
-          date: new Date(article.date),
+          description: escapeHtml(article.rawSummary),
+          content: escapeHtml(article.content),
         })
       })
-      res.send(feed.rss2())
+      res.send(feed.atom1())
     })
 })
 

@@ -26,6 +26,7 @@
     "connected-react-router": "^6.1.0",
     "cross-env": "^5.2.0",
     "dateformat": "^3.0.2",
+    "escape-html": "^1.0.3",
     "express": "^4.16.4",
     "feed": "^2.0.2",
     "history": "^4.7.2",

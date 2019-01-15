@@ -60,14 +60,14 @@ export const CACHE_TIMEOUT = '1 hour'
 export const FEED_TEMPLATE = {
   title: SITE_NAME,
   description: SITE_META.description,
-  id: HOST_URL,
-  link: HOST_URL,
+  id: HOST_URL + '/',
+  link: HOST_URL + '/',
   image: `${HOST_URL}/img/logo.png`,
   favicon: `${HOST_URL}/favicon.ico`,
   copyright: COPYRIGHT,
   updated: undefined,
   feedLinks: {
-    rss2: `${HOST_URL}/rss2.xml`,
+    atom: `${HOST_URL}/atom.xml`,
   },
   author: {
     name: AUTHOR_INFO.name,
