@@ -85,7 +85,8 @@ deploy:
   image: python:3
   stage: deploy
   before_script:
-    - pip install -r requirements-deploy.txt
+    - cd deploy
+    - pip install -r requirements.txt
     - echo "$PROJECT_CONFIG" > project_config.json
     - echo "$SSH_PRIVATE_KEY" > my_aws.pem
   when: on_success
