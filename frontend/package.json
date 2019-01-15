@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "compression": "^1.7.3",
     "connected-react-router": "^6.1.0",
     "cross-env": "^5.2.0",
     "dateformat": "^3.0.2",

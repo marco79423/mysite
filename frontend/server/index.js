@@ -1,15 +1,16 @@
 import path from 'path'
 import express from 'express'
+import compression from 'compression'
 import {Feed} from 'feed'
 import axios from 'axios'
 
 import * as config from '../src/imports/config'
 
 
-
 const PORT = 3000
 
 const app = express()
+app.use(compression())
 
 app.get('/rss.xml', function (req, res) {
   return axios.get(`${config.BACKEND_SERVER_URL}/api/articles/`)
