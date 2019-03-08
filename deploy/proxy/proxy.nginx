@@ -128,7 +128,7 @@ server {
     try_files $uri @proxy_to_frontend;
   }
 
-  location ~ /(api|static)/ {
+  location ~ /backend/ {
     expires 1d;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
