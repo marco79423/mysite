@@ -7,31 +7,12 @@ stages:
   - build
   - deploy
 
-build-frontend-dev:
+build-frontend:
   stage: build
   only:
     changes:
       - frontend/**/*
       - deploy/**/*
-  before_script:
-    - docker --version
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - BACKEND_SERVER_URL=https://dev.marco79423.net/backend
-  script:
-    - docker build
-      --file frontend/Dockerfile
-      --build-arg REACT_APP_BACKEND_SERVER_URL=$BACKEND_SERVER_URL
-      --tag marco79423/mysite-frontend-dev:latest
-      .
-    - docker push marco79423/mysite-frontend-dev:latest
-    - docker tag marco79423/mysite-frontend-dev:latest marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
-    - docker push marco79423/mysite-frontend-dev:$CI_COMMIT_REF_NAME
-  coverage: '/^Statements\s+: ([\d.]+%)/'
-
-build-frontend:
-  stage: build
-  only:
-    - tags
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -47,35 +28,13 @@ build-frontend:
     - docker push marco79423/mysite-frontend:$CI_COMMIT_REF_NAME
   coverage: '/^Statements\s+: ([\d.]+%)/'
 
-build-backend-dev:
+build-backend:
   stage: build
   only:
     changes:
       - backend/**/*
       - content/**/*
       - deploy/**/*
-  before_script:
-    - docker --version
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - apk update && apk add -U git
-    - STATIC_URL=https://dev.marco79423.net/backend/static/
-    - REPO_VERSION=`git describe --tags`
-  script:
-    - docker build
-      --file backend/Dockerfile
-      --build-arg STATIC_URL=$STATIC_URL
-      --build-arg REPO_VERSION=$REPO_VERSION
-      --tag marco79423/mysite-backend-dev:latest
-      .
-    - docker push marco79423/mysite-backend-dev:latest
-    - docker tag marco79423/mysite-backend-dev:latest marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
-    - docker push marco79423/mysite-backend-dev:$CI_COMMIT_REF_NAME
-  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)$/'
-
-build-backend:
-  stage: build
-  only:
-    - tags
   before_script:
     - docker --version
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
