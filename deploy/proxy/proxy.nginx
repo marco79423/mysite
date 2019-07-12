@@ -6,6 +6,10 @@ upstream mysite-backend {
   server backend:8000 fail_timeout=5s max_fails=5;
 }
 
+upstream mysite-blog {
+  server blog fail_timeout=5s max_fails=5;
+}
+
 server {
   listen 80;
   server_name marco79423.net;
@@ -13,7 +17,15 @@ server {
 }
 
 server {
+  listen 80;
+  server_name marco81224.nctu.me;
+  return 301 https://$server_name$request_uri;
+}
+
+server {
   listen 443 ssl;
+  server_name marco79423.net;
+
   ssl_certificate /fullchain.pem;
   ssl_certificate_key /privkey.pem;
 
@@ -33,8 +45,6 @@ server {
     image/jpeg
     image/gif
     image/png;
-
-  server_name marco79423.net;
 
   root /static;
 
@@ -79,5 +89,61 @@ server {
     # Try to serve static files from nginx, no point in making an
     # *application* server like Unicorn/Rainbows! serve static files.
     proxy_pass http://mysite-frontend;
+  }
+}
+
+
+server {
+  listen 443 ssl;
+  server_name marco81224.nctu.me;
+
+  ssl_certificate /fullchain.pem;
+  ssl_certificate_key /privkey.pem;
+
+  gzip on;
+  gzip_buffers 4 16k;
+  gzip_min_length 1k;     # 啟用 gzip 壓縮的最小文件，通常小於 1k 效果反而不佳
+  gzip_comp_level 5;      # 壓縮的級別 1-10，數字越大壓縮效果越好，但越佔用 CPU 時間，5 是常用值
+  gzip_proxied any;       # 壓縮通過代理鏈接的客戶端數據
+  gzip_http_version 1.0;  # 默認為 1.1，1.0 不會壓縮，但若用 proxy_pass 進行反向代理，和 upstream server 默認採用 1.0
+  gzip_types
+    text/plain
+    application/x-javascript
+    text/javascript
+    application/json
+    text/css
+    application/xml
+    image/jpeg
+    image/gif
+    image/png;
+
+  root /static;
+
+  location / {
+    # checks for static file, if not found proxy to app
+    try_files $uri @proxy_to_blog;
+  }
+
+  location @proxy_to_blog {
+
+    # an HTTP header important enough to have its own Wikipedia entry:
+    #   http://en.wikipedia.org/wiki/X-Forwarded-For
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    # enable this if and only if you use HTTPS, this helps Rack
+    # set the proper protocol for doing redirects:
+    proxy_set_header X-Forwarded-Proto https;
+
+    # pass the Host: header from the client right along so redirects
+    # can be set properly within the Rack application
+    proxy_set_header Host $http_host;
+
+    # we don't want nginx trying to do something clever with
+    # redirects, we set the Host: header above already.
+    proxy_redirect off;
+
+    # Try to serve static files from nginx, no point in making an
+    # *application* server like Unicorn/Rainbows! serve static files.
+    proxy_pass http://mysite-blog;
   }
 }

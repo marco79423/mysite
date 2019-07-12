@@ -1,5 +1,6 @@
 version: '3.6'
 services:
+  # mysite
   frontend:
     image: marco79423/mysite-frontend:latest
     depends_on:
@@ -9,6 +10,28 @@ services:
     volumes:
       - "backend-static:/app/static"
       - "backend-media:/app/media"
+  # blog
+  blog:
+    depends_on:
+      - blog-db
+    image: wordpress:latest
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: blog-db:3306
+      WORDPRESS_DB_USER: blog
+      WORDPRESS_DB_PASSWORD: blog
+      WORDPRESS_DB_NAME: blog
+
+  blog-db:
+    image: mysql:5.7
+    volumes:
+      - blog-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: blog
+      MYSQL_DATABASE: blog
+      MYSQL_USER: blog
+      MYSQL_PASSWORD: blog
 
   # proxy
   proxy:
@@ -40,5 +63,7 @@ services:
 volumes:
   backend-static:
   backend-media:
+
+  blog-data:
 
   portainer-data:
