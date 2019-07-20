@@ -100,6 +100,8 @@ server {
   ssl_certificate /fullchain.pem;
   ssl_certificate_key /privkey.pem;
 
+  client_max_body_size 500m;
+
   gzip on;
   gzip_buffers 4 16k;
   gzip_min_length 1k;     # 啟用 gzip 壓縮的最小文件，通常小於 1k 效果反而不佳
