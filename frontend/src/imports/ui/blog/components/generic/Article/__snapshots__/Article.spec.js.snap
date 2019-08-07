@@ -178,12 +178,6 @@ exports[`It should render Article component correctly 1`] = `
           雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關
         </span>
       </li>
-      <li
-        className="c4"
-      >
-        發表時間：
-        2017/07/09
-      </li>
     </ul>
   </header>
   <div>
