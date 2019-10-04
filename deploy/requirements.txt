@@ -1,2 +1,0 @@
-Fabric3==1.14.post1
-click==6.7
