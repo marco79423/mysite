@@ -30,7 +30,7 @@
     "express": "^4.16.4",
     "feed": "^2.0.2",
     "history": "^4.7.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "polished": "^1.9.0",
     "prop-types": "^15.5.8",
     "react": "^16.7.0",
