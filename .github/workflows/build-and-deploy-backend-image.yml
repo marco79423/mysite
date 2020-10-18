@@ -1,16 +1,15 @@
-name: Docker Image CI
+name: Build backend docker image
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-env:
-  VERSION: $(date +"%y%m%d%H%M%S")
+    branches:
+      - master
+    paths:
+      - backend/**
+      - content/**
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       # 設定環境
@@ -26,9 +25,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # 建置和推送 Backend image
+      # 建置和推送
+      - name: Get Version
+        run: |
+          export VERSION=$(date +"%Y%m%d%H%M%S")-${GITHUB_SHA::5}
+          echo "::env VERSION=${VERSION}"
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+
       - name: Build backend image
         run: |
+          echo "::env VERSION=${{env.VERSION}}"
+
           docker build \
             --file backend/Dockerfile \
             --build-arg STATIC_URL=/backend/static/ \
@@ -43,20 +50,3 @@ jobs:
 
           docker tag marco79423/mysite-backend:latest marco79423/mysite-backend:${{env.VERSION}}
           docker push marco79423/mysite-backend:${{env.VERSION}}
-
-      # 建置和推送 Frontend image
-      - name: Build frontend image
-        run: |
-          docker build \
-          --file frontend/Dockerfile \
-          --build-arg REACT_APP_BACKEND_SERVER_URL=/backend \
-          --tag marco79423/mysite-frontend:latest \
-          .
-      - name: Push frontend image
-        run: |
-          echo "::env VERSION=${{env.VERSION}}"
-
-          docker push marco79423/mysite-frontend:latest
-
-          docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:${{env.VERSION}}
-          docker push marco79423/mysite-frontend:${{env.VERSION}}
