@@ -47,7 +47,7 @@
 
 (選擇多種不同的顏色)
 
-.. image:: images/1.png
+.. image:: images/3.png
     :alt: gameoflife-color2.png
 
 (然後靜靜觀察)
