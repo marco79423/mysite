@@ -113,7 +113,7 @@
 
 .. code-block:: javascript
 
-   // 可能以「有沒有成功？」的方式回覆
+    // 可能以「有沒有成功？」的方式回覆
     告白服務1.告白(心儀妹子, 我, function 回覆函式 (yes) {
         if (yes) {
             // 成功脫單
@@ -297,7 +297,7 @@
 .. code-block:: javascript
 
     class 告白服務 {
-        ...
+        // ...
         告白 = (本妹子, 目標男) => {
             return new Promise (function 審核函式 (resolve, reject) {
                 if (是否審核通過(目標男)) {
@@ -426,7 +426,7 @@ executor 函式的例子：
 .. code-block:: javascript
 
     class 告白服務 {
-        ...
+        // ...
         告白 = (本妹子, 目標男) => {
             return new Promise (function 審核函式 (resolve, reject) {
                 if (目標男 === '兩大類') {
@@ -459,7 +459,7 @@ onFulfilled 函式的例子：
 .. code-block:: javascript
 
     class 告白服務 {
-        ...
+        // ...
         告白 = (本妹子, 目標男) => {
             return new Promise (function 審核函式 (resolve, reject) {
                 setTimeout(function() {
@@ -526,7 +526,7 @@ onFulfilled 函式的例子：
 .. code-block:: javascript
 
     class 告白服務 {
-        ...
+        // ...
         告白 = (本妹子, 目標男) => {
             return new Promise (function 審核函式 (resolve, reject) {
                 if (是否審核通過(目標男)) {
