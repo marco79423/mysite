@@ -14,7 +14,9 @@ export default class PageMain extends React.Component {
     return (
       <Base>
         {this.props.content}
-        <PageAside recentArticles={this.props.recentArticles}/>
+        <PageAside
+          relatedSites={this.props.relatedSites}
+          recentArticles={this.props.recentArticles}/>
       </Base>
     )
   }

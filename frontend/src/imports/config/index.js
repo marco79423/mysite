@@ -39,6 +39,17 @@ export const MENU_ITEMS = {
   ]
 }
 
+export const RELATED_SITES = [
+  {
+    name: '兩大類的技術筆記',
+    url: 'http://eng.marco79423.net/',
+  },
+  {
+    name: '類 Me 生活趣',
+    url: 'http://life.marco79423.net/',
+  }
+]
+
 export const RECENT_ARTICLE_COUNT = 5
 
 export const PAGE_SIZE = 10

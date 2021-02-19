@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import AboutMe from './AboutMe'
 import AdditionalLinks from './AdditionalLinks'
 import RecentArticles from './RecentArticles'
+import RelatedSites from './RelatedSites'
 
 const Base = styled.aside`
   float: left;
@@ -17,14 +17,11 @@ const Base = styled.aside`
 `
 
 export default class PageAside extends React.Component {
-  static propTypes = {
-    recentArticles: PropTypes.string.isRequired
-  }
-
-  render () {
+  render() {
     return (
       <Base>
         <AboutMe/>
+        <RelatedSites relatedSites={this.props.relatedSites}/>
         <RecentArticles recentArticles={this.props.recentArticles}/>
         <AdditionalLinks/>
       </Base>

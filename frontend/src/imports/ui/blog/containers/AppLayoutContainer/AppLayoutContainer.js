@@ -35,6 +35,7 @@ export default connect(
     siteName: configSelectors.getSiteName(state, props),
     menuItems: configSelectors.getMenuItems(state, props),
     theme: configSelectors.getTheme(state, props),
+    relatedSites: configSelectors.getRelatedSites(state, props),
     recentArticles: articleSelectors.getRecentArticles(state, props),
     crazyMode: state.lab.crazyMode,
     copyright: configSelectors.getCopyright(state, props),
