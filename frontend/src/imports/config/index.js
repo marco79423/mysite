@@ -33,11 +33,8 @@ export const MENU_ITEMS = {
     {name: '專案作品', url: '/articles/category/專案作品/'},
     {name: '程式設計', url: '/articles/category/程式設計/'},
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
-    {name: '遊記', url: '/articles/category/遊記/'},
-    {name: '胡言亂語', url: '/articles/category/胡言亂語/'}
   ],
   extra: [
-    {name: '閱讀計劃', url: '/me/閱讀計劃/'},
     {name: '實驗室', url: '/lab/'}
   ]
 }
