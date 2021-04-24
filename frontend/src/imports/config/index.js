@@ -1,10 +1,9 @@
-
 export const AUTHOR_INFO = {
   name: '兩大類',
   email: 'marco79423@gmail.com'
 }
 
-export const SITE_NAME = '兩大類的部落格'
+export const SITE_NAME = '兩大類的技術筆記'
 export const HOST_URL = 'https://marco79423.net'
 export const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL || `${HOST_URL}/backend`
 
@@ -14,16 +13,14 @@ export const SITE_META = {
   author: AUTHOR_INFO.name,
 
   'og:image': `${BACKEND_SERVER_URL}/static/resources/img/marco.jpg`,
-  'og:description': '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
+  'og:description': '兩大類的技術筆記，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
 
   'fb:admins': '100000038752074',
   'fb:fb:app_id': '165574263590380',
   'google-site-verification': 'vVs2QVhF9I_65-WfH-RD2klXRwNA5hJT1VbICZv-0ZA'
 }
 
-export const SITE_LINK = {
-
-}
+export const SITE_LINK = {}
 
 export const COPYRIGHT = `Copyright © ${new Date().getFullYear()} - 兩大類`
 
@@ -41,13 +38,17 @@ export const MENU_ITEMS = {
 
 export const RELATED_SITES = [
   {
-    name: '兩大類的技術筆記',
-    url: 'http://eng.marco79423.net/',
-  },
-  {
     name: '類 Me 生活趣',
     url: 'http://life.marco79423.net/',
-  }
+  },
+  {
+    name: 'Jessiclient',
+    url: 'http://jessiclient.marco79423.net/',
+  },
+  {
+    name: 'Jessigod',
+    url: 'http://jessigod.marco79423.net/',
+  },
 ]
 
 export const RECENT_ARTICLE_COUNT = 5
@@ -58,8 +59,8 @@ export const COMMENT_CONFIG = {
   shortName: 'marco79423'
 }
 
-export const SITE_VERSION = process.env.REACT_APP_SITE_VERSION || ""
-export const SITE_UPDATED_TIME = process.env.REACT_APP_SITE_UPDATED_TIME || ""
+export const SITE_VERSION = process.env.REACT_APP_SITE_VERSION || ''
+export const SITE_UPDATED_TIME = process.env.REACT_APP_SITE_UPDATED_TIME || ''
 
 export const DEFAULT_PORT = 3000
 export const QUERY_TIMEOUT = 10000
