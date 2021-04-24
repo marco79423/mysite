@@ -92,15 +92,6 @@ class ImportBlogDataUseCase(base_types.UseCase):
                     modified_date=article_data.get('modified_date', ''),
                 ))
 
-            for web_page_path in self.source_path_serv.get_all_web_page_paths(source_dir):
-                web_page_data = self._parse_data(web_page_path)
-                self.web_page_repo.add(WebPage(
-                    app='me',
-                    slug=self.slug_adapter.to_slug(web_page_data['title']),
-                    title=web_page_data['title'],
-                    content=web_page_data['content'],
-                ))
-
             self.site_info_repo.add(SiteInfo(
                 updated_time=self.time_adapter.get_utc_now(),
                 repo_version=self.env_adapter.get('REPO_VERSION', ''),
