@@ -41,7 +41,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "4.0.3",
     "react-share": "^1.11.1",
-    "redux": "^4.0.1",
+    "redux": "^4.1.0",
     "redux-actions": "^2.0.1",
     "redux-beacon": "^2.0.5",
     "redux-saga": "^0.16.0",

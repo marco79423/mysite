@@ -1,40 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-
-import SiteInfo from '../../components/content/SiteInfo'
-import * as siteInfoSelectors from '../../ducks/site-info/selectors'
+import {useDispatch, useSelector} from 'react-redux'
 
 import * as actions from '../../ducks/site-info/actions'
+import * as siteInfoSelectors from '../../ducks/site-info/selectors'
+import SiteInfo from '../../components/content/SiteInfo'
 
-export class SiteInfoContainer extends React.Component {
-  static propTypes = {
-    repositoryVersion: PropTypes.string.isRequired,
-    updatedTime: PropTypes.string.isRequired
-  }
+export default function SiteInfoContainer() {
+  const dispatch = useDispatch()
+  const repositoryVersion = useSelector(siteInfoSelectors.getRepositoryVersion)
+  const updatedTime = useSelector(siteInfoSelectors.getSiteUpdatedTime)
 
-  componentWillMount() {
-    if (!this.props.backendVersion) {
-      this.props.fetchSiteInfo()
-    }
-  }
+  useEffect(() => {
+    dispatch(actions.fetchSiteInfo())
+  }, [dispatch])
 
-  render() {
-    return (
-      <SiteInfo
-        repositoryVersion={this.props.repositoryVersion}
-        updatedTime={this.props.updatedTime}
-      />
-    )
-  }
+  return (
+    <SiteInfo
+      repositoryVersion={repositoryVersion}
+      updatedTime={updatedTime}
+    />
+  )
 }
 
-export default connect(
-  (state, ownProps) => ({
-    repositoryVersion: siteInfoSelectors.getRepositoryVersion(state),
-    updatedTime: siteInfoSelectors.getSiteUpdatedTime(state)
-  }),
-  dispatch => ({
-    fetchSiteInfo: () => dispatch(actions.fetchSiteInfo())
-  })
-)(SiteInfoContainer)
+SiteInfoContainer.propTypes = {
+  repositoryVersion: PropTypes.string.isRequired,
+  updatedTime: PropTypes.string.isRequired
+}
