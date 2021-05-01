@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@redux-beacon/google-analytics-gtag": "^1.0.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "compression": "^1.7.3",
     "connected-react-router": "^6.1.0",
     "cross-env": "^5.2.0",
