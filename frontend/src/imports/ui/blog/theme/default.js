@@ -6,17 +6,17 @@ const colorTable = {
   'cyan-900': '#006064',
   'cyan-A700': '#00B8D4',
 
-  'teal-50':'#E0F2F1',
-  'teal-100':'#B2DFDB',
-  'teal-200':'#80CBC4',
-  'teal-300':'#4DB6AC',
-  'teal-400':'#26A69A',
-  'teal-500':'#009688',
-  'teal-600':'#00897B',
-  'teal-700':'#00796B',
-  'teal-800':'#00695C',
-  'teal-900':'#004D40',
-  'teal-A700':'#00BFA5',
+  'teal-50': '#E0F2F1',
+  'teal-100': '#B2DFDB',
+  'teal-200': '#80CBC4',
+  'teal-300': '#4DB6AC',
+  'teal-400': '#26A69A',
+  'teal-500': '#009688',
+  'teal-600': '#00897B',
+  'teal-700': '#00796B',
+  'teal-800': '#00695C',
+  'teal-900': '#004D40',
+  'teal-A700': '#00BFA5',
 
   'grey-50': '#FAFAFA',
   'grey-200': '#EEEEEE',
@@ -26,7 +26,7 @@ const colorTable = {
   'grey-900': '#212121'
 }
 
-export default {
+const theme = {
   global: {
     fontColor: colorTable['grey-900'],
     link: {
@@ -109,3 +109,5 @@ export default {
     }
   }
 }
+
+export default theme

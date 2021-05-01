@@ -5,4 +5,6 @@ const defaultState = {
   theme: require(`../../theme/default`).default
 }
 
-export default () => defaultState
+export default function reducer() {
+  return defaultState
+}
