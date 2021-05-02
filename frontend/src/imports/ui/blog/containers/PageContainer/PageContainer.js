@@ -7,7 +7,7 @@ import * as pageActions from '../../ducks/page/actions'
 
 export class PageContainer extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.page) {
       this.props.fetchPages()
     }

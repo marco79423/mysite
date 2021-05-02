@@ -8,7 +8,7 @@ import * as articleSelectors from '../../ducks/article/selectors'
 
 export class ArchivesContainer extends React.Component {
 
-  componentWillMount() {
+  componentDidMount () {
     if (this.props.articles.length === 0) {
       this.props.fetchArticles()
     }

@@ -10,7 +10,7 @@ import * as configSelectors from '../../ducks/config/selectors'
 
 export class ArticleDetailContainer extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.article) {
       this.props.fetchArticles()
     }

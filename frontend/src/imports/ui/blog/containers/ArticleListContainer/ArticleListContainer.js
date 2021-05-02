@@ -9,7 +9,7 @@ import * as configSelectors from '../../ducks/config/selectors'
 
 export class ArticleListContainer extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.articles.length === 0) {
       this.props.fetchArticles()
     }
