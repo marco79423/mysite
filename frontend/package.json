@@ -6,7 +6,7 @@
   "scripts": {
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    "prod": "yarn run dist && yarn start",
+    "prod": "npm run dist && npm start",
     "dev": "react-scripts start",
     "dist": "react-scripts build",
     "start": "cross-env NODE_ENV=production node server/bootstrap.js"
