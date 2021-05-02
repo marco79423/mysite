@@ -98,7 +98,7 @@ export default class Metadata extends React.PureComponent {
   renderChickenCountItem = (chickenCount) => {
     const tooltip = '雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關'
     return (
-      <Item>字數：<ChickenImage src={require('./img/chicken.png')} alt='雞' onMouseEnter={this.onMouseEnter}
+      <Item>字數：<ChickenImage src={'/img/chicken.png'} alt="雞" onMouseEnter={this.onMouseEnter}
                              onMouseLeave={this.onMouseLeave}/> x {chickenCount}<Tooltip
         hover={this.state.hoverChickenImage}>{tooltip}</Tooltip></Item>
     )

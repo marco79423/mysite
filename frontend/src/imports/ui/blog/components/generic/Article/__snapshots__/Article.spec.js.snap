@@ -168,7 +168,7 @@ exports[`It should render Article component correctly 1`] = `
           className="c8"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          src="chicken.png"
+          src="/img/chicken.png"
         />
          x 
         1

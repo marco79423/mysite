@@ -62,17 +62,17 @@ const BaseIcon = styled.a`
 `
 
 const FacebookIcon = styled(BaseIcon)`
-  background: url(${require('./img/icon/i-facebook.svg')}) no-repeat;
+  background: url(/img/icon/i-facebook.svg) no-repeat;
   background-size: 100%;
 `
 
 const LinkedinIcon = styled(BaseIcon)`
-  background: url(${require('./img/icon/i-linkedin.svg')}) no-repeat;
+  background: url(/img/icon/i-linkedin.svg) no-repeat;
   background-size: 100%;
 `
 
 const GithubIcon = styled(BaseIcon)`
-  background: url(${require('./img/icon/i-github.svg')}) no-repeat;
+  background: url(/img/icon/i-github.svg) no-repeat;
   background-size: 100%;
 `
 
@@ -80,7 +80,7 @@ export default class AboutMe extends React.Component {
   render () {
     return (
       <Base>
-        <MeImage src={require('./img/me.jpg')} alt="兩大類"/>
+        <MeImage src="/img/me.jpg" alt="兩大類"/>
         <Profile>
           <h3>兩大類</h3>
           <Motto>

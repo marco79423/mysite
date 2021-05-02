@@ -123,7 +123,7 @@ exports[`It should render Metadata component correctly 1`] = `
       className="c5"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      src="chicken.png"
+      src="/img/chicken.png"
     />
      x 
     1
@@ -248,7 +248,7 @@ exports[`It should render Metadata component correctly when target article has b
       className="c5"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      src="chicken.png"
+      src="/img/chicken.png"
     />
      x 
     1
