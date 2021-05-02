@@ -3,7 +3,7 @@ export const AUTHOR_INFO = {
   email: 'marco79423@gmail.com'
 }
 
-export const SITE_NAME = '兩大類的技術筆記'
+export const SITE_NAME = '大類的技術筆記'
 export const HOST_URL = 'https://marco79423.net'
 export const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL || `${HOST_URL}/backend`
 
