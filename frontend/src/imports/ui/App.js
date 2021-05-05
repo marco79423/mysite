@@ -34,7 +34,7 @@ export default class App extends React.Component {
               <Route path='/lab/' component={LabPage}/>
               <Route path='/info/' component={SiteInfoPage}/>
               <Route path='/articles/page/:pageNum/' component={ArticleListPage}/>
-              <Route path='/articles/category/:category/' component={CategorizedArticleListPage}/>
+              <Route exact path='/articles/category/:category/' component={CategorizedArticleListPage}/>
               <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListPage}/>
               <Route path='/articles/archives/' component={ArchivesPage}/>
               <Route path='/articles/:slug/' component={ArticleDetailPage}/>
