@@ -71,7 +71,7 @@ export const FEED_TEMPLATE = {
   description: SITE_META.description,
   id: HOST_URL + '/',
   link: HOST_URL + '/',
-  image: `${HOST_URL}/img/logo.png`,
+  image: `${HOST_URL}/logo.png`,
   favicon: `${HOST_URL}/favicon.ico`,
   copyright: COPYRIGHT,
   updated: undefined,

@@ -1,15 +1,21 @@
 {
-  "short_name": "兩大類的網站",
-  "name": "兩大類的網站",
+  "short_name": "大類的技術筆記",
+  "name": "大類的技術筆記",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
     }
   ],
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait"
 }
