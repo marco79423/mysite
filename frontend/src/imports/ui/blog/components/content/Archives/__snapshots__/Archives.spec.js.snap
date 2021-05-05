@@ -171,7 +171,7 @@ exports[`It should render Archives component with empty articles correctly 1`] =
   display: inline-block;
   width: 90px;
   height: 90px;
-  background: url(loading.jpg) no-repeat center;
+  background: url(/img/loading.jpg) no-repeat center;
   background-size: 90px 90px;
   border: 0.1em solid #FFFFFF;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import twisterStyle from '../animation/twisterStyle'
-import loadingImage from './img/loading.jpg'
 
 const Base = styled.div`
   margin-top: 10%;
@@ -15,7 +14,7 @@ const LoadingImage = styled.div`
 
   width: 90px;
   height: 90px;
-  background: url(${loadingImage}) no-repeat center;
+  background: url(/img/loading.jpg) no-repeat center;
   background-size: 90px 90px;
 
   border: 0.1em solid #FFFFFF;
@@ -31,7 +30,7 @@ const Message = styled.div`
 `
 
 export default class Loading extends React.PureComponent {
-  render () {
+  render() {
     return (
       <Base>
         <LoadingImage/>
