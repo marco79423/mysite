@@ -18,7 +18,10 @@ def get_articles():
     uc = domain_injector.get(QueryArticlesUseCase)
     res = uc.execute()
     articles = res.data
-    return flask.jsonify(articles)
+
+    return flask.jsonify({
+        'data': articles
+    })
 
 
 @blog_backend_routes.route('/api/web_pages/')
@@ -26,7 +29,10 @@ def get_web_pages():
     uc = domain_injector.get(QueryWebPagesUseCase)
     res = uc.execute()
     web_pages = res.data
-    return flask.jsonify(web_pages)
+
+    return flask.jsonify({
+        'data': web_pages
+    })
 
 
 @blog_backend_routes.route('/api/info/')
@@ -34,7 +40,10 @@ def get_info():
     uc = domain_injector.get(QuerySiteInfoUseCase)
     res = uc.execute()
     site_info = res.data
-    return flask.jsonify(site_info)
+
+    return flask.jsonify({
+        'data': site_info
+    })
 
 
 @blog_backend_routes.route('/static/<uuid>/')

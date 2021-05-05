@@ -21,9 +21,11 @@ describe('fetchSiteInfoSaga', () => {
 
   test('should create action for the response', () => {
     const response = {
-      version: 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+      data: {
+        version: 'develop (81ccde3550325c06a10b6acce75b4df529955472)'
+      },
     }
-    expect(generator.next(response).value).toEqual(put(actions.setSiteInfo(response)))
+    expect(generator.next(response).value).toEqual(put(actions.setSiteInfo(response.data)))
   })
 
   test('and then finished', () => {

@@ -1,11 +1,11 @@
-import { call, put, select } from 'redux-saga/effects'
+import {call, put, select} from 'redux-saga/effects'
 
-import { getBackendServerUrl } from '../config/selectors'
+import {getBackendServerUrl} from '../config/selectors'
 
 import fetchJSON from '../../../../lib/fetchJSON'
 
 import * as actions from './actions'
-import { fetchPagesSaga } from './saga'
+import {fetchPagesSaga} from './saga'
 
 describe('fetchPagesSaga', () => {
   const generator = fetchPagesSaga()
@@ -20,17 +20,19 @@ describe('fetchPagesSaga', () => {
   })
 
   test('should create action for the response', () => {
-    const pages = [
-      {
-        'app': 'me',
-        'title': '成功日記'
-      },
-      {
-        'app': 'me',
-        'title': '閱讀計劃'
-      },
-    ]
-    expect(generator.next(pages).value).toEqual(put(actions.setPages(pages)))
+    const response = {
+      data: [
+        {
+          'app': 'me',
+          'title': '成功日記'
+        },
+        {
+          'app': 'me',
+          'title': '閱讀計劃'
+        },
+      ]
+    }
+    expect(generator.next(response).value).toEqual(put(actions.setPages(response.data)))
   })
 
   test('and then finished', () => {
