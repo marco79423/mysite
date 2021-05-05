@@ -58,7 +58,11 @@ const articles = [
 test('getArticles should return articles with correct naming convention', () => {
   const state = {
     article: {
-      items: articles
+      slugs: articles.map(article => article.slug),
+      items: articles.reduce((items, article) => ({
+        ...items,
+        [article.slug]: article
+      }), {})
     }
   }
   const expected = [
@@ -153,7 +157,11 @@ describe('getArticlesByCategory', () => {
 
     const state = {
       article: {
-        items: articles
+        slugs: articles.map(article => article.slug),
+        items: articles.reduce((items, article) => ({
+          ...items,
+          [article.slug]: article
+        }), {})
       }
     }
     expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
@@ -170,7 +178,10 @@ test('getArticle should return articles with correct naming convention', () => {
   }
   const state = {
     article: {
-      items: articles
+      items: articles.reduce((items, article) => ({
+        ...items,
+        [article.slug]: article
+      }), {})
     }
   }
 
@@ -201,7 +212,11 @@ describe('getRecentArticles', () => {
         RECENT_ARTICLE_COUNT: 2
       },
       article: {
-        items: articles
+        slugs: articles.map(article => article.slug),
+        items: articles.reduce((items, article) => ({
+          ...items,
+          [article.slug]: article
+        }), {})
       }
     }
     const expected = [
@@ -252,7 +267,11 @@ describe('getRecentArticles', () => {
         RECENT_ARTICLE_COUNT: 4
       },
       article: {
-        items: articles
+        slugs: articles.map(article => article.slug),
+        items: articles.reduce((items, article) => ({
+          ...items,
+          [article.slug]: article
+        }), {})
       }
     }
     const expected = [
@@ -333,7 +352,11 @@ describe('getSocialConfig', () => {
         }
       },
       article: {
-        items: articles
+        slugs: articles.map(article => article.slug),
+        items: articles.reduce((items, article) => ({
+          ...items,
+          [article.slug]: article
+        }), {})
       }
     }
 
@@ -355,7 +378,7 @@ describe('getSocialConfig', () => {
         }
       },
       article: {
-        items: []
+        items: {}
       }
     }
 

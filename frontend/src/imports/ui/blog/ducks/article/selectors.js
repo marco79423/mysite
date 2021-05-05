@@ -6,12 +6,13 @@ import * as routingSelectors from '../router/selectors'
 
 
 export const getArticles = (state) => fp.flow(
+  fp.map(slug => state.article.items[slug]),
   fp.map(article => ({
     ...article,
     date: new Date(article.date),
     modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null
   })),
-)(state.article.items)
+)(state.article.slugs)
 
 export const getArticlesByCategory = createSelector(
   [
@@ -27,12 +28,21 @@ export const getArticlesByCategory = createSelector(
 
 export const getArticle = createSelector(
   [
-    getArticles,
+    state => state.article.items,
     (state, props) => props.match.params.slug
   ],
-  (articles, currentArticleSlug) => fp.flow(
-    fp.find(article => article.slug === currentArticleSlug)
-  )(articles)
+  (articleItems, currentArticleSlug) => {
+    const article = articleItems[currentArticleSlug]
+    if (!article) {
+      return null
+    }
+
+    return {
+      ...article,
+      date: new Date(article.date),
+      modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null
+    }
+  }
 )
 
 export const getRecentArticles = createSelector(

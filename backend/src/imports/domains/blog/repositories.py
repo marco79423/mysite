@@ -26,6 +26,10 @@ class AssetRepository(Repository):
 class ArticleRepository(Repository):
 
     @abc.abstractmethod
+    def select_by_slug(self, article_slug: str) -> typing.Union[Article, None]:
+        pass
+
+    @abc.abstractmethod
     def select_all(self, order_by_date=True) -> [Article]:
         pass
 

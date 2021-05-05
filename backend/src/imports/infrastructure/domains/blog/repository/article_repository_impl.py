@@ -1,3 +1,5 @@
+import typing
+
 import injector
 
 from imports.domains.blog.entities.article import Article
@@ -10,6 +12,28 @@ from imports.infrastructure.domains.blog.model.category_model import CategoryMod
 
 @injector.singleton
 class ArticleRepositoryImpl(ArticleRepository):
+
+    def select_by_slug(self, article_slug: str) -> typing.Union[Article, None]:
+        article_model = db.session.query(ArticleModel).filter(ArticleModel.slug == article_slug).first()
+        if not article_model:
+            return None
+
+        return Article(
+            slug=article_model.slug,
+            title=article_model.title,
+            date=article_model.date,
+            categories=[
+                Category(
+                    slug=category_model.slug,
+                    name=category_model.name
+                ) for category_model in article_model.categories
+            ],
+            chicken_count=article_model.chicken_count,
+            content=article_model.content,
+            summary=article_model.summary,
+            raw_summary=article_model.raw_summary,
+            modified_date=article_model.modified_date,
+        )
 
     def select_all(self, order_by_date=True) -> [Article]:
         query = db.session.query(ArticleModel)

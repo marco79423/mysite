@@ -101,16 +101,18 @@ describe('getArticleSiteHeadConfig', () => {
         }
       },
       article: {
-        items: [
-          {
+        slugs: ['美女最變態'],
+        items: {
+          '美女最變態': {
             'slug': '美女最變態',
             'title': '美女最變態',
             'summary': 'summary',
             'rawSummary': 'rawSummary'
           }
-        ]
+        }
       }
     }
+
     const expected = {
       title: '美女最變態 - SITE_NAME',
       meta: [

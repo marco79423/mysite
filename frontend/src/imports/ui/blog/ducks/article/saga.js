@@ -14,6 +14,16 @@ export function* fetchArticlesSaga() {
   yield put(actions.setArticles(articles))
 }
 
+export function* fetchArticleSaga(action) {
+  const articleSlug = action.payload
+  const backendServerUrl = yield select(getBackendServerUrl)
+  const response = yield call(fetchJSON, `${backendServerUrl}/api/articles/${articleSlug}`)
+  const article = response.data
+  yield put(actions.setArticle(article))
+}
+
+
 export default function* saga() {
   yield takeLatest(actionTypes.FETCH_ARTICLES, fetchArticlesSaga)
+  yield takeLatest(actionTypes.FETCH_ARTICLE, fetchArticleSaga)
 }

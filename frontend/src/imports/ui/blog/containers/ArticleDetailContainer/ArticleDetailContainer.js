@@ -12,7 +12,7 @@ export class ArticleDetailContainer extends React.Component {
 
   componentDidMount() {
     if (!this.props.article) {
-      this.props.fetchArticles()
+      this.props.fetchArticle(this.props.match.params.slug)
     }
   }
 
@@ -37,6 +37,6 @@ export default connect(
     commentConfig: configSelectors.getCommentConfig(state)
   }),
   dispatch => ({
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
+    fetchArticle: (slug) => dispatch(articleActions.fetchArticle(slug))
   })
 )(ArticleDetailContainer)

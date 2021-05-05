@@ -3,13 +3,25 @@ import {handleActions} from 'redux-actions'
 import * as actionTypes from './actionTypes'
 
 const defaultState = {
-  items: []
+  slugs: [],
+  items: {}
 }
 
 const reducerMap = {
   [actionTypes.SET_ARTICLES]: (state, action) => ({
     ...state,
-    items: action.payload,
+    slugs: action.payload.map(article => article.slug),
+    items: action.payload.reduce((items, article) => ({
+      ...items,
+      [article.slug]: article
+    }), state.items),
+  }),
+  [actionTypes.SET_ARTICLE]: (state, action) => ({
+    ...state,
+    items: {
+      ...state.items,
+      [action.payload.slug]: action.payload
+    },
   })
 }
 
