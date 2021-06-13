@@ -78,7 +78,7 @@ class ImportBlogDataUseCase(base_types.UseCase):
                 self.article_repo.add(Article(
                     slug=self.slug_adapter.to_slug(article_data['title']),
                     title=article_data['title'],
-                    chicken_count=len(re.findall(r'(?:chicken|雞)', article_data['content'])),
+                    chicken_count=len(re.findall(r'(?:chicken|雞|hen)', article_data['content'])),
                     content=article_data['content'],
                     categories=[
                         Category(

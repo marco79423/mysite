@@ -70,6 +70,7 @@ const RstStyle = createGlobalStyle`
           font-size: 1.2rem;
           margin-left: 1.2rem;
           li {
+            list-style-type: circle;
             margin-left: 1.2rem;
           }
         }
