@@ -1,5 +1,10 @@
 # Change Log
 
+## [Unreleased]
+
+* 更新使用 packages 的版本
+* 新增「新增淺談 REST API 的設計和規劃」一篇文件
+
 ## 1.0.1 (解 bug)
 
 * 解決 high CPU loading 的問題
