@@ -68,7 +68,7 @@ export default class PageHeader extends React.Component {
   renderTitle = () => {
     return (
       <Title>
-        <TitleLink to='/'><Logo src={'/logo.png'}/>{this.props.siteName}</TitleLink>
+        <TitleLink to='/'><Logo src={'/img/logo@58x58.png'}/>{this.props.siteName}</TitleLink>
       </Title>
     )
   }

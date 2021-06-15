@@ -12,7 +12,7 @@ export const SITE_META = {
   description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
   author: AUTHOR_INFO.name,
 
-  'og:image': `${BACKEND_SERVER_URL}/static/resources/img/marco.jpg`,
+  'og:image': `${BACKEND_SERVER_URL}/img/logo@250x250.jpg`,
   'og:description': '兩大類的技術筆記，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
 
   'fb:admins': '100000038752074',
@@ -71,7 +71,7 @@ export const FEED_TEMPLATE = {
   description: SITE_META.description,
   id: HOST_URL + '/',
   link: HOST_URL + '/',
-  image: `${HOST_URL}/logo.png`,
+  image: `${HOST_URL}/img/logo@250x250.jpg`,
   favicon: `${HOST_URL}/favicon.ico`,
   copyright: COPYRIGHT,
   updated: undefined,

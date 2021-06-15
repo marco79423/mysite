@@ -1,6 +1,6 @@
 # 「兩大類」網站
 
-![mysite](./logo.png)
+![mysite](./logo.jpg)
 
 網址： https://marco79423.net
 
