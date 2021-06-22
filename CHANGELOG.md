@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## 3.4.0
+
+* 更新「Jessiclient」一篇文章
+
 ## 3.3.0
 
 * 更新使用 packages 的版本
