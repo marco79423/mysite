@@ -290,7 +290,7 @@ for 迴圈的基本運作
         for num in range(10):
             yield num
 
-    def num in iterator():
+    for num in iterator():
         print num
 
 除外，有時我們也可能會碰到「感覺上很適合給 for 迴圈使用」的函式，這種函式的行為很像迭代器，可以不斷吐出一個個元素。一個很經典的例子就是檔案物件 (file object) 的 readline 函式，這個函式可以一行行讀出檔案的內容，感覺上就像是迭代器一個個吐出元素一樣。但因為這是一個函式，而不是迭代器，所以不能給 for 迴圈使用。
