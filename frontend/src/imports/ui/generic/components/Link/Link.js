@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 export default class Link extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    to: PropTypes.string.isRequired
+    to: PropTypes.string
   }
 
   render() {

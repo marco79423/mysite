@@ -38,16 +38,12 @@ export const MENU_ITEMS = {
 
 export const RELATED_SITES = [
   {
-    name: '類 Me 生活趣',
-    url: 'http://life.marco79423.net/',
+    name: 'Jessiclient - Websocket 客戶端',
+    url: 'https://jessiclient.marco79423.net/',
   },
   {
-    name: 'Jessiclient',
-    url: 'http://jessiclient.marco79423.net/',
-  },
-  {
-    name: 'Jessigod',
-    url: 'http://jessigod.marco79423.net/',
+    name: '西卡神教福音 - 西卡神福音傳播',
+    url: 'https://jessigod.marco79423.net/',
   },
 ]
 

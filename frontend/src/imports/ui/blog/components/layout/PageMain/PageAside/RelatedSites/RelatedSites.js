@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import NormalLink from '../../../../generic/NormalLink'
 import Section from '../generic/Section'
 
 const Base = styled(Section)`
@@ -22,9 +24,9 @@ export default class RelatedSites extends React.Component {
           {
             this.props.relatedSites.map(relatedSite => (
               <li key={relatedSite.name}>
-                <a href={relatedSite.url}>
+                <NormalLink href={relatedSite.url}>
                   {relatedSite.name}
-                </a>
+                </NormalLink>
               </li>
             ))
           }
