@@ -55,7 +55,7 @@ export default class Article extends React.PureComponent {
     const {article, socialConfig, commentConfig} = this.props
     return [
       <RstContent key="article-content" content={article.content}/>,
-      <LikeCoin userId={'marco79423'} style={{marginTop: 48, height: 212, width: '100%'}} referrer={socialConfig?.shareUrl}/>,
+      <LikeCoin key="likeCoin" userId={'marco79423'} style={{marginTop: 48, height: 212, width: '100%'}} referrer={socialConfig?.shareUrl}/>,
       <SocialShare key="social-share" config={socialConfig}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
