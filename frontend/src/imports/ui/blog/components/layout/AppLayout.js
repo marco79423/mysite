@@ -47,7 +47,7 @@ export default class AppLayout extends React.Component {
   render() {
     return (
       <ThemeProvider theme={this.props.theme}>
-        <React.Fragment>
+        <>
           <GlobalStyle/>
           <Base>
             <Container>
@@ -60,7 +60,7 @@ export default class AppLayout extends React.Component {
               <PageFooter copyright={this.props.copyright}/>
             </Container>
           </Base>
-        </React.Fragment>
+        </>
       </ThemeProvider>
     )
   }

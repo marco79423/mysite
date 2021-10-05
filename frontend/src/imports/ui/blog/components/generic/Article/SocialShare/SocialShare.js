@@ -1,14 +1,13 @@
 import React from 'react'
-import {generateShareIcon, ShareButtons} from 'react-share'
-import styled from 'styled-components'
-
-const {
+import {
+  FacebookIcon,
   FacebookShareButton,
-  GooglePlusShareButton,
+  LinkedinIcon,
   LinkedinShareButton,
+  TwitterIcon,
   TwitterShareButton
-} = ShareButtons
-
+} from 'react-share'
+import styled from 'styled-components'
 
 const IconGroup = styled.div`
   display: flex;
@@ -18,11 +17,6 @@ const IconGroup = styled.div`
     margin-left: .5rem;
   }
 `
-
-const FacebookIcon = generateShareIcon('facebook')
-const GooglePlusIcon = generateShareIcon('google')
-const LinkedinIcon = generateShareIcon('linkedin')
-const TwitterIcon = generateShareIcon('twitter')
 
 export default class SocialShare extends React.PureComponent {
 
@@ -38,11 +32,6 @@ export default class SocialShare extends React.PureComponent {
           title={this.props.config.title}>
           <FacebookIcon size={iconSize} round/>
         </FacebookShareButton>
-
-        <GooglePlusShareButton
-          url={this.props.config.shareUrl}>
-          <GooglePlusIcon size={iconSize} round/>
-        </GooglePlusShareButton>
 
         <TwitterShareButton
           url={this.props.config.shareUrl}
