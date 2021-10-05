@@ -77,7 +77,7 @@ export const FEED_TEMPLATE = {
   copyright: COPYRIGHT,
   updated: undefined,
   feedLinks: {
-    atom: `${HOST_URL}/atom.xml`,
+    atom: `${HOST_URL}/api/atom.xml`,
   },
   author: {
     name: AUTHOR_INFO.name,
@@ -86,4 +86,4 @@ export const FEED_TEMPLATE = {
   }
 }
 
-export const GTAG_TRACKER_ID = 'UA-38552387-1'
+export const GTAG_TRACKER_ID = publicRuntimeConfig.GtagTrackerID

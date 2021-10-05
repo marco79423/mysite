@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import {LikeCoinButton} from '@paji-sdk/browser'
 
-import {LikeCoin} from '../../../../generic/components/LikeCoin/LikeCoin'
 import TitleLink from '../TitleLink'
 import Loading from '../Loading'
 import RstContent from '../RstContent'
@@ -55,7 +55,11 @@ export default class Article extends React.PureComponent {
     const {article, socialConfig, commentConfig} = this.props
     return [
       <RstContent key="article-content" content={article.content}/>,
-      <LikeCoin key="likeCoin" userId={'marco79423'} style={{marginTop: 48, height: 212, width: '100%'}} referrer={socialConfig?.shareUrl}/>,
+      <LikeCoinButton
+        key="likeCoin"
+        creatorLikeID={'marco79423'}
+        url={socialConfig?.shareUrl}
+        style={{marginTop: 48, height: 212, width: '100%'}}/>,
       <SocialShare key="social-share" config={socialConfig}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
