@@ -26,13 +26,12 @@ export const getArticlesByCategory = createSelector(
   )(articles)
 )
 
-export const getArticle = createSelector(
+export const getArticle = slug => createSelector(
   [
     state => state.article.items,
-    (state, props) => props.match.params.slug
   ],
-  (articleItems, currentArticleSlug) => {
-    const article = articleItems[currentArticleSlug]
+  (articleItems) => {
+    const article = articleItems[slug]
     if (!article) {
       return null
     }

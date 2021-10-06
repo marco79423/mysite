@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import {connect, useDispatch, useSelector} from 'react-redux'
 
 import ArticleDetail from '../../components/content/ArticleDetail'
 
@@ -8,35 +8,29 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class ArticleDetailContainer extends React.Component {
+export default function ArticleDetailContainer({match}) {
+  const dispatch = useDispatch()
 
-  componentDidMount() {
-    if (!this.props.article) {
-      this.props.fetchArticle(this.props.match.params.slug)
+  const siteConfig = useSelector(siteSelectors.getArticleSiteHeadConfig)
+  const article = useSelector(articleSelectors.getArticle(match.params.slug))
+  const socialConfig = useSelector(articleSelectors.getSocialConfig)
+  const commentConfig =  useSelector(configSelectors.getCommentConfig)
+
+  const fetchArticle = (slug) => dispatch(articleActions.fetchArticle(slug))
+
+  React.useEffect(() => {
+    if(!article) {
+      fetchArticle(match.params.slug)
     }
-  }
+  }, [article])
 
-  render() {
-    return (
+  return (
       <ArticleDetail
-        siteConfig={this.props.siteConfig}
+        siteConfig={siteConfig}
         summaryMode={false}
-        article={this.props.article}
-        socialConfig={this.props.socialConfig}
-        commentConfig={this.props.commentConfig}
+        article={article}
+        socialConfig={socialConfig}
+        commentConfig={commentConfig}
       />
     )
-  }
 }
-
-export default connect(
-  (state, ownProps) => ({
-    siteConfig: siteSelectors.getArticleSiteHeadConfig(state, ownProps),
-    article: articleSelectors.getArticle(state, ownProps),
-    socialConfig: articleSelectors.getSocialConfig(state, ownProps),
-    commentConfig: configSelectors.getCommentConfig(state)
-  }),
-  dispatch => ({
-    fetchArticle: (slug) => dispatch(articleActions.fetchArticle(slug))
-  })
-)(ArticleDetailContainer)
