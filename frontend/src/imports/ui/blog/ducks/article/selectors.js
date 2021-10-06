@@ -54,10 +54,10 @@ export const getRecentArticles = createSelector(
   )(articles)
 )
 
-export const getSocialConfig = createSelector(
+export const getSocialConfig = slug => createSelector(
   [
     routingSelectors.getCurrentUrl,
-    getArticle
+    getArticle(slug)
   ],
   (currentUrl, article) => ({
     shareUrl: currentUrl,

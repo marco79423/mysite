@@ -31,13 +31,13 @@ export const getSiteHeadConfig = createSelector(
 )
 
 
-export const getArticleSiteHeadConfig = createSelector(
+export const getArticleSiteHeadConfig = slug => createSelector(
   [
     getSiteHeadConfig,
     configSelectors.getSiteName,
     configSelectors.getSiteMeta,
     routingSelectors.getCurrentUrl,
-    articleSelectors.getArticle
+    articleSelectors.getArticle(slug)
   ],
   (headConfig, siteName, siteMeta, currentUrl, article) => {
     if (!article) {

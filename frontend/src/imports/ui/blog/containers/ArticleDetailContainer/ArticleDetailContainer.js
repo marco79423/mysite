@@ -11,7 +11,7 @@ import * as configSelectors from '../../ducks/config/selectors'
 export default function ArticleDetailContainer({match}) {
   const dispatch = useDispatch()
 
-  const siteConfig = useSelector(siteSelectors.getArticleSiteHeadConfig)
+  const siteConfig = useSelector(siteSelectors.getArticleSiteHeadConfig(match.params.slug))
   const article = useSelector(articleSelectors.getArticle(match.params.slug))
   const socialConfig = useSelector(articleSelectors.getSocialConfig)
   const commentConfig =  useSelector(configSelectors.getCommentConfig)

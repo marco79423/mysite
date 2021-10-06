@@ -169,13 +169,7 @@ describe('getArticlesByCategory', () => {
 })
 
 test('getArticle should return articles with correct naming convention', () => {
-  const props = {
-    match: {
-      params: {
-        slug: '美女最變態'
-      }
-    }
-  }
+  const slug = '美女最變態'
   const state = {
     article: {
       items: articles.reduce((items, article) => ({
@@ -201,7 +195,7 @@ test('getArticle should return articles with correct naming convention', () => {
     'summary': 'summary',
     'rawSummary': 'rawSummary'
   }
-  expect(selectors.getArticle(state, props)).toEqual(expected)
+  expect(selectors.getArticle(slug)(state)).toEqual(expected)
 })
 
 describe('getRecentArticles', () => {
@@ -333,13 +327,7 @@ describe('getRecentArticles', () => {
 })
 
 describe('getSocialConfig', () => {
-  const props = {
-    match: {
-      params: {
-        slug: '美女最變態'
-      }
-    }
-  }
+  const slug = '美女最變態'
 
   test('should return social config', () => {
     const state = {
@@ -364,7 +352,7 @@ describe('getSocialConfig', () => {
       shareUrl: 'HOST_URL/pathname',
       title: '美女最變態'
     }
-    expect(selectors.getSocialConfig(state, props)).toEqual(expected)
+    expect(selectors.getSocialConfig(slug)(state)).toEqual(expected)
   })
 
   test('should return social config even when the article dont exist ', () => {
@@ -386,7 +374,7 @@ describe('getSocialConfig', () => {
       shareUrl: 'HOST_URL/pathname',
       title: 'HOST_URL/pathname'
     }
-    expect(selectors.getSocialConfig(state, props)).toEqual(expected)
+    expect(selectors.getSocialConfig(slug)(state)).toEqual(expected)
   })
 })
 

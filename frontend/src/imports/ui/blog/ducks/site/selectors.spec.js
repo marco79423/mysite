@@ -32,13 +32,7 @@ test('getSiteHeadConfig should return site head config', () => {
 })
 
 describe('getArticleSiteHeadConfig', () => {
-  const props = {
-    match: {
-      params: {
-        slug: '美女最變態'
-      }
-    }
-  }
+  const slug = '美女最變態'
 
   test('should return default site head config if the article is undefined', () => {
     const state = {
@@ -77,7 +71,7 @@ describe('getArticleSiteHeadConfig', () => {
       ]
     }
 
-    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqual(expected)
+    expect(selectors.getArticleSiteHeadConfig(slug)(state)).toEqual(expected)
   })
 
   test('should return site head config for articles', () => {
@@ -129,7 +123,7 @@ describe('getArticleSiteHeadConfig', () => {
       ]
     }
 
-    expect(selectors.getArticleSiteHeadConfig(state, props)).toEqual(expected)
+    expect(selectors.getArticleSiteHeadConfig(slug)(state)).toEqual(expected)
   })
 })
 
