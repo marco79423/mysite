@@ -5,7 +5,6 @@ import {Provider} from 'react-redux'
 import PropTypes from 'prop-types'
 
 import ArticleListPage from './blog/pages/ArticleListPage'
-import SiteInfoPage from './blog/pages/SiteInfoPage'
 import CategorizedArticleListPage from './blog/pages/CategorizedArticleListPage'
 import ArchivesPage from './blog/pages/ArchivesPage'
 import ArticleDetailPage from './blog/pages/ArticleDetailPage'
@@ -30,7 +29,6 @@ export default class App extends React.Component {
           <>
             <Switch>
               <Route exact path="/" component={ArticleListPage}/>
-              <Route path="/info/" component={SiteInfoPage}/>
               <Route path="/articles/page/:pageNum/" component={ArticleListPage}/>
               <Route exact path="/articles/category/:category/" component={CategorizedArticleListPage}/>
               <Route path="/articles/category/:category/page/:pageNum/" component={CategorizedArticleListPage}/>
