@@ -51,7 +51,7 @@ export default class AppLayout extends React.Component {
           <GlobalStyle/>
           <Base>
             <Container>
-              <PageHeader siteName={this.props.siteName} crazyMode={this.props.crazyMode}/>
+              <PageHeader siteName={this.props.siteName}/>
               <PageNav mainMenu={this.props.menuItems.main} extraMenu={this.props.menuItems.extra}/>
               <PageMain
                 relatedSites={this.props.relatedSites}

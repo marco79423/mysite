@@ -62,28 +62,20 @@ const TitleLink = styled(NormalLink)`
 export default class PageHeader extends React.Component {
   static propTypes = {
     siteName: PropTypes.string.isRequired,
-    crazyMode: PropTypes.bool.isRequired
   }
 
   renderTitle = () => {
     return (
       <Title>
-        <TitleLink to='/'><Logo src={'/img/logo@58x58.png'}/>{this.props.siteName}</TitleLink>
+        <TitleLink to="/"><Logo src={'/img/logo@58x58.png'}/>{this.props.siteName}</TitleLink>
       </Title>
     )
   }
 
-  renderModeTitle = () => {
-    return (
-      <ModeName>瘋狂模式</ModeName>
-    )
-  }
-
-  render () {
+  render() {
     return (
       <Base>
         {this.renderTitle()}
-        {this.props.crazyMode && this.renderModeTitle()}
       </Base>
     )
   }

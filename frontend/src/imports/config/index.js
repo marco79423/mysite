@@ -37,7 +37,6 @@ export const MENU_ITEMS = {
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
   ],
   extra: [
-    {name: '實驗室', url: '/lab/'}
   ]
 }
 
@@ -59,13 +58,6 @@ export const PAGE_SIZE = 10
 export const COMMENT_CONFIG = {
   shortName: 'marco79423'
 }
-
-export const SITE_VERSION = process.env.REACT_APP_SITE_VERSION || ''
-export const SITE_UPDATED_TIME = process.env.REACT_APP_SITE_UPDATED_TIME || ''
-
-export const DEFAULT_PORT = 3000
-export const QUERY_TIMEOUT = 10000
-export const CACHE_TIMEOUT = '1 hour'
 
 export const FEED_TEMPLATE = {
   title: SITE_NAME,

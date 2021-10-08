@@ -5,7 +5,6 @@ import {Provider} from 'react-redux'
 import PropTypes from 'prop-types'
 
 import ArticleListPage from './blog/pages/ArticleListPage'
-import LabPage from './blog/pages/LabPage'
 import SiteInfoPage from './blog/pages/SiteInfoPage'
 import CategorizedArticleListPage from './blog/pages/CategorizedArticleListPage'
 import ArchivesPage from './blog/pages/ArchivesPage'
@@ -30,15 +29,14 @@ export default class App extends React.Component {
         <ConnectedRouter history={this.props.store.history}>
           <>
             <Switch>
-              <Route exact path='/' component={ArticleListPage}/>
-              <Route path='/lab/' component={LabPage}/>
-              <Route path='/info/' component={SiteInfoPage}/>
-              <Route path='/articles/page/:pageNum/' component={ArticleListPage}/>
-              <Route exact path='/articles/category/:category/' component={CategorizedArticleListPage}/>
-              <Route path='/articles/category/:category/page/:pageNum/' component={CategorizedArticleListPage}/>
-              <Route path='/articles/archives/' component={ArchivesPage}/>
-              <Route path='/articles/:slug/' component={ArticleDetailPage}/>
-              <Route path='/:app/:slug/' component={PagePage}/>
+              <Route exact path="/" component={ArticleListPage}/>
+              <Route path="/info/" component={SiteInfoPage}/>
+              <Route path="/articles/page/:pageNum/" component={ArticleListPage}/>
+              <Route exact path="/articles/category/:category/" component={CategorizedArticleListPage}/>
+              <Route path="/articles/category/:category/page/:pageNum/" component={CategorizedArticleListPage}/>
+              <Route path="/articles/archives/" component={ArchivesPage}/>
+              <Route path="/articles/:slug/" component={ArticleDetailPage}/>
+              <Route path="/:app/:slug/" component={PagePage}/>
             </Switch>
           </>
         </ConnectedRouter>

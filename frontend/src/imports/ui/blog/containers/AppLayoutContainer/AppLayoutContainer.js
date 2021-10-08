@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector, useStore} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 import SiteHead from '../../components/generic/SiteHead'
 import AppLayout from '../../components/layout/AppLayout'
@@ -17,9 +17,6 @@ export default function AppLayoutContainer({children}) {
   const recentArticles = useSelector(articleSelectors.getRecentArticles)
   const copyright = useSelector(configSelectors.getCopyright)
 
-  const store = useStore()
-  const crazyMode = store.getState().lab.crazyMode
-
   return (
     <AppLayout
       siteName={siteName}
@@ -28,7 +25,6 @@ export default function AppLayoutContainer({children}) {
       relatedSites={relatedSites}
       recentArticles={recentArticles}
       copyright={copyright}
-      crazyMode={crazyMode}
     >
       <SiteHead config={siteHeadConfig}/>
       {
