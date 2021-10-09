@@ -1,15 +1,12 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 
-import SiteHead from '../../components/generic/SiteHead'
-import AppLayout from '../../components/layout/AppLayout'
-import * as siteSelectors from '../../ducks/site/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 import * as articleSelectors from '../../ducks/article/selectors'
+import AppLayout from '../../components/layout/AppLayout'
 
 
 export default function AppLayoutContainer({children}) {
-  const siteHeadConfig = useSelector(siteSelectors.getSiteHeadConfig)
   const siteName = useSelector(configSelectors.getSiteName)
   const menuItems = useSelector(configSelectors.getMenuItems)
   const theme = useSelector(configSelectors.getTheme)
@@ -26,7 +23,6 @@ export default function AppLayoutContainer({children}) {
       recentArticles={recentArticles}
       copyright={copyright}
     >
-      <SiteHead config={siteHeadConfig}/>
       {
         children
       }

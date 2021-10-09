@@ -9,21 +9,10 @@ export const AUTHOR_INFO = {
 }
 
 export const SITE_NAME = '大類的技術筆記'
+export const SITE_DESCRIPTION = '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西'
+
 export const HOST_URL = 'https://marco79423.net'
 export const BACKEND_SERVER_URL = publicRuntimeConfig.BackendServerUrl
-
-export const SITE_META = {
-  keywords: 'Python,Javascript,網站設計,兩大類',
-  description: '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
-  author: AUTHOR_INFO.name,
-
-  'og:image': `${BACKEND_SERVER_URL}/img/logo@250x250.jpg`,
-  'og:description': '兩大類的技術筆記，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西',
-
-  'fb:admins': '100000038752074',
-  'fb:fb:app_id': '165574263590380',
-  'google-site-verification': 'vVs2QVhF9I_65-WfH-RD2klXRwNA5hJT1VbICZv-0ZA'
-}
 
 export const SITE_LINK = {}
 
@@ -61,7 +50,7 @@ export const COMMENT_CONFIG = {
 
 export const FEED_TEMPLATE = {
   title: SITE_NAME,
-  description: SITE_META.description,
+  description: SITE_DESCRIPTION,
   id: HOST_URL + '/',
   link: HOST_URL + '/',
   image: `${HOST_URL}/img/logo@250x250.jpg`,

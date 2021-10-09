@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {LikeCoinButton} from '@paji-sdk/browser'
 
 import TitleLink from '../TitleLink'
-import Loading from '../Loading'
 import RstContent from '../RstContent'
 import SocialShare from './SocialShare'
 import Metadata from './Metadata'
@@ -26,58 +25,40 @@ const Header = styled.header`
 
 export default class Article extends React.PureComponent {
 
-  renderHeader = () => {
-    const {article} = this.props
-    return (
-      <Header>
-        <h1><TitleLink to={`/articles/${article.slug}/`}>{article.title}</TitleLink></h1>
-        {this.renderMetadata()}
-      </Header>
-    )
-  }
-
-  renderMetadata = () => {
-    const {article} = this.props
-    return (
-      <Metadata
-        categories={article.categories}
-        chickenCount={article.chickenCount}
-        date={article.date}
-        modifiedDate={article.modifiedDate}/>
-    )
-  }
-
   renderSummary = () => {
     return <RstContent content={this.props.article.summary}/>
   }
 
   renderContent = () => {
-    const {article, socialConfig, commentConfig} = this.props
+    const {article, commentConfig} = this.props
     return [
       <RstContent key="article-content" content={article.content}/>,
       <LikeCoinButton
         key="likeCoin"
         creatorLikeID={'marco79423'}
-        url={socialConfig?.shareUrl}
+        url={article.url}
         style={{marginTop: 48, height: 212, width: '100%'}}/>,
-      <SocialShare key="social-share" config={socialConfig}/>,
+      <SocialShare key="social-share" config={{
+        title: article.title,
+        shareUrl: article.url,
+      }}/>,
       <ArticleComment key="comment" config={commentConfig}/>
     ]
   }
 
   render() {
     const {article, summaryMode} = this.props
-    if (!article) {
-      return (
-        <Base>
-          <Loading/>
-        </Base>
-      )
-    }
-
     return (
       <Base>
-        {this.renderHeader()}
+        <Header>
+          <h1><TitleLink to={article.path}>{article.title}</TitleLink></h1>
+          <Metadata
+            categories={article.categories}
+            chickenCount={article.chickenCount}
+            date={article.date}
+            modifiedDate={article.modifiedDate}/>
+        </Header>
+
         {summaryMode ? this.renderSummary() : this.renderContent()}
       </Base>
     )

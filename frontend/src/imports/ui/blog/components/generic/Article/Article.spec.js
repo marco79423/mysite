@@ -10,6 +10,8 @@ import theme from '../../../theme/default'
 test('It should render Article component correctly', () => {
   const article = {
     slug: 'slug',
+    path: '/articles/slug',
+    url: 'host://host/articles/slug',
     title: 'title',
     categories: [{
       slug: 'slug',
@@ -25,16 +27,6 @@ test('It should render Article component correctly', () => {
       <MemoryRouter>
         <Article article={article}/>
       </MemoryRouter>
-    </ThemeProvider>
-  )
-  let tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-test('It should render Article component correctly when the article is null', () => {
-  const component = renderer.create(
-    <ThemeProvider theme={theme}>
-      <Article article={null}/>
     </ThemeProvider>
   )
   let tree = component.toJSON()

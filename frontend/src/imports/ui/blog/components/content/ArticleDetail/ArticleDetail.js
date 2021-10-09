@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Head from 'next/head'
 
-import SiteHead from '../../generic/SiteHead'
 import Article from '../../generic/Article'
+import Loading from '../../generic/Loading'
 
 
 const Base = styled.section`
@@ -14,20 +15,33 @@ const Base = styled.section`
   }
 `
 
-export default class ArticleDetail extends React.PureComponent {
-
-  render() {
+export default function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
+  if (!article) {
     return (
       <Base>
-        <SiteHead config={this.props.siteConfig}/>
-        <Article
-          siteConfig={this.props.siteConfig}
-          summaryMode={false}
-          article={this.props.article}
-          socialConfig={this.props.socialConfig}
-          commentConfig={this.props.commentConfig}
-        />
+        <Loading/>
       </Base>
     )
   }
+
+  const title = `${article.title} - ${siteName}`
+  return (
+    <Base>
+      <Head>
+        <title>{title}</title>
+
+        <meta name="description" content={article.rawSummary}/>
+        <meta name="og:title" content={title}/>
+        <meta name="og:url" content={article.url}/>
+        <meta name="og:description" content={article.rawSummary}/>
+      </Head>
+
+      <Article
+        summaryMode={false}
+        article={article}
+        socialConfig={socialConfig}
+        commentConfig={commentConfig}
+      />
+    </Base>
+  )
 }

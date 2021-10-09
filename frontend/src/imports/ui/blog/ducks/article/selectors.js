@@ -2,17 +2,22 @@ import fp from 'lodash/fp'
 import {createSelector} from 'reselect'
 
 import * as configSelectors from '../config/selectors'
-import * as routingSelectors from '../router/selectors'
 
 
-export const getArticles = (state) => fp.flow(
-  fp.map(slug => state.article.items[slug]),
-  fp.map(article => ({
-    ...article,
-    date: new Date(article.date),
-    modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null
-  })),
-)(state.article.slugs)
+export const getArticles = createSelector(
+  [
+    state => state.article.slugs.map(slug => state.article.items[slug]),
+    configSelectors.getHostUrl,
+  ],
+  (articles, hostUrl) => articles
+    .map(article => ({
+      ...article,
+      path: `/articles/${article.slug}`,
+      url: `${hostUrl}/articles/${article.slug}`,
+      date: new Date(article.date),
+      modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null,
+    }))
+)
 
 export const getArticlesByCategory = createSelector(
   [
@@ -52,15 +57,4 @@ export const getRecentArticles = createSelector(
   (articles, recentArticleCount) => fp.flow(
     fp.take(recentArticleCount),
   )(articles)
-)
-
-export const getSocialConfig = slug => createSelector(
-  [
-    routingSelectors.getCurrentUrl,
-    getArticle(slug)
-  ],
-  (currentUrl, article) => ({
-    shareUrl: currentUrl,
-    title: article ? article.title : currentUrl
-  })
 )
