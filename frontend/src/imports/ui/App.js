@@ -8,7 +8,6 @@ import ArticleListPage from './blog/pages/ArticleListPage'
 import CategorizedArticleListPage from './blog/pages/CategorizedArticleListPage'
 import ArchivesPage from './blog/pages/ArchivesPage'
 import ArticleDetailPage from './blog/pages/ArticleDetailPage'
-import PagePage from './blog/pages/PagePage'
 
 export default class App extends React.Component {
   static propTypes = {
@@ -34,7 +33,6 @@ export default class App extends React.Component {
               <Route path="/articles/category/:category/page/:pageNum/" component={CategorizedArticleListPage}/>
               <Route path="/articles/archives/" component={ArchivesPage}/>
               <Route path="/articles/:slug/" component={ArticleDetailPage}/>
-              <Route path="/:app/:slug/" component={PagePage}/>
             </Switch>
           </>
         </ConnectedRouter>
