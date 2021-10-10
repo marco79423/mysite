@@ -1,19 +1,19 @@
 import React from 'react'
-import {Link as RouterLink} from 'react-router-dom'
+import NextLink from 'next/link'
 import PropTypes from 'prop-types'
 
 export default class Link extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    to: PropTypes.string
+    href: PropTypes.string
   }
 
   render() {
-    const Component = this.props.to ? RouterLink : 'a'
+    const {href, className} = this.props
     return (
-      <Component {...this.props}>
-        {this.props.children}
-      </Component>
+      <NextLink href={href}>
+        <a className={className}>{this.props.children}</a>
+      </NextLink>
     )
   }
 }

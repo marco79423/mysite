@@ -24,7 +24,7 @@ export default class RecentArticles extends React.Component {
           {
             this.props.recentArticles.map(article => (
               <li key={article.slug}>
-                <NormalLink to={`/articles/${article.slug}/`}>
+                <NormalLink href={`/articles/${article.slug}/`}>
                   {article.title}
                 </NormalLink>
               </li>

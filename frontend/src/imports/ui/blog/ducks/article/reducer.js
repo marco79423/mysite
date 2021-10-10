@@ -1,4 +1,5 @@
 import {handleActions} from 'redux-actions'
+import {HYDRATE} from 'next-redux-wrapper'
 
 import * as actionTypes from './actionTypes'
 
@@ -8,6 +9,13 @@ const defaultState = {
 }
 
 const reducerMap = {
+  [HYDRATE]: (state, action) => {
+    console.log('HYDRATE', state, action.payload)
+    return {
+      ...state,
+      ...action.payload.some,
+    }
+  },
   [actionTypes.SET_ARTICLES]: (state, action) => ({
     ...state,
     slugs: action.payload.map(article => article.slug),

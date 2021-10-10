@@ -19,7 +19,7 @@ export default class AdditionalLinks extends React.Component {
     return (
       <Base>
         <ul>
-          <li><NormalLink to='/articles/archives/'>所有文章列表</NormalLink></li>
+          <li><NormalLink href='/articles/archives/'>所有文章列表</NormalLink></li>
         </ul>
       </Base>
     )

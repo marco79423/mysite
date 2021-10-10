@@ -51,7 +51,7 @@ export default class Article extends React.PureComponent {
     return (
       <Base>
         <Header>
-          <h1><TitleLink to={article.path}>{article.title}</TitleLink></h1>
+          <h1><TitleLink href={article.path}>{article.title}</TitleLink></h1>
           <Metadata
             categories={article.categories}
             chickenCount={article.chickenCount}

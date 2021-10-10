@@ -79,7 +79,7 @@ export default class Metadata extends React.PureComponent {
         <Categories>
           {categories.map(category => (
             <Category key={category.slug}>
-              <NormalLink to={`/articles/category/${category.slug}/`}>{category.name}</NormalLink>
+              <NormalLink href={`/articles/category/${category.slug}/`}>{category.name}</NormalLink>
             </Category>
           ))}
         </Categories>

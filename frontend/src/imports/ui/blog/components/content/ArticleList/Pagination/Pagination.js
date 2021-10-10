@@ -46,21 +46,21 @@ export default class Pagination extends React.PureComponent {
     makeLink: PropTypes.func.isRequired
   }
 
-  render () {
+  render() {
     const {current, max, makeLink} = this.props
 
     return (
       <div>
         <PageButtonGroup>
-          {(current !== 1) && <li><PageButton to={makeLink(current - 1)}>←</PageButton></li>}
+          {(current !== 1) && <li><PageButton href={makeLink(current - 1)}>←</PageButton></li>}
           {
             range(1, max + 1).map(pageNum =>
               <li key={pageNum}>
-                <PageButton active={pageNum === current} to={makeLink(pageNum)}>{ pageNum }</PageButton>
+                <PageButton active={pageNum === current} href={makeLink(pageNum)}><span>{pageNum}</span></PageButton>
               </li>
             )
           }
-          {(current < max) && <li><PageButton to={makeLink(current + 1)}>→</PageButton></li>}
+          {(current < max) && <li><PageButton href={makeLink(current + 1)}>→</PageButton></li>}
         </PageButtonGroup>
       </div>
     )

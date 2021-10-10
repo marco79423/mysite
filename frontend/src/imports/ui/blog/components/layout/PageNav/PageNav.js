@@ -85,7 +85,7 @@ export default class PageNav extends React.Component {
     return (
       <MainMenu>
         {this.props.mainMenu.map(item => (
-          <li key={item.url}><MenuLink to={item.url}>{item.name}</MenuLink></li>
+          <li key={item.url}><MenuLink href={item.url}>{item.name}</MenuLink></li>
         ))}
       </MainMenu>
     )
@@ -95,7 +95,7 @@ export default class PageNav extends React.Component {
     return (
       <ExtraMenu>
         {this.props.extraMenu.map(item => (
-          <li key={item.url}><MenuLink to={item.url}>{item.name}</MenuLink></li>
+          <li key={item.url}><MenuLink href={item.url}>{item.name}</MenuLink></li>
         ))}
       </ExtraMenu>
     )

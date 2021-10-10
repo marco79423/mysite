@@ -38,7 +38,7 @@ export default class Archives extends React.PureComponent {
   renderHeader = () => {
     return (
       <Header>
-        <h1><TitleLink to='/articles/archives/'>所有文章列表</TitleLink></h1>
+        <h1><TitleLink href='/articles/archives/'>所有文章列表</TitleLink></h1>
       </Header>
     )
   }
@@ -51,7 +51,7 @@ export default class Archives extends React.PureComponent {
         {articles.map(article => (
           <Tr key={article.slug}>
             <Td>{dateformat(article.date, 'yyyy/mm/dd')}</Td>
-            <Td><NormalLink to={`/articles/${article.slug}/`}>{article.title}</NormalLink></Td>
+            <Td><NormalLink href={`/articles/${article.slug}/`}>{article.title}</NormalLink></Td>
           </Tr>
         ))}
         </Tbody>

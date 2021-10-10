@@ -6,18 +6,16 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export default function ArticleDetailContainer({match}) {
+export default function ArticleDetailContainer({slug}) {
   const dispatch = useDispatch()
 
   const siteName = useSelector(configSelectors.getSiteName)
-  const article = useSelector(articleSelectors.getArticle(match.params.slug))
+  const article = useSelector(articleSelectors.getArticle(slug))
   const commentConfig = useSelector(configSelectors.getCommentConfig)
-
-  const fetchArticle = (slug) => dispatch(articleActions.fetchArticle(slug))
 
   React.useEffect(() => {
     if (!article) {
-      fetchArticle(match.params.slug)
+      dispatch(articleActions.fetchArticle(slug))
     }
   }, [article])
 

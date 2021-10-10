@@ -34,8 +34,9 @@ export const getArticlesByCategory = createSelector(
 export const getArticle = slug => createSelector(
   [
     state => state.article.items,
+    configSelectors.getHostUrl,
   ],
-  (articleItems) => {
+  (articleItems, hostUrl) => {
     const article = articleItems[slug]
     if (!article) {
       return null
@@ -43,6 +44,8 @@ export const getArticle = slug => createSelector(
 
     return {
       ...article,
+      path: `/articles/${article.slug}`,
+      url: `${hostUrl}/articles/${article.slug}`,
       date: new Date(article.date),
       modifiedDate: article.modifiedDate ? new Date(article.modifiedDate) : null
     }

@@ -1,7 +1,10 @@
 import Head from 'next/head'
+import {Provider} from 'react-redux'
+
+import store from '../src/imports/ui/store'
 
 
-export default function MyApp({Component, pageProps}) {
+export default function App({Component, pageProps}) {
   return (
     <>
       <Head>
@@ -27,7 +30,9 @@ export default function MyApp({Component, pageProps}) {
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
       </Head>
 
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   )
 }
