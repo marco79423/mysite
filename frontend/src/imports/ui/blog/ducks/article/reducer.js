@@ -12,7 +12,7 @@ const reducerMap = {
   [HYDRATE]: (state, action) => {
     return {
       ...state,
-      ...action.payload.some,
+      ...action.payload.article,
     }
   },
   [actionTypes.SET_ARTICLES]: (state, action) => ({

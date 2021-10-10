@@ -13,11 +13,11 @@ export default function ArticleDetailContainer({slug}) {
   const article = useSelector(articleSelectors.getArticle(slug))
   const commentConfig = useSelector(configSelectors.getCommentConfig)
 
-  React.useEffect(() => {
-    if (!article) {
-      dispatch(articleActions.fetchArticle(slug))
-    }
-  }, [article])
+  // React.useEffect(() => {
+  //   if (!article) {
+  //     dispatch(articleActions.fetchArticle(slug))
+  //   }
+  // }, [article])
 
   return (
     <ArticleDetail
