@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import NormalLink from '../../generic/NormalLink'
-import intensifiesStyle from '../../generic/animation/intensifiesStyle'
 
 const Base = styled.header`
   height: 90px;
@@ -32,18 +31,6 @@ const Logo = styled.img`
   &:hover {
     transform: rotate(10deg);
   }
-`
-
-const ModeName = styled.span`
-  z-index: 9999;
-  position: absolute;
-  right: 18px;
-  bottom: 8px;
-
-  font-size: 2rem;
-  font-weight: 700;
-  
-  ${intensifiesStyle}
 `
 
 const TitleLink = styled(NormalLink)`
