@@ -26,7 +26,7 @@ export default function ArticleDetail({siteName, article, socialConfig, commentC
 
   const title = `${article.title} - ${siteName}`
   return (
-    <Base>
+    <>
       <Head>
         <title>{title}</title>
 
@@ -36,12 +36,14 @@ export default function ArticleDetail({siteName, article, socialConfig, commentC
         <meta name="og:description" content={article.rawSummary}/>
       </Head>
 
-      <Article
-        summaryMode={false}
-        article={article}
-        socialConfig={socialConfig}
-        commentConfig={commentConfig}
-      />
-    </Base>
+      <Base>
+        <Article
+          summaryMode={false}
+          article={article}
+          socialConfig={socialConfig}
+          commentConfig={commentConfig}
+        />
+      </Base>
+    </>
   )
 }

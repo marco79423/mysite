@@ -2,7 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import twisterStyle from '../animation/twisterStyle'
 
-const Base = styled.div`
+const Base = styled.article`
+  background: ${props => props.theme.page.main.content.article.background};
+  padding: 32px;
+  min-height: 400px;
+`
+
+
+const Container = styled.div`
   margin-top: 10%;
   display: flex;
   flex-direction: column;
@@ -33,8 +40,10 @@ export default class Loading extends React.PureComponent {
   render() {
     return (
       <Base>
-        <LoadingImage/>
-        <Message>正在努力讀取中…</Message>
+        <Container>
+          <LoadingImage/>
+          <Message>正在努力讀取中…</Message>
+        </Container>
       </Base>
     )
   }
