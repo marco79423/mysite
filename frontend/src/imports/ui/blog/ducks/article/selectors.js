@@ -19,12 +19,11 @@ export const getArticles = createSelector(
     }))
 )
 
-export const getArticlesByCategory = createSelector(
+export const getArticlesByCategory = queryCategory => createSelector(
   [
-    (state, props) => fp.get('match.params.category')(props),
     getArticles
   ],
-  (queryCategory, articles) => fp.flow(
+  (articles) => fp.flow(
     fp.filter(article => fp.flow(
       fp.some(category => !queryCategory || category.slug === queryCategory),
     )(article.categories))

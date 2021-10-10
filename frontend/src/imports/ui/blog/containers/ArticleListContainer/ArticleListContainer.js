@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import ArticleList from '../../components/content/ArticleList'
 
@@ -7,16 +7,21 @@ import * as articleActions from '../../ducks/article/actions'
 import * as articleSelectors from '../../ducks/article/selectors'
 import * as configSelectors from '../../ducks/config/selectors'
 
-export class ArticleListContainer extends React.Component {
 
-  componentDidMount() {
-    if (this.props.articles.length === 0) {
-      this.props.fetchArticles()
+export default function ArticleListContainer({category, pageNum}) {
+  const dispatch = useDispatch()
+
+  const pageSize = useSelector(configSelectors.getPageSize)
+  const articles = useSelector(articleSelectors.getArticles)
+  const categoryArticles = useSelector(articleSelectors.getArticlesByCategory(category))
+
+  React.useEffect(() => {
+    if (articles.length === 0) {
+      dispatch(articleActions.fetchArticles())
     }
-  }
+  }, [articles])
 
-  getPageLink = (pageNum) => {
-    const {category} = this.props
+  const getPageLink = (pageNum) => {
     if (category) {
       return `/articles/category/${category}/page/${pageNum}/`
     } else {
@@ -24,27 +29,12 @@ export class ArticleListContainer extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <ArticleList
-        articles={this.props.articles}
-        pageSize={this.props.pageSize}
-        pageNum={this.props.pageNum}
-        getPageLink={this.getPageLink}
-      />
-    )
-  }
+  return (
+    <ArticleList
+      articles={category ? categoryArticles : articles}
+      pageSize={pageSize}
+      pageNum={pageNum}
+      getPageLink={getPageLink}
+    />
+  )
 }
-
-
-export default connect(
-  (state, ownProps) => ({
-    category: ownProps.category,
-    articles: ownProps.category ? articleSelectors.getArticlesByCategory(state, ownProps) : articleSelectors.getArticles(state, ownProps),
-    pageSize: configSelectors.getPageSize(state, ownProps),
-    pageNum: +ownProps.pageNum || 1
-  }),
-  dispatch => ({
-    fetchArticles: () => dispatch(articleActions.fetchArticles())
-  })
-)(ArticleListContainer)

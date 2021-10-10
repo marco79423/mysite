@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import {Provider} from 'react-redux'
 
 import {wrapper} from '../src/imports/ui/store'
 
