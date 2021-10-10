@@ -1,9 +1,27 @@
+import React from 'react'
 import Head from 'next/head'
+import {useRouter} from 'next/router'
 
 import {wrapper} from '../src/imports/ui/store'
+import {GTAG_TRACKER_ID} from '../src/imports/config'
 
 
 function App({Component, pageProps}) {
+  const router = useRouter();
+
+  const handleRouteChange = (url) => {
+    window.gtag('config', GTAG_TRACKER_ID, {
+      page_path: url,
+    });
+  };
+
+  React.useEffect(() => {
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
@@ -27,6 +45,19 @@ function App({Component, pageProps}) {
 
         <script data-ad-client="ca-pub-9395644566418596" async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
+
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKER_ID}`}/>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GTAG_TRACKER_ID}', { page_path: window.location.pathname });
+            `,
+          }}
+        />
       </Head>
 
       <Component {...pageProps} />
