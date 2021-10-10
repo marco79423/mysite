@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import {Provider} from 'react-redux'
 
-import store from '../src/imports/ui/store'
+import {wrapper} from '../src/imports/ui/store'
 
 
-export default function App({Component, pageProps}) {
+function App({Component, pageProps}) {
   return (
     <>
       <Head>
@@ -30,9 +30,9 @@ export default function App({Component, pageProps}) {
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
       </Head>
 
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Component {...pageProps} />
     </>
   )
 }
+
+export default wrapper.withRedux(App)

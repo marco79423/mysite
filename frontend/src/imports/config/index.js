@@ -56,7 +56,7 @@ export const FEED_TEMPLATE = {
   image: `${HOST_URL}/img/logo@250x250.jpg`,
   favicon: `${HOST_URL}/favicon.ico`,
   copyright: COPYRIGHT,
-  updated: undefined,
+  updated: null,
   feedLinks: {
     atom: `${HOST_URL}/api/atom.xml`,
   },
