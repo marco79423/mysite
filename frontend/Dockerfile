@@ -1,18 +1,13 @@
 FROM node:14-alpine
+ENV NODE_ENV=production
 
-RUN mkdir /app
 WORKDIR /app
 COPY frontend/package.json ./package.json
-COPY frontend/yarn.lock ./yarn.lock
-RUN yarn
+COPY frontend/package-lock.json ./package-lock.json
+RUN npm install -g npm && npm install --production
 
 COPY frontend .
 
-ARG REACT_APP_BACKEND_SERVER_URL
-
-RUN CI=true npm run test:coverage
-
-RUN yarn run dist
+RUN npm run build
 CMD ["npm", "run", "start"]
-
 EXPOSE 3000
