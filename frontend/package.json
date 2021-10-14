@@ -15,7 +15,7 @@
   "dependencies": {
     "@paji-sdk/browser": "^0.13.0",
     "@redux-beacon/google-analytics-gtag": "^1.0.4",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "dateformat": "^3.0.2",
     "error": "10.4.0",
     "escape-html": "^1.0.3",
