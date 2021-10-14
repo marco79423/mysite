@@ -53,12 +53,14 @@ exports[`It should render Pagination component correctly 1`] = `
   >
     <li>
       <a
-        active={true}
         className="c1"
-        href="/articles/page/1/"
+        href="/articles/page/1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        1
+        <span>
+          1
+        </span>
       </a>
     </li>
   </ul>
@@ -140,47 +142,55 @@ exports[`It should render Pagination component with both next page link and prev
     <li>
       <a
         className="c1"
-        href="/articles/page/1/"
+        href="/articles/page/1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ←
       </a>
     </li>
     <li>
       <a
-        active={false}
         className="c1"
-        href="/articles/page/1/"
+        href="/articles/page/1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        1
+        <span>
+          1
+        </span>
       </a>
     </li>
     <li>
       <a
-        active={true}
         className="c2"
-        href="/articles/page/2/"
+        href="/articles/page/2"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        2
-      </a>
-    </li>
-    <li>
-      <a
-        active={false}
-        className="c1"
-        href="/articles/page/3/"
-        onClick={[Function]}
-      >
-        3
+        <span>
+          2
+        </span>
       </a>
     </li>
     <li>
       <a
         className="c1"
-        href="/articles/page/3/"
+        href="/articles/page/3"
         onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        <span>
+          3
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        className="c1"
+        href="/articles/page/3"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         →
       </a>
@@ -264,40 +274,47 @@ exports[`It should render Pagination component with previous page link correctly
     <li>
       <a
         className="c1"
-        href="/articles/page/2/"
+        href="/articles/page/2"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ←
       </a>
     </li>
     <li>
       <a
-        active={false}
         className="c1"
-        href="/articles/page/1/"
+        href="/articles/page/1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        1
+        <span>
+          1
+        </span>
       </a>
     </li>
     <li>
       <a
-        active={false}
         className="c1"
-        href="/articles/page/2/"
+        href="/articles/page/2"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        2
+        <span>
+          2
+        </span>
       </a>
     </li>
     <li>
       <a
-        active={true}
         className="c2"
-        href="/articles/page/3/"
+        href="/articles/page/3"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
-        3
+        <span>
+          3
+        </span>
       </a>
     </li>
   </ul>
