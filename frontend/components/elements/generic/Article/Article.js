@@ -23,7 +23,7 @@ const Header = styled.header`
   }
 `
 
-export default class Article extends React.PureComponent {
+class Article extends React.PureComponent {
 
   renderSummary = () => {
     return <RstContent content={this.props.article.summary}/>
@@ -65,3 +65,5 @@ export default class Article extends React.PureComponent {
   }
 }
 
+
+export default React.memo(Article)

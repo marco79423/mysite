@@ -1,10 +1,9 @@
-import {wrapper} from '../../../src/imports/ui/store'
-
-import AppLayoutContainer from '../../../src/imports/ui/blog/containers/AppLayoutContainer'
-import ArticleListContainer from '../../../src/imports/ui/blog/containers/ArticleListContainer'
-import fetchJSON from '../../../src/imports/lib/fetchJSON'
-import {BACKEND_SERVER_URL} from '../../../src/imports/config'
-import * as actions from '../../../src/imports/ui/blog/ducks/article/actions'
+import {wrapper} from '../../../redux/store'
+import fetchJSON from '../../../lib/fetchJSON'
+import {BACKEND_SERVER_URL} from '../../../config'
+import * as actions from '../../../redux/article/actions'
+import AppLayoutContainer from '../../../components/containers/AppLayoutContainer'
+import ArticleListContainer from '../../../components/containers/ArticleListContainer'
 
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({params}) => {

@@ -15,7 +15,7 @@ const Base = styled.section`
   }
 `
 
-export default function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
+function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
   if (!article) {
     return (
       <Base>
@@ -47,3 +47,5 @@ export default function ArticleDetail({siteName, article, socialConfig, commentC
     </>
   )
 }
+
+export default React.memo(ArticleDetail)

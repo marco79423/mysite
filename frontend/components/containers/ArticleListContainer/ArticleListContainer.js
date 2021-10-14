@@ -1,11 +1,10 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import ArticleList from '../../components/content/ArticleList'
-
-import * as articleActions from '../../ducks/article/actions'
-import * as articleSelectors from '../../ducks/article/selectors'
-import * as configSelectors from '../../ducks/config/selectors'
+import * as articleActions from '../../../redux/article/actions'
+import * as articleSelectors from '../../../redux/article/selectors'
+import * as configSelectors from '../../../redux/config/selectors'
+import ArticleList from '../../elements/content/ArticleList'
 
 
 export default function ArticleListContainer({category, pageNum}) {

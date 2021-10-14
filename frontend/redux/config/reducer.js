@@ -1,10 +1,10 @@
-import * as config from '../../../../config'
+import * as config from '../../config'
 import {HYDRATE} from 'next-redux-wrapper'
 import {handleActions} from 'redux-actions'
 
 const defaultState = {
   ...config,
-  theme: require(`../../theme/default`).default
+  theme: require('../../components/theme/default').default
 }
 
 

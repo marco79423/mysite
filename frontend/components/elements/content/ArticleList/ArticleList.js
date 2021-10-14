@@ -17,7 +17,7 @@ const Base = styled.section`
   }
 `
 
-export default class ArticleList extends React.PureComponent {
+class ArticleList extends React.PureComponent {
 
   renderArticleList = () => {
     const {articles, pageNum, pageSize} = this.props
@@ -48,3 +48,5 @@ export default class ArticleList extends React.PureComponent {
     )
   }
 }
+
+export default React.memo(ArticleList)

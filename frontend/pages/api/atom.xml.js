@@ -2,7 +2,7 @@ import axios from 'axios'
 import {Feed} from 'feed'
 import escapeHtml from 'escape-html'
 
-import * as config from '../../src/imports/config'
+import * as config from '../../config'
 
 export default async function (req, res) {
   const resp = await axios.get(`${config.BACKEND_SERVER_URL}/api/articles/`)

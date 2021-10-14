@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import NormalLink from '../../../generic/components/Link'
+import NormalLink from './Link'
 
 export default styled(NormalLink)`
   color: ${props => props.theme.global.link.color};

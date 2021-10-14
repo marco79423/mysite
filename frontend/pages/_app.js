@@ -2,8 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
 
-import {wrapper} from '../src/imports/ui/store'
-import {GTAG_TRACKER_ID} from '../src/imports/config'
+import {wrapper} from '../redux/store'
+import {GTAG_TRACKER_ID} from '../config'
 
 
 function App({Component, pageProps}) {

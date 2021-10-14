@@ -1,7 +1,7 @@
 import {applyMiddleware, compose, createStore} from 'redux'
 import {createWrapper} from 'next-redux-wrapper'
 
-import reducer from './blog/ducks/reducer'
+import reducer from './reducer'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -16,4 +16,5 @@ function makeStore() {
   )
 }
 
-export const wrapper = createWrapper(makeStore, {debug: true})
+// export const wrapper = createWrapper(makeStore, {debug: true})
+export const wrapper = createWrapper(makeStore, {debug: false})

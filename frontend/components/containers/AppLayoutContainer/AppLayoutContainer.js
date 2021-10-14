@@ -1,9 +1,9 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 
-import * as configSelectors from '../../ducks/config/selectors'
-import * as articleSelectors from '../../ducks/article/selectors'
-import AppLayout from '../../components/layout/AppLayout'
+import * as configSelectors from '../../../redux/config/selectors'
+import * as articleSelectors from '../../../redux/article/selectors'
+import AppLayout from '../../elements/layout/AppLayout'
 
 
 export default function AppLayoutContainer({children}) {
