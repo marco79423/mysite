@@ -72,8 +72,9 @@ exports[`It should render Archives component correctly 1`] = `
       <h1>
         <a
           className="c2"
-          href="/articles/archives/"
+          href="/articles/archives"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           所有文章列表
         </a>
@@ -98,8 +99,9 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
-              href="/articles/slug 1/"
+              href="/articles/slug%201"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               title 1
             </a>
@@ -118,8 +120,9 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
-              href="/articles/slug 2/"
+              href="/articles/slug%202"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               title 2
             </a>
@@ -138,8 +141,9 @@ exports[`It should render Archives component correctly 1`] = `
           >
             <a
               className="c6"
-              href="/articles/slug 3/"
+              href="/articles/slug%203"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               title 3
             </a>
@@ -153,6 +157,12 @@ exports[`It should render Archives component correctly 1`] = `
 
 exports[`It should render Archives component with empty articles correctly 1`] = `
 .c1 {
+  background: white;
+  padding: 32px;
+  min-height: 400px;
+}
+
+.c2 {
   margin-top: 10%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -167,7 +177,7 @@ exports[`It should render Archives component with empty articles correctly 1`] =
   align-items: center;
 }
 
-.c2 {
+.c3 {
   display: inline-block;
   width: 90px;
   height: 90px;
@@ -184,7 +194,7 @@ exports[`It should render Archives component with empty articles correctly 1`] =
   z-index: 1000;
 }
 
-.c3 {
+.c4 {
   margin-top: 2rem;
   font-size: 2rem;
   text-align: center;
@@ -210,17 +220,21 @@ exports[`It should render Archives component with empty articles correctly 1`] =
 <section
   className="c0"
 >
-  <div
+  <article
     className="c1"
   >
     <div
       className="c2"
-    />
-    <div
-      className="c3"
     >
-      正在努力讀取中…
+      <div
+        className="c3"
+      />
+      <div
+        className="c4"
+      >
+        正在努力讀取中…
+      </div>
     </div>
-  </div>
+  </article>
 </section>
 `;

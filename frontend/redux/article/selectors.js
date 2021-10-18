@@ -53,8 +53,8 @@ export const getArticle = slug => createSelector(
 
 export const getRecentArticles = createSelector(
   [
-    getArticlesByCategory,
-    configSelectors.getRecentArticleCount
+    getArticles,
+    configSelectors.getRecentArticleCount,
   ],
   (articles, recentArticleCount) => fp.flow(
     fp.take(recentArticleCount),

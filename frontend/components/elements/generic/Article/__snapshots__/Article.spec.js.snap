@@ -132,6 +132,7 @@ exports[`It should render Article component correctly 1`] = `
         className="c2"
         href="/articles/slug"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         title
       </a>
@@ -151,8 +152,9 @@ exports[`It should render Article component correctly 1`] = `
           >
             <a
               className="c7"
-              href="/articles/category/slug/"
+              href="/articles/category/slug"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               name
             </a>

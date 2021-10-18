@@ -164,13 +164,7 @@ describe('getArticlesByCategory', () => {
   ]
 
   test('should return article list by props.match.params.category', () => {
-    const props = {
-      match: {
-        params: {
-          category: 'python'
-        }
-      }
-    }
+    const category = 'python'
 
     const state = {
       config: {
@@ -184,7 +178,8 @@ describe('getArticlesByCategory', () => {
         }), {})
       }
     }
-    expect(selectors.getArticlesByCategory(state, props)).toEqual(expected)
+
+    expect(selectors.getArticlesByCategory(category)(state)).toEqual(expected)
   })
 })
 
@@ -281,6 +276,7 @@ describe('getRecentArticles', () => {
         'rawSummary': 'rawSummary'
       },
     ]
+
     expect(selectors.getRecentArticles(state, props)).toEqual(expected)
   })
 
