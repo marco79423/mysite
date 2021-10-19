@@ -1,10 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import Archives from '../../imports/ui/blog/components/content/Archives'
-
 import * as articleActions from '../../../redux/article/actions'
 import * as articleSelectors from '../../../redux/article/selectors'
+import Archives from '../../elements/content/Archives'
 
 export class ArchivesContainer extends React.Component {
 

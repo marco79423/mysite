@@ -2,6 +2,12 @@
 
 exports[`It should render Loading component correctly 1`] = `
 .c0 {
+  background: white;
+  padding: 32px;
+  min-height: 400px;
+}
+
+.c1 {
   margin-top: 10%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -16,7 +22,7 @@ exports[`It should render Loading component correctly 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   display: inline-block;
   width: 90px;
   height: 90px;
@@ -33,22 +39,26 @@ exports[`It should render Loading component correctly 1`] = `
   z-index: 1000;
 }
 
-.c2 {
+.c3 {
   margin-top: 2rem;
   font-size: 2rem;
   text-align: center;
 }
 
-<div
+<article
   className="c0"
 >
   <div
     className="c1"
-  />
-  <div
-    className="c2"
   >
-    正在努力讀取中…
+    <div
+      className="c2"
+    />
+    <div
+      className="c3"
+    >
+      正在努力讀取中…
+    </div>
   </div>
-</div>
+</article>
 `;

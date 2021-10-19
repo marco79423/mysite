@@ -2,7 +2,6 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import {ThemeProvider} from 'styled-components'
-import {MemoryRouter} from 'react-router'
 
 import Metadata from './Metadata'
 import theme from '../../../../theme/default'
@@ -23,9 +22,7 @@ test('It should render Metadata component correctly', () => {
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <MemoryRouter>
-        <Metadata categories={categories} chickenCount={chickenCount} date={date}/>
-      </MemoryRouter>
+      <Metadata categories={categories} chickenCount={chickenCount} date={date}/>
     </ThemeProvider>
   )
   let tree = component.toJSON()
@@ -43,9 +40,7 @@ test('It should render Metadata component correctly when target article has been
 
   const component = renderer.create(
     <ThemeProvider theme={theme}>
-      <MemoryRouter>
-        <Metadata categories={categories} chickenCount={chickenCount} date={date} modifiedDate={modifiedDate}/>
-      </MemoryRouter>
+      <Metadata categories={categories} chickenCount={chickenCount} date={date} modifiedDate={modifiedDate}/>
     </ThemeProvider>
   )
   let tree = component.toJSON()

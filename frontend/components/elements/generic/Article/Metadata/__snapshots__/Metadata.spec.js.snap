@@ -95,8 +95,9 @@ exports[`It should render Metadata component correctly 1`] = `
       >
         <a
           className="c4"
-          href="/articles/category/slug/"
+          href="/articles/category/slug"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           name
         </a>
@@ -106,8 +107,9 @@ exports[`It should render Metadata component correctly 1`] = `
       >
         <a
           className="c4"
-          href="/articles/category/slug2/"
+          href="/articles/category/slug2"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           name2
         </a>
@@ -231,8 +233,9 @@ exports[`It should render Metadata component correctly when target article has b
       >
         <a
           className="c4"
-          href="/articles/category/slug/"
+          href="/articles/category/slug"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           name
         </a>
