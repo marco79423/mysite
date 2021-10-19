@@ -9,5 +9,11 @@ module.exports = {
   // read more here: https://nextjs.org/docs/api-reference/next/image
   images: {
     disableStaticImages: true
-  }
+  },
+
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
 }
