@@ -4,12 +4,12 @@
   "description": "兩大類的個人網站",
   "author": "兩大類 <marco79423@gmail.com>",
   "scripts": {
-    "test": "jest test .",
-    "test:coverage": "jest test --coverage .",
-    "test:watch": "jest test --watch .",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest test .",
+    "test:watch": "jest test --watch .",
+    "test:coverage": "jest test --coverage ."
   },
   "license": "BSD-3-Clause",
   "dependencies": {
