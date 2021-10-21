@@ -184,7 +184,7 @@ exports[`It should render Article component correctly 1`] = `
   </header>
   <div>
     <div
-      className="rst-content c10"
+      className="c10 rst-content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "content",

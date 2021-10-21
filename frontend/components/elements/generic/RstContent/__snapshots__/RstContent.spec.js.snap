@@ -9,7 +9,7 @@ exports[`It should render RstContent component correctly 1`] = `
 
 <div>
   <div
-    className="rst-content c0"
+    className="c0 rst-content"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<div>天氣不錯</div>",
