@@ -25,7 +25,7 @@ function App({Component, pageProps}) {
   return (
     <>
       <Head>
-        <title>大類的技術筆記</title>
+        <title>大類的技術手記</title>
 
         <meta charSet="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -41,7 +41,7 @@ function App({Component, pageProps}) {
 
         <link rel="shortcut icon" href="/favicon.ico"/>
         <link rel="manifest" href="/manifest.json"/>
-        <link rel="alternate" type="application/atom+xml" title="大類的技術筆記" href="/api/atom.xml"/>
+        <link rel="alternate" type="application/atom+xml" title="大類的技術手記" href="/api/atom.xml"/>
 
         <script data-ad-client="ca-pub-9395644566418596" async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>

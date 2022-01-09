@@ -8,7 +8,7 @@ export const AUTHOR_INFO = {
   email: 'marco79423@gmail.com'
 }
 
-export const SITE_NAME = '大類的技術筆記'
+export const SITE_NAME = '大類的技術手記'
 export const SITE_DESCRIPTION = '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西'
 
 export const HOST_URL = 'https://marco79423.net'
