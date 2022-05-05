@@ -3,7 +3,7 @@ import Head from 'next/head'
 import {useRouter} from 'next/router'
 
 import {wrapper} from '../redux/store'
-import {GTAG_TRACKER_ID} from '../config'
+import {GTAG_TRACKER_ID, HOST_URL} from '../config'
 
 
 function App({Component, pageProps}) {
@@ -39,6 +39,7 @@ function App({Component, pageProps}) {
         <meta name="og:description" content="兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西"/>
         <meta name="google-site-verification" content="vVs2QVhF9I_65-WfH-RD2klXRwNA5hJT1VbICZv-0ZA"/>
 
+        <link rel="canonical" href={`${HOST_URL}/`} />
         <link rel="shortcut icon" href="/favicon.ico"/>
         <link rel="manifest" href="/manifest.json"/>
         <link rel="alternate" type="application/atom+xml" title="大類的技術手記" href="/api/atom.xml"/>

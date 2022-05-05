@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 
+import {HOST_URL} from '../../../../config'
 import Article from '../../generic/Article'
 import Loading from '../../generic/Loading'
 
@@ -30,6 +31,7 @@ function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
       <Head>
         <title>{title}</title>
 
+        <link rel="canonical" href={`${HOST_URL}/articles/${article.slug}/`} />
         <meta name="description" content={article.rawSummary}/>
         <meta name="og:title" content={title}/>
         <meta name="og:url" content={article.url}/>
