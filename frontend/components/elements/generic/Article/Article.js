@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {LikeCoinButton} from '@paji-sdk/browser'
+import {LikeCoinButton} from '@paji-sdk/web'
 
 import TitleLink from '../TitleLink'
 import RstContent from '../RstContent'
