@@ -3,7 +3,7 @@ import {wrapper} from '../../redux/store'
 import fetchJSON from '../../lib/fetchJSON'
 import * as actions from '../../redux/article/actions'
 import AppLayoutContainer from '../../components/containers/AppLayoutContainer'
-import {ArchivesContainer} from '../../components/containers/ArchivesContainer/ArchivesContainer'
+import ArchivesContainer from '../../components/containers/ArchivesContainer'
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({params}) => {
   const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/`)
