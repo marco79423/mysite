@@ -1,25 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Article component correctly 1`] = `
-.c7 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c7:hover {
-  color: #006064;
-}
-
 .c2 {
   color: #0097A7;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 2rem;
 }
 
 .c2:hover {
   color: #006064;
+}
+
+.c3 {
+  font-size: 2rem;
 }
 
 .c10 {
@@ -40,7 +33,7 @@ exports[`It should render Article component correctly 1`] = `
   margin-left: .5rem;
 }
 
-.c3 {
+.c4 {
   font-size: 0.9rem;
   line-height: 1.6rem;
   overflow: hidden;
@@ -48,24 +41,24 @@ exports[`It should render Article component correctly 1`] = `
   white-space: nowrap;
 }
 
-.c4 {
-  display: inline;
-}
-
-.c4:not(:first-child) {
-  margin-left: 8px;
-}
-
 .c5 {
   display: inline;
 }
 
+.c5:not(:first-child) {
+  margin-left: 8px;
+}
+
 .c6 {
+  display: inline;
+}
+
+.c7 {
   margin: 0;
   display: inline;
 }
 
-.c6:not(:first-child):before {
+.c7:not(:first-child):before {
   content: "/";
   margin: 0 3px;
 }
@@ -108,7 +101,7 @@ exports[`It should render Article component correctly 1`] = `
   padding: 32px;
 }
 
-.c1 h1 {
+.c1 h2 {
   margin: 3px 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -127,31 +120,31 @@ exports[`It should render Article component correctly 1`] = `
   <header
     className="c1"
   >
-    <h1>
+    <h2>
       <a
-        className="c2"
+        className="c2 c3"
         href="/articles/slug"
         onClick={[Function]}
         onMouseEnter={[Function]}
       >
         title
       </a>
-    </h1>
+    </h2>
     <ul
-      className="c3"
+      className="c4"
     >
       <li
-        className="c4"
+        className="c5"
       >
         分類：
         <ul
-          className="c5"
+          className="c6"
         >
           <li
-            className="c6"
+            className="c7"
           >
             <a
-              className="c7"
+              className="c2"
               href="/articles/category/slug"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -162,7 +155,7 @@ exports[`It should render Article component correctly 1`] = `
         </ul>
       </li>
       <li
-        className="c4"
+        className="c5"
       >
         字數：
         <img

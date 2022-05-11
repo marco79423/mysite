@@ -1,44 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Archives component correctly 1`] = `
-.c3 {
+.c4 {
   border-collapse: collapse;
   width: 100%;
   font-size: 1.2em;
 }
 
-.c4 {
+.c5 {
   background: #eee;
 }
 
-.c4:nth-of-type(even) {
+.c5:nth-of-type(even) {
   background: #f9f9f9;
 }
 
-.c5 {
+.c6 {
   padding: 0.6em;
   border: 1px solid #ccc;
-}
-
-.c6 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c6:hover {
-  color: #006064;
 }
 
 .c2 {
   color: #0097A7;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 2rem;
 }
 
 .c2:hover {
   color: #006064;
+}
+
+.c3 {
+  font-size: 2rem;
 }
 
 .c0 {
@@ -52,7 +45,7 @@ exports[`It should render Archives component correctly 1`] = `
   background: white;
 }
 
-.c1 h1 {
+.c1 h2 {
   margin: 3px 0 24px;
 }
 
@@ -69,36 +62,36 @@ exports[`It should render Archives component correctly 1`] = `
     <header
       className="c1"
     >
-      <h1>
+      <h2>
         <a
-          className="c2"
+          className="c2 c3"
           href="/articles/archives"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
           所有文章列表
         </a>
-      </h1>
+      </h2>
     </header>
     <table
-      className="c3"
+      className="c4"
     >
       <tbody
         className=""
       >
         <tr
-          className="c4"
+          className="c5"
         >
           <td
-            className="c5"
+            className="c6"
           >
             2017/05/15
           </td>
           <td
-            className="c5"
+            className="c6"
           >
             <a
-              className="c6"
+              className="c2"
               href="/articles/slug%201"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -108,18 +101,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c4"
+          className="c5"
         >
           <td
-            className="c5"
+            className="c6"
           >
             2017/05/16
           </td>
           <td
-            className="c5"
+            className="c6"
           >
             <a
-              className="c6"
+              className="c2"
               href="/articles/slug%202"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -129,18 +122,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c4"
+          className="c5"
         >
           <td
-            className="c5"
+            className="c6"
           >
             2017/05/17
           </td>
           <td
-            className="c5"
+            className="c6"
           >
             <a
-              className="c6"
+              className="c2"
               href="/articles/slug%203"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -185,8 +178,8 @@ exports[`It should render Archives component with empty articles correctly 1`] =
   background-size: 90px 90px;
   border: 0.1em solid #FFFFFF;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  -webkit-animation-name: bQMHby;
-  animation-name: bQMHby;
+  -webkit-animation-name: dAnFXR;
+  animation-name: dAnFXR;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
   -webkit-animation-iteration-count: infinite;

@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Pagination component correctly 1`] = `
+.c1 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:hover {
+  color: #006064;
+}
+
 .c0 {
   margin: 0 auto;
   float: right;
@@ -13,10 +23,7 @@ exports[`It should render Pagination component correctly 1`] = `
   height: 32px;
 }
 
-.c1 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+.c2 {
   display: block;
   text-align: center;
   line-height: 32px;
@@ -26,11 +33,7 @@ exports[`It should render Pagination component correctly 1`] = `
   pointer-events: none;
 }
 
-.c1:hover {
-  color: #006064;
-}
-
-.c1:hover {
+.c2:hover {
   background: #004D40;
 }
 
@@ -53,7 +56,7 @@ exports[`It should render Pagination component correctly 1`] = `
   >
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -68,6 +71,16 @@ exports[`It should render Pagination component correctly 1`] = `
 `;
 
 exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
+.c1 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:hover {
+  color: #006064;
+}
+
 .c0 {
   margin: 0 auto;
   float: right;
@@ -81,30 +94,6 @@ exports[`It should render Pagination component with both next page link and prev
 }
 
 .c2 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-  color: #EEEEEE;
-  background: #004D40;
-  pointer-events: none;
-}
-
-.c2:hover {
-  color: #006064;
-}
-
-.c2:hover {
-  background: #004D40;
-}
-
-.c1 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
   display: block;
   text-align: center;
   line-height: 32px;
@@ -114,11 +103,21 @@ exports[`It should render Pagination component with both next page link and prev
   pointer-events: auto;
 }
 
-.c1:hover {
-  color: #006064;
+.c2:hover {
+  background: #004D40;
 }
 
-.c1:hover {
+.c3 {
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #004D40;
+  pointer-events: none;
+}
+
+.c3:hover {
   background: #004D40;
 }
 
@@ -141,7 +140,7 @@ exports[`It should render Pagination component with both next page link and prev
   >
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -151,7 +150,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -163,7 +162,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c2"
+        className="c1 c3"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -175,7 +174,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -187,7 +186,7 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -200,6 +199,16 @@ exports[`It should render Pagination component with both next page link and prev
 `;
 
 exports[`It should render Pagination component with previous page link correctly 1`] = `
+.c1 {
+  color: #0097A7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:hover {
+  color: #006064;
+}
+
 .c0 {
   margin: 0 auto;
   float: right;
@@ -213,30 +222,6 @@ exports[`It should render Pagination component with previous page link correctly
 }
 
 .c2 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-  color: #EEEEEE;
-  background: #004D40;
-  pointer-events: none;
-}
-
-.c2:hover {
-  color: #006064;
-}
-
-.c2:hover {
-  background: #004D40;
-}
-
-.c1 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
   display: block;
   text-align: center;
   line-height: 32px;
@@ -246,11 +231,21 @@ exports[`It should render Pagination component with previous page link correctly
   pointer-events: auto;
 }
 
-.c1:hover {
-  color: #006064;
+.c2:hover {
+  background: #004D40;
 }
 
-.c1:hover {
+.c3 {
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  background: #004D40;
+  pointer-events: none;
+}
+
+.c3:hover {
   background: #004D40;
 }
 
@@ -273,7 +268,7 @@ exports[`It should render Pagination component with previous page link correctly
   >
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -283,7 +278,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -295,7 +290,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c1"
+        className="c1 c2"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -307,7 +302,7 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        className="c2"
+        className="c1 c3"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}

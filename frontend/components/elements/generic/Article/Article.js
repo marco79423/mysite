@@ -15,7 +15,7 @@ const Base = styled.article`
 `
 
 const Header = styled.header`
-  h1 {
+  h2 {
     margin: 3px 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,7 +51,7 @@ class Article extends React.PureComponent {
     return (
       <Base>
         <Header>
-          <h1><TitleLink href={article.path}>{article.title}</TitleLink></h1>
+          <h2><TitleLink href={article.path}>{article.title}</TitleLink></h2>
           <Metadata
             categories={article.categories}
             chickenCount={article.chickenCount}

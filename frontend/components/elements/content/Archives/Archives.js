@@ -28,7 +28,7 @@ const Base = styled.section`
 `
 
 const Header = styled.header`
-  h1 {
+  h2 {
     margin: 3px 0 24px;
   }
 `
@@ -38,7 +38,7 @@ export default class Archives extends React.PureComponent {
   renderHeader = () => {
     return (
       <Header>
-        <h1><TitleLink href='/articles/archives/'>所有文章列表</TitleLink></h1>
+        <h2><TitleLink href='/articles/archives/'>所有文章列表</TitleLink></h2>
       </Header>
     )
   }
