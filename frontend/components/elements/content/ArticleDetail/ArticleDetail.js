@@ -31,7 +31,6 @@ function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
       <Head>
         <title>{title}</title>
 
-        <link rel="canonical" href={`${HOST_URL}/articles/${article.slug}/`} />
         <meta name="description" content={article.rawSummary}/>
         <meta name="og:title" content={title}/>
         <meta name="og:url" content={article.url}/>
