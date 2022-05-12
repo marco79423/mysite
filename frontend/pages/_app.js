@@ -4,17 +4,12 @@ import {useRouter} from 'next/router'
 
 import {wrapper} from '../redux/store'
 import {GTAG_TRACKER_ID, HOST_URL} from '../config'
+import {useCanonicalUrl} from '@paji-sdk/next-lib'
 
 
 function App({Component, pageProps}) {
   const router = useRouter()
-
-  const _pathSliceLength = Math.min.apply(Math, [
-    router.asPath.indexOf('?') > 0 ? router.asPath.indexOf('?') : router.asPath.length,
-    router.asPath.indexOf('#') > 0 ? router.asPath.indexOf('#') : router.asPath.length
-  ])
-  const canonicalURL = HOST_URL + router.asPath.substring(0, _pathSliceLength)
-
+  const canonicalUrl = useCanonicalUrl(HOST_URL)
 
   const handleRouteChange = (url) => {
     window.gtag('config', GTAG_TRACKER_ID, {
@@ -46,7 +41,7 @@ function App({Component, pageProps}) {
         <meta name="og:description" content="兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西"/>
         <meta name="google-site-verification" content="vVs2QVhF9I_65-WfH-RD2klXRwNA5hJT1VbICZv-0ZA"/>
 
-        <link rel="canonical" href={canonicalURL}/>
+        <link rel="canonical" href={canonicalUrl}/>
         <link rel="shortcut icon" href="/favicon.ico"/>
         <link rel="manifest" href="/manifest.json"/>
         <link rel="alternate" type="application/atom+xml" title="大類的技術手記" href="/api/atom.xml"/>
