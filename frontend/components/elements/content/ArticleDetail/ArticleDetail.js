@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import Head from 'next/head'
+import styled from 'styled-components'
 
-import {HOST_URL} from '../../../../config'
 import Article from '../../generic/Article'
 import Loading from '../../generic/Loading'
 
