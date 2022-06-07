@@ -1,9 +1,11 @@
 import React from 'react'
-import Head from 'next/head'
 import styled from 'styled-components'
+import {NextSeo} from 'next-seo'
+import {useCanonicalUrl} from '@paji-sdk/next-lib'
 
 import Article from '../../generic/Article'
 import Loading from '../../generic/Loading'
+import {HOST_URL} from '../../../../config'
 
 
 const Base = styled.section`
@@ -15,7 +17,9 @@ const Base = styled.section`
   }
 `
 
-function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
+function ArticleDetail({article, socialConfig, commentConfig}) {
+  const canonicalUrl = useCanonicalUrl(HOST_URL)
+
   if (!article) {
     return (
       <Base>
@@ -24,17 +28,13 @@ function ArticleDetail({siteName, article, socialConfig, commentConfig}) {
     )
   }
 
-  const title = `${article.title} - ${siteName}`
   return (
     <>
-      <Head>
-        <title>{title}</title>
-
-        <meta name="description" content={article.rawSummary}/>
-        <meta name="og:title" content={title}/>
-        <meta name="og:url" content={article.url}/>
-        <meta name="og:description" content={article.rawSummary}/>
-      </Head>
+      <NextSeo
+        title={article.title}
+        description={article.rawSummary.replaceAll('\n', '')}
+        canonical={canonicalUrl}
+      />
 
       <Base>
         <Article
