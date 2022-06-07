@@ -38,7 +38,7 @@ jobs:
 
           docker build \
             --file backend/Dockerfile \
-            --build-arg STATIC_URL=/backend/static/ \
+            --build-arg STATIC_URL=https://marco79423.net/backend/static/ \
             --build-arg REPO_VERSION=${{env.VERSION}} \
             --tag marco79423/mysite-backend:latest \
             .
