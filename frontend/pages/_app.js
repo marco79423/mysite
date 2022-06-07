@@ -40,7 +40,7 @@ function App({Component, pageProps}) {
 
         openGraph={{
           images: [
-            {url: '/img/logo@250x250.jpg'},
+            {url: `${HOST_URL}/img/logo@250x250.jpg`},
           ],
           site_name: '大類的技術手記',
         }}
@@ -76,15 +76,6 @@ function App({Component, pageProps}) {
           },
         ]}
       />
-
-      {/*<Head>*/}
-      {/*<title>大類的技術手記</title>*/}
-
-      {/*<meta name="theme-color" content="#000000"/>*/}
-      {/*<meta name="author" content="兩大類"/>*/}
-      {/*<meta name="og:image" content="/img/logo@250x250.jpg"/>*/}
-
-      {/*</Head>*/}
 
       <Component {...pageProps} />
     </>

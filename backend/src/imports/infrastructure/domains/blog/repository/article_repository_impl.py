@@ -28,6 +28,7 @@ class ArticleRepositoryImpl(ArticleRepository):
                     name=category_model.name
                 ) for category_model in article_model.categories
             ],
+            cover=article_model.cover,
             chicken_count=article_model.chicken_count,
             content=article_model.content,
             summary=article_model.summary,
@@ -51,6 +52,7 @@ class ArticleRepositoryImpl(ArticleRepository):
                         name=category_model.name
                     ) for category_model in article_model.categories
                 ],
+                cover=article_model.cover,
                 chicken_count=article_model.chicken_count,
                 content=article_model.content,
                 summary=article_model.summary,
@@ -75,6 +77,7 @@ class ArticleRepositoryImpl(ArticleRepository):
             title=article.title,
             date=article.date,
             categories=[self._get_category_model(category) for category in article.categories],
+            cover=article.cover,
             chicken_count=article.chicken_count,
             content=article.content,
             summary=article.summary,

@@ -29,6 +29,7 @@ class Article(Entity):
             'categories': self.categories,
             'date': self.date,
             'modified_date': self.modified_date,
+            'tags': self.tags,
             'item_images': [image.serialize() for image in self.item_images],
             'item_files': [file.serialize() for file in self.item_files],
         }

@@ -34,6 +34,12 @@ function ArticleDetail({article, socialConfig, commentConfig}) {
         title={article.title}
         description={article.rawSummary.replaceAll('\n', '')}
         canonical={canonicalUrl}
+
+        openGraph={{
+          images: [
+            {url: article.cover},
+          ],
+        }}
       />
 
       <Base>

@@ -19,6 +19,7 @@ def test_serialize_article():
                 name='name 2',
             )
         ],
+        cover='cover',
         chicken_count=3,
         content='content',
         summary='summary',
@@ -32,6 +33,7 @@ def test_serialize_article():
         'categories': [
             category.serialize() for category in article.categories
         ],
+        'cover': 'cover',
         'chickenCount': 3,
         'content': 'content',
         'summary': 'summary',
@@ -54,6 +56,7 @@ def test_serialize_modified_article():
                 name='name 2',
             )
         ],
+        cover='cover',
         chicken_count=3,
         content='content',
         summary='summary',
@@ -68,6 +71,7 @@ def test_serialize_modified_article():
         'categories': [
             category.serialize() for category in article.categories
         ],
+        'cover': 'cover',
         'chickenCount': 3,
         'content': 'content',
         'summary': 'summary',

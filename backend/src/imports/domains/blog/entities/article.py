@@ -12,6 +12,7 @@ class Article(base_types.Entity):
                  title: str,
                  date: typing.Optional[dt.date],
                  categories: typing.Optional[typing.List[Category]],
+                 cover: typing.Optional[str],
                  chicken_count: int,
                  content: str,
                  summary: str,
@@ -22,6 +23,7 @@ class Article(base_types.Entity):
         self.title = title
         self.date = date
         self.categories = categories
+        self.cover = cover
         self.chicken_count = chicken_count
         self.content = content
         self.summary = summary
@@ -35,6 +37,7 @@ class Article(base_types.Entity):
             'date': self.date.isoformat(),
             'modifiedDate': self.modified_date.isoformat() if self.modified_date else None,
             'categories': [category.serialize() for category in self.categories],
+            'cover': self.cover,
             'chickenCount': self.chicken_count,
             'content': self.content,
             'summary': self.summary,
@@ -50,6 +53,7 @@ class Article(base_types.Entity):
                 self.date == article.date and
                 self.modified_date == article.modified_date and
                 self.categories == article.categories and
+                self.cover == article.cover and
                 self.chicken_count == article.chicken_count and
                 self.content == article.content and
                 self.summary == article.summary and

@@ -86,6 +86,7 @@ class ImportBlogDataUseCase(base_types.UseCase):
                             name=category,
                         ) for category in article_data['categories']
                     ],
+                    cover=article_data.get('cover'),
                     summary=summary,
                     raw_summary=raw_summary,
                     date=article_data['date'],
@@ -114,6 +115,9 @@ class ImportBlogDataUseCase(base_types.UseCase):
                 is_attachment=False,
             )
             data['content'] = data['content'].replace(item_image['url'], static_image_url)
+
+            if item_image['url'] == data['tags'].get('cover'):
+                data['cover'] = static_image_url
 
         for item_file in data['item_files']:
             static_file_url = self.asset_serv.save_and_return_static_url(

@@ -16,6 +16,7 @@ class ArticleModel(db.Model):
     date = db.Column(db.Date, nullable=False)
     modified_date = db.Column(db.Date, nullable=True)
     categories = db.relationship(CategoryModel, secondary=categories)
+    cover = db.Column(db.String(128), nullable=True)
     chicken_count = db.Column(db.Integer, nullable=False)
     content = db.Column(db.Text, nullable=False)
     summary = db.Column(db.Text, nullable=False)

@@ -4,6 +4,7 @@
 
 :date: 2022-01-20
 :categories: 程式設計
+:cover: images/6.png
 
 前言
 ====

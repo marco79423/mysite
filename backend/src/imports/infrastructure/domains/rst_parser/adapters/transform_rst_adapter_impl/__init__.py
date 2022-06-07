@@ -77,6 +77,8 @@ class TransformRstAdapterImpl(TransformRstAdapter):
         categories_text = self._get_custom_tag(publisher, "categories")
         tags["categories"] = categories_text.split(";") if categories_text else []
 
+        tags["cover"] = self._get_custom_tag(publisher, "cover")
+
         return tags
 
     @staticmethod
