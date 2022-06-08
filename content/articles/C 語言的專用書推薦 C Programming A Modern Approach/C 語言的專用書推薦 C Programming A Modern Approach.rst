@@ -3,6 +3,7 @@ C 語言的專用書推薦 C Programming: A Modern Approach
 
 :date: 2013-02-17
 :categories: 程式設計
+:cover: images/1.jpg
 
 老是推薦軟體，實在也沒什麼意思，畢竟這些軟體也都不是自己寫的，
 他們也沒付我廣告錢，這是何苦呢？所以這次就來推薦一下書籍好了。

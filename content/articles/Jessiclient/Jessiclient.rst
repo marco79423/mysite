@@ -4,6 +4,7 @@ Jessiclient
 :date: 2021-05-01
 :modified_date: 2021-06-22
 :categories: 專案作品
+:cover: images/1.jpg
 
 .. image:: images/1.jpg
 

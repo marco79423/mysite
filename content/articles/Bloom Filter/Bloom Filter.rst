@@ -4,6 +4,7 @@ Bloom Filter
 
 :date: 2013-05-06
 :categories: 程式設計
+:cover: images/1.png
 
 Bloom Filter 是一種可以儲存「某一個元素是否存在」的集合，
 我們可以用這種資料結構快速查詢像是「某隻小雞是否在這間雞舍」或「某位學生是不是在這間實驗室」

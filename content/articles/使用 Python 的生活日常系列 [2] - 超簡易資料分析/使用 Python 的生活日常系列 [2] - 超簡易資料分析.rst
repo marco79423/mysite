@@ -4,7 +4,7 @@
 :date: 2016-9-30
 :categories: Python;程式設計
 :series: 使用 Python 的生活日常系列
-
+:cover: images/2.png
 
 最近閒閒沒事做，想起前陣子看到的新聞評論－－ `如何看貧富差距？官員與學者的爭論 <http://www.thinkingtaiwan.com//content/5381>`_ 。
 

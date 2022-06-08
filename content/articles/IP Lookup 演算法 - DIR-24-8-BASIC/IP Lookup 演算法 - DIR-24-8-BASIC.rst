@@ -4,6 +4,7 @@ IP Lookup 演算法 - DIR-24-8-BASIC
 
 :date: 2013-05-06
 :categories: 程式設計
+:cover: images/3.png
 
 這個演算法是「Routing Lookups in Hardware at Memory Access Speeds」這篇論文提出的，
 除了最基本的「DIR-24-8-BASIC」，還有其兩種變化，分別是「DIR-24-8-INT」和「DIR-n-m」

@@ -3,6 +3,7 @@ mat 代理伺服器
 
 :date: 2021-3-02
 :categories: 專案作品
+:cover: images/1.png
 
 .. image:: images/1.png
 

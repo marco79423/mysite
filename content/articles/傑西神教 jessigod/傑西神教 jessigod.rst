@@ -3,6 +3,7 @@
 
 :date: 2021-3-02
 :categories: 專案作品
+:cover: images/1.jpg
 
 .. image:: images/1.jpg
 

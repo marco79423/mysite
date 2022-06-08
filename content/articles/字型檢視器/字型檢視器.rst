@@ -3,6 +3,7 @@
 
 :date: 2013-02-21
 :categories: 專案作品
+:cover: images/2.png
 
 .. image:: images/1.png
     :alt: fontviewer.png

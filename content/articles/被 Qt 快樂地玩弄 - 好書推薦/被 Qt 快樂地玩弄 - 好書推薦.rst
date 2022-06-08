@@ -4,6 +4,7 @@
 
 :date: 2013-02-17
 :categories: 程式設計
+:cover: images/1.png
 
 .. image:: images/1.png
     :alt: foundations-of-qt-development.png

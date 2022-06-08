@@ -3,6 +3,7 @@
 
 :date: 2013-07-04
 :categories: 程式設計
+:cover: images/1.png
 
 Signals/Slots 可說是 Qt 程式設計的基石，也是它最大的特色。尤其是在 GUI 程式設計時，
 對比其他使用回呼函式的設計手段，就可以體會其巨大的好處，而 Qt 強大的 GUI 函式庫，也是根據這個機制打造，

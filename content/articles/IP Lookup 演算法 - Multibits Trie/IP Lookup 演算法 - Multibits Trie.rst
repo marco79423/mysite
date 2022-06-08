@@ -4,6 +4,7 @@ IP Lookup 演算法 - Multibits Trie
 
 :date: 2013-05-06
 :categories: 程式設計
+:cover: images/1.png
 
 「Binary Trie」這個演算法非常簡單易懂，而且也相當好實作。但在搜尋的速度上，
 仍有許多待改進的空間，最大的問題在於「Binary Trie」這個演算法建立的二元搜尋樹太深了！

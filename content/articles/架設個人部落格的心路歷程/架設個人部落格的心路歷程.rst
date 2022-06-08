@@ -3,6 +3,7 @@
 
 :date: 2014-1-20
 :categories: Python;程式設計
+:cover: images/1.png
 
 之所以架設這個部落格，最初是因為實驗室老師要求。
 

@@ -3,6 +3,7 @@ Bloomier Filter
 
 :date: 2013-05-14
 :categories: 程式設計
+:cover: images/5.png
 
 說到 Bloomier Filter，看倌一定會覺得看起來和 Bloom Filter 很像(詳情請看 `Bloom Filter </articles/bloom-filter/>`_ )。
 是的，而且兩者演算法本身確實也有相似之處，不過用途並不相同。
