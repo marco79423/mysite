@@ -5,15 +5,36 @@ import fetchJSON from '../../lib/fetchJSON'
 import AppLayoutContainer from '../../components/containers/AppLayoutContainer'
 import ArticleDetailContainer from '../../components/containers/ArticleDetailContainer'
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({params}) => {
-  const {slug} = params
 
-  const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/${slug}`)
-  const article = resp.data
-  store.dispatch(actions.setArticle(article))
+export const getStaticProps = wrapper.getStaticProps((store) => async ({params}) => {
+  try {
+    const {slug} = params
 
-  return {props: {slug}}
+    const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/${slug}`)
+    const article = resp.data
+    store.dispatch(actions.setArticle(article))
+
+    return {
+      props: {slug},
+    }
+  } catch (e) {
+    return {
+      props: {},
+      notFound: true,
+    }
+  }
 })
+
+export const getStaticPaths = async () => {
+  const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/`)
+  const articles = resp.data
+
+  const paths = articles.map((article) => ({
+    params: {slug: article.slug},
+  }))
+
+  return {paths, fallback: 'blocking'}
+}
 
 export default function ArticleDetailPage({slug}) {
   return (
