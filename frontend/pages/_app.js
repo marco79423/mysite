@@ -34,7 +34,7 @@ function App({Component, pageProps}) {
         canonical={canonicalUrl}
 
         twitter={{
-          cardType: 'summary',
+          cardType: 'summary_large_image',
           handle: '@marco79423',
         }}
 
