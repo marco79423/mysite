@@ -51,7 +51,6 @@ class TransformRstAdapterImpl(TransformRstAdapter):
             destination_class=docutils.io.StringOutput)
 
         publisher.set_components('standalone', 'restructuredtext', 'html')
-        # publisher.writer.translator_class = PelicanHTMLTranslator
         publisher.process_programmatic_settings(None, self._extra_params, None)
         publisher.set_source(source=raw_data)
         publisher.publish(enable_exit_status=True)
