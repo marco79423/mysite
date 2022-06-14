@@ -61,8 +61,8 @@ const BaseIcon = styled.a`
   overflow: hidden;
 `
 
-const FacebookIcon = styled(BaseIcon)`
-  background: url(/img/icon/i-facebook.svg) no-repeat;
+const TwitterIcon = styled(BaseIcon)`
+  background: url(/img/icon/i-twitter.svg) no-repeat;
   background-size: 100%;
 `
 
@@ -88,9 +88,8 @@ export default class AboutMe extends React.Component {
             <div>保持站起來的毅力和一步一腳印的耐心</div>
           </Motto>
           <Contact>
-            <li><FacebookIcon href='https://www.facebook.com/marco79423'>facebook</FacebookIcon></li>
-            <li><LinkedinIcon href='https://www.linkedin.com/in/%E8%A2%81%E7%A2%A9-%E6%9D%8E-911604b5/'>GitHub</LinkedinIcon></li>
-            <li><GithubIcon href='https://github.com/marco79423'>LinkedIn</GithubIcon></li>
+            <li><TwitterIcon href='https://twitter.com/marco79423' target="_blank">Twitter</TwitterIcon></li>
+            <li><GithubIcon href='https://github.com/marco79423' target="_blank">GitHub</GithubIcon></li>
           </Contact>
         </Profile>
       </Base>

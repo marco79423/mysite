@@ -18,33 +18,32 @@ const IconGroup = styled.div`
   }
 `
 
-export default class SocialShare extends React.PureComponent {
+export default function SocialShare({config}) {
+  const iconSize = 32
 
-  render() {
-    if (!this.props.config) {
-      return <IconGroup/>
-    }
-    const iconSize = 32
-    return (
-      <IconGroup>
-        <FacebookShareButton
-          url={this.props.config.shareUrl}
-          title={this.props.config.title}>
-          <FacebookIcon size={iconSize} round/>
-        </FacebookShareButton>
-
-        <TwitterShareButton
-          url={this.props.config.shareUrl}
-          title={this.props.config.title}>
-          <TwitterIcon size={iconSize} round/>
-        </TwitterShareButton>
-
-        <LinkedinShareButton
-          url={this.props.config.shareUrl}
-          title={this.props.config.title}>
-          <LinkedinIcon size={iconSize} round/>
-        </LinkedinShareButton>
-      </IconGroup>
-    )
+  if (!config) {
+    return <IconGroup/>
   }
+
+  return (
+    <IconGroup>
+      <FacebookShareButton
+        url={config.shareUrl}
+        title={config.title}>
+        <FacebookIcon size={iconSize} round/>
+      </FacebookShareButton>
+
+      <TwitterShareButton
+        url={config.shareUrl}
+        title={config.title}>
+        <TwitterIcon size={iconSize} round/>
+      </TwitterShareButton>
+
+      <LinkedinShareButton
+        url={config.shareUrl}
+        title={config.title}>
+        <LinkedinIcon size={iconSize} round/>
+      </LinkedinShareButton>
+    </IconGroup>
+  )
 }
