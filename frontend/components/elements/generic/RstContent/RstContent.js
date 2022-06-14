@@ -155,6 +155,9 @@ const RstStyle = createGlobalStyle`
         img {
           margin-bottom: 1rem;
       
+          box-shadow: 2px 2px 2px rgb(0 0 0 / 70%);
+          border: solid 1px;
+    
           @media (max-width: 400px) {
             width: 100%;
           }
