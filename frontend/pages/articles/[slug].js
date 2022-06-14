@@ -26,14 +26,10 @@ export const getStaticProps = wrapper.getStaticProps((store) => async ({params})
 })
 
 export const getStaticPaths = async () => {
-  const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/`)
-  const articles = resp.data
-
-  const paths = articles.map((article) => ({
-    params: {slug: article.slug},
-  }))
-
-  return {paths, fallback: 'blocking'}
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
 }
 
 export default function ArticleDetailPage({slug}) {
