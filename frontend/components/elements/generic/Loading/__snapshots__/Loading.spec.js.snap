@@ -30,8 +30,8 @@ exports[`It should render Loading component correctly 1`] = `
   background-size: 90px 90px;
   border: 0.1em solid #FFFFFF;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  -webkit-animation-name: dAnFXR;
-  animation-name: dAnFXR;
+  -webkit-animation-name: gjRTmp;
+  animation-name: gjRTmp;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
   -webkit-animation-iteration-count: infinite;

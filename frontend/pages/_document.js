@@ -18,12 +18,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [initialProps.styles, sheet.getStyleElement()],
       }
     } finally {
       sheet.seal()
@@ -34,8 +29,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="zh-hant">
         <Head>
-          <script data-ad-client="ca-pub-9395644566418596" async
-                  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
+          <script data-ad-client="ca-pub-9395644566418596" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
 
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKER_ID}`}/>
 
