@@ -26,7 +26,7 @@ export const MENU_ITEMS = {
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
   ],
   extra: [
-    {name: '線上工具', url: 'https://toolset.marco79423.net'},
+    {name: '線上工具', url: 'https://paji-toolset.net/?utm_source=blog'},
   ]
 }
 
