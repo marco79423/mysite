@@ -59,6 +59,9 @@ export default class MyDocument extends Document {
             `,
             }}
           />
+
+          <meta name="emotion-insertion-point" content="" />
+          {this.props.emotionStyleTags}
         </Head>
         <body>
         <Main/>
