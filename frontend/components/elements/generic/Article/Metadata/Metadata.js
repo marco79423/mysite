@@ -1,6 +1,6 @@
 import React from 'react'
 import NormalLink from '../../NormalLink'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import dateformat from 'dateformat'
 
@@ -14,7 +14,7 @@ const ItemGroup = styled.ul`
 
 const Item = styled.li`
   display: inline;
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-left: 8px;
   }
 `
@@ -26,7 +26,7 @@ const Categories = styled.ul`
 const Category = styled.li`
   margin: 0;
   display: inline;
-  &:not(:first-child):before {
+  &:not(:first-of-type):before {
     content: "/";
     margin: 0 3px;
   }

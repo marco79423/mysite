@@ -1,4 +1,4 @@
-import {keyframes, css} from 'styled-components'
+import {css, keyframes} from '@emotion/react'
 
 const twister = keyframes`
   0% {

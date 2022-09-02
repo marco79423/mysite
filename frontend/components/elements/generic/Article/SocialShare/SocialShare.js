@@ -7,13 +7,13 @@ import {
   TwitterIcon,
   TwitterShareButton
 } from 'react-share'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const IconGroup = styled.div`
   display: flex;
   padding: 1rem;
   
-  > div:not(:first-child) {
+  > div:not(:first-of-type) {
     margin-left: .5rem;
   }
 `

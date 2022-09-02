@@ -1,8 +1,7 @@
 import React from 'react'
 import Pagination from './Pagination'
 import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import {ThemeProvider} from 'styled-components'
+import {ThemeProvider} from '@emotion/react'
 
 import theme from '../../../../theme/default'
 

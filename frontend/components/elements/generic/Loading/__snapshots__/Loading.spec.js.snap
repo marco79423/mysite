@@ -1,61 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Loading component correctly 1`] = `
-.c0 {
-  background: white;
-  padding: 32px;
-  min-height: 400px;
-}
-
-.c1 {
-  margin-top: 10%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c2 {
-  display: inline-block;
-  width: 90px;
-  height: 90px;
-  background: url(/img/loading.jpg) no-repeat center;
-  background-size: 90px 90px;
-  border: 0.1em solid #FFFFFF;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  -webkit-animation-name: gjRTmp;
-  animation-name: gjRTmp;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  z-index: 1000;
-}
-
-.c3 {
-  margin-top: 2rem;
-  font-size: 2rem;
-  text-align: center;
-}
-
 <article
-  className="c0"
+  className="css-10ku3cb e14ojn450"
 >
   <div
-    className="c1"
+    className="css-3gwy9c e14ojn451"
   >
     <div
-      className="c2"
+      className="css-1af24su e14ojn452"
     />
     <div
-      className="c3"
+      className="css-hq44oy e14ojn453"
     >
       正在努力讀取中…
     </div>

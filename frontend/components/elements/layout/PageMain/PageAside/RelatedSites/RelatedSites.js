@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import NormalLink from '../../../../generic/NormalLink'
 import Section from '../generic/Section'
@@ -9,7 +9,7 @@ const Base = styled(Section)`
     display: none;
   }
   
-  li:not(:first-child) {
+  li:not(:first-of-type) {
     margin-top: 8px;
   }
 `

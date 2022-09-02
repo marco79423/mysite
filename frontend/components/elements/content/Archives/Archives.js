@@ -1,6 +1,6 @@
 import React from 'react'
 import dateformat from 'dateformat'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import {Table, Tbody, Td, Tr} from '../../generic/table'
 import NormalLink from '../../generic/NormalLink'

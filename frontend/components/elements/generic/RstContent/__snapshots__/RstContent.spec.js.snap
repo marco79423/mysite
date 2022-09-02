@@ -1,15 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render RstContent component correctly 1`] = `
-.c0 {
-  margin-top: 16px;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-}
-
 <div>
   <div
-    className="c0 rst-content"
+    className="rst-content css-1htbla5 e1u79y390"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<div>天氣不錯</div>",

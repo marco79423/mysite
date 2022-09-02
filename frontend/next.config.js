@@ -3,7 +3,7 @@ module.exports = {
   publicRuntimeConfig: require('./runtimeConfig'),
 
   compiler: {
-    styledComponents: true,
+    emotion: true,
   },
 
   eslint: {

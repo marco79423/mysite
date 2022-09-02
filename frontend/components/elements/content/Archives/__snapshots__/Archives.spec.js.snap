@@ -1,70 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Archives component correctly 1`] = `
-.c4 {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 1.2em;
-}
-
-.c5 {
-  background: #eee;
-}
-
-.c5:nth-of-type(even) {
-  background: #f9f9f9;
-}
-
-.c6 {
-  padding: 0.6em;
-  border: 1px solid #ccc;
-}
-
-.c2 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c2:hover {
-  color: #006064;
-}
-
-.c3 {
-  font-size: 2rem;
-}
-
-.c0 {
-  float: left;
-  width: 800px;
-}
-
-.c0 article {
-  padding: 2em;
-  border-bottom: 1px solid #eee;
-  background: white;
-}
-
-.c1 h2 {
-  margin: 3px 0 24px;
-}
-
-@media (max-width:1200px) {
-  .c0 {
-    width: 100%;
-  }
-}
-
 <section
-  className="c0"
+  className="css-1t2uajw e1b0l2mg0"
 >
   <article>
     <header
-      className="c1"
+      className="css-1qmvt3q e1b0l2mg1"
     >
       <h2>
         <a
-          className="c2 c3"
+          className="css-14pkgp1 e1eiu2pb0"
           href="/articles/archives"
           onClick={[Function]}
           onMouseEnter={[Function]}
@@ -74,24 +20,24 @@ exports[`It should render Archives component correctly 1`] = `
       </h2>
     </header>
     <table
-      className="c4"
+      className="css-mqhuyv e1t91ylz0"
     >
       <tbody
-        className=""
+        className="css-0 e1t91ylz1"
       >
         <tr
-          className="c5"
+          className="css-1rp9eqg e1t91ylz2"
         >
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             2017/05/15
           </td>
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             <a
-              className="c2"
+              className="css-n1a5ie ecv7yzj0"
               href="/articles/slug%201"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -101,18 +47,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c5"
+          className="css-1rp9eqg e1t91ylz2"
         >
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             2017/05/16
           </td>
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             <a
-              className="c2"
+              className="css-n1a5ie ecv7yzj0"
               href="/articles/slug%202"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -122,18 +68,18 @@ exports[`It should render Archives component correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="c5"
+          className="css-1rp9eqg e1t91ylz2"
         >
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             2017/05/17
           </td>
           <td
-            className="c6"
+            className="css-z5z8xz e1t91ylz3"
           >
             <a
-              className="c2"
+              className="css-n1a5ie ecv7yzj0"
               href="/articles/slug%203"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -149,81 +95,20 @@ exports[`It should render Archives component correctly 1`] = `
 `;
 
 exports[`It should render Archives component with empty articles correctly 1`] = `
-.c1 {
-  background: white;
-  padding: 32px;
-  min-height: 400px;
-}
-
-.c2 {
-  margin-top: 10%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c3 {
-  display: inline-block;
-  width: 90px;
-  height: 90px;
-  background: url(/img/loading.jpg) no-repeat center;
-  background-size: 90px 90px;
-  border: 0.1em solid #FFFFFF;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  -webkit-animation-name: gjRTmp;
-  animation-name: gjRTmp;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  z-index: 1000;
-}
-
-.c4 {
-  margin-top: 2rem;
-  font-size: 2rem;
-  text-align: center;
-}
-
-.c0 {
-  float: left;
-  width: 800px;
-}
-
-.c0 article {
-  padding: 2em;
-  border-bottom: 1px solid #eee;
-  background: white;
-}
-
-@media (max-width:1200px) {
-  .c0 {
-    width: 100%;
-  }
-}
-
 <section
-  className="c0"
+  className="css-1t2uajw e1b0l2mg0"
 >
   <article
-    className="c1"
+    className="css-10ku3cb e14ojn450"
   >
     <div
-      className="c2"
+      className="css-3gwy9c e14ojn451"
     >
       <div
-        className="c3"
+        className="css-1af24su e14ojn452"
       />
       <div
-        className="c4"
+        className="css-hq44oy e14ojn453"
       >
         正在努力讀取中…
       </div>

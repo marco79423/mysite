@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import {LikeCoinButton} from '@paji-sdk/web'
 
 import TitleLink from '../TitleLink'

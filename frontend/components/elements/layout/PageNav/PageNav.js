@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import NormalLink from '../../generic/NormalLink'
 
@@ -95,7 +95,7 @@ export default class PageNav extends React.Component {
     return (
       <ExtraMenu>
         {this.props.extraMenu.map(item => (
-          <li key={item.url}><MenuLink href={item.url}>{item.name}</MenuLink></li>
+          <li key={item.url}><MenuLink href={item.url} target="_blank">{item.name}</MenuLink></li>
         ))}
       </ExtraMenu>
     )

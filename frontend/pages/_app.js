@@ -1,14 +1,17 @@
 import React from 'react'
-import Head from 'next/head'
 import {useRouter} from 'next/router'
 import {DefaultSeo} from 'next-seo'
-
-import {wrapper} from '../redux/store'
-import {GTAG_TRACKER_ID, HOST_URL} from '../config'
 import {useCanonicalUrl} from '@paji-sdk/next-lib'
+import {CacheProvider} from '@emotion/react'
 
+import {GTAG_TRACKER_ID, HOST_URL} from '../config'
+import createEmotionCache from '../lib/createEmotionCache'
+import {wrapper} from '../redux/store'
 
-function App({Component, pageProps}) {
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache()
+
+function App({Component, emotionCache = clientSideEmotionCache, pageProps}) {
   const router = useRouter()
   const canonicalUrl = useCanonicalUrl(HOST_URL)
 
@@ -26,7 +29,7 @@ function App({Component, pageProps}) {
   }, [router.events])
 
   return (
-    <>
+    <CacheProvider value={emotionCache}>
       <DefaultSeo
         title={'大類的技術手記'}
         titleTemplate={'%s - 大類的技術手記'}
@@ -78,7 +81,7 @@ function App({Component, pageProps}) {
       />
 
       <Component {...pageProps} />
-    </>
+    </CacheProvider>
   )
 }
 

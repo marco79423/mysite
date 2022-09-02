@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Pagination from './Pagination'
 import Article from '../../generic/Article'
@@ -12,7 +12,7 @@ const Base = styled.section`
     width: 100%;
   }
 
-  > ul li:not(:first-child) {
+  > ul li:not(:first-of-type) {
     margin-top: 3px;
   }
 `

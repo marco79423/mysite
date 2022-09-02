@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import {ThemeProvider} from 'styled-components'
+import {ThemeProvider} from '@emotion/react'
 
 import theme from '../../../theme/default'
 import Loading from './Loading'

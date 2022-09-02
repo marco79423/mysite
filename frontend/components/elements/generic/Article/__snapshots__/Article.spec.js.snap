@@ -1,128 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`It should render Article component correctly 1`] = `
-.c2 {
-  color: #0097A7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c2:hover {
-  color: #006064;
-}
-
-.c3 {
-  font-size: 2rem;
-}
-
-.c10 {
-  margin-top: 16px;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-}
-
-.c11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
-}
-
-.c11 > div:not(:first-child) {
-  margin-left: .5rem;
-}
-
-.c4 {
-  font-size: 0.9rem;
-  line-height: 1.6rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c5 {
-  display: inline;
-}
-
-.c5:not(:first-child) {
-  margin-left: 8px;
-}
-
-.c6 {
-  display: inline;
-}
-
-.c7 {
-  margin: 0;
-  display: inline;
-}
-
-.c7:not(:first-child):before {
-  content: "/";
-  margin: 0 3px;
-}
-
-.c8 {
-  margin-bottom: -5px;
-}
-
-.c8:hover {
-  -webkit-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  transform: rotate(-10deg);
-}
-
-.c9 {
-  display: none;
-  position: absolute;
-  line-height: 1.2em;
-  padding: 4px;
-  border-radius: 3px;
-  background: #00897B;
-  color: #FFFFFF;
-  -webkit-transition: opacity .3s ease-out;
-  transition: opacity .3s ease-out;
-}
-
-.c9:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -15px;
-  top: 4px;
-  border: 8px solid transparent;
-  border-right-color: #00897B;
-}
-
-.c0 {
-  background: white;
-  padding: 32px;
-}
-
-.c1 h2 {
-  margin: 3px 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media (max-width:800px) {
-  .c9 {
-    display: none;
-  }
-}
-
 <article
-  className="c0"
+  className="css-bsyjwa es8ma0w0"
 >
   <header
-    className="c1"
+    className="css-1kcixyr es8ma0w1"
   >
     <h2>
       <a
-        className="c2 c3"
+        className="css-14pkgp1 e1eiu2pb0"
         href="/articles/slug"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -131,20 +18,20 @@ exports[`It should render Article component correctly 1`] = `
       </a>
     </h2>
     <ul
-      className="c4"
+      className="css-ups4zc e17yjacc0"
     >
       <li
-        className="c5"
+        className="css-5dmri2 e17yjacc1"
       >
         分類：
         <ul
-          className="c6"
+          className="css-6n7j50 e17yjacc2"
         >
           <li
-            className="c7"
+            className="css-18jglst e17yjacc3"
           >
             <a
-              className="c2"
+              className="css-n1a5ie ecv7yzj0"
               href="/articles/category/slug"
               onClick={[Function]}
               onMouseEnter={[Function]}
@@ -155,12 +42,12 @@ exports[`It should render Article component correctly 1`] = `
         </ul>
       </li>
       <li
-        className="c5"
+        className="css-5dmri2 e17yjacc1"
       >
         字數：
         <img
           alt="雞"
-          className="c8"
+          className="css-8khlmj e17yjacc4"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           src="/img/chicken.png"
@@ -168,7 +55,7 @@ exports[`It should render Article component correctly 1`] = `
          x 
         1
         <span
-          className="c9"
+          className="css-s1m6x7 e17yjacc5"
         >
           雞數：計算文長的常見計量單位，一般而言數字大小與文章長度呈正相關
         </span>
@@ -177,7 +64,7 @@ exports[`It should render Article component correctly 1`] = `
   </header>
   <div>
     <div
-      className="c10 rst-content"
+      className="rst-content css-1htbla5 e1u79y390"
       dangerouslySetInnerHTML={
         Object {
           "__html": "content",
@@ -199,7 +86,7 @@ exports[`It should render Article component correctly 1`] = `
     title="iframe"
   />
   <div
-    className="c11"
+    className="css-17s9njd e1b7apid0"
   >
     <button
       aria-label="facebook"

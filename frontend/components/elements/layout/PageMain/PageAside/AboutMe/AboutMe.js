@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Section from '../generic/Section'
 
@@ -47,7 +47,7 @@ const Contact = styled.ul`
   li {
     float: left;
 
-    &:not(:first-child) {
+    &:not(:first-of-type) {
       margin-left: 4px;
     }
   }
