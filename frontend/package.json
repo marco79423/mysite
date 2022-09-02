@@ -24,7 +24,7 @@
     "escape-html": "^1.0.3",
     "feed": "^4.2.2",
     "lodash": "^4.17.4",
-    "next": "12.2.3",
+    "next": "12.2.5",
     "next-redux-wrapper": "^7.0.5",
     "next-seo": "^5.4.0",
     "next-sitemap": "^2.5.20",
