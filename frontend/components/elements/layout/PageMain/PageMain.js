@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import PageAside from './PageAside'
 
-const Base = styled.header`
+const Base = styled.main`
   background: ${props => props.theme.page.main.background};
   overflow: auto;
 `
