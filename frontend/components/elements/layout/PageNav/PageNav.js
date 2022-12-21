@@ -32,7 +32,7 @@ const MenuContainer = styled.div`
   @media (max-width: 1200px) {
     position: absolute;
     &:hover {
-      width: 140px;
+      width: 160px;
 
       ul {
         display: block;
@@ -62,6 +62,7 @@ const BaseMenu = styled.ul`
     display: none;
 
     li {
+      float: none;
       width: 100%;
     }
   }
@@ -69,47 +70,39 @@ const BaseMenu = styled.ul`
 
 const MainMenu = styled(BaseMenu)`
   float: left;
+
+  @media (max-width: 1200px) {
+    float: none;
+  }
 `
 
 const ExtraMenu = styled(BaseMenu)`
   float: right;
   
   @media (max-width: 1200px) {
+    float: none;
     border-top: 3px ${props => props.theme.page.nav.menu.dropdown.borderColor} solid;
   }
 `
 
-export default class PageNav extends React.Component {
-
-  renderMainMenu = () => {
-    return (
-      <MainMenu>
-        {this.props.mainMenu.map(item => (
-          <li key={item.url}><MenuLink href={item.url}>{item.name}</MenuLink></li>
-        ))}
-      </MainMenu>
-    )
-  }
-
-  renderExtraMenu = () => {
-    return (
-      <ExtraMenu>
-        {this.props.extraMenu.map(item => (
-          <li key={item.url}><MenuLink href={item.url} target="_blank">{item.name}</MenuLink></li>
-        ))}
-      </ExtraMenu>
-    )
-  }
-
-  render () {
-    return (
-      <Base>
-        <MenuContainer>
-          <MenuToggle href="#">選單</MenuToggle>
-          {this.renderMainMenu()}
-          {this.renderExtraMenu()}
-        </MenuContainer>
-      </Base>
-    )
-  }
+function PageNav({mainMenu, extraMenu}) {
+  return (
+    <Base>
+      <MenuContainer>
+        <MenuToggle href="#">選單</MenuToggle>
+        <MainMenu>
+          {mainMenu.map(item => (
+            <li key={item.url}><MenuLink href={item.url}>{item.name}</MenuLink></li>
+          ))}
+        </MainMenu>
+        <ExtraMenu>
+          {extraMenu.map(item => (
+            <li key={item.url}><MenuLink href={item.url} target="_blank">{item.name}</MenuLink></li>
+          ))}
+        </ExtraMenu>
+      </MenuContainer>
+    </Base>
+  )
 }
+
+export default React.memo(PageNav)
