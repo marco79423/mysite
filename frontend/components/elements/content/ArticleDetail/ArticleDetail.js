@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import {NextSeo} from 'next-seo'
-import {useCanonicalUrl} from '@paji-sdk/next-lib'
 
 import Article from '../../generic/Article'
 import Loading from '../../generic/Loading'
 import {HOST_URL} from '../../../../config'
+import useCanonicalUrl from '../../../../lib/useCanonicalUrl'
 
 
 const Base = styled.section`

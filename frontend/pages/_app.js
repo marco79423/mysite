@@ -1,12 +1,12 @@
 import React from 'react'
 import {useRouter} from 'next/router'
 import {DefaultSeo} from 'next-seo'
-import {useCanonicalUrl} from '@paji-sdk/next-lib'
 import {CacheProvider} from '@emotion/react'
 
 import {GTAG_TRACKER_ID, HOST_URL} from '../config'
 import createEmotionCache from '../lib/createEmotionCache'
 import {wrapper} from '../redux/store'
+import useCanonicalUrl from '../lib/useCanonicalUrl'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()

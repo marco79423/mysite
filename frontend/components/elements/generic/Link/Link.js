@@ -2,10 +2,8 @@ import React from 'react'
 import NextLink from 'next/link'
 
 
-export default function Link({href, children, ...props}) {
+export default function Link({active, ...props}) {
   return (
-    <NextLink href={href}>
-      <a {...props}>{children}</a>
-    </NextLink>
+    <NextLink {...props}/>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {Global, css, useTheme} from '@emotion/react'
 import styled from '@emotion/styled'
 
@@ -218,20 +217,14 @@ const RstStyle = () => {
   )
 }
 
-export class RstContent extends React.PureComponent {
-  static propTypes = {
-    theme: PropTypes.object.isRequired,
-    content: PropTypes.string.isRequired
-  }
-
-  render() {
-    return (
-      <div>
-        <RstStyle/>
-        <Base className="rst-content" dangerouslySetInnerHTML={{__html: this.props.content}}/>
-      </div>
-    )
-  }
+function RstContent({content}) {
+  return (
+    <div>
+      <RstStyle/>
+      <Base className="rst-content" dangerouslySetInnerHTML={{__html: content}}/>
+    </div>
+  )
 }
 
-export default RstContent
+export default React.memo(RstContent)
+

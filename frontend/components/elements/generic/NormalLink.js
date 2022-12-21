@@ -1,11 +1,25 @@
-import styled from '@emotion/styled'
-import NormalLink from './Link'
+import React from 'react'
+import {css, useTheme} from '@emotion/react'
 
-export default styled(NormalLink)`
-  color: ${props => props.theme.global.link.color};
-  text-decoration: none;
+import Link from './Link'
 
-  &:hover {
-    color: ${props => props.theme.global.link.hoverColor};
+
+function NormalLink(props) {
+  const theme = useTheme()
+  const styles = {
+    root: css`
+      color: ${theme.global.link.color};
+      text-decoration: none;
+
+      &:hover {
+        color: ${theme.global.link.hoverColor};
+      }
+    `
   }
-`
+
+  return (
+    <Link css={styles.root} {...props}/>
+  )
+}
+
+export default React.memo(NormalLink)
