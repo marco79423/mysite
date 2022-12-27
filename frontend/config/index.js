@@ -26,7 +26,9 @@ export const MENU_ITEMS = {
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
   ],
   extra: [
-    {name: '線上工具', url: 'https://paji-toolset.net/?utm_source=blog'},
+    {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},
+    {name: 'Jessiclient', url: 'https://jessiclient.marco79423.net/?utm_source=blog'},
+    {name: '啪唧工具包', url: 'https://paji-toolset.net/?utm_source=blog'},
   ]
 }
 
