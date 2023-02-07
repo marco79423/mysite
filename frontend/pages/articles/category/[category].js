@@ -2,8 +2,8 @@ import {wrapper} from '../../../redux/store'
 import fetchJSON from '../../../lib/fetchJSON'
 import {BACKEND_SERVER_URL} from '../../../config'
 import * as actions from '../../../redux/article/actions'
-import AppLayoutContainer from '../../../components/containers/AppLayoutContainer'
 import ArticleListContainer from '../../../components/containers/ArticleListContainer'
+import AppLayout from '../../../components/elements/layout/AppLayout'
 
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({params}) => {
@@ -16,8 +16,8 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
 
 export default function ArticleListPage({category}) {
   return (
-    <AppLayoutContainer>
+    <AppLayout>
       <ArticleListContainer category={category} pageNum={1}/>
-    </AppLayoutContainer>
+    </AppLayout>
   )
 }

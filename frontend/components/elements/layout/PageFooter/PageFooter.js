@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import {COPYRIGHT} from '../../../../config'
 
 const Base = styled.footer`
   height: 42px;
@@ -15,14 +15,10 @@ const Copyright = styled.div`
 `
 
 export default class PageFooter extends React.Component {
-  static propTypes = {
-    copyright: PropTypes.string,
-  }
-
   render() {
     return (
       <Base>
-        <Copyright>{this.props.copyright}</Copyright>
+        <Copyright>{COPYRIGHT}</Copyright>
       </Base>
     )
   }
