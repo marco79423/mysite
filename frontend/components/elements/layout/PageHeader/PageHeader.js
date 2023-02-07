@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import NormalLink from '../../generic/NormalLink'
@@ -46,26 +45,14 @@ const TitleLink = styled(NormalLink)`
   }
 `
 
-export default class PageHeader extends React.Component {
-  static propTypes = {
-    siteName: PropTypes.string.isRequired,
-  }
-
-  renderTitle = () => {
-    return (
+export default function PageHeader({siteName}) {
+  return (
+    <Base>
       <Title>
         <TitleLink href="/">
-          <Logo src={'/img/logo@58x58.png'}/>{this.props.siteName}
+          <Logo src={'/img/logo@58x58.png'}/>{siteName}
         </TitleLink>
       </Title>
-    )
-  }
-
-  render() {
-    return (
-      <Base>
-        {this.renderTitle()}
-      </Base>
-    )
-  }
+    </Base>
+  )
 }
