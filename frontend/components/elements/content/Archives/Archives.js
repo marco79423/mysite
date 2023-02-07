@@ -1,11 +1,14 @@
 import React from 'react'
 import dateformat from 'dateformat'
 import styled from '@emotion/styled'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {Table, Tbody, Td, Tr} from '../../generic/table'
 import NormalLink from '../../generic/NormalLink'
 import TitleLink from '../../generic/TitleLink'
 import Loading from '../../generic/Loading'
+import * as articleSelectors from '../../../../redux/article/selectors'
+import * as articleActions from '../../../../redux/article/actions'
 
 
 const Base = styled.section`
@@ -33,49 +36,42 @@ const Header = styled.header`
   }
 `
 
-export default class Archives extends React.PureComponent {
+export default function Archives() {
+  const dispatch = useDispatch()
+  const articles = useSelector(articleSelectors.getArticles)
 
-  renderHeader = () => {
-    return (
-      <Header>
-        <h2><TitleLink href='/articles/archives/'>所有文章列表</TitleLink></h2>
-      </Header>
-    )
-  }
-
-  renderArticleTable = () => {
-    const {articles} = this.props
-    return (
-      <Table>
-        <Tbody>
-        {articles.map(article => (
-          <Tr key={article.slug}>
-            <Td>{dateformat(article.date, 'yyyy/mm/dd')}</Td>
-            <Td><NormalLink href={`/articles/${article.slug}/`}>{article.title}</NormalLink></Td>
-          </Tr>
-        ))}
-        </Tbody>
-      </Table>
-    )
-  }
-
-  render() {
-    const {articles} = this.props
+  React.useEffect(() => {
     if (articles.length === 0) {
-      return (
-        <Base>
-          <Loading/>
-        </Base>
-      )
+      dispatch(articleActions.fetchArticles())
     }
+  }, [articles])
 
+
+  if (articles.length === 0) {
     return (
       <Base>
-        <article>
-          {this.renderHeader()}
-          {this.renderArticleTable()}
-        </article>
+        <Loading/>
       </Base>
     )
   }
+
+  return (
+    <Base>
+      <article>
+        <Header>
+          <h2><TitleLink href='/articles/archives/'>所有文章列表</TitleLink></h2>
+        </Header>
+        <Table>
+          <Tbody>
+            {articles.map(article => (
+              <Tr key={article.slug}>
+                <Td>{dateformat(article.date, 'yyyy/mm/dd')}</Td>
+                <Td><NormalLink href={`/articles/${article.slug}/`}>{article.title}</NormalLink></Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </article>
+    </Base>
+  )
 }

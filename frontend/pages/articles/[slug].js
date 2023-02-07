@@ -2,8 +2,8 @@ import {BACKEND_SERVER_URL} from '../../config'
 import * as actions from '../../redux/article/actions'
 import {wrapper} from '../../redux/store'
 import fetchJSON from '../../lib/fetchJSON'
-import ArticleDetailContainer from '../../components/containers/ArticleDetailContainer'
 import AppLayout from '../../components/elements/layout/AppLayout'
+import ArticleDetail from '../../components/elements/content/ArticleDetail'
 
 
 export const getStaticProps = wrapper.getStaticProps((store) => async ({params}) => {
@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
 export default function ArticleDetailPage({slug}) {
   return (
     <AppLayout>
-      <ArticleDetailContainer slug={slug}/>
+      <ArticleDetail slug={slug}/>
     </AppLayout>
   )
 }

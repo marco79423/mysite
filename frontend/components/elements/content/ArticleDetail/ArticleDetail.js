@@ -6,6 +6,9 @@ import Article from '../../generic/Article'
 import Loading from '../../generic/Loading'
 import {HOST_URL} from '../../../../config'
 import useCanonicalUrl from '../../../../lib/useCanonicalUrl'
+import {useSelector} from 'react-redux'
+import * as articleSelectors from '../../../../redux/article/selectors'
+import * as configSelectors from '../../../../redux/config/selectors'
 
 
 const Base = styled.section`
@@ -17,7 +20,9 @@ const Base = styled.section`
   }
 `
 
-function ArticleDetail({article, socialConfig, commentConfig}) {
+function ArticleDetail({slug}) {
+  const article = useSelector(articleSelectors.getArticle(slug))
+  const commentConfig = useSelector(configSelectors.getCommentConfig)
   const canonicalUrl = useCanonicalUrl(HOST_URL)
 
   if (!article) {
@@ -46,7 +51,6 @@ function ArticleDetail({article, socialConfig, commentConfig}) {
         <Article
           summaryMode={false}
           article={article}
-          socialConfig={socialConfig}
           commentConfig={commentConfig}
         />
       </Base>
