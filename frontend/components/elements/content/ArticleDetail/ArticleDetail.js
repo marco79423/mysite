@@ -3,12 +3,8 @@ import styled from '@emotion/styled'
 import {NextSeo} from 'next-seo'
 
 import Article from '../../generic/Article'
-import Loading from '../../generic/Loading'
-import {HOST_URL} from '../../../../config'
+import {COMMENT_CONFIG, HOST_URL} from '../../../../config'
 import useCanonicalUrl from '../../../../lib/useCanonicalUrl'
-import {useSelector} from 'react-redux'
-import * as articleSelectors from '../../../../redux/article/selectors'
-import * as configSelectors from '../../../../redux/config/selectors'
 
 
 const Base = styled.section`
@@ -20,18 +16,8 @@ const Base = styled.section`
   }
 `
 
-function ArticleDetail({slug}) {
-  const article = useSelector(articleSelectors.getArticle(slug))
-  const commentConfig = useSelector(configSelectors.getCommentConfig)
+function ArticleDetail({article}) {
   const canonicalUrl = useCanonicalUrl(HOST_URL)
-
-  if (!article) {
-    return (
-      <Base>
-        <Loading/>
-      </Base>
-    )
-  }
 
   return (
     <>
@@ -51,7 +37,7 @@ function ArticleDetail({slug}) {
         <Article
           summaryMode={false}
           article={article}
-          commentConfig={commentConfig}
+          commentConfig={COMMENT_CONFIG}
         />
       </Base>
     </>

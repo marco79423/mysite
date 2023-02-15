@@ -5,7 +5,6 @@ import {CacheProvider} from '@emotion/react'
 
 import {GTAG_TRACKER_ID, HOST_URL} from '../config'
 import createEmotionCache from '../lib/createEmotionCache'
-import {wrapper} from '../redux/store'
 import useCanonicalUrl from '../lib/useCanonicalUrl'
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -85,4 +84,4 @@ function App({Component, emotionCache = clientSideEmotionCache, pageProps}) {
   )
 }
 
-export default wrapper.withRedux(App)
+export default App

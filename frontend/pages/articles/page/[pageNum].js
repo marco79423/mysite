@@ -1,23 +1,25 @@
-import {wrapper} from '../../../redux/store'
-import fetchJSON from '../../../lib/fetchJSON'
-import {BACKEND_SERVER_URL} from '../../../config'
-import * as actions from '../../../redux/article/actions'
 import AppLayout from '../../../components/elements/layout/AppLayout'
 import ArticleList from '../../../components/elements/content/ArticleList'
+import {fetchArticles, fetchRecentArticles} from '../../../lib/fetcher'
 
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({params}) => {
-  const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/`)
-  const articles = resp.data
-  store.dispatch(actions.setArticles(articles))
+export const getServerSideProps = async ({params}) => {
+  const articles = await fetchArticles()
+  const recentArticles = await fetchRecentArticles()
 
-  return {props: {pageNum: params.pageNum}}
-})
+  return {
+    props: {
+      articles,
+      recentArticles,
+      pageNum: params.pageNum,
+    }
+  }
+}
 
-export default function ArticleListPage({pageNum}) {
+export default function ArticleListPage({articles, pageNum, recentArticles}) {
   return (
-    <AppLayout>
-      <ArticleList pageNum={+pageNum || 1}/>
+    <AppLayout recentArticles={recentArticles}>
+      <ArticleList articles={articles} pageNum={+pageNum || 1}/>
     </AppLayout>
   )
 }

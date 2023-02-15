@@ -27,7 +27,6 @@
     "feed": "^4.2.2",
     "lodash": "^4.17.4",
     "next": "13.0.7",
-    "next-redux-wrapper": "^7.0.5",
     "next-seo": "^5.4.0",
     "next-sitemap": "^2.5.20",
     "polished": "^4.2.2",
@@ -35,11 +34,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.5",
-    "react-share": "^4.4.0",
-    "redux": "^4.2.0",
-    "redux-actions": "^2.0.1",
-    "reselect": "^4.1.6"
+    "react-share": "^4.4.0"
   },
   "devDependencies": {
     "jest": "^28.1.3",
