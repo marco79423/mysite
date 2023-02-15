@@ -26,20 +26,24 @@ export const MENU_ITEMS = {
     {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
   ],
   extra: [
-    {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},
-    {name: 'Jessiclient', url: 'https://jessiclient.marco79423.net/?utm_source=blog'},
-    {name: '啪唧工具包', url: 'https://paji-toolset.net/?utm_source=blog'},
+    // {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},
+    // {name: 'Jessiclient', url: 'https://jessiclient.marco79423.net/?utm_source=blog'},
+    // {name: '啪唧工具包', url: 'https://paji-toolset.net/?utm_source=blog'},
   ]
 }
 
 export const RELATED_SITES = [
   {
+    name: '啪唧工具包',
+    url: 'https://paji-toolset.net/?utm_source=blog',
+  },
+  {
     name: 'Jessiclient - Websocket 客戶端',
-    url: 'https://jessiclient.marco79423.net/',
+    url: 'https://jessiclient.marco79423.net/?utm_source=blog',
   },
   {
     name: '西卡神教福音 - 西卡神福音傳播',
-    url: 'https://jessigod.marco79423.net/',
+    url: 'https://jessigod.marco79423.net/?utm_source=blog',
   },
 ]
 
