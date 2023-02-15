@@ -1,7 +1,7 @@
 import Document, {Head, Html, Main, NextScript} from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
 
-import {GTAG_TRACKER_ID} from '../config'
+import {GTagTrackerId} from '../config'
 import createEmotionCache from '../lib/createEmotionCache'
 
 export default class MyDocument extends Document {
@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
 
           <script data-ad-client="ca-pub-9395644566418596" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
 
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKER_ID}`}/>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTagTrackerId}`}/>
 
           <script
             dangerouslySetInnerHTML={{
@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GTAG_TRACKER_ID}', { page_path: window.location.pathname });
+              gtag('config', '${GTagTrackerId}', { page_path: window.location.pathname });
             `,
             }}
           />

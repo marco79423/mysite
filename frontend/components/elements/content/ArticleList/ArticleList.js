@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import {PAGE_SIZE} from '../../../../config'
+import {PageSize} from '../../../../config'
 import Pagination from './Pagination'
 import Article from '../../generic/Article'
 import fp from 'lodash/fp'
@@ -36,7 +36,7 @@ export default function ArticleList({articles, category, pageNum}) {
     <Base>
       <ul>
         {
-          filteredArticles.slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE).map(article => (
+          filteredArticles.slice((pageNum - 1) * PageSize, pageNum * PageSize).map(article => (
             <li key={article.slug}>
               <Article summaryMode={true} article={article}/>
             </li>
@@ -45,7 +45,7 @@ export default function ArticleList({articles, category, pageNum}) {
       </ul>
       <Pagination
         current={pageNum}
-        max={Math.ceil(filteredArticles.length / PAGE_SIZE)}
+        max={Math.ceil(filteredArticles.length / PageSize)}
         makeLink={getPageLink}
       />
     </Base>
