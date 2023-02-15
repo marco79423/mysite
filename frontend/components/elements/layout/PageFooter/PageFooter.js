@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import {COPYRIGHT} from '../../../../config'
+import * as config from '../../../../config'
 
 const Base = styled.footer`
   height: 42px;
@@ -18,7 +18,7 @@ export default class PageFooter extends React.Component {
   render() {
     return (
       <Base>
-        <Copyright>{COPYRIGHT}</Copyright>
+        <Copyright>{config.Copyright}</Copyright>
       </Base>
     )
   }

@@ -1,14 +1,14 @@
 import {getServerSideSitemap} from 'next-sitemap'
 
 import fetchJSON from '../../lib/fetchJSON'
-import {BACKEND_SERVER_URL, HOST_URL} from '../../config'
+import {BackendServerURL, HostUrl} from '../../config'
 
 export const getServerSideProps = async (ctx) => {
-  const resp = await fetchJSON(`${BACKEND_SERVER_URL}/api/articles/`)
+  const resp = await fetchJSON(`${BackendServerURL}/api/articles/`)
   const articles = resp.data
 
   const fields = articles.map(article => ({
-    loc: `${HOST_URL}/articles/${article.slug}/`,
+    loc: `${HostUrl}/articles/${article.slug}/`,
     lastmod: new Date().toISOString(),
   }))
 

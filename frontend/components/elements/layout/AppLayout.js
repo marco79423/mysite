@@ -7,7 +7,7 @@ import PageHeader from './PageHeader'
 import PageNav from './PageNav'
 import PageMain from './PageMain'
 import PageFooter from './PageFooter'
-import {MENU_ITEMS, RELATED_SITES, SITE_NAME} from '../../../config'
+import {MenuItems, RelatedSites, SiteName} from '../../../config'
 
 
 export default function AppLayout({recentArticles, children}) {
@@ -51,10 +51,10 @@ export default function AppLayout({recentArticles, children}) {
         />
         <div css={styles.root}>
           <div css={styles.container}>
-            <PageHeader siteName={SITE_NAME}/>
-            <PageNav mainMenu={MENU_ITEMS.main} extraMenu={MENU_ITEMS.extra}/>
+            <PageHeader siteName={SiteName}/>
+            <PageNav mainMenu={MenuItems.main} extraMenu={MenuItems.extra}/>
             <PageMain
-              relatedSites={RELATED_SITES}
+              relatedSites={RelatedSites}
               recentArticles={recentArticles}
               content={children}/>
             <PageFooter/>

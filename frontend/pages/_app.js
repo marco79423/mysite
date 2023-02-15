@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import {DefaultSeo} from 'next-seo'
 import {CacheProvider} from '@emotion/react'
 
-import {GTAG_TRACKER_ID, HOST_URL} from '../config'
+import {GTagTrackerId, HostUrl} from '../config'
 import createEmotionCache from '../lib/createEmotionCache'
 import useCanonicalUrl from '../lib/useCanonicalUrl'
 
@@ -12,10 +12,10 @@ const clientSideEmotionCache = createEmotionCache()
 
 function App({Component, emotionCache = clientSideEmotionCache, pageProps}) {
   const router = useRouter()
-  const canonicalUrl = useCanonicalUrl(HOST_URL)
+  const canonicalUrl = useCanonicalUrl(HostUrl)
 
   const handleRouteChange = (url) => {
-    window.gtag('config', GTAG_TRACKER_ID, {
+    window.gtag('config', GTagTrackerId, {
       page_path: url,
     })
   }
@@ -42,7 +42,7 @@ function App({Component, emotionCache = clientSideEmotionCache, pageProps}) {
 
         openGraph={{
           images: [
-            {url: `${HOST_URL}/img/logo@250x250.jpg`},
+            {url: `${HostUrl}/img/logo@250x250.jpg`},
           ],
           site_name: '大類的技術手記',
         }}

@@ -3,22 +3,20 @@ import getConfig from 'next/config'
 const {publicRuntimeConfig} = getConfig()
 
 
-export const AUTHOR_INFO = {
+export const AuthorInfo = {
   name: '兩大類',
   email: 'marco79423@gmail.com'
 }
 
-export const SITE_NAME = '大類的技術手記'
-export const SITE_DESCRIPTION = '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西'
+export const SiteName = '大類的技術手記'
+export const SiteDescription = '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西'
 
-export const HOST_URL = 'https://marco79423.net'
-export const BACKEND_SERVER_URL = publicRuntimeConfig.BackendServerUrl
+export const HostUrl = 'https://marco79423.net'
+export const BackendServerURL = publicRuntimeConfig.BackendServerUrl
 
-export const SITE_LINK = {}
+export const Copyright = `Copyright © ${new Date().getFullYear()} - 兩大類`
 
-export const COPYRIGHT = `Copyright © ${new Date().getFullYear()} - 兩大類`
-
-export const MENU_ITEMS = {
+export const MenuItems = {
   main: [
     {name: 'Python', url: '/articles/category/python/'},
     {name: '專案作品', url: '/articles/category/專案作品/'},
@@ -32,7 +30,7 @@ export const MENU_ITEMS = {
   ]
 }
 
-export const RELATED_SITES = [
+export const RelatedSites = [
   {
     name: '啪唧工具包',
     url: 'https://paji-toolset.net/?utm_source=blog',
@@ -47,31 +45,30 @@ export const RELATED_SITES = [
   },
 ]
 
-export const RECENT_ARTICLE_COUNT = 5
+export const RecentArticleCount = 5
+export const PageSize = 10
 
-export const PAGE_SIZE = 10
-
-export const COMMENT_CONFIG = {
+export const CommentConfig = {
   shortName: 'marco79423'
 }
 
-export const FEED_TEMPLATE = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
-  id: HOST_URL + '/',
-  link: HOST_URL + '/',
-  image: `${HOST_URL}/img/logo@250x250.jpg`,
-  favicon: `${HOST_URL}/favicon.ico`,
-  copyright: COPYRIGHT,
+export const FeedTemplate = {
+  title: SiteName,
+  description: SiteDescription,
+  id: HostUrl + '/',
+  link: HostUrl + '/',
+  image: `${HostUrl}/img/logo@250x250.jpg`,
+  favicon: `${HostUrl}/favicon.ico`,
+  copyright: Copyright,
   updated: null,
   feedLinks: {
-    atom: `${HOST_URL}/api/atom.xml`,
+    atom: `${HostUrl}/api/atom.xml`,
   },
   author: {
-    name: AUTHOR_INFO.name,
-    email: AUTHOR_INFO.email,
-    link: HOST_URL
+    name: AuthorInfo.name,
+    email: AuthorInfo.email,
+    link: HostUrl
   }
 }
 
-export const GTAG_TRACKER_ID = publicRuntimeConfig.GtagTrackerID
+export const GTagTrackerId = publicRuntimeConfig.GtagTrackerID

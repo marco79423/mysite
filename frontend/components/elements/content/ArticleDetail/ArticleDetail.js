@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import {NextSeo} from 'next-seo'
 
 import Article from '../../generic/Article'
-import {COMMENT_CONFIG, HOST_URL} from '../../../../config'
+import {CommentConfig, HostUrl} from '../../../../config'
 import useCanonicalUrl from '../../../../lib/useCanonicalUrl'
 
 
@@ -17,7 +17,7 @@ const Base = styled.section`
 `
 
 function ArticleDetail({article}) {
-  const canonicalUrl = useCanonicalUrl(HOST_URL)
+  const canonicalUrl = useCanonicalUrl(HostUrl)
 
   return (
     <>
@@ -37,7 +37,7 @@ function ArticleDetail({article}) {
         <Article
           summaryMode={false}
           article={article}
-          commentConfig={COMMENT_CONFIG}
+          commentConfig={CommentConfig}
         />
       </Base>
     </>
