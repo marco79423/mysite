@@ -22,7 +22,7 @@ export default class PageAside extends React.Component {
       <Base>
         <AboutMe/>
         <RelatedSites relatedSites={this.props.relatedSites}/>
-        <RecentArticles recentArticles={this.props.recentArticles}/>
+        <RecentArticles recentArticles={this.props.recentArticles || []}/>
         <AdditionalLinks/>
       </Base>
     )

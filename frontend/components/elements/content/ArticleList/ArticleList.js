@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import {PAGE_SIZE} from '../../../../config'
 import Pagination from './Pagination'
 import Article from '../../generic/Article'
-import {useDispatch, useSelector} from 'react-redux'
-import * as configSelectors from '../../../../redux/config/selectors'
-import * as articleSelectors from '../../../../redux/article/selectors'
-import * as articleActions from '../../../../redux/article/actions'
+import fp from 'lodash/fp'
 
 const Base = styled.section`
   float: left;
@@ -21,19 +19,10 @@ const Base = styled.section`
   }
 `
 
-export default function ArticleList({category, pageNum}) {
-  const dispatch = useDispatch()
-
-  const pageSize = useSelector(configSelectors.getPageSize)
-  const allArticles = useSelector(articleSelectors.getArticles)
-  const categoryArticles = useSelector(articleSelectors.getArticlesByCategory(category))
-  const articles = category ? categoryArticles : allArticles
-
-  React.useEffect(() => {
-    if (allArticles.length === 0) {
-      dispatch(articleActions.fetchArticles())
-    }
-  }, [allArticles])
+export default function ArticleList({articles, category, pageNum}) {
+  const filteredArticles = React.useMemo(() => fp.flow(
+    fp.filter(article => fp.flow(fp.some(c => !category || c.slug === category))(article.categories))
+  )(articles), [articles, category])
 
   const getPageLink = (pageNum) => {
     if (category) {
@@ -47,7 +36,7 @@ export default function ArticleList({category, pageNum}) {
     <Base>
       <ul>
         {
-          articles.slice((pageNum - 1) * pageSize, pageNum * pageSize).map(article => (
+          filteredArticles.slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE).map(article => (
             <li key={article.slug}>
               <Article summaryMode={true} article={article}/>
             </li>
@@ -56,7 +45,7 @@ export default function ArticleList({category, pageNum}) {
       </ul>
       <Pagination
         current={pageNum}
-        max={Math.ceil(articles.length / pageSize)}
+        max={Math.ceil(filteredArticles.length / PAGE_SIZE)}
         makeLink={getPageLink}
       />
     </Base>

@@ -8,11 +8,9 @@ import PageNav from './PageNav'
 import PageMain from './PageMain'
 import PageFooter from './PageFooter'
 import {MENU_ITEMS, RELATED_SITES, SITE_NAME} from '../../../config'
-import {useSelector} from 'react-redux'
-import * as articleSelectors from '../../../redux/article/selectors'
 
 
-export default function AppLayout({children}) {
+export default function AppLayout({recentArticles, children}) {
   const styles = {
     root: css`
       width: 100%;
@@ -32,8 +30,6 @@ export default function AppLayout({children}) {
       }
     `
   }
-
-  const recentArticles = useSelector(articleSelectors.getRecentArticles)
 
   return (
     <ThemeProvider theme={theme}>
