@@ -18,10 +18,7 @@ export const Copyright = `Copyright © ${new Date().getFullYear()} - 兩大類`
 
 export const MenuItems = {
   main: [
-    {name: 'Python', url: '/articles/category/python/'},
-    {name: '專案作品', url: '/articles/category/專案作品/'},
-    {name: '程式設計', url: '/articles/category/程式設計/'},
-    {name: 'UNIX & 工具', url: '/articles/category/unix-工具/'},
+    {name: '技術分享', url: '/articles'},
   ],
   extra: [
     // {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},

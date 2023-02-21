@@ -19,24 +19,16 @@ const Base = styled.section`
   }
 `
 
-export default function ArticleList({articles, category, pageNum}) {
-  const filteredArticles = React.useMemo(() => fp.flow(
-    fp.filter(article => fp.flow(fp.some(c => !category || c.slug === category))(article.categories))
-  )(articles), [articles, category])
-
+export default function ArticleList({articles, pageNum}) {
   const getPageLink = (pageNum) => {
-    if (category) {
-      return `/articles/category/${category}/page/${pageNum}/`
-    } else {
-      return `/articles/page/${pageNum}/`
-    }
+    return `/articles/page/${pageNum}/`
   }
 
   return (
     <Base>
       <ul>
         {
-          filteredArticles.slice((pageNum - 1) * PageSize, pageNum * PageSize).map(article => (
+          articles.slice((pageNum - 1) * PageSize, pageNum * PageSize).map(article => (
             <li key={article.slug}>
               <Article summaryMode={true} article={article}/>
             </li>
@@ -45,7 +37,7 @@ export default function ArticleList({articles, category, pageNum}) {
       </ul>
       <Pagination
         current={pageNum}
-        max={Math.ceil(filteredArticles.length / PageSize)}
+        max={Math.ceil(articles.length / PageSize)}
         makeLink={getPageLink}
       />
     </Base>
