@@ -1,3 +1,5 @@
+import {NextSeo} from 'next-seo'
+
 import AppLayout from '../../components/elements/layout/AppLayout'
 import ArticleList from '../../components/elements/content/ArticleList'
 import {fetchArticles, fetchRecentArticles} from '../../lib/fetcher'
@@ -17,8 +19,11 @@ export const getServerSideProps = async () => {
 
 export default function ArticleListPage({articles, recentArticles}) {
   return (
-    <AppLayout recentArticles={recentArticles}>
-      <ArticleList articles={articles} pageNum={1}/>
-    </AppLayout>
+    <>
+      <NextSeo noindex={true}/>
+      <AppLayout recentArticles={recentArticles}>
+        <ArticleList articles={articles} pageNum={1}/>
+      </AppLayout>
+    </>
   )
 }

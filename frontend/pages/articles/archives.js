@@ -1,6 +1,8 @@
+import {NextSeo} from 'next-seo'
+
+import {fetchArticles, fetchRecentArticles} from '../../lib/fetcher'
 import AppLayout from '../../components/elements/layout/AppLayout'
 import Archives from '../../components/elements/content/Archives'
-import {fetchArticles, fetchRecentArticles} from '../../lib/fetcher'
 
 export const getServerSideProps = async () => {
   const articles = await fetchArticles()
@@ -16,8 +18,11 @@ export const getServerSideProps = async () => {
 
 export default function ArchivesPage({articles, recentArticles}) {
   return (
-    <AppLayout recentArticles={recentArticles}>
-      <Archives articles={articles}/>
-    </AppLayout>
+    <>
+      <NextSeo noindex={true}/>
+      <AppLayout recentArticles={recentArticles}>
+        <Archives articles={articles}/>
+      </AppLayout>
+    </>
   )
 }
