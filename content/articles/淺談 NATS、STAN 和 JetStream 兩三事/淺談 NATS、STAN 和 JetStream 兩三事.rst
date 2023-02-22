@@ -6,9 +6,6 @@
 :categories: 程式設計
 :cover: images/6.png
 
-前言
-====
-
 事情是這個發生的……
 
 因為公司新專案需要用到 MQ，所以我們選用了 NATS Streaming (STAN) 當作我們專案的 MQ。
