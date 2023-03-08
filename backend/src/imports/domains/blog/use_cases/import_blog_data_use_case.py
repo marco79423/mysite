@@ -8,8 +8,7 @@ from imports.domains.blog.adapters import SlugAdapter, EnvAdapter, TruncateHTMLA
 from imports.domains.blog.entities.article import Article
 from imports.domains.blog.entities.category import Category
 from imports.domains.blog.entities.site_info import SiteInfo
-from imports.domains.blog.entities.web_page import WebPage
-from imports.domains.blog.repositories import ArticleRepository, WebPageRepository, SiteInfoRepository
+from imports.domains.blog.repositories import ArticleRepository, SiteInfoRepository
 from imports.domains.blog.services.asset_service import AssetService
 from imports.domains.blog.services.source_path_service import SourcePathService
 from imports.domains.rst_parser.use_cases.transform_rst_use_case import TransformRstUseCase
@@ -23,7 +22,6 @@ class ImportBlogDataUseCase(base_types.UseCase):
                  transform_rst_uc: TransformRstUseCase,
                  site_info_repo: SiteInfoRepository,
                  article_repo: ArticleRepository,
-                 web_page_repo: WebPageRepository,
                  env_adapter: EnvAdapter,
                  slug_adapter: SlugAdapter,
                  path_adapter: PathAdapter,
@@ -35,7 +33,6 @@ class ImportBlogDataUseCase(base_types.UseCase):
         self.transform_rst_uc = transform_rst_uc
         self.site_info_repo = site_info_repo
         self.article_repo = article_repo
-        self.web_page_repo = web_page_repo
         self.env_adapter = env_adapter
         self.slug_adapter = slug_adapter
         self.path_adapter = path_adapter

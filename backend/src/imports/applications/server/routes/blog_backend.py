@@ -9,7 +9,6 @@ from imports.domains.blog.use_cases.query_article_use_case import QueryArticleUs
 from imports.domains.blog.use_cases.query_articles_use_case import QueryArticlesUseCase
 from imports.domains.blog.use_cases.query_asset_use_case import QueryAssetUseCase
 from imports.domains.blog.use_cases.query_site_info_use_case import QuerySiteInfoUseCase
-from imports.domains.blog.use_cases.query_web_pages_use_case import QueryWebPagesUseCase
 
 blog_backend_routes = Blueprint('blog_backend', __name__, url_prefix='/backend')
 
@@ -42,17 +41,6 @@ def get_articles():
 
     return flask.jsonify({
         'data': articles
-    })
-
-
-@blog_backend_routes.route('/api/web_pages/')
-def get_web_pages():
-    uc = domain_injector.get(QueryWebPagesUseCase)
-    res = uc.execute()
-    web_pages = res.data
-
-    return flask.jsonify({
-        'data': web_pages
     })
 
 
