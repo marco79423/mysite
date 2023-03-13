@@ -2,7 +2,7 @@
 ####################################
 
 :date: 2013-07-04
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 Signals/Slots 可說是 Qt 程式設計的基石，也是它最大的特色。尤其是在 GUI 程式設計時，

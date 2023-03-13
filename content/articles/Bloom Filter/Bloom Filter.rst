@@ -3,7 +3,7 @@ Bloom Filter
 ##################################################
 
 :date: 2013-05-06
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 Bloom Filter 是一種可以儲存「某一個元素是否存在」的集合，

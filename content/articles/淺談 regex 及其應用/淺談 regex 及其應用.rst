@@ -3,7 +3,7 @@
 
 :date: 2015-10-4
 :modified_date: 2015-11-22
-:categories: Python;程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 先別管 regex 了，你有用 Ctrl + F 搜尋過文章嗎？

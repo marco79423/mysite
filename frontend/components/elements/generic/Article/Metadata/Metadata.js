@@ -119,7 +119,7 @@ export default class Metadata extends React.PureComponent {
   render() {
     return (
       <ItemGroup>
-        {/*{this.renderCategoryItem(this.props.categories)}*/}
+        {this.renderCategoryItem(this.props.categories)}
         {this.renderChickenCountItem(this.props.chickenCount)}
         {/*{this.renderReleaseDateItem(this.props.date)}*/}
         {/*{this.props.modifiedDate && this.renderModifiedDateItem(this.props.modifiedDate)}*/}

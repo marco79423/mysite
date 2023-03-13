@@ -3,7 +3,7 @@
 ##################################################
 
 :date: 2013-02-17
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 .. image:: images/1.png

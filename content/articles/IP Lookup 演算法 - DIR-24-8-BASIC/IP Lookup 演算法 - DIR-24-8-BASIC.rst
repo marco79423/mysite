@@ -3,7 +3,7 @@ IP Lookup 演算法 - DIR-24-8-BASIC
 ##################################################
 
 :date: 2013-05-06
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/3.png
 
 這個演算法是「Routing Lookups in Hardware at Memory Access Speeds」這篇論文提出的，

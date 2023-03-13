@@ -2,7 +2,7 @@
 ####################################################
 
 :date: 2016-9-30
-:categories: Python;程式設計
+:categories: 技術分享
 :series: 使用 Python 的生活日常系列
 :cover: images/2.png
 

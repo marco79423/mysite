@@ -3,7 +3,7 @@ IP Lookup 演算法 - Multibits Trie
 ##################################################
 
 :date: 2013-05-06
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 「Binary Trie」這個演算法非常簡單易懂，而且也相當好實作。但在搜尋的速度上，

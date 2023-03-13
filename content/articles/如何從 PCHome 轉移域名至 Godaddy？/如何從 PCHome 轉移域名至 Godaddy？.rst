@@ -2,7 +2,7 @@
 ####################################
 
 :date: 2022-06-14
-:categories: UNIX & 工具
+:categories: 技術分享
 :cover: images/9.png
 
 多年來，一直覺得 PCHome 的網域很貴，所以時常在考慮換別的域名註冊商。

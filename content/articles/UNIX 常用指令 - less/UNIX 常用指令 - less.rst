@@ -3,7 +3,7 @@ UNIX 常用指令 - less
 ##################################################
 
 :date: 2013-04-09
-:categories: UNIX & 工具
+:categories: 技術分享
 
 .. rubric:: 這裡討論的內容以 FreeBSD 為主，可能會與 linux 系的不同。
 

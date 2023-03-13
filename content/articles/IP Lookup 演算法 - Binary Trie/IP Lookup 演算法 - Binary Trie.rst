@@ -3,7 +3,7 @@ IP Lookup 演算法 - Binary Trie
 ##################################################
 
 :date: 2013-05-06
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 Binary Trie 恐怕是 IP lookup 最簡單的演算法，它的概念非常直覺，也非常好懂。

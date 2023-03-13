@@ -3,7 +3,7 @@
 
 :date: 2013-12-03
 :modified_date: 2018-03-15
-:categories: Python;程式設計
+:categories: 技術分享
 
 .. note:: 本文以 Python 2 為例。
 

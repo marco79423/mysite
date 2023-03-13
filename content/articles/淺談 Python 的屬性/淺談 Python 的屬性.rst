@@ -2,7 +2,7 @@
 ##########################
 
 :date: 2014-6-12
-:categories: Python;程式設計
+:categories: 技術分享
 
 .. note:: 這篇文章只討論新式類別(new-style class)的情況，理由是如果再加上舊式類別(old-style class) 的用法，問題會變得太過複雜，不利於理解……雖然現在這樣還是頗難懂就是了。
 

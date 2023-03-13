@@ -3,7 +3,7 @@
 
 :date: 2013-09-28
 :modified_date: 2015-12-04
-:categories: UNIX & 工具;程式設計
+:categories: 技術分享
 :cover: images/1.png
 
 *「身為一個仁義正直、年輕有為的宅男而言，想要一個開源免費的『女友』，當然是一件很正常的事情！」*

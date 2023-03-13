@@ -2,7 +2,7 @@ Bloomier Filter
 ####################################
 
 :date: 2013-05-14
-:categories: 程式設計
+:categories: 技術分享
 :cover: images/5.png
 
 說到 Bloomier Filter，看倌一定會覺得看起來和 Bloom Filter 很像(詳情請看 `Bloom Filter </articles/bloom-filter/>`_ )。
