@@ -19,10 +19,11 @@ export const Copyright = `Copyright © ${new Date().getFullYear()} - 兩大類`
 export const MenuItems = {
   main: [
     {name: '技術分享', url: '/articles/category/技術分享/'},
-    {name: '專案作品', url: '/articles/category/專案作品/'},
+
     {name: '隨手記', url: '/articles/category/隨手記/'},
   ],
   extra: [
+    {name: '專案作品', url: '/articles/category/專案作品/'},
     // {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},
     // {name: 'Jessiclient', url: 'https://jessiclient.marco79423.net/?utm_source=blog'},
     // {name: '啪唧工具包', url: 'https://paji-toolset.net/?utm_source=blog'},
