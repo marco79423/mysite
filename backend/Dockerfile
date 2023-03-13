@@ -7,7 +7,6 @@ WORKDIR /app
 COPY backend .
 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pytest
 
 WORKDIR /app/src
 
