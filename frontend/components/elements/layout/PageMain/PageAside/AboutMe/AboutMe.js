@@ -7,22 +7,15 @@ const Base = styled(Section)`
   position: relative;
 `
 
-const MeImage = styled.img`
-  position: absolute;
-  width: 90px;
-  height: 100%;
-  border: 0.1em solid #FFFFFF;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-`
-
 const Profile = styled.div`
   padding-top: 8px;
-  padding-left: 110px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   h3 {
     margin: 0;
-    font-size: 1rem;
+    color: #616161;
+    font-weight: 700;
+    font-size: 1.2rem;
 
     @media (max-width: 1200px) {
       color: #ECECEC;
@@ -80,7 +73,6 @@ export default class AboutMe extends React.Component {
   render () {
     return (
       <Base>
-        <MeImage src="/img/me.jpg" alt="兩大類"/>
         <Profile>
           <h3>兩大類</h3>
           <Motto>
@@ -88,8 +80,8 @@ export default class AboutMe extends React.Component {
             <div>保持站起來的毅力和一步一腳印的耐心</div>
           </Motto>
           <Contact>
-            <li><TwitterIcon href='https://twitter.com/marco79423' target="_blank">Twitter</TwitterIcon></li>
             <li><GithubIcon href='https://github.com/marco79423' target="_blank">GitHub</GithubIcon></li>
+            <li><TwitterIcon href='https://twitter.com/marco79423' target="_blank">Twitter</TwitterIcon></li>
           </Contact>
         </Profile>
       </Base>
