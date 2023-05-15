@@ -42,7 +42,7 @@ function App({Component, emotionCache = clientSideEmotionCache, pageProps}) {
 
         openGraph={{
           images: [
-            {url: `${HostUrl}/img/logo@250x250.jpg`},
+            {url: `${HostUrl}/img/logo.jpg`},
           ],
           site_name: '大類的技術手記',
         }}

@@ -50,7 +50,7 @@ export default function PageHeader({siteName}) {
     <Base>
       <Title>
         <TitleLink href="/">
-          <Logo src={'/img/logo@58x58.png'}/>{siteName}
+          <Logo src={'/img/logo@58x58.jpg'}/>{siteName}
         </TitleLink>
       </Title>
     </Base>

@@ -56,7 +56,7 @@ export const FeedTemplate = {
   description: SiteDescription,
   id: HostUrl + '/',
   link: HostUrl + '/',
-  image: `${HostUrl}/img/logo@250x250.jpg`,
+  image: `${HostUrl}/img/logo.jpg`,
   favicon: `${HostUrl}/favicon.ico`,
   copyright: Copyright,
   updated: null,
