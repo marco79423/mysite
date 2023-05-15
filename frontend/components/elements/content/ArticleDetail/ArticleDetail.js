@@ -26,11 +26,11 @@ function ArticleDetail({article}) {
         description={article.rawSummary.replaceAll('\n', '')}
         canonical={canonicalUrl}
 
-        openGraph={{
+        openGraph={article.cover ? {
           images: [
             {url: article.cover},
           ],
-        }}
+        }: undefined}
       />
 
       <Base>
