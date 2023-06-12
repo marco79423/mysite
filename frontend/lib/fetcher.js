@@ -8,6 +8,7 @@ export async function fetchArticles() {
   return articles
     .map(article => ({
       ...article,
+      content: null,
       path: `/articles/${article.slug}`,
       url: `${HostUrl}/articles/${article.slug}`,
     }))
