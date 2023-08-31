@@ -29,7 +29,8 @@
 
 .. code:: yaml
 
-   defaultBackend:
+   spec:
+     defaultBackend:
        service:
          name: wordpress
          port:
@@ -41,7 +42,8 @@
 
 .. code:: yaml
 
-   rules:
+   spec:
+     rules:
        - host: xxxx.net
          http:
            paths:
