@@ -90,7 +90,8 @@ const RstStyle = () => {
         p {
           color: rgb(26, 26, 26);
           font-size: 1.2rem;
-          line-height: 1.8rem;
+          line-height: 1.8;
+          margin-bottom: 1.25rem;
 
           &.rubric {
             font-weight: bold;
