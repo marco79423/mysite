@@ -68,5 +68,5 @@ def get_static_file(uuid):
     return send_file(
         io.BytesIO(asset['data']),
         as_attachment=asset['isAttachment'],
-        attachment_filename=asset['filename'],
+        download_name=asset['filename'],
     )
