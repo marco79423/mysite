@@ -40,6 +40,6 @@
 希望一切順利。
 
 
-.. _啪唧工具包: http://paji-toolset.net/
+.. _啪唧工具包: http://toolset.marco79423.net/
 .. _西卡神教福音: https://jessigod.marco79423.net/
 .. _Jessiclient: https://jessiclient.marco79423.net/

@@ -25,14 +25,14 @@ export const MenuItems = {
   extra: [
     // {name: '西卡神教福音', url: 'https://jessigod.marco79423.net/?utm_source=blog'},
     // {name: 'Jessiclient', url: 'https://jessiclient.marco79423.net/?utm_source=blog'},
-    // {name: '啪唧工具包', url: 'https://paji-toolset.net/?utm_source=blog'},
+    // {name: '啪唧工具包', url: 'http://toolset.marco79423.net/?utm_source=blog'},
   ]
 }
 
 export const RelatedSites = [
   {
     name: '啪唧工具包',
-    url: 'https://paji-toolset.net/?utm_source=blog',
+    url: 'http://toolset.marco79423.net/?utm_source=blog',
   },
   {
     name: 'Jessiclient - Websocket 客戶端',
