@@ -11,7 +11,7 @@ export const AuthorInfo = {
 export const SiteName = '大類的技術手記'
 export const SiteDescription = '兩大類的個人網站，主要都是在寫學習心得(Python, Javascript, 網站設計, 程式技能等)、作品和一些胡言亂語的東西'
 
-export const HostUrl = 'https://marco79423.net'
+export const HostUrl = 'https://blog.marco79423.net'
 export const BackendServerURL = publicRuntimeConfig.BackendServerUrl
 
 export const Copyright = `Copyright © ${new Date().getFullYear()} - 兩大類`
@@ -33,6 +33,18 @@ export const RelatedSites = [
   {
     name: '啪唧工具包',
     url: 'http://toolset.marco79423.net/?utm_source=blog',
+  },
+  {
+    name: '不想工作網',
+    url: 'http://anti-work.marco79423.net/?utm_source=blog',
+  },
+  {
+    name: '啪唧口袋本',
+    url: 'http://pocketbook.marco79423.net/?utm_source=blog',
+  },
+  {
+    name: '大類的理財本',
+    url: 'https://fin-book.marco79423.net/?utm_source=blog',
   },
   {
     name: 'Jessiclient - Websocket 客戶端',

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://marco79423.net/sitemap.xml
+Sitemap: https://blog.marco79423.net/sitemap.xml

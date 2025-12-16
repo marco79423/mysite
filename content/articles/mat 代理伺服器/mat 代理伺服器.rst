@@ -84,7 +84,7 @@ mat-server 會直接使用當前目錄下的 mat-data/config.yml 設定檔，只
 .. code-block:: yaml
 
     server:
-      proxy_url: <https://marco79423.net>
+      proxy_url: <https://blog.marco79423.net>
     routes:
       - listen_path: backend/api/articles/
         response:
@@ -105,7 +105,7 @@ listen_path 是使用正規表達式 (regex) 判斷是否符合，所以碰到�
 .. code-block:: yaml
 
     server:
-      proxy_url: <https://marco79423.net>
+      proxy_url: <https://blog.marco79423.net>
     routes:
       - listen_path: "backend/api/articles/\\\\\\\\d+"
         response:
@@ -132,7 +132,7 @@ listen_path 是使用正規表達式 (regex) 判斷是否符合，所以碰到�
 .. code-block:: yaml
 
     server:
-      proxy_url: <https://marco79423.net>
+      proxy_url: <https://blog.marco79423.net>
     routes:
       - listen_path: backend/api/articles/
         response:
@@ -182,7 +182,7 @@ mat 內部使用 FastAPI 當作 Server。
 
     {
       "server": {
-        "proxy_url": "<https://marco79423.net>"
+        "proxy_url": "<https://blog.marco79423.net>"
       },
       "routes": [
         {

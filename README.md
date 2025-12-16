@@ -2,7 +2,7 @@
 
 ![mysite](./logo.jpg)
 
-網址： https://marco79423.net
+網址： https://blog.marco79423.net
 
 [修改歷史](./CHANGELOG.md)
 
