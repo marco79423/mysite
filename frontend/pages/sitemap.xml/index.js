@@ -1,4 +1,4 @@
-import {getServerSideSitemap} from 'next-sitemap'
+import {getServerSideSitemapLegacy} from 'next-sitemap'
 
 import fetchJSON from '../../lib/fetchJSON'
 import {BackendServerURL, HostUrl} from '../../config'
@@ -12,7 +12,7 @@ export const getServerSideProps = async (ctx) => {
     lastmod: new Date().toISOString(),
   }))
 
-  return getServerSideSitemap(ctx, fields)
+  return getServerSideSitemapLegacy(ctx, fields)
 }
 
 export default function Sitemap() {
