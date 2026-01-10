@@ -32,15 +32,15 @@ export const MenuItems = {
 export const RelatedSites = [
   {
     name: '啪唧工具包',
-    url: 'http://toolset.marco79423.net/?utm_source=blog',
+    url: 'https://toolset.marco79423.net/?utm_source=blog',
   },
   {
     name: '不想工作網',
-    url: 'http://anti-work.marco79423.net/?utm_source=blog',
+    url: 'https://anti-work.marco79423.net/?utm_source=blog',
   },
   {
     name: '啪唧口袋本',
-    url: 'http://pocketbook.marco79423.net/?utm_source=blog',
+    url: 'https://pocketbook.marco79423.net/?utm_source=blog',
   },
   {
     name: '大類的理財本',
