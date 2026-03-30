@@ -31,6 +31,10 @@ export const MenuItems = {
 
 export const RelatedSites = [
   {
+    name: '啪唧分帳',
+    url: 'https://splitly.pajitool.com/?utm_source=blog',
+  },
+  {
     name: '啪唧工具包',
     url: 'https://toolset.marco79423.net/?utm_source=blog',
   },
