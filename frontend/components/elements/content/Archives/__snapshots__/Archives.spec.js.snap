@@ -2,87 +2,91 @@
 
 exports[`It should render Archives component correctly 1`] = `
 <section
-  className="css-1t2uajw e1b0l2mg0"
+  className="css-17kyktl e5hwpdc0"
 >
   <article>
     <header
-      className="css-1qmvt3q e1b0l2mg1"
+      className="css-1uaexsu e5hwpdc1"
     >
       <h2>
         <a
-          className="css-14pkgp1 e1eiu2pb0"
+          className="css-jn1flh"
           href="/articles/archives"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onTouchStart={[Function]}
         >
           所有文章列表
         </a>
       </h2>
     </header>
     <table
-      className="css-mqhuyv e1t91ylz0"
+      className="css-1l705iu e1szpz7p0"
     >
       <tbody
-        className="css-0 e1t91ylz1"
+        className="css-17mjawo e1szpz7p1"
       >
         <tr
-          className="css-1rp9eqg e1t91ylz2"
+          className="css-fre9jl e1szpz7p2"
         >
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             2017/05/15
           </td>
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             <a
-              className="css-n1a5ie ecv7yzj0"
-              href="/articles/slug%201"
+              className="css-f04ql"
+              href="/articles/slug 1"
               onClick={[Function]}
               onMouseEnter={[Function]}
+              onTouchStart={[Function]}
             >
               title 1
             </a>
           </td>
         </tr>
         <tr
-          className="css-1rp9eqg e1t91ylz2"
+          className="css-fre9jl e1szpz7p2"
         >
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             2017/05/16
           </td>
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             <a
-              className="css-n1a5ie ecv7yzj0"
-              href="/articles/slug%202"
+              className="css-f04ql"
+              href="/articles/slug 2"
               onClick={[Function]}
               onMouseEnter={[Function]}
+              onTouchStart={[Function]}
             >
               title 2
             </a>
           </td>
         </tr>
         <tr
-          className="css-1rp9eqg e1t91ylz2"
+          className="css-fre9jl e1szpz7p2"
         >
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             2017/05/17
           </td>
           <td
-            className="css-z5z8xz e1t91ylz3"
+            className="css-1do9apc e1szpz7p3"
           >
             <a
-              className="css-n1a5ie ecv7yzj0"
-              href="/articles/slug%203"
+              className="css-f04ql"
+              href="/articles/slug 3"
               onClick={[Function]}
               onMouseEnter={[Function]}
+              onTouchStart={[Function]}
             >
               title 3
             </a>
@@ -96,23 +100,31 @@ exports[`It should render Archives component correctly 1`] = `
 
 exports[`It should render Archives component with empty articles correctly 1`] = `
 <section
-  className="css-1t2uajw e1b0l2mg0"
+  className="css-17kyktl e5hwpdc0"
 >
-  <article
-    className="css-10ku3cb e14ojn450"
-  >
-    <div
-      className="css-3gwy9c e14ojn451"
+  <article>
+    <header
+      className="css-1uaexsu e5hwpdc1"
     >
-      <div
-        className="css-1af24su e14ojn452"
+      <h2>
+        <a
+          className="css-jn1flh"
+          href="/articles/archives"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          所有文章列表
+        </a>
+      </h2>
+    </header>
+    <table
+      className="css-1l705iu e1szpz7p0"
+    >
+      <tbody
+        className="css-17mjawo e1szpz7p1"
       />
-      <div
-        className="css-hq44oy e14ojn453"
-      >
-        正在努力讀取中…
-      </div>
-    </div>
+    </table>
   </article>
 </section>
 `;

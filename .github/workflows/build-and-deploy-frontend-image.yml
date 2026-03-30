@@ -13,13 +13,13 @@ jobs:
     steps:
       # 設定環境
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -27,22 +27,15 @@ jobs:
       # 建置和推送
       - name: Get Version
         run: |
-          export VERSION=${GITHUB_REF#refs/*/}
-          echo "::env VERSION=${VERSION}"
+          VERSION=${GITHUB_REF#refs/*/}
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
 
-      - name: Build frontend image
-        run: |
-          docker build \
-          --file frontend/Dockerfile \
-          --tag marco79423/mysite-frontend:latest \
-          .
-
-      - name: Push frontend image
-        run: |
-          echo "::env VERSION=${{env.VERSION}}"
-
-          docker push marco79423/mysite-frontend:latest
-
-          docker tag marco79423/mysite-frontend:latest marco79423/mysite-frontend:${{env.VERSION}}
-          docker push marco79423/mysite-frontend:${{env.VERSION}}
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: frontend/Dockerfile
+          push: true
+          tags: |
+            marco79423/mysite-frontend:latest
+            marco79423/mysite-frontend:${{ env.VERSION }}

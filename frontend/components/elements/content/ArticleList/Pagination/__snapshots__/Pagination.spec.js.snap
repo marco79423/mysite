@@ -3,15 +3,15 @@
 exports[`It should render Pagination component correctly 1`] = `
 <div>
   <ul
-    className="css-vzr81x e1hkimla0"
+    className="css-17h7x4w e1lp2x6z0"
   >
     <li>
       <a
-        active={true}
-        className="css-6ns6bf e1hkimla1"
+        className="e1lp2x6z1 css-xlqnnq"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           1
@@ -25,25 +25,26 @@ exports[`It should render Pagination component correctly 1`] = `
 exports[`It should render Pagination component with both next page link and previous page link correctly 1`] = `
 <div>
   <ul
-    className="css-vzr81x e1hkimla0"
+    className="css-17h7x4w e1lp2x6z0"
   >
     <li>
       <a
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         ←
       </a>
     </li>
     <li>
       <a
-        active={false}
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           1
@@ -52,11 +53,11 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        active={true}
-        className="css-6ns6bf e1hkimla1"
+        className="e1lp2x6z1 css-xlqnnq"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           2
@@ -65,11 +66,11 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        active={false}
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           3
@@ -78,10 +79,11 @@ exports[`It should render Pagination component with both next page link and prev
     </li>
     <li>
       <a
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         →
       </a>
@@ -93,25 +95,26 @@ exports[`It should render Pagination component with both next page link and prev
 exports[`It should render Pagination component with previous page link correctly 1`] = `
 <div>
   <ul
-    className="css-vzr81x e1hkimla0"
+    className="css-17h7x4w e1lp2x6z0"
   >
     <li>
       <a
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         ←
       </a>
     </li>
     <li>
       <a
-        active={false}
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/1"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           1
@@ -120,11 +123,11 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        active={false}
-        className="css-1n1qtvg e1hkimla1"
+        className="e1lp2x6z1 css-oz1auh"
         href="/articles/page/2"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           2
@@ -133,11 +136,11 @@ exports[`It should render Pagination component with previous page link correctly
     </li>
     <li>
       <a
-        active={true}
-        className="css-6ns6bf e1hkimla1"
+        className="e1lp2x6z1 css-xlqnnq"
         href="/articles/page/3"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onTouchStart={[Function]}
       >
         <span>
           3

@@ -2,16 +2,16 @@
 
 exports[`It should render Loading component correctly 1`] = `
 <article
-  className="css-10ku3cb e14ojn450"
+  className="css-utr3z9 e12b68jo0"
 >
   <div
-    className="css-3gwy9c e14ojn451"
+    className="css-9wpwef e12b68jo1"
   >
     <div
-      className="css-1af24su e14ojn452"
+      className="css-ihgmx6 e12b68jo2"
     />
     <div
-      className="css-hq44oy e14ojn453"
+      className="css-1dvu8r5 e12b68jo3"
     >
       正在努力讀取中…
     </div>
